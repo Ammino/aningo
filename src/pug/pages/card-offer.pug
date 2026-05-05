@@ -1,0 +1,148 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: a.crumbs__link(href="catalog.html" target="_blank") Каталог
+				li: a.crumbs__link(href="catalog.html" target="_blank") ANTRACITE
+				li: span Слэб 20 см. 25037
+
+			.cardoffer
+				.cardoffer__header
+					h1.h1 слэб 20 см. 25037
+					h4.h4 Кварцевый агломерат ANTRACITE
+
+				.cardoffer__img
+					img(src=`${baseDir}img/catalog/img-catalog3-0.png`, alt="")
+
+				.cardoffer__body
+					-
+						var cm_property = [
+							'Размер',		
+							'В наличии',
+							'Тип',
+						]
+						var cm_value = [
+							'3000x1400x20 мм',
+							'4.2 м<sup>2</sup>',
+							'Плитка',
+						]
+					
+					.content-columns__properties__list.js--filterlist
+						- for (let i = 0; i < cm_property.length; i++)
+							.content-columns__properties__list__item.js--filterlist-item
+								span=cm_property[i]
+								span!=cm_value[i]
+						- for (let i = 0; i < cm_property.length; i++)
+							.content-columns__properties__list__item.js--filterlist-item
+								span=cm_property[i]
+								span!=cm_value[i]
+						- for (let i = 0; i < cm_property.length; i++)
+							.content-columns__properties__list__item.js--filterlist-item
+								span=cm_property[i]
+								span!=cm_value[i]
+							
+						.content-columns__properties__list__more.js--filterlist-footer.d-none
+							a.content-columns__properties__list__more__link.js--filterlist-more(href="#") 
+								span.default Показать больше
+								span.active Свернуть
+
+					.cardoffer__footer
+
+						.cardoffer__prices.order-1
+							.cardoffer__prices__item
+								.cardoffer__prices__old
+									.cardoffer__prices__old__text 
+										span 33 000 
+										| ₽/м<sup>2</sup>
+									.cardoffer__prices__label 140 000 ₽/шт
+									
+							.cardoffer__prices__item
+								.cardoffer__prices__actual
+									.cardoffer__prices__actual__text 
+										span 32 000
+										| ₽/м<sup>2</sup>
+									.cardoffer__prices__label 134 000 ₽/шт
+								
+						div.order-3.order-lg-2: a.mbtn.mbtn__primary.mbtn__middle(href="#") в корзину
+						div.order-4.order-lg-3: a.mbtn.mbtn__grey.mbtn__middle(
+							href="#js--modal-recall" 
+							data-fancybox-default) Заказать консультацию
+						.cardoffer__footer__share.order-2.order-lg-4
+							.block-share
+								.block-share__label: +svg('ic-share')
+								.block-share__dropdown
+									.block-share__dropdown__body
+										ul.block-share__list
+											li: a.block-share__list__link(href="#", target="_blank")
+												i: +svg('ic-telegram')
+												span Telegram
+											li: a.block-share__list__link(href="#", target="_blank")
+												i: +svg('ic-whatsapp')
+												span WhatsApp
+											li: a.block-share__list__link(href="#", target="_blank")
+												i: +svg('ic-max')
+												span Max
+											li: a.block-share__list__link(href="#", target="_blank")
+												i: +svg('ic-vk')
+												span ВКонтакте
+											li: a.block-share__list__link(href="#", target="_blank")
+												i: +svg('ic-link')
+												span Копировать ссылку
+						div.order-5: a.mbtn.mbtn__middle.mbtn__wicon.mbtn__bordered.mbtn__light(href="#") 
+							i: +svg('ic-arrow-left-short')
+							span другие размеры
+			
+		
+		section.block__padd: .container
+			.block__title
+				h2.h2 Вам также может понравиться
+
+			.slidercategory
+				.slidercategory__offset.js--sl-category-offset
+				.slidercategory__body
+					.slidercategory__slider.swiper.js--sl-category
+						.swiper-wrapper
+							-
+								var mc_title = [
+									'мрамор',
+									'гранит',
+									'травертин',
+								]
+
+							mixin mixin__mainCategoryCard(i,title)
+								// el
+								.slidercategory__slider__item.swiper-slide
+									a.slidercategory__card(href="#")
+										span=title
+										img(src=`${baseDir}img/catalog/img-catalog-stone-${i}.jpg`, alt="")
+								// /el
+
+							- for (let i = 0; i < mc_title.length; i++)
+								+mixin__mainCategoryCard(i, mc_title[i])
+							- for (let i = 0; i < mc_title.length; i++)
+								+mixin__mainCategoryCard(i, mc_title[i])
+							- for (let i = 0; i < mc_title.length; i++)
+								+mixin__mainCategoryCard(i, mc_title[i])
+							
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

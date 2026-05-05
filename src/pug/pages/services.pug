@@ -1,0 +1,110 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span Услуги
+
+			h1.h1 Услуги
+
+			.pageinside__filter.js--sfilter
+				a.pageinside__filter__link.js--sfilter-link.active(href="#" data-sfilter="all") все
+				a.pageinside__filter__link.js--sfilter-link(href="#" data-sfilter="montage") Монтажные работы
+				a.pageinside__filter__link.js--sfilter-link(href="#" data-sfilter="processing") Обработка камня
+
+			.pageinside__columns2
+			
+				// content
+				.pageinside__columns2__content
+					
+					.services
+						.services__list
+
+							-
+								var s_marker = [
+									'Монтажные работы',
+									'Монтажные работы',
+									'Монтажные работы',
+									'Монтажные работы',
+									'Монтажные работы',
+									'Монтажные работы',
+									'Монтажные работы',
+									'Монтажные работы',
+									'Монтажные работы',
+									'Обработка камня',
+									'Обработка камня',
+									'Обработка камня',
+									'Обработка камня',
+									'Обработка камня',
+								]
+								var s_title = [
+									'Клумбы, бассейны',
+									'подоконники, столешницы',
+									'подсистема',
+									'полы',
+									'лестница',
+									'стены',
+									'цоколь',
+									'Балясины',
+									'прочее',
+									'Резы',
+									'фаска',
+									'подклейка',
+									'прочее',
+									'Вырез под мойку и отверстия',
+								]
+							- for (let i = 0; i < s_marker.length; i++)
+								+mixin__serviceCard(s_marker[i], s_title[i])
+
+					.block__padd.block__padd__first.block__padd__nolast
+						.block__text
+							h2.h2 СЕО текст
+							p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. Elit id eget integer elementum ultricies. Semper molestie quam massa aliquam non.
+							p Felis leo faucibus proin tellus sed adipiscing morbi malesuada ipsum. Sed mauris metus faucibus pretium cras sed. Non sagittis auctor tempor a pellentesque molestie ac. Tempus montes vitae fermentum dui in. Neque facilisi viverra egestas orci aliquam pellentesque pulvinar nullam mattis. Consectetur sed felis curabitur sed adipiscing vel facilisis semper. Etiam neque nisl purus dignissim leo. Faucibus amet in habitant iaculis tortor proin quisque ac. Sem non consequat elementum eu. Aenean sollicitudin sit id malesuada ullamcorper pretium varius orci. Tortor sed semper magna convallis mauris. Interdum ullamcorper non neque diam venenatis. In malesuada a elit vulputate porttitor amet molestie.
+							p Tincidunt semper nam amet hendrerit viverra rhoncus turpis. Tellus sagittis integer aenean nullam sit cursus. Facilisis eleifend odio aliquet viverra. Tristique quam adipiscing amet in fermentum scelerisque. Euismod morbi a volutpat eleifend urna auctor ut a. Cursus sagittis vestibulum netus ornare cursus. Posuere tempus nulla non nunc mauris arcu nisl amet vitae. Velit sit tristique nibh neque. Odio commodo habitasse justo vel quis nec gravida condimentum. Enim lobortis lobortis quis enim tortor. Ipsum imperdiet ultricies sed quis ut enim. Morbi commodo augue in cursus cursus interdum proin pretium. Mauris diam dolor mattis condimentum erat aliquam bibendum. Fringilla lacus lectus arcu enim tincidunt sed venenatis cursus volutpat. Quisque non accumsan proin ornare dui risus ultricies.
+				// /content
+				
+				// sidebar
+				.pageinside__columns2__sidebar.d-none.d-lg-block
+					.services__sidebar
+						
+						// el
+						a.services__sidebar__banner(href="#")
+							img(src=`${baseDir}img/services/img-servbanner-0.jpg`, alt="")
+							span Все услуги рассчитаны с расходным материалом
+						// /el
+						
+						// el
+						a.services__sidebar__banner(href="#")
+							img(src=`${baseDir}img/services/img-servbanner-1.jpg`, alt="")
+							span Гарантия на монтаж 1 год
+						// /el
+						
+						// el
+						a.services__sidebar__banner(href="#")
+							img(src=`${baseDir}img/services/img-servbanner-2.jpg`, alt="")
+							span Наши дипломированные специалисты всегда выполняют работу качественно и в срок
+						// /el
+				// /sidebar
+							
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

@@ -1,0 +1,188 @@
+.footer {
+    width: 100%;
+	padding: 37px 0;
+    background: $cl-black;
+    color: $cl-grey-dark;
+    line-height: 1.3;
+
+    @include laptop {
+	    padding: 30px 0;
+    }
+
+    &__row {
+        margin: 0 -30px;
+        gap: 30px 0;
+
+        @include tablet {
+            margin: 0;
+        }
+
+        & > div {
+            padding: 0 30px;
+
+            @include tablet {
+                padding: 0;
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    &__logo {
+        margin-bottom: 30px;
+
+        a {
+            display: block;
+            width: 142px;
+
+            @include laptop {
+                width: 134px;
+            }
+
+            svg {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    &__sert {
+        margin-bottom: 14px;
+
+        @include laptop {
+            margin-bottom: 30px;
+        }
+
+        svg {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    &__sidenav {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        @include desktop {
+            gap: 10px;
+            font-size: 12px;
+        }
+    }
+
+    &__nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        columns: 2;
+        column-gap: 30px;
+
+        @include desktop {
+            font-size: 14px;
+        }
+        @include tablet {
+            columns: 1;
+            column-gap: 0;
+        }
+
+        li {
+            margin: 0;
+            padding: 0;
+            break-inside: avoid;
+            margin-bottom: 15px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        a {
+            color: $cl-white;
+
+            @media (hover: hover) {
+                &:hover {
+                    color: $cl-red;
+                }
+            }
+            @media (hover: none) and (pointer: coarse) {
+                transition: color 0.12s ease;
+                &:active {
+                    color: $cl-red;
+                }
+            }
+        }
+    }
+
+    &__socio {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px 19px;
+        margin-bottom: 30px;
+
+        @include laptop {
+            gap: 10px 20px;
+        }
+
+        &__item {
+            flex: 0 0 auto;
+            width: auto;
+        }
+
+        &__card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 22px;
+            height: 22px;
+            color: $cl-white;
+
+            @include laptop {
+                min-width: 18px;
+                height: 18px;
+            }
+
+            svg {
+                height: 100%;
+                width: auto;
+                object-fit: contain;
+            }
+        }
+    }
+
+    &__phone {
+        margin-bottom: 30px;
+
+        a {
+            display: inline-block;
+            font-family: $font-secondary;
+            font-size: 30px;
+            line-height: 1.2;
+            color: $cl-white;
+            text-decoration: none;
+            text-align: center;
+
+            @media (hover: hover) {
+                &:hover {
+                    color: $cl-red;
+                }
+            }
+            @media (hover: none) and (pointer: coarse) {
+                transition: color 0.12s ease;
+                &:active {
+                    color: $cl-red;
+                }
+            }
+        }
+    }
+
+    &__buttons {
+        .mbtn {
+            display: block;
+            width: 100%;
+        }
+    }
+}

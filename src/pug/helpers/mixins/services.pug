@@ -1,0 +1,45 @@
+-
+	const DEFAULT_SERVICES_TABLE_ROWS = [
+		{ label: 'Монтаж мелкоштучных элементов полки, подставки и тд', amount: '10 500', unit: '₽/шт' },
+		{ label: 'Монтаж подоконников криволинейных (радиальный)', amount: '17 250', unit: '₽/пог.м.' },
+		{ label: 'Монтаж подоконников прямых', amount: '6 200', unit: '₽/пог.м.' },
+		{ label: 'Монтаж столешницы', amount: '35 000', unit: '₽/пог.м.' },
+		{ label: 'Монтаж фартука', amount: '12 000', unit: '₽/пог.м.' },
+		{ label: 'Отверстия под краны, розетки', amount: '4 500', unit: '₽/шт' },
+		{ label: 'Отверстие под плиту, раковину', amount: '18 000', unit: '₽/шт' },
+	];
+
+mixin mixin__servicesTable(rows)
+	.services__table(role="presentation")
+		each row in rows
+			.services__table__row
+				.services__table__name= row.label
+				.services__table__price
+					| от&nbsp;
+					= row.amount 
+					|  
+					= row.unit
+				.services__table__action
+					a.mbtn.mbtn__primary.mbtn__small(href=(row.href || '#')) заказать
+
+mixin mixin__serviceCard(marker, title)
+	-
+		const SERVICE_MARKER_TO_SVALUE = {
+			'Монтажные работы': 'montage',
+			'Обработка камня': 'processing',
+		};
+		const dataSvalue = Object.prototype.hasOwnProperty.call(SERVICE_MARKER_TO_SVALUE, marker)
+			? SERVICE_MARKER_TO_SVALUE[marker]
+			: 'misc';
+
+	// el
+	.services__card.js--faq.js--sfilter-item(data-svalue=dataSvalue)
+		.services__card__header.js--faq-title.js--sfilter-trigger
+			.services__card__header__type= marker
+			.services__card__header__title= title
+
+		.services__card__slide.js--faq-slide.js--sfilter-slide
+			.services__card__slide__content
+				+mixin__servicesTable(DEFAULT_SERVICES_TABLE_ROWS)
+
+	// /el

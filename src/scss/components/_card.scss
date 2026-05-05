@@ -1,0 +1,1026 @@
+.table-offers {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: flex-start;
+	gap: 30px;
+
+	&__title {
+		font-weight: 700;
+		line-height: 1.3;
+		margin: 0 0 10px 0;
+	}
+
+	&__header {
+		margin: 0 0 30px 0;
+		top: 0;
+		z-index: 5;
+
+		@include desktop {
+			display: none;
+		}
+
+		.table-offers__line {
+			background-color: $cl-border-grey;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: flex-start;
+		gap: 10px;
+	}
+
+	&__line {
+		$line-col-img: 140px;
+		$line-gap-h: 30px;
+		$line-gaps-total: 2 * $line-gap-h;
+
+		padding: 10px 30px;
+		background-color: $cl-white;
+		border: 1px solid $cl-border-grey;
+		border-radius: 6px;
+		display: grid;
+		grid-template-columns:
+			#{$line-col-img}
+			minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total}) / 2), 1fr)
+			minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total}) / 2), max-content);
+		align-items: center;
+		gap: 0 #{$line-gap-h};
+
+		@include desktop-xxl {
+			$line-col-img: 110px;
+			grid-template-columns:
+				#{$line-col-img}
+				minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total}) / 2), 1fr)
+				minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total}) / 2), max-content);
+		}
+		@include desktop {
+			padding: 10px;
+			$line-gap-h: 20px;
+			$line-col-img: 90px;
+			grid-template-columns:
+				#{$line-col-img}
+				minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total}) / 2), max-content)
+				minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total}) / 2), max-content);
+			gap: 0 #{$line-gap-h};
+		}
+
+		@include laptop {
+			grid-template-columns: 110px 1fr;
+			gap: 10px #{$line-gap-h};
+
+			&__item:last-child {
+				grid-column: 1 / -1;
+			}
+		}
+
+		@include tablet {
+			grid-template-columns: 90px 1fr;
+
+			&__item:last-child {
+				grid-column: 1 / -1;
+			}
+		}
+
+		> * {
+			min-width: 0;
+		}
+	}
+
+	&__label {
+		color: $cl-grey-placeholder;
+		width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&__img {
+		&__wrapper {
+			width: 100%;
+			max-width: 110px;
+			aspect-ratio: 110 / 82;
+			height: auto;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 12px;
+			position: relative;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top:0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-image: url('./../../img/icons/ic-plus.svg');
+				background-size: 27px 27px;
+				background-repeat: no-repeat;
+				background-position: center;
+				opacity: 0;
+				z-index: 2;
+				transition: all ease .3s;
+				pointer-events: none;
+			}
+
+			@include laptop {
+				max-width: 100%;
+			}
+
+			&:hover {
+				&::before {
+					opacity: 1;
+				}
+			}
+
+			img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+
+	&__body {
+		display: grid;
+		grid-template-columns: 1fr repeat(2, minmax(85px, 120px));
+		align-items: center;
+		gap: 0 30px;
+		
+		@include desktop-xl {
+			gap: 0 20px;
+			grid-template-columns: 1fr repeat(2, minmax(85px, 90px));
+		}
+		@include desktop {
+			gap: 0 20px;
+			grid-template-columns: 1fr repeat(2, 75px);
+		}
+
+		@include desktop {
+			grid-template-columns: 100%;
+		}
+
+		> * {
+			min-width: 0;
+		}
+	}
+
+	&__side {
+		$side-col-last: 125px;
+		$side-gap-h: 30px;
+		$side-gaps-total: 2 * $side-gap-h;
+
+		display: grid;
+		grid-template-columns:
+			repeat(
+				2,
+				minmax(calc(50% - (#{$side-col-last} + #{$side-gaps-total}) / 2), 120px)
+			)
+			#{$side-col-last};
+		align-items: center;
+		gap: 0 #{$side-gap-h};
+
+		@include desktop-xl {
+			$side-gap-h: 20px;
+			gap: 0 #{$side-gap-h};
+			$side-gaps-total: 2 * $side-gap-h;
+			grid-template-columns:
+				repeat(
+					2,
+					minmax(calc(50% - (#{$side-col-last} + #{$side-gaps-total}) / 2), 120px)
+				)
+				#{$side-col-last};
+		}
+
+		@include desktop {
+			$side-gap-h: 20px;
+			$side-col-last: 44px;
+			$side-gaps-total: 2 * $side-gap-h;
+
+			grid-template-columns:
+				repeat(
+					2,
+					minmax(calc(50% - (#{$side-col-last} + #{$side-gaps-total}) / 2), 90px)
+				)
+				#{$side-col-last};
+		}
+
+		@include laptop {
+			width: 100%;
+			grid-template-columns: 110px 1fr 36px;
+			padding-top: 10px;
+			border-top: 1px solid $cl-lines2;
+		}
+
+		@include tablet {
+			width: 100%;
+			grid-template-columns: 90px 1fr 36px;
+		}
+
+		> * {
+			min-width: 0;
+		}
+
+		&__btn {
+			.mbtn {
+				width: 100%;
+
+				@include desktop {
+					padding-left: 5px;
+					padding-right: 5px;
+					width: 44px;
+				}
+
+				@include laptop {
+					width: 36px;
+					min-height: 36px;
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	&__text {
+		display: block;
+		width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		&__label {
+			display: none;
+			color: $cl-grey-placeholder;
+			margin-right: 5px;
+			font-weight: 400;
+
+			@include desktop {
+				display: inline;
+			}
+		}
+	}
+}
+
+.slider-offers {
+	position: relative;
+
+	&__slider {
+		width: 100%;
+		position: relative;
+	}
+	&__navbtn {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 50px;
+		cursor: pointer;
+		transition: all ease .3s;
+		color: $cl-black-hover;
+		background-color: $cl-background;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 5;
+
+		@include laptop {
+			display: none;
+		}
+
+		&.prev {
+			left: 0;
+		}
+		&.next {
+			right: 0;
+		}
+
+		&:hover {
+			color: $cl-red;
+		}
+
+		svg {
+			display: block;
+			max-width: 20px;
+			max-height: 20px;
+			object-fit: contain;
+		}
+		
+	}
+	&__card {
+		display: grid;
+		grid-template-columns: minmax(0, 407px) minmax(0, 1fr);
+		grid-template-rows: auto 1fr;
+		gap: 30px;
+		padding: 60px 110px;
+		min-width: 0;
+
+		@include desktop {
+			grid-template-columns: minmax(0, 330px) minmax(0, 1fr);
+			padding: 60px 80px;
+		}
+		@include laptop {
+			padding: 0;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto auto;
+			gap: 15px;
+		}
+
+		&__header {
+			grid-column: 1;
+			grid-row: 1;
+
+			@include laptop {
+				grid-column: 1;
+				grid-row: 1;
+			}
+
+			h4.h4 {
+				margin: 0 0 10px 0;
+			}
+			h2.h2 {
+				margin: 0;
+			}
+		}
+
+		&__body {
+			grid-column: 1;
+			grid-row: 2;
+			min-width: 0;
+
+			@include laptop {
+				grid-column: 1;
+				grid-row: 3;
+			}
+		}
+
+		&__footer {
+			padding-top: 30px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			gap: 10px 30px;
+			gap: 30px;
+
+			@include desktop {
+				gap: 10px;
+			}
+
+			& > div {
+				flex: 0 0 auto;
+				width: auto;
+				
+				@include laptop {
+					flex: 1 0 0;
+					width: 100%;
+					max-width: 100%;
+					overflow: hidden;
+
+					&:last-child {
+						flex: 0 0 auto;
+						width: auto;
+						overflow: visible;
+					}
+
+					.mbtn {
+						display: block;
+					}
+				}
+			}
+		}
+
+		&__img {
+			grid-column: 2;
+			grid-row: 1 / span 2;
+			align-self: stretch;
+			min-height: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			overflow: hidden;
+			border-radius: 12px;
+			
+			@include laptop {
+				grid-column: 1;
+				grid-row: 2;
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		.block-share__dropdown {
+			top: auto;
+			bottom: 100%;
+			padding-bottom: 5px;
+			padding-top: 0;
+		}
+	}
+}
+
+.card {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 516px;
+	padding-top: 17px;
+	gap: 30px;
+	align-items: start;
+	min-width: 0;
+
+	@include desktop-xl {
+		grid-template-columns: minmax(0, 1fr) 481px;
+	}
+	@include desktop {
+		grid-template-columns: minmax(0, 1fr) 360px;
+		gap: 20px;
+	}
+	@include laptop {
+		grid-template-columns: 100%;
+		padding-top: 0;
+	}
+
+	&__media {
+		display: grid;
+		grid-template-columns: 109px minmax(0, 1fr);
+		align-items: stretch;
+		gap: 30px;
+		min-width: 0;
+		min-height: 0;
+
+		@include desktop-xxl {
+			grid-template-columns: 84px minmax(0, 1fr);
+		}
+
+		@include desktop-xl {
+			grid-template-columns: 74px minmax(0, 1fr);
+		}
+
+		@include desktop {
+			grid-template-columns: 72px minmax(0, 1fr);
+			gap: 20px;
+		}
+		@include laptop {
+			grid-template-columns: 102px minmax(0, 1fr);
+		}
+		@include tablet {
+			grid-template-columns: 86px minmax(0, 1fr);
+		}
+		@include mobilehr {
+			grid-template-columns: 100%;
+		}
+
+		&__side {
+			min-width: 0;
+			min-height: 0;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+			align-self: stretch;
+			padding: 50px 0;
+			position: relative;
+
+			@include mobilehr {
+				display: none;
+			}
+		}
+
+		&__body {
+			position: relative;
+			min-width: 0;
+			min-height: 0;
+			width: 100%;
+			max-width: 100%;
+		}
+
+		&__markers {
+			right: 10px;
+			top: 10px;
+
+			span {
+				width: 50px;
+				height: 50px;
+				background-size: 22px 22px;
+
+				@include tablet {
+					width: 35px;
+					height: 35px;
+					background-size: 16px 16px;
+				}
+			}
+		}
+
+		&__thumbs {
+			flex: 1 1 auto;
+			min-height: 0;
+			width: 100%;
+			max-height: 100%;
+			overflow: hidden;
+
+			&.swiper {
+				height: 100%;
+			}
+
+			.swiper-wrapper {
+				box-sizing: border-box;
+			}
+
+			&__btn {
+				position: absolute;
+				left: 0;
+				width: 100%;
+				height: 30px;
+				background-color: $cl-white;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 12px;
+				color: $cl-black;
+				cursor: pointer;
+				transition: all ease .3s;
+
+				&.prev {
+					top: 0;
+				}
+				&.next {
+					bottom: 0;
+				}
+
+				&:not(.disabled):hover {
+					color: $cl-red;
+				}
+
+				&.disabled {
+					cursor: default;
+					opacity: 0.5;
+				}
+
+				svg, img {
+					max-width: 20px;
+					max-height: 20px;
+					object-fit: contain;
+				}
+			}
+
+			&__item {
+				position: relative;
+				height: auto;
+
+				&.swiper-slide-thumb-active {
+					.card__media__thumbs__card {
+						border-color: $cl-black;
+
+						&::after {
+							opacity: 1;
+						}
+					}
+				}
+			}
+
+			&__card {
+				position: relative;
+				width: 100%;
+				aspect-ratio: 1 / 1;
+				overflow: hidden;
+				border-radius: 12px;
+				cursor: pointer;
+				border: 1px solid $cl-border-grey;
+				transition: all ease .3s;
+
+				&::after {
+					content: '';
+					position: absolute;
+					inset: 0;
+					border-radius: inherit;
+					box-shadow: inset 0 0 0 2px $cl-white;
+					pointer-events: none;
+					transition: all ease .3s;
+					opacity: 0;
+					z-index: 1;
+				}
+
+				img {
+					display: block;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+
+		&__images {
+			overflow: hidden;
+			border-radius: 12px;
+			width: 100%;
+			max-width: 100%;
+			min-width: 0;
+			min-height: 0;
+
+			&.swiper {
+				width: 100%;
+			}
+
+			.swiper-slide {
+				width: 100%;
+				box-sizing: border-box;
+			}
+
+			&__card {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				aspect-ratio: 1 / 1;
+				width: 100%;
+				max-width: 100%;
+				box-sizing: border-box;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+
+	&__header {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-template-rows: auto auto;
+		gap: 10px 30px;
+		margin-bottom: 30px;
+
+		@include laptop {
+			grid-template-columns: 1fr auto;
+			grid-template-rows: auto;
+			align-items: center;
+			margin-bottom: 10px;
+		}
+
+		&__title {
+			grid-column: 1;
+			grid-row: 1;
+
+			@include laptop {
+				display: none;
+			}
+		}
+
+		&__storage {
+			grid-column: 1;
+			grid-row: 2;
+
+			@include laptop {
+				grid-row: 1;
+			}
+
+			span {
+				&.color-green {
+					color: $cl-green;
+				}
+				&.color-red {
+					color: $cl-red;
+				}
+			}
+		}
+
+		&__share {
+			grid-column: 2;
+			grid-row: 1 / span 2;
+			align-self: start;
+
+			@include laptop {
+				grid-column: 2;
+				grid-row: 1;
+				align-self: center;
+			}
+		}
+	}
+
+	&__body {
+		&__prices {
+			padding-top: 30px;
+			display: flex;
+			align-items: end;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			gap: 10px 30px;
+		}
+		&__footer {
+			padding-top: 30px;
+			display: grid;
+			grid-template-columns: repeat(2, calc(50% - 15px));
+			gap: 30px;
+
+			@include desktop {
+				grid-template-columns: repeat(2, calc(50% - 5px));
+				gap: 10px;
+			}
+			@include tablet {
+				grid-template-columns: 100%;
+				gap: 10px;
+			}
+		}
+	}
+
+	.price {
+		font-size: rem(20);
+
+		@include tablet {
+			font-size: rem(18);
+		}
+		
+		span {
+			font-size: rem(42);
+
+			@include tablet {
+				font-size: rem(24);
+			}
+		}
+
+		&.price__old {
+			font-size: rem(13);
+
+			@include tablet {
+				font-size: rem(11);
+			}
+			
+			span {
+				font-size: rem(27);
+
+				@include tablet {
+					font-size: rem(20);
+				}
+			}
+		}	
+	}
+}
+
+.slidercategory {
+	&__slider {
+		position: relative;
+		width: 100dvw;
+		left: 50%;
+		transform: translateX(-50%);
+
+		&__item {
+			width: 188px;
+
+			@include laptop {
+				width: 134px;
+			}
+		}
+	}
+	&__card {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		aspect-ratio: 188 / 237;
+		position: relative;
+		overflow: hidden;
+		border-radius: 12px;
+		color: $cl-white;
+		font-size: rem(20);
+		font-family: $font-secondary;
+		text-transform: uppercase;
+		text-decoration: none;
+
+		@include laptop {
+			font-size: rem(18);
+		}
+
+		&:hover {
+			color: $cl-white;
+
+			img {
+				transform: scale(1.2);
+			}
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform ease .5s;
+		}
+
+		span {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			padding: 20px;
+			z-index: 3;
+
+			@include laptop {
+				padding: 10px;
+			}
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 53.16%;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+			opacity: 0.6;
+			z-index: 2;
+		}
+	}
+}
+
+.cardoffer {
+	display: grid;
+	grid-template-columns: minmax(0, 516px) minmax(0, 1fr);
+	grid-template-rows: auto 1fr;
+	gap: 30px;
+	min-width: 0;
+	padding-top: 17px;
+
+	@include desktop-xxl {
+		grid-template-columns: minmax(0, 472px) minmax(0, 1fr);
+	}
+	@include desktop {
+		grid-template-columns: minmax(0, 402px) minmax(0, 1fr);
+	}
+	@include laptop {
+		padding: 0;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto auto;
+		gap: 15px;
+	}
+
+	&__header {
+		grid-column: 1;
+		grid-row: 1;
+
+		@include laptop {
+			grid-column: 1;
+			grid-row: 1;
+		}
+
+		h4.h4 {
+			margin: 0;
+		}
+		h1.h1 {
+			margin: 0 0 10px 0;
+		}
+	}
+
+	&__body {
+		grid-column: 1;
+		grid-row: 2;
+		min-width: 0;
+
+		@include laptop {
+			grid-column: 1;
+			grid-row: 3;
+		}
+	}
+
+	&__footer {
+		padding-top: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		gap: 10px 30px;
+
+		@include desktop {
+			gap: 10px;
+		}
+
+		.cardoffer__prices {
+			flex: 0 0 auto;
+			width: 100%;
+			margin-bottom: 20px;
+
+			@include laptop {
+				margin-bottom: 20px;
+				flex: 1 0 0;
+				max-width: 100%;
+			}
+		}
+
+		& > div {
+			flex: 0 0 auto;
+    		width: auto;
+
+			@include laptop {
+				&:not(.cardoffer__footer__share) {
+					width: 100%;
+				}
+
+				.mbtn:not(.mbtn__wicon) {
+					display: block;
+					width: 100%;
+				}
+
+				&.cardoffer__footer__share {
+					margin-bottom: 20px;
+				}
+			}
+		}
+	}
+
+	&__img {
+		grid-column: 2;
+		grid-row: 1 / span 2;
+		min-height: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		aspect-ratio: 734 / 539;
+		overflow: hidden;
+		border-radius: 12px;
+		
+		@include laptop {
+			grid-column: 1;
+			grid-row: 2;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.block-share__dropdown {
+		top: auto;
+		bottom: 100%;
+		padding-bottom: 5px;
+		padding-top: 0;
+	}
+
+	&__prices {
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		gap: 10px 42px;
+
+		@include laptop {
+			gap: 10px 30px;
+		}
+
+		&__label {
+			margin-top: 5px;
+		}
+
+		&__old {
+			color: $cl-grey-placeholder;
+
+			&__text {
+				font-family: $font-secondary;
+				font-size: rem(13);
+				line-height: 1.2;
+
+				@include desktop {
+					font-size: rem(11);
+				}
+
+				span {
+					font-size: rem(27);
+					text-decoration: line-through;
+
+					@include desktop {
+						font-size: rem(20);
+					}
+				}
+			}
+			.cardoffer__prices__label {
+				text-decoration: line-through;
+			}
+		}
+		&__actual {
+			&__text {
+				font-family: $font-secondary;
+				font-size: rem(20);
+				line-height: 1.2;
+
+				@include desktop {
+					font-size: rem(18);
+				}
+
+				span {
+					font-size: rem(42);
+
+					@include desktop {
+						font-size: rem(24);
+					}
+				}
+			}
+		}
+	}
+}

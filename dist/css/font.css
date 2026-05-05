@@ -1,0 +1,42 @@
+@font-face {
+  src: url("../fonts/Oswald.woff") format("woff"), url("../fonts/Oswald.woff2") format("woff2");
+  font-family: Oswald;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("../fonts/InterRegular.woff") format("woff"), url("../fonts/InterRegular.woff2") format("woff2");
+  font-family: Inter;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("../fonts/InterSemiBold.woff") format("woff"), url("../fonts/InterSemiBold.woff2") format("woff2");
+  font-family: Inter;
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("../fonts/InterBold.woff") format("woff"), url("../fonts/InterBold.woff2") format("woff2");
+  font-family: Inter;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("../fonts/InterExtraBold.woff") format("woff"), url("../fonts/InterExtraBold.woff2") format("woff2");
+  font-family: Inter;
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  src: url("../fonts/InterBlack.woff") format("woff"), url("../fonts/InterBlack.woff2") format("woff2");
+  font-family: Inter;
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

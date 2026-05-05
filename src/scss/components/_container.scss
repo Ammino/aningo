@@ -1,0 +1,27 @@
+.container {
+	min-width: 375px;
+	width: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+
+	@include mobilehr-min {
+		max-width: 536px;
+	}
+	@include tablet-min {
+		max-width: 728px;
+	}
+	@include laptop-min {
+		padding-left: 40px;
+		padding-right: 40px;
+		max-width: 911px;
+	}
+	@include desktop-min {
+		max-width: 1120px;
+	}
+	@include desktop-xl-min {
+		max-width: 1220px;
+	}
+	@include desktop-xxl-min {
+		max-width: 1360px;
+	}
+}

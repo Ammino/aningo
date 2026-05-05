@@ -1,0 +1,40 @@
+.modal#js--modal-order
+	.modal__content
+		.modal__close(data-fancybox-close): +svg('ic-close')
+		.modal__closemobile
+		.modal__content__body
+			.modal__content__body__scroll
+				.modal__content__container
+					.modal__header
+						h3.h3.modal__header__title Заказать услугу
+						.modal__header__text Монтаж мелкоштучных элементов полки, подставки и тд 
+					.modal__body
+						form.form
+							.form__line.row
+								.col-12
+									label.form-input
+										input.form-input__text.js--input-text(
+											type="text", 
+											name="NAME",
+											required)
+										span.form-input__label Ваше имя
+									// .form__info.error Текст ошибки
+								.col-12
+									label.form-input
+										input.form-input__text.js--input-text.js--maskphone(
+											type="tel", 
+											name="PHONE",
+											required)
+										span.form-input__label Телефон
+									// .form__info.error Текст ошибки
+							.form__line2.row
+								.col-12
+									label.form-checkbox.form-checkbox__small(for="#check-m1") 
+										input.form-checkbox__input(type="checkbox" id="#check-m1")
+										span.form-checkbox__text 
+											| Соглашаюсь на&nbsp;обработку 
+											a(href="#", target="_blank", rel="noopener noreferrer") персональных данных 
+											| в&nbsp;соответствии с&nbsp;
+											a(href="#", target="_blank", rel="noopener noreferrer") политикой конфиденциальности.
+								.col-12
+									button.mbtn.mbtn__primary.mbtn__middle.d-block.w-100(type="submit") Отправить

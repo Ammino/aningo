@@ -1,0 +1,49 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: a.crumbs__link(href="home.html" target="_blank") Портфолио
+				li: span GRAND HOTEL ANAPA
+
+			h1.h1 GRAND HOTEL ANAPA
+
+		section.block__padd: .container
+			.block__title
+				h2.h2 Используемый в проекте камень
+
+			.slidercatalog
+				.slidercatalog__offset.js--sl-catalog-offset
+				.slidercatalog__body
+					.slidercatalog__slider.swiper.js--sl-catalog
+						.swiper-wrapper
+
+							-for (let i = 0; i < 6; i++)
+								// el
+								.slidercatalog__slider__item.swiper-slide
+									+mixin__mainCard(i, m_title[i], m_price[i], m_priceold[i], m_description[i], m_storage[i])
+								// /el	
+											
+		section.block__padd: .container
+			
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

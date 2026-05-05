@@ -1,0 +1,367 @@
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <title>Добро пожаловать</title>
+    <link rel="icon" type="image/png" href="img/favicon//favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon//favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon//favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon//apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="DronMarket" />
+    <link rel="manifest" href="img/favicon//site.webmanifest" />
+    <link rel="stylesheet" href="assets/css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="assets/css/fancybox.css" />
+    <link rel="stylesheet" href="assets/css/swiper-bundle.css" />
+    <link rel="stylesheet" href="assets/css/simplebar.min.css" />
+    <link rel="stylesheet" href="css/font.css" />
+    <link rel="stylesheet" href="css/style.css?v=1777963005700" />
+</head>
+
+<body>
+    <main class="main" style="padding-top: 0;">
+        <section class="block__padd">
+            <div class="container">
+                <div class="block__text">
+                    <div class="row">
+                        <div class="col-12"><a class="header__logo"><img src="img/header-logo.svg" alt="Logo" style="width: 240px;" /></a></div>
+                        <div class="col-12 gy-5">
+                            <div class="h4">Страницы</div>
+                            <ul>
+                                <li><a href="home.html" target="_blank">Главная</a></li>
+                                <li><a href="catalog.html" target="_blank">Каталог</a></li>
+                                <li><a href="catalog-onix.html" target="_blank">Оникс</a></li>
+                                <li><a href="card.html" target="_blank">Карточка товара</a></li>
+                                <li><a href="card-offer.html" target="_blank">Торговое предложение</a></li>
+                                <li><a href="services.html" target="_blank">Услуги</a></li>
+                                <li><a href="portfolio.html" target="_blank">Портфолио</a></li>
+                                <li><a href="portfolio-card.html" target="_blank">Портфолио | Карточка проекта</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12 gy-5">
+                            <div class="h4">Модальные окна</div>
+                            <ul>
+                                <li><a href="#js--modal-recall" data-fancybox-default="data-fancybox-default">Получить консультацию</a></li>
+                                <li><a href="#js--modal-order" data-fancybox-default="data-fancybox-default">Заказать услугу</a></li>
+                                <li><a href="#js--modal-info" data-fancybox-default="data-fancybox-default">Запрос отправлен</a></li>
+                                <li><a href="#js--modal-offers" data-fancybox-offers="data-fancybox-offers">Слайдер торгового предложения</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main><!-- Modals--><!-- Модалка "Отклик на вакансию"-->
+    <div class="modal" id="js--modal-recall">
+        <div class="modal__content">
+            <div class="modal__close" data-fancybox-close="data-fancybox-close"><svg>
+                    <use href="img/icons.svg#ic-close" xlink:href="img/icons.svg#ic-close"></use>
+                </svg></div>
+            <div class="modal__closemobile"></div>
+            <div class="modal__content__body">
+                <div class="modal__content__body__scroll">
+                    <div class="modal__content__container">
+                        <div class="modal__header">
+                            <h3 class="h3 modal__header__title">Получить консультацию</h3>
+                            <div class="modal__header__text">Оставьте свои контактные данные и наш менеджер свяжется с вами в ближайшее время. </div>
+                        </div>
+                        <div class="modal__body">
+                            <form class="form">
+                                <div class="form__line row">
+                                    <div class="col-12"><label class="form-input"><input class="form-input__text js--input-text" type="text" name="NAME" required="required" /><span class="form-input__label">Ваше имя</span></label><!-- .form__info.error Текст ошибки--></div>
+                                    <div class="col-12"><label class="form-input"><input class="form-input__text js--input-text js--maskphone" type="tel" name="PHONE" required="required" /><span class="form-input__label">Телефон</span></label><!-- .form__info.error Текст ошибки--></div>
+                                </div>
+                                <div class="form__line2 row">
+                                    <div class="col-12"><label class="form-checkbox form-checkbox__small" for="#check-m2"> <input class="form-checkbox__input" type="checkbox" id="#check-m2" /><span class="form-checkbox__text"> Соглашаюсь на&nbsp;обработку <a href="#" target="_blank" rel="noopener noreferrer">персональных данных </a>в&nbsp;соответствии с&nbsp;<a href="#" target="_blank" rel="noopener noreferrer">политикой конфиденциальности.</a></span></label></div>
+                                    <div class="col-12"><button class="mbtn mbtn__primary mbtn__middle d-block w-100" type="submit">Отправить</button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- Модалка "Заказать услугу"-->
+    <div class="modal" id="js--modal-order">
+        <div class="modal__content">
+            <div class="modal__close" data-fancybox-close="data-fancybox-close"><svg>
+                    <use href="img/icons.svg#ic-close" xlink:href="img/icons.svg#ic-close"></use>
+                </svg></div>
+            <div class="modal__closemobile"></div>
+            <div class="modal__content__body">
+                <div class="modal__content__body__scroll">
+                    <div class="modal__content__container">
+                        <div class="modal__header">
+                            <h3 class="h3 modal__header__title">Заказать услугу</h3>
+                            <div class="modal__header__text">Монтаж мелкоштучных элементов полки, подставки и тд </div>
+                        </div>
+                        <div class="modal__body">
+                            <form class="form">
+                                <div class="form__line row">
+                                    <div class="col-12"><label class="form-input"><input class="form-input__text js--input-text" type="text" name="NAME" required="required" /><span class="form-input__label">Ваше имя</span></label><!-- .form__info.error Текст ошибки--></div>
+                                    <div class="col-12"><label class="form-input"><input class="form-input__text js--input-text js--maskphone" type="tel" name="PHONE" required="required" /><span class="form-input__label">Телефон</span></label><!-- .form__info.error Текст ошибки--></div>
+                                </div>
+                                <div class="form__line2 row">
+                                    <div class="col-12"><label class="form-checkbox form-checkbox__small" for="#check-m1"> <input class="form-checkbox__input" type="checkbox" id="#check-m1" /><span class="form-checkbox__text"> Соглашаюсь на&nbsp;обработку <a href="#" target="_blank" rel="noopener noreferrer">персональных данных </a>в&nbsp;соответствии с&nbsp;<a href="#" target="_blank" rel="noopener noreferrer">политикой конфиденциальности.</a></span></label></div>
+                                    <div class="col-12"><button class="mbtn mbtn__primary mbtn__middle d-block w-100" type="submit">Отправить</button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- Модалка "Запрос отправлен"-->
+    <div class="modal" id="js--modal-info">
+        <div class="modal__content">
+            <div class="modal__close" data-fancybox-close="data-fancybox-close"><svg>
+                    <use href="img/icons.svg#ic-close" xlink:href="img/icons.svg#ic-close"></use>
+                </svg></div>
+            <div class="modal__closemobile"></div>
+            <div class="modal__content__body">
+                <div class="modal__content__body__scroll">
+                    <div class="modal__content__container">
+                        <div class="modal__header">
+                            <h3 class="h3 modal__header__title">Запрос отправлен</h3>
+                            <div class="modal__header__text">Ваша заявка оформлена, скоро наш менеджер свяжется с&nbsp;вами и&nbsp;ответит на&nbsp;все&nbsp;вопросы.</div>
+                        </div>
+                        <div class="modal__footer"><button class="mbtn mbtn__primary mbtn__middle d-block w-100" type="submit" data-fancybox-close="data-fancybox-close">Продолжить</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- Модалка "Торговое предложение"-->
+    <div class="modal modal__sizelg modal__offers" id="js--modal-offers">
+        <div class="modal__content">
+            <div class="modal__close" data-fancybox-close="data-fancybox-close"><svg>
+                    <use href="img/icons.svg#ic-close" xlink:href="img/icons.svg#ic-close"></use>
+                </svg></div>
+            <div class="modal__closemobile"></div>
+            <div class="modal__content__body">
+                <div class="modal__content__body__scroll">
+                    <div class="modal__content__container">
+                        <div class="slider-offers__slider swiper js--slider-offers">
+                            <div class="swiper-wrapper"><!-- el-->
+                                <div class="slider-offers__slider__item swiper-slide">
+                                    <div class="slider-offers__card">
+                                        <div class="slider-offers__card__header">
+                                            <h4 class="h4">Кварцевый агломерат ANTRACITE</h4>
+                                            <h2 class="h2">слэб 20 см. 25037</h2>
+                                        </div>
+                                        <div class="slider-offers__card__img"><img src="img/catalog/img-catalog3-0.png" alt="" /></div>
+                                        <div class="slider-offers__card__body">
+                                            <div class="content-columns__properties__list">
+                                                <div class="content-columns__properties__list__item"><span>Размер</span><span>3000x1400x20 мм</span></div>
+                                                <div class="content-columns__properties__list__item"><span>В наличии</span><span>4.2 м<sup>2</sup></span></div>
+                                                <div class="content-columns__properties__list__item"><span>Стоимость</span><span>32 000 ₽/м<sup>2</sup></span></div>
+                                                <div class="content-columns__properties__list__item"><span>Стоимость за шт.</span><span>134 400 ₽</span></div>
+                                            </div>
+                                            <div class="slider-offers__card__footer">
+                                                <div><a class="mbtn mbtn__primary mbtn__middle" href="#">Купить</a></div>
+                                                <div><a class="mbtn mbtn__grey mbtn__middle" href="#">Подробнее</a></div>
+                                                <div>
+                                                    <div class="block-share">
+                                                        <div class="block-share__label"><svg>
+                                                                <use href="img/icons.svg#ic-share" xlink:href="img/icons.svg#ic-share"></use>
+                                                            </svg></div>
+                                                        <div class="block-share__dropdown">
+                                                            <div class="block-share__dropdown__body">
+                                                                <ul class="block-share__list">
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-telegram" xlink:href="img/icons.svg#ic-telegram"></use>
+                                                                                </svg></i><span>Telegram</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-whatsapp" xlink:href="img/icons.svg#ic-whatsapp"></use>
+                                                                                </svg></i><span>WhatsApp</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-max" xlink:href="img/icons.svg#ic-max"></use>
+                                                                                </svg></i><span>Max</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-vk" xlink:href="img/icons.svg#ic-vk"></use>
+                                                                                </svg></i><span>ВКонтакте</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-link" xlink:href="img/icons.svg#ic-link"></use>
+                                                                                </svg></i><span>Копировать ссылку</span></a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /el--><!-- el-->
+                                <div class="slider-offers__slider__item swiper-slide">
+                                    <div class="slider-offers__card">
+                                        <div class="slider-offers__card__header">
+                                            <h4 class="h4">Кварцевый агломерат ANTRACITE</h4>
+                                            <h2 class="h2">слэб 20 см. 25037</h2>
+                                        </div>
+                                        <div class="slider-offers__card__img"><img src="img/catalog/img-catalog3-0.png" alt="" /></div>
+                                        <div class="slider-offers__card__body">
+                                            <div class="content-columns__properties__list">
+                                                <div class="content-columns__properties__list__item"><span>Размер</span><span>3000x1400x20 мм</span></div>
+                                                <div class="content-columns__properties__list__item"><span>В наличии</span><span>4.2 м<sup>2</sup></span></div>
+                                                <div class="content-columns__properties__list__item"><span>Стоимость</span><span>32 000 ₽/м<sup>2</sup></span></div>
+                                                <div class="content-columns__properties__list__item"><span>Стоимость за шт.</span><span>134 400 ₽</span></div>
+                                            </div>
+                                            <div class="slider-offers__card__footer">
+                                                <div><a class="mbtn mbtn__primary mbtn__middle" href="#">Купить</a></div>
+                                                <div><a class="mbtn mbtn__grey mbtn__middle" href="#">Подробнее</a></div>
+                                                <div>
+                                                    <div class="block-share">
+                                                        <div class="block-share__label"><svg>
+                                                                <use href="img/icons.svg#ic-share" xlink:href="img/icons.svg#ic-share"></use>
+                                                            </svg></div>
+                                                        <div class="block-share__dropdown">
+                                                            <div class="block-share__dropdown__body">
+                                                                <ul class="block-share__list">
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-telegram" xlink:href="img/icons.svg#ic-telegram"></use>
+                                                                                </svg></i><span>Telegram</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-whatsapp" xlink:href="img/icons.svg#ic-whatsapp"></use>
+                                                                                </svg></i><span>WhatsApp</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-max" xlink:href="img/icons.svg#ic-max"></use>
+                                                                                </svg></i><span>Max</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-vk" xlink:href="img/icons.svg#ic-vk"></use>
+                                                                                </svg></i><span>ВКонтакте</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-link" xlink:href="img/icons.svg#ic-link"></use>
+                                                                                </svg></i><span>Копировать ссылку</span></a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /el--><!-- el-->
+                                <div class="slider-offers__slider__item swiper-slide">
+                                    <div class="slider-offers__card">
+                                        <div class="slider-offers__card__header">
+                                            <h4 class="h4">Кварцевый агломерат ANTRACITE</h4>
+                                            <h2 class="h2">слэб 20 см. 25037</h2>
+                                        </div>
+                                        <div class="slider-offers__card__img"><img src="img/catalog/img-catalog3-0.png" alt="" /></div>
+                                        <div class="slider-offers__card__body">
+                                            <div class="content-columns__properties__list">
+                                                <div class="content-columns__properties__list__item"><span>Размер</span><span>3000x1400x20 мм</span></div>
+                                                <div class="content-columns__properties__list__item"><span>В наличии</span><span>4.2 м<sup>2</sup></span></div>
+                                                <div class="content-columns__properties__list__item"><span>Стоимость</span><span>32 000 ₽/м<sup>2</sup></span></div>
+                                                <div class="content-columns__properties__list__item"><span>Стоимость за шт.</span><span>134 400 ₽</span></div>
+                                            </div>
+                                            <div class="slider-offers__card__footer">
+                                                <div><a class="mbtn mbtn__primary mbtn__middle" href="#">Купить</a></div>
+                                                <div><a class="mbtn mbtn__grey mbtn__middle" href="#">Подробнее</a></div>
+                                                <div>
+                                                    <div class="block-share">
+                                                        <div class="block-share__label"><svg>
+                                                                <use href="img/icons.svg#ic-share" xlink:href="img/icons.svg#ic-share"></use>
+                                                            </svg></div>
+                                                        <div class="block-share__dropdown">
+                                                            <div class="block-share__dropdown__body">
+                                                                <ul class="block-share__list">
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-telegram" xlink:href="img/icons.svg#ic-telegram"></use>
+                                                                                </svg></i><span>Telegram</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-whatsapp" xlink:href="img/icons.svg#ic-whatsapp"></use>
+                                                                                </svg></i><span>WhatsApp</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-max" xlink:href="img/icons.svg#ic-max"></use>
+                                                                                </svg></i><span>Max</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-vk" xlink:href="img/icons.svg#ic-vk"></use>
+                                                                                </svg></i><span>ВКонтакте</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-link" xlink:href="img/icons.svg#ic-link"></use>
+                                                                                </svg></i><span>Копировать ссылку</span></a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /el--><!-- el-->
+                                <div class="slider-offers__slider__item swiper-slide">
+                                    <div class="slider-offers__card">
+                                        <div class="slider-offers__card__header">
+                                            <h4 class="h4">Кварцевый агломерат ANTRACITE</h4>
+                                            <h2 class="h2">слэб 20 см. 25037</h2>
+                                        </div>
+                                        <div class="slider-offers__card__img"><img src="img/catalog/img-catalog3-0.png" alt="" /></div>
+                                        <div class="slider-offers__card__body">
+                                            <div class="content-columns__properties__list">
+                                                <div class="content-columns__properties__list__item"><span>Размер</span><span>3000x1400x20 мм</span></div>
+                                                <div class="content-columns__properties__list__item"><span>В наличии</span><span>4.2 м<sup>2</sup></span></div>
+                                                <div class="content-columns__properties__list__item"><span>Стоимость</span><span>32 000 ₽/м<sup>2</sup></span></div>
+                                                <div class="content-columns__properties__list__item"><span>Стоимость за шт.</span><span>134 400 ₽</span></div>
+                                            </div>
+                                            <div class="slider-offers__card__footer">
+                                                <div><a class="mbtn mbtn__primary mbtn__middle" href="#">Купить</a></div>
+                                                <div><a class="mbtn mbtn__grey mbtn__middle" href="#">Подробнее</a></div>
+                                                <div>
+                                                    <div class="block-share">
+                                                        <div class="block-share__label"><svg>
+                                                                <use href="img/icons.svg#ic-share" xlink:href="img/icons.svg#ic-share"></use>
+                                                            </svg></div>
+                                                        <div class="block-share__dropdown">
+                                                            <div class="block-share__dropdown__body">
+                                                                <ul class="block-share__list">
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-telegram" xlink:href="img/icons.svg#ic-telegram"></use>
+                                                                                </svg></i><span>Telegram</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-whatsapp" xlink:href="img/icons.svg#ic-whatsapp"></use>
+                                                                                </svg></i><span>WhatsApp</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-max" xlink:href="img/icons.svg#ic-max"></use>
+                                                                                </svg></i><span>Max</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-vk" xlink:href="img/icons.svg#ic-vk"></use>
+                                                                                </svg></i><span>ВКонтакте</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-link" xlink:href="img/icons.svg#ic-link"></use>
+                                                                                </svg></i><span>Копировать ссылку</span></a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /el-->
+                            </div>
+                            <div class="slider-offers__navbtn prev js--slider-offers-prev"><svg>
+                                    <use href="img/icons.svg#ic-arrow-left-short" xlink:href="img/icons.svg#ic-arrow-left-short"></use>
+                                </svg></div>
+                            <div class="slider-offers__navbtn next js--slider-offers-next"><svg>
+                                    <use href="img/icons.svg#ic-arrow-right-short" xlink:href="img/icons.svg#ic-arrow-right-short"></use>
+                                </svg></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/fancybox.umd.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/simplebar.min.js"></script>
+    <script src="assets/js/inputmask.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <script src="js/app.js?v=1777963005700"></script>
+</body>
+
+</html>

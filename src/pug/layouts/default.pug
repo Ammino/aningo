@@ -1,0 +1,90 @@
+include ../helpers/mixins
+
+block vars
+	- const baseDir = ''
+	-
+		const title = 'Добро пожаловать'
+		const description = ''
+	-
+		const html = {
+			attrs: {
+				lang: 'ru'
+			},
+			classList: []
+		}
+	-
+		const body = {
+			attrs: {},
+			classList: []
+		}
+	-
+		const meta = {
+			charset: 'utf-8',
+			description: description,
+			formatDetection: {
+				address: true,
+				date: true,
+				email: true,
+				telephone: true
+			},
+			keywords: [],
+			viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+			XUACompatible: 'IE=edge'
+
+		}
+	-
+		const link = {
+		}
+
+html(class=html.classList)&attributes(html.attrs)
+	head
+		block head-start
+		block meta
+			if meta.charset !== null
+				meta(charset!=meta.charset)
+			if meta.XUACompatible !== null
+				meta(http-equiv="X-UA-Compatible" content!=meta.XUACompatible)
+			if meta.viewport !== null
+				meta(name="viewport" content!=meta.viewport)
+			if meta.description !== null
+				meta(name="description" content!=meta.description)
+			if meta.keywords !== null && !(Array.isArray(meta.keywords) && !meta.keywords.length)
+				meta(name="keywords" content!=(Array.isArray(meta.keywords) ? meta.keywords.join(', ') : meta.keywords))
+			if title !== null
+				title!= title
+		block links
+		block styles
+			link(rel="icon" type="image/png" href=`${baseDir}img/favicon//favicon-96x96.png` sizes="96x96")
+			link(rel="icon" type="image/svg+xml" href=`${baseDir}img/favicon//favicon.svg`)
+			link(rel="shortcut icon" href=`${baseDir}img/favicon//favicon.ico`)
+			link(rel="apple-touch-icon" sizes="180x180" href=`${baseDir}img/favicon//apple-touch-icon.png`)
+			meta(name="apple-mobile-web-app-title" content="DronMarket")
+			link(rel="manifest" href=`${baseDir}img/favicon//site.webmanifest`)
+
+			link(rel="stylesheet" href!=`${baseDir}assets/css/bootstrap-reboot.min.css`)
+			link(rel="stylesheet" href!=`${baseDir}assets/css/bootstrap-grid.min.css`)
+			link(rel="stylesheet" href!=`${baseDir}assets/css/fancybox.css`)
+			link(rel="stylesheet" href!=`${baseDir}assets/css/swiper-bundle.css`)
+			link(rel="stylesheet" href!=`${baseDir}assets/css/simplebar.min.css`)
+			link(rel="stylesheet" href!=`${baseDir}css/font.css`)
+			link(rel="stylesheet" href!=`${baseDir}css/style.css?v=${Date.now()}`)
+			//- link(rel="stylesheet" href!=`${baseDir}css/custom.css`)
+		block head-end
+	body(class=body.classList)&attributes(body.attrs)
+		block body-start
+		block content
+		block modals
+		block scriptspage
+		block scripts
+			script(src!=`${baseDir}assets/js/fancybox.umd.js`)
+			script(src!=`${baseDir}assets/js/swiper-bundle.min.js`)
+			script(src!=`${baseDir}assets/js/simplebar.min.js`)
+			script(src!=`${baseDir}assets/js/inputmask.js`)
+			script(src!=`${baseDir}assets/js/gsap.min.js`)
+			script(src!=`${baseDir}assets/js/ScrollTrigger.min.js`)
+			script(src!=`${baseDir}assets/js/ScrollToPlugin.min.js`)
+			script(src!=`${baseDir}js/app.js?v=${Date.now()}`)
+		block body-end
+
+
+

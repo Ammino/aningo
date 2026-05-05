@@ -1,0 +1,194 @@
+.mbtn {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	user-select: none;
+	text-decoration: none;
+	outline: none !important;
+	transition: all 0.3s ease;
+	border: 1px solid transparent;
+	background: transparent;
+	border-radius: 6px;
+	line-height: 1;
+	color: $cl-white;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-family: $font-secondary;
+
+	&.mbtn__middle {
+		padding: 16px 30px;
+		// min-height: 50px;
+
+		@include laptop {
+			padding: 16px 25px;
+			// min-height: 48px;
+		}
+	}
+
+	&.mbtn__small {
+		padding: 12px 25px;
+		font-size: rem(15);
+		min-height: 42px;
+
+		@include laptop {
+			font-size: rem(14);
+			padding: 12px 25px;
+			min-height: 36px;
+		}
+	}
+
+	&.mbtn__primary {
+		background: $cl-red;
+		color: $cl-white;
+		border-color: $cl-red;
+
+		@media (hover: hover) {
+			&:not([disabled]):hover {
+				background: $cl-red-hover;
+				border-color: $cl-red-hover;
+				color: $cl-white;
+			}
+		}
+		@media (hover: none) and (pointer: coarse) {
+			transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+			&:not([disabled]):active {
+				background: $cl-red-hover;
+				border-color: $cl-red-hover;
+				color: $cl-white;
+			}
+		}
+		&[disabled] {
+			background: $cl-red;
+			color: $cl-red-disabled;
+			border-color: $cl-red;
+			cursor: default;
+		}
+	}
+
+	&.mbtn__secondary {
+		background: $cl-grey;
+		color: $cl-white;
+		border-color: $cl-grey;
+
+		@media (hover: hover) {
+			&:not([disabled]):hover {
+				background: $cl-black;
+				border-color: $cl-black;
+				color: $cl-white;
+			}
+		}
+		@media (hover: none) and (pointer: coarse) {
+			transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+			&:not([disabled]):active {
+				background: $cl-black;
+				border-color: $cl-black;
+				color: $cl-white;
+			}
+		}
+		&[disabled] {
+			background: $cl-grey;
+			color: $cl-black-disabled;
+			border-color: $cl-grey;
+			cursor: default;
+		}
+	}
+
+	&.mbtn__grey {
+		background: $cl-black;
+		color: $cl-white;
+		border-color: $cl-black;
+
+		@media (hover: hover) {
+			&:not([disabled]):hover {
+				background: $cl-black-hover;
+				border-color: $cl-black-hover;
+				color: $cl-white;
+			}
+		}
+		@media (hover: none) and (pointer: coarse) {
+			transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+			&:not([disabled]):active {
+				background: $cl-black-hover;
+				border-color: $cl-black-hover;
+				color: $cl-white;
+			}
+		}
+		&[disabled] {
+			background: $cl-black;
+			color: $cl-black-disabled;
+			border-color: $cl-black;
+			cursor: default;
+		}
+	}
+
+	&.mbtn__white {
+		color: $cl-black;
+		background-color: $cl-white;
+		border: 1px solid $cl-border-grey;
+
+		@media (hover: hover) {
+			&:not([disabled]):hover {
+				background-color: $cl-white;
+				border: 1px solid $cl-border-grey;
+				color: $cl-red
+			}
+		}
+		@media (hover: none) and (pointer: coarse) {
+			transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+			&:not([disabled]):active {
+				background-color: $cl-white;
+				border: 1px solid $cl-border-grey;
+				color: $cl-red;
+			}
+		}
+		&[disabled] {
+			background: $cl-white;
+			color: $cl-grey;
+			border-color: $cl-border-grey;
+			cursor: default;
+		}
+
+	}
+
+	&.mbtn__bordered {
+		background-color: transparent !important;
+
+		@media (hover: hover) {
+			&:not([disabled]):hover {
+				color: inherit;
+			}
+		}
+		&[disabled] {
+			color: $cl-black-disabled;
+			cursor: default;
+		}
+
+		&.mbtn__light {
+			border-color: $cl-grey-placeholder;
+			color: $cl-black-hover;
+		}
+	}
+
+	&.mbtn__wicon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+
+		i {
+			flex: 0 0 auto;
+    		width: 20px;
+    		height: 18px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			svg, img {
+				display: block;
+				max-width: 100%;
+				max-height: 100%;
+				object-fit: contain;
+			}
+		}
+	}
+}

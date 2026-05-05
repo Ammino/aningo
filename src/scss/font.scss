@@ -1,0 +1,8 @@
+@import "helpers/mixins";
+
+@include font(Oswald,Oswald, 400, normal);
+@include font(Inter,InterRegular, 400, normal);
+@include font(Inter,InterSemiBold, 600, normal);
+@include font(Inter,InterBold, 700, normal);
+@include font(Inter,InterExtraBold, 800, normal);
+@include font(Inter,InterBlack, 900, normal);

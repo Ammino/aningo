@@ -1,0 +1,75 @@
+@mixin font($font_name, $file_name, $weight, $style: "normal") {
+	@font-face {
+		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-family: $font_name;
+		font-weight: #{$weight};
+		font-style: #{$style};
+		font-display: swap;
+	}
+}
+
+@mixin retina {
+	// stylelint-disable-next-line media-feature-name-no-vendor-prefix
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+		@content;
+	}
+}
+
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		// WebKit, Blink, Edge
+		@content;
+	}
+
+	&::-moz-placeholder {
+		// Firefox 19+
+		@content;
+	}
+
+	&:-ms-input-placeholder {
+		// Internet Explorer 10-11
+		@content;
+	}
+}
+
+
+@mixin flexBox($gap: 0, $justify: "flex-start", $algin: "center", $isColumn: false, $isInline: false) {
+	@if $isInline {
+		display: inline-flex;
+	} @else {
+		display: flex;
+	}
+	@if $isColumn {
+		flex-direction: column;
+	}
+	justify-content: #{$justify};
+	align-items: #{$algin};
+	gap: #{$gap};
+}
+
+@mixin states() {
+	&:not([disabled]):hover,
+	&:not([disabled]):focus,
+	&:not([disabled]):active {
+		@content
+	}
+
+}
+
+@mixin size($width,$height: $width) {
+	width: $width;
+	height: $height;
+}
+
+
+@function svgtodataurl($code) {
+	$escaped: str-replace($code, "\\r", "");
+	$escaped: str-replace($escaped, "\\n", "");
+	$escaped: str-replace($escaped, "'", "'");
+	$escaped: str-replace($escaped, "<", "%3C");
+	$escaped: str-replace($escaped, ">", "%3E");
+	$escaped: str-replace($escaped, "#", "%23");
+
+	@return url("data:image/svg+xml;charset=utf-8,#{$escaped}");
+}
+

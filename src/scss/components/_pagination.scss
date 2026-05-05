@@ -1,0 +1,111 @@
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0 20px;
+
+	@include laptop {
+		gap: 0 10px;
+		justify-content: space-between;
+	}
+
+	&__btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $cl-black;
+		text-decoration: none;
+		transition: all ease .3s;
+		width: 40px;
+		height: 40px;
+
+		@include laptop {
+			width: 36px;
+			height: 36px;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				color: $cl-red;
+			}
+		}
+		@media (hover: none) and (pointer: coarse) {
+			&:hover {
+				color: $cl-red;
+			}
+		}
+
+		&.disabled {
+			cursor: default;
+			color: $cl-grey;
+		}
+
+		svg, img {
+			display: block;
+			max-width: 20px;
+			max-height: 20px;
+			object-fit: contain;
+
+			@include laptop {
+				max-width: 16px;
+				max-height: 16px;
+			}
+		}
+	}
+
+	&__list {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		gap: 0 4px;
+		list-style: none;
+		padding: 0;
+
+		@include laptop {
+			gap: 0 2px;
+		}
+
+		&__btn {
+			padding: 0;
+			display: block;
+			min-width: 40px;
+			padding: 11px;
+			font-weight: 400;
+			font-size: rem(16);
+			line-height: 1;
+			color: $cl-black;
+			text-align: center;
+			border-radius: 6px;
+			text-decoration: none;
+			border: 1px solid transparent;
+			transition: all ease .3s;
+
+			@include laptop {
+				font-size: rem(14);
+				padding: 10px;
+				min-width: 36px;
+			}
+
+			@media (hover: hover) {
+				&:not(.active):not([disabled]):hover {
+					color: $cl-red;
+				}
+			}
+			@media (hover: none) and (pointer: coarse) {
+				&:not(.active):not([disabled]):hover {
+					color: $cl-red;
+				}
+			}
+
+			&.active {
+				border-color: $cl-black;
+				cursor: default;
+			}
+
+			&:disabled {
+				cursor: default;
+			}
+		}
+	}
+}

@@ -1,0 +1,81 @@
+.home-about {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    padding: 75px;
+
+	@include desktop-xl {
+        padding: 60px;
+	}
+	@include desktop {
+        padding: 50px;
+	}
+	@include laptop {
+        padding: 30px;
+	}
+	@include mobilehr {
+        padding: 20px;
+	}
+
+    &__bg {
+        position: absolute;
+        left: 0;
+        top: -20%;
+        right: 0;
+        bottom: -20%;
+        background-image: url('../img/about/bg-about.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+
+        @include laptop {
+            background-image: url('../img/about/bg-about-mobile.jpg');
+        }
+    }
+    &__body {
+        position: relative;
+        color: $cl-white;
+        z-index: 2;
+        max-width: 659px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        min-height: calc(450px - 2*75px);
+
+        @include desktop-xl {
+            min-height: calc(450px - 2*60px);
+        }
+        @include desktop {
+            min-height: calc(450px - 2*50px);
+        }
+        @include laptop {
+            min-height: calc(505px - 2*50px);
+        }
+        @include mobilehr {
+            min-height: calc(450px - 2*20px);
+        }
+    }
+    &__title {
+        margin-bottom: 10px;
+
+        span {
+            color: $cl-red;
+        }
+    }
+    &__text {
+        margin-bottom: 30px;
+    }
+    &__buttons {
+        
+        @include laptop {
+            margin-top: auto;
+
+            .mbtn {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+}

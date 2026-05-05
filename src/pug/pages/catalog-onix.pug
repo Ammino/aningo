@@ -1,0 +1,153 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: a.crumbs__link(href="home.html" target="_blank") Каталог
+				li: span оникс
+			h1.h1 оникс
+
+			.pageinside__columns.js--sidefilter-columns
+				.pageinside__columns__sidebar.d-none.d-lg-block
+					.sidefilter-btnshow.js--sidefilter-btnshow 
+						i: +svg('ic-filter')
+						span Скрыть фильтры
+						span.d-none Показать фильтры
+					
+				.pageinside__columns__body
+					.catalog__line.catalog__line__backlight
+
+						// блок подсветки  
+						.catalog__backlight
+							.catalog__backlight__label Вид с <br class="d-none d-lg-block d-xl-none"/>подсветкой
+							.catalog__backlight__body
+								label.form__radioellipse
+									input.form__radioellipse__input.js--backlight(type="checkbox" name="ACTION")
+									span.form__radioellipse__circle
+						// /блок подсветки  
+
+
+						// поиск по каталогу
+						.catalog__search
+							form.catalog__search__form(action="#")
+								input.catalog__search__input(
+									type="search" 
+									placeholder="Поиск")
+								//- button.catalog__search__submit(type="submit")
+						// /поиск
+						
+						// сортировка
+						.catalog__sort
+							.catalog__sort__item.d-lg-none
+								a.filter-btnopen.js--filter-btnopen(href="#")
+									+svg('ic-filter')
+							.catalog__sort__item
+								.nselect.nselect-wmobversion.js--nselect
+									.nselect__label.js--nselect-label(data-text="Сортировать по:") 
+										i.icon: +svg('ic-sort')
+										span.text.js--nselect-label-text Сортировать по:
+									.nselect__dropdown.nselect__dropdown__rightdropdown.js--nselect-dropdown
+										.nselect__dropdown__body.js--styled-scroll
+											ul
+												li: a.nselect__dropdown__item.js--nselect-option.default(href="#") Все
+												li: a.nselect__dropdown__item.js--nselect-option(href="#") Сначала дешевле
+												li: a.nselect__dropdown__item.js--nselect-option(href="#") Сначала дороже
+												li: a.nselect__dropdown__item.js--nselect-option(href="#") По популярности
+												li: a.nselect__dropdown__item.js--nselect-option(href="#") По новизне
+						// /сортировка
+
+				.pageinside__columns__sidebar.js--sidefilter-sidebar
+					include ../components/_sidefilter
+					
+				.pageinside__columns__body
+
+					// Результат фильтрации
+					.catalog__filterr-result
+						.catalog__filterr-result__item
+							.catalog__filterr-result__label Найдено: 351
+						.catalog__filterr-result__item
+							.catalog__filterr-result__card
+								span Пропускает свет
+								i: +svg('ic-close') 
+						.catalog__filterr-result__item
+							.catalog__filterr-result__card
+								span Камень: Кварцит
+								i: +svg('ic-close') 
+						.catalog__filterr-result__item
+							.catalog__filterr-result__card
+								span Цвет: Серый
+								i: +svg('ic-close') 
+						.catalog__filterr-result__item
+							.catalog__filterr-result__card
+								span Страна: Бразилия
+								i: +svg('ic-close') 
+						.catalog__filterr-result__item
+							.catalog__filterr-result__card
+								span Тип обработки: полированный.
+								i: +svg('ic-close') 
+						.catalog__filterr-result__item
+							button.catalog__filterr-result__clear(type="button")
+								| Сбросить фильтры
+					// /Результат фильтрации
+
+					// каталог товаров
+					.catalog-list
+						
+						- for (let i = 0; i < 5; i++)
+							// el
+							.catalog-list__item
+								+mixin__mainCard(i, m_title[i], m_price[i], m_priceold[i], m_description[i], m_storage[i])
+
+						// banner
+						.catalog-list__item.catalog-list__item__banner
+							.catalog-list__banner
+								h3.h3.catalog-list__banner__title Как выбрать камень?
+								.catalog-list__banner__text Ответьте на&nbsp;3&nbsp;вопроса, и&nbsp;мы&nbsp;подберем для вас&nbsp;камень менее чем за&nbsp;минуту
+								.catalog-list__banner__btns
+									a.mbtn.mbtn__grey.mbtn__middle(href="#") для столешницы
+									a.mbtn.mbtn__grey.mbtn__middle(href="#") для пола
+									a.mbtn.mbtn__grey.mbtn__middle(href="#") для кухни
+						// /banner
+						
+						- for (let i = 0; i < 6; i++)
+							// el
+							.catalog-list__item
+								+mixin__mainCard(i, m_title[i], m_price[i], m_priceold[i], m_description[i], m_storage[i])
+							// el
+
+					// /каталог товаров
+
+					.block__more: .row
+						.col-12
+							a.mbtn.mbtn__white.mbtn__middle.d-block.w-100(href="#") Показать еще
+						.col-12
+							include ../components/_pagination
+
+					.block__padd.block__padd__first.block__padd__nolast
+						.block__text
+							h2.h2 СЕО текст
+							p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. Elit id eget integer elementum ultricies. Semper molestie quam massa aliquam non.
+							p Felis leo faucibus proin tellus sed adipiscing morbi malesuada ipsum. Sed mauris metus faucibus pretium cras sed. Non sagittis auctor tempor a pellentesque molestie ac. Tempus montes vitae fermentum dui in. Neque facilisi viverra egestas orci aliquam pellentesque pulvinar nullam mattis. Consectetur sed felis curabitur sed adipiscing vel facilisis semper. Etiam neque nisl purus dignissim leo. Faucibus amet in habitant iaculis tortor proin quisque ac. Sem non consequat elementum eu. Aenean sollicitudin sit id malesuada ullamcorper pretium varius orci. Tortor sed semper magna convallis mauris. Interdum ullamcorper non neque diam venenatis. In malesuada a elit vulputate porttitor amet molestie.
+							p Tincidunt semper nam amet hendrerit viverra rhoncus turpis. Tellus sagittis integer aenean nullam sit cursus. Facilisis eleifend odio aliquet viverra. Tristique quam adipiscing amet in fermentum scelerisque. Euismod morbi a volutpat eleifend urna auctor ut a. Cursus sagittis vestibulum netus ornare cursus. Posuere tempus nulla non nunc mauris arcu nisl amet vitae. Velit sit tristique nibh neque. Odio commodo habitasse justo vel quis nec gravida condimentum. Enim lobortis lobortis quis enim tortor. Ipsum imperdiet ultricies sed quis ut enim. Morbi commodo augue in cursus cursus interdum proin pretium. Mauris diam dolor mattis condimentum erat aliquam bibendum. Fringilla lacus lectus arcu enim tincidunt sed venenatis cursus volutpat. Quisque non accumsan proin ornare dui risus ultricies.
+
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

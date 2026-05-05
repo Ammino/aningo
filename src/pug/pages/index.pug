@@ -1,0 +1,32 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	main.main(style="padding-top: 0;")
+		section.block__padd: .container
+			.block__text
+				.row
+					.col-12: a.header__logo: img(src=`${baseDir}img/header-logo.svg`, alt="Logo", style="width: 240px;")
+					.col-12.gy-5
+						.h4 Страницы
+						ul
+							li: a(href="home.html" target="_blank") Главная
+							li: a(href="catalog.html" target="_blank") Каталог
+							li: a(href="catalog-onix.html" target="_blank") Оникс
+							li: a(href="card.html" target="_blank") Карточка товара
+							li: a(href="card-offer.html" target="_blank") Торговое предложение
+							li: a(href="services.html" target="_blank") Услуги
+							li: a(href="portfolio.html" target="_blank") Портфолио
+							li: a(href="portfolio-card.html" target="_blank") Портфолио | Карточка проекта
+					.col-12.gy-5
+						.h4 Модальные окна
+						ul
+							li: a(href="#js--modal-recall" data-fancybox-default) Получить консультацию
+							li: a(href="#js--modal-order" data-fancybox-default) Заказать услугу
+							li: a(href="#js--modal-info" data-fancybox-default) Запрос отправлен
+							li: a(href="#js--modal-offers" data-fancybox-offers) Слайдер торгового предложения
+
+block modals
+	include ../section/modals/modals

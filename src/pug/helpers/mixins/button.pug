@@ -1,0 +1,13 @@
+mixin button(color="blue", size="m", isLink=false)
+	- var classes = ['button', `button--${color}`, `button--size--${size}`]
+	if isLink
+		a(class=classes)&attributes(attributes)
+			if block
+				block
+	else
+		button(class=classes)&attributes(attributes)
+			if block
+				block
+
+
+

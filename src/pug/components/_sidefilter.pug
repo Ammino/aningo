@@ -1,0 +1,191 @@
+.sidefilter.js--sidefilter
+	.sidefilter__wrapper
+		.sidefilter__close.js--sidefilter-close
+		
+		.sidefilter__header
+			.sidefilter__container: .row
+				.col: .catalog__filterr-result__label Найдено: 351
+				.col-auto
+					button.catalog__filterr-result__clear(type="button") Сбросить фильтры
+
+		.sidefilter__body: .sidefilter__scroll.js--styled-scroll-mob
+			.sidefilter__container
+				
+				.sidefilter__card
+					ul.sidefilter__card__radios
+						li
+							.sidefilter__card__radios__label Акция
+							.sidefilter__card__radios__body
+								label.form__radioellipse
+									input.form__radioellipse__input(type="checkbox" name="ACTION" checked="checked")
+									span.form__radioellipse__circle
+						li
+							.sidefilter__card__radios__label Новинки
+							.sidefilter__card__radios__body
+								label.form__radioellipse
+									input.form__radioellipse__input(type="checkbox" name="NEW")
+									span.form__radioellipse__circle
+						li
+							.sidefilter__card__radios__label Пропускает свет
+							.sidefilter__card__radios__body
+								label.form__radioellipse
+									input.form__radioellipse__input(type="checkbox" name="BACKLIGHT")
+									span.form__radioellipse__circle
+
+				// el
+				.sidefilter__card.js--filtercard.active
+					.sidefilter__card__title.js--filtercard-title
+						span Цена, ₽
+					.sidefilter__card__slide.js--filtercard-slide: .sidefilter__card__slide__body
+						.sidefilter__prices
+							.sidefilter__prices__item
+								label.sidefilter__price
+									input.sidefilter__price__input.js--filterrange-from(
+										type="text" 
+										name="PRICE_FROM" 
+										placeholder="От")
+									span.sidefilter__price__text От
+						
+							.sidefilter__prices__item
+								label.sidefilter__price
+									input.sidefilter__price__input.js--filterrange-to(
+										type="text" 
+										name="PRICE_TO" 
+										placeholder="До")
+									span.sidefilter__price__text До
+
+							.sidefilter__prices__item.item3
+								.sidefilter__range.js--filterrange(
+									data-min="0" 
+									data-max="300000" 
+									data-step="1")
+									input.sidefilter__range__input.js--filterrange-min(
+										type="range" 
+										aria-label="Цена от")
+									input.sidefilter__range__input.js--filterrange-max(
+										type="range" 
+										aria-label="Цена до")
+				// /el
+
+				// el
+				.sidefilter__card.js--filtercard
+					.sidefilter__card__title.js--filtercard-title 
+						span Камень
+					.sidefilter__card__slide.js--filtercard-slide: .sidefilter__card__slide__body
+						ul.sidefilter__list.js--filterlist
+							- for (let i = 0; i < 10; i++)
+								- var name = `Камень ${i + 1}`
+								li
+									label.form-checkbox
+										input.form-checkbox__input(type="checkbox" name="STONE" value="1")
+										span.form-checkbox__text 
+											span=name
+											span.form-checkbox__count 10
+							li.js--filterlist-footer.d-none
+								a.sidefilter__list__more.js--filterlist-more(href="#") 
+									span.default Показать все
+									span.active Свернуть
+				// /el
+
+				// el
+				.sidefilter__card.js--filtercard
+					.sidefilter__card__title.js--filtercard-title 
+						span Цвет
+					.sidefilter__card__slide.js--filtercard-slide: .sidefilter__card__slide__body
+						ul.sidefilter__list.js--filterlist
+							- for (let i = 0; i < 10; i++)
+								- var name = `Цвет ${i + 1}`
+								- var color = `#${Math.floor(Math.random()*16777215).toString(16).padStart(6, '0')}`
+								li
+									label.form-checkbox.form-checkbox__withcolor
+										input.form-checkbox__input(type="checkbox" name="STONE" value="1")
+										span.form-checkbox__text 
+											span.form-checkbox__color(style=`background-color: ${color};`)
+											span=name
+											span.form-checkbox__count 10
+							li.js--filterlist-footer.d-none
+								a.sidefilter__list__more.js--filterlist-more(href="#") 
+									span.default Показать все
+									span.active Свернуть
+				// /el
+
+				// el
+				.sidefilter__card.js--filtercard
+					.sidefilter__card__title.js--filtercard-title 
+						span Страна
+					.sidefilter__card__slide.js--filtercard-slide: .sidefilter__card__slide__body
+						ul.sidefilter__list.js--filterlist
+							- for (let i = 0; i < 10; i++)
+								- var name = `Страна ${i + 1}`
+								li
+									label.form-checkbox
+										input.form-checkbox__input(type="checkbox" name="STONE" value="1")
+										span.form-checkbox__text 
+											span=name
+											span.form-checkbox__count 10
+							li.js--filterlist-footer.d-none
+								a.sidefilter__list__more.js--filterlist-more(href="#") 
+									span.default Показать все
+									span.active Свернуть
+				// /el
+
+				// el
+				.sidefilter__card.js--filtercard
+					.sidefilter__card__title.js--filtercard-title 
+						span Тип обработки
+						.infohint
+							.infohint__label: img(src=`${baseDir}img/icons/ic-infohint.svg` alt="")
+							.infohint__dropdown
+								.infohint__dropdown__body
+									| Вся красота камня определяется его обработкой, если камень будет полированным то в нем больше видно цветов и оттенков, а если тот же камень будет в обработке термо, то на нем будут видны только главные узоры
+					.sidefilter__card__slide.js--filtercard-slide: .sidefilter__card__slide__body
+						ul.sidefilter__list.js--filterlist
+							- for (let i = 0; i < 10; i++)
+								- var name = `Обработка ${i + 1}`
+								li
+									label.form-checkbox
+										input.form-checkbox__input(type="checkbox" name="STONE" value="1")
+										span.form-checkbox__text 
+											span=name
+											span.form-checkbox__count 10
+							li.js--filterlist-footer.d-none
+								a.sidefilter__list__more.js--filterlist-more(href="#") 
+									span.default Показать все
+									span.active Свернуть
+				// /el
+
+				// el
+				.sidefilter__card.js--filtercard
+					.sidefilter__card__title.js--filtercard-title 
+						span Производитель
+					.sidefilter__card__slide.js--filtercard-slide: .sidefilter__card__slide__body
+						ul.sidefilter__list.js--filterlist
+							- for (let i = 0; i < 10; i++)
+								- var name = `Производитель ${i + 1}`
+								li
+									label.form-checkbox
+										input.form-checkbox__input(type="checkbox" name="STONE" value="1")
+										span.form-checkbox__text 
+											span=name
+											span.form-checkbox__count 10
+				// /el
+
+				// el
+				.sidefilter__card.js--filtercard
+					.sidefilter__card__title.js--filtercard-title 
+						span Тип
+					.sidefilter__card__slide.js--filtercard-slide: .sidefilter__card__slide__body
+						ul.sidefilter__list.js--filterlist
+							- for (let i = 0; i < 10; i++)
+								- var name = `Тип ${i + 1}`
+								li
+									label.form-checkbox
+										input.form-checkbox__input(type="checkbox" name="STONE" value="1")
+										span.form-checkbox__text 
+											span=name
+											span.form-checkbox__count 10
+				// /el
+
+		.sidefilter__footer
+			.sidefilter__container
+				button.mbtn.mbtn__grey.mbtn__middle(type="button") Все фильтры

@@ -1,0 +1,114 @@
+header.header.js--nheader.js--setpadd
+	.container
+		.header__tolline
+			.header__logo
+				a.header__logo__link(href="/")
+					img(src=`${baseDir}img/header-logo.svg`, alt="logo")
+			.header__nav.js--mobilemenu
+				.header__nav__wrapper
+					.header__nav__body
+						.header__nav__container
+							ul.header__nav__list
+								li.header__nav__list__item
+									a.header__nav__link(href="#") Каталог камня
+								li.header__nav__list__item
+									a.header__nav__link(href="#") Портфолио
+								li.header__nav__list__item
+									a.header__nav__link(href="#") Калькулятор
+								li.header__nav__list__item
+									a.header__nav__link(href="#") Stream 24/7
+								li.header__nav__list__item
+									.header__nav__else: +svg('ic-dotts')
+									.header__nav__popup
+										.header__nav__popup__body: ul
+											li: a(href="#") Услуги
+											li: a(href="#") Изделия из камня
+											li: a(href="#") Композиции из слэбов
+											li: a(href="#") О компании
+											li: a(href="#") Доставка и оплата
+											li: a(href="#") Для бизнеса
+											li: a(href="#") Дизайнерам
+											li: a(href="#") Блог
+											li: a(href="#") Контакты
+					.header__nav__footer
+						.header__nav__container
+							div: a.header__mobilephone(href="tel:88007700106")
+								| 8 800 770 01 06
+							div: a.mbtn.mbtn__primary.mbtn__middle.d-block.w-100(href="#") Оставить заявку
+							div: .header__socials
+								.header__socials__item: a.header__socials__card(href="#" target="_blank")
+									include ../../../img/icons/ic-telegram.svg
+								.header__socials__item: a.header__socials__card(href="#" target="_blank")
+									include ../../../img/icons/ic-max.svg
+								.header__socials__item: a.header__socials__card(href="#" target="_blank")
+									include ../../../img/icons/ic-youtube.svg
+								.header__socials__item: a.header__socials__card(href="#" target="_blank")
+									include ../../../img/icons/ic-youtube-shorts.svg
+								.header__socials__item: a.header__socials__card(href="#" target="_blank")
+									include ../../../img/icons/ic-rutube.svg
+								.header__socials__item: a.header__socials__card(href="#" target="_blank")
+									include ../../../img/icons/ic-instagram.svg
+								.header__socials__item: a.header__socials__card(href="#" target="_blank")
+									include ../../../img/icons/ic-vk.svg
+								.header__socials__item: a.header__socials__card(href="#" target="_blank")
+									include ../../../img/icons/ic-yandex-rythm.svg
+
+			.header__contacts
+				.header__contacts__item
+					a.header__contacts__phone(href="tel:88007700106")
+						| 8 800 770 01 06
+				.header__contacts__item
+					a.header__contacts__callback(href="#js--modal-recall" data-fancybox-default)
+						| Заказать консультацию
+			.header__controls
+				.header__controls__item
+					.header__search
+						.header__search__btnopen.js--search-btnopen: +svg('ic-search')
+				.header__controls__item
+					a.header__cart(href="#")
+						span.header__cart__icon: +svg('ic-cart')
+						span.header__cart__body
+							span.header__cart__body__price 1 000 000 ₽
+							span.header__cart__body__count 1 000 000 шт
+				.header__controls__item.d-lg-none
+					.header__mobilemenu-btnopen.js--mobilemenu-btn
+						span.line-0
+						span.line-1
+						span.line-2
+		.header__catalog__wrapper
+			.header__catalog__offset.js--sl-headercatalog-offset
+			.header__catalog__body
+				.header__catalog.swiper.js--sl-headercatalog
+					.header__catalog__nav
+						.header__catalog__nav__btn.prev.js--sl-headercatalog-prev: +svg('ic-arrow-left')
+						.header__catalog__nav__btn.next.js--sl-headercatalog-next: +svg('ic-arrow-right')
+					.swiper-wrapper
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link.accent(href="#") Акции %
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link(href="#") Новинки
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link(href="#") гранит
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link(href="#") мрамор
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link(href="#") кварцит
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link(href="#") оникс
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link(href="#") травертин
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link(href="#") сланец
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link(href="#") слэбы
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link(href="#") плитка
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link(href="#") полосы
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link(href="#") ступени
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link(href="#") столешницы
+						.header__catalog__item.swiper-slide
+							a.header__catalog__link(href="#") подоконники
+

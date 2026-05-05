@@ -1,0 +1,323 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		// welcome
+		section.navpages__wrapper: .container
+			.navpages
+				.invitebanner.js--videoonhover-wrapper
+					.invitebanner__bg
+						video.js--videoonhover(poster=`${baseDir}img/catalog/bg-invitebanner-0.jpg`, muted, loop)
+							source(src=`${baseDir}img/catalog/bg-invitebanner-0.mp4`)
+					.invitebanner__body
+						h1.h1.invitebanner__title 
+							span Натуральный камень 
+							| от&nbsp;производителя
+						.invitebanner__text Lorem ipsum dolor sit amet consectetur. Sed sit amet arcu nulla ornare aliquam eleifend. Ornare enim et aliquet facilisis pellentesque arcu. Lorem ipsum dolor sit amet consectetur. Sed sit amet arcu nulla ornare aliquam eleifend. Ornare enim et aliquet facilisis pellentesque arcu. 
+						.invitebanner__buttons
+							a.mbtn.mbtn__primary.mbtn__middle(href="#") Получить консультацию
+				// nav catalog
+				// el
+				a.navpages__card(href="#")
+					span Каталог камня
+					i: img(src=`${baseDir}img/catalog/img-section-catalog-0.png`, alt="")
+				// /el
+				// el
+				a.navpages__card(href="#")
+					span Услуги
+					i: img(src=`${baseDir}img/catalog/img-section-catalog-1.png`, alt="")
+				// /el
+		// /welcome
+
+		// лидеры продаж
+		section.block__padd: .container
+			.block__title: .row.align-items-center
+				.col: h1.h1 Лидеры продаж
+				.col-auto.d-none.d-lg-block: a.mbtn.mbtn__grey.mbtn__wicon.mbtn__middle(href="#") 
+					span Смотреть все
+					i: +svg('ic-arrow-right')
+
+			.maincatalog
+				- for (let i = 0; i < 6; i++)
+					// el
+					.maincatalog__item
+						+mixin__mainCard(i, m_title[i], m_price[i], m_priceold[i], m_description[i], m_storage[i])
+					// /el
+
+				.block__more.d-lg-none
+					a.mbtn.mbtn__grey.mbtn__wicon.mbtn__middle(href="#") 
+						span Смотреть все
+						i: +svg('ic-arrow-right')
+
+				.invitecalculate
+					a.invitecalculate__link(href="#") 
+					.invitecalculate__bg.js--bgparallax(data-parallax="120")
+						img(src=`${baseDir}img/catalog/img-invitecalculate-bg.jpg`, alt="")
+					.invitecalculate__marker 
+						i: +svg('ic-calculate')
+						span Калькулятор
+					.invitecalculate__content
+						.invitecalculate__content__body
+							h2.h2.invitecalculate__title Просчитать стоимость
+							.invitecalculate__text Для вашего удобства мы создали калькулятор столешниц и&nbsp;подоконников. Если же вам нужно другое изделие из&nbsp;камня, просто свяжитесь с&nbsp;нами, чтобы узнать его&nbsp;стоимость.
+						.invitecalculate__content__side
+							.invitecalculate__btn 
+								+svg('ic-arrow-right')
+
+		// /лидеры продаж
+
+		// наши проекты
+		section.block__padd.home-projects: .container
+			.block__title: .row.align-items-center
+				.col: h1.h1 Наши проекты
+				.col-auto.d-none.d-lg-block: a.mbtn.mbtn__grey.mbtn__wicon.mbtn__middle(href="#") 
+					span Смотреть все
+					i: +svg('ic-arrow-right')
+
+			.projects
+				.projects__offset.js--sl-projects-offset
+				.projects__body
+					.projects__slider.swiper.js--sl-projects
+						.swiper-wrapper
+							- var projects = [{ marker: 'Гостиницы и рестораны', name: 'GRAND HOTEL ANAPA' }, { marker: 'Благоустройство ЖК', name: 'ЖК «Седьмой Континент»' }, { marker: 'Частные дома', name: 'Коттедж в г. Краснодаре' }]
+							
+							mixin projectSlide(project, index)
+								// el
+								.projects__slider__item.swiper-slide
+									a.projects__slider__card(href="#")
+										span.projects__slider__card__image
+											img(src=`${baseDir}img/projects/img-project-${index}.png`, alt="")
+										span.projects__slider__card__body
+											span.projects__slider__card__title
+												span.projects__slider__card__title__marker=project.marker
+												span.projects__slider__card__title__name=project.name
+								// /el
+							
+							- for (let index = 0; index < projects.length; index++)
+								- var project = projects[index]
+								+projectSlide(project, index)
+							- for (let index = 0; index < projects.length; index++)
+								- var project = projects[index]
+								+projectSlide(project, index)
+
+				.block__more.d-lg-none
+					a.mbtn.mbtn__grey.mbtn__wicon.mbtn__middle(href="#") 
+						span Смотреть все
+						i: +svg('ic-arrow-right')
+
+		// /наши проекты
+
+		// акции
+		section.block__padd: .container
+			.block__title: .row.align-items-center
+				.col: h1.h1 Акции
+				.col-auto.d-none.d-lg-block: a.mbtn.mbtn__grey.mbtn__wicon.mbtn__middle(href="#") 
+					span Смотреть все
+					i: +svg('ic-arrow-right')
+
+			.mainactions
+				- for (let i = 0; i < 7; i++)
+					.mainactions__item(class=(i === 6 ? 'd-none d-lg-block' : ''))
+						+mixin__mainCard(i, m_title[i], m_price[i], m_priceold[i], m_description[i], m_storage[i])
+
+				.block__more.d-lg-none
+					a.mbtn.mbtn__grey.mbtn__wicon.mbtn__middle(href="#") 
+						span Смотреть все
+						i: +svg('ic-arrow-right')
+
+				.invitestream
+					a.invitestream__link(href="#") 
+					.invitestream__bg.js--bgparallax(data-parallax="120")
+						img(src=`${baseDir}img/catalog/img-invitestream-bg.jpg`, alt="")
+					.invitestream__marker 
+						i: +svg('ic-stream')
+						span Stream 24/7
+					.invitestream__content
+						.invitestream__content__body
+							h4.h4.invitestream__title Полная открытость
+							.invitestream__text Посмотрите прямую трансляцию из наших цехов, чтобы увидеть как мы обрабатываем камень
+						.invitestream__content__side
+							.invitestream__btn 
+								+svg('ic-arrow-right')
+		// /акции
+
+		// отзывы
+		section.block__padd: .container
+			.block__title: .row.align-items-center
+				.col: h1.h1 Нам доверяют
+
+			.home-reviews__slider__offset.js--sl-homerevews-offset
+			.home-reviews
+				// side
+				.home-reviews__aside.js--sl-homerevews-aside
+					.home-reviews__list
+						.home-reviews__list__item
+							.home-reviews__list__card
+								.home-reviews__list__card__header
+									span.home-reviews__list__card__header__number 5.0
+									span.home-reviews__list__card__header__star
+										img(src=`${baseDir}img/reviews/star.svg`, alt="")
+								.home-reviews__list__card__img
+									img(src=`${baseDir}img/reviews/logo-company-0.svg`, alt="")
+						.home-reviews__list__item
+							.home-reviews__list__card
+								.home-reviews__list__card__header
+									span.home-reviews__list__card__header__number 4.9
+									span.home-reviews__list__card__header__star
+										img(src=`${baseDir}img/reviews/star.svg`, alt="")
+								.home-reviews__list__card__img
+									img(src=`${baseDir}img/reviews/logo-company-1.svg`, alt="")
+						.home-reviews__list__item
+							.home-reviews__list__card
+								.home-reviews__list__card__header
+									span.home-reviews__list__card__header__number 5.0
+									span.home-reviews__list__card__header__star
+										img(src=`${baseDir}img/reviews/star.svg`, alt="")
+								.home-reviews__list__card__img
+									img(src=`${baseDir}img/reviews/logo-company-2.svg`, alt="")
+				// /side
+
+				// content
+				.home-reviews__content.js--sl-homerevews-content
+					.home-reviews__slider.swiper.js--sl-homerevews
+						.swiper-wrapper
+
+							- var reviews = [{ date: '6 августа 2025', name: 'Дмитрий Курганников', text: 'Здравствуйте, если ищете надежного исполнителя продукции из камня тогда к этим ребятам. Все на высочайшем уровне, подход к клиентам, исполнения продукции в сроки. И конечно же качество, просто не реально. Спасибо вам большое!' }, { date: '30 октября 2024', name: 'MariaA1938', text: 'Заказывали столешницу из гранита. По телефону с менеджером Гулей согласовали размеры и форму. Сделали быстро и оперативно отправили в транспортную компанию. Доставка в Санкт-Петербург \"Деловыми линиями\" прошла быстро и без приключений(товар в ТК ,по просьбе сотрудников ANINGO, упаковали в специальную упаковку) На всех этапах Гуля поддерживала связь и контролировала процессы. Отличная работа' }, { date: '6 августа 2025', name: 'Дмитрий Курганников', text: 'Здравствуйте, если ищете надежного исполнителя продукции из камня тогда к этим ребятам. Все на высочайшем уровне, подход к клиентам, исполнения продукции в сроки. И конечно же качество, просто не реально. Спасибо вам большое!' }]
+
+							mixin reviewsSlide(reviews, index)
+								// el
+								.home-reviews__slider__item.swiper-slide
+									.home-reviews__card
+										.home-reviews__card__header
+											.home-reviews__card__header__img
+												if index === 2
+													img(
+														src=`${baseDir}img/reviews/photo-user-${index}.jpg`, 
+														width="57",
+														height="57",
+														alt="")
+												else 
+													img(
+														src=`${baseDir}img/reviews/photo-user-${index}.svg`, 
+														width="57",
+														height="57",
+														alt="")
+											.home-reviews__card__header__body
+												.home-reviews__card__header__date=review.date
+												.home-reviews__card__header__name=review.name 
+												.home-reviews__card__header__side 
+													.star-result: i(style="width: 70%;")
+										.home-reviews__card__body
+											.home-reviews__card__text=review.text
+								// /el
+
+							- for (let index = 0; index < reviews.length; index++)
+								- var review = reviews[index]
+								+reviewsSlide(review, index)
+							- for (let index = 0; index < reviews.length; index++)
+								- var review = reviews[index]
+								+reviewsSlide(review, index)
+				// /content
+		// /отзывы
+
+		// home about
+		section.block__padd: .container
+			.home-about
+				.home-about__bg.js--bgparallax(data-parallax="120")
+				.home-about__body
+					h2.h2.home-about__title
+						span ANingo 
+						| - это широкий выбор камня из карьеров 
+						span со&nbsp;всего мира.
+					.home-about__text: .block__text 
+						p Наша компания специализируется на продаже и обработке натурального камня. Одним из главных преимуществ компании является ее профессионализм и опыт. Команда специалистов, которые знают все тонкости работы с этим материалом, готова помочь клиентам выбрать оптимальный вариант натурального камня и предложить лучшие решения для Ваших проектов.
+					.home-about__buttons
+						a.mbtn.mbtn__primary.mbtn__middle(href="#") узнать о нас больше
+		// /home about
+
+		// Услуги для бизнеса
+		section.block__padd.home-services: .container
+			.block__title: .row.align-items-center
+				.col: h1.h1 Услуги для бизнеса
+
+			.home-services__row.row 
+				.col-12.col-lg-6
+					.block__text
+						p Мы воплотили много масштабных проектов для таких крупных компаний как: 
+				.col-12
+					
+					.home-partners
+						.home-partners__slider.swiper.js--sl-partners
+							.swiper-wrapper
+								- for (let index = 0; index < 6; index++)
+									// el
+									.home-partners__slider__item.swiper-slide
+										.home-partners__slider__card
+											img(src=`${baseDir}img/partners/img-partner-${index}.png`, alt="")
+									// /el
+								- for (let index = 0; index < 6; index++)
+									// el
+									.home-partners__slider__item.swiper-slide
+										.home-partners__slider__card
+											img(src=`${baseDir}img/partners/img-partner-${index}.png`, alt="")
+									// /el
+				.col-12.col-lg-6
+					.block__text
+						p Lorem ipsum dolor sit amet consectetur. Porttitor vel orci eleifend lacus. Lacus dignissim viverra ullamcorper adipiscing a adipiscing a. Fusce pellentesque amet tellus sagittis condimentum pharetra. Molestie lectus aliquam commodo est ullamcorper mollis ornare. Lectus congue vitae pharetra ornare nunc mauris eleifend. Eu leo quis id id pharetra sed. Sit egestas turpis hac vestibulum enim at varius imperdiet massa. Sed et dignissim tempus hendrerit. Pellentesque aliquet mollis morbi leo viverra ornare. Nullam pharetra eu neque a scelerisque nec quis. 
+					.home-services__buttons: .row: .col-12.col-lg-auto
+						a.mbtn.mbtn__grey.mbtn__wicon.mbtn__middle(href="#") 
+							span Узнать больше
+							i: +svg('ic-arrow-right')
+				.col-12.col-lg-6.col-xl-5.offset-xl-1
+					.home-services__feedback
+						.home-services__feedback__header
+							.home-services__feedback__header__photo
+								img(src=`${baseDir}img/contacts/photo-manager.jpg`, alt="")
+							.home-services__feedback__header__body
+								.home-services__feedback__header__name Орлов Виталий
+								.home-services__feedback__header__position Проект-менеджер
+
+						.home-services__feedback__body
+							.home-services__feedback__text: .block__text
+								p Оставьте свой номер телефона и наш менеджер свяжется с вами, чтобы обсудить выгодные условия сотрудничества.
+							.home-services__feedback__form
+								form(action="#")
+									.home-services__feedback__wrapper 
+										.home-services__feedback__wrapper__item.item1
+											label.form-input
+												input.form-input__text.js--input-text.js--maskphone(
+													type="tel", 
+													name="PHONE",
+													required)
+												span.form-input__label Ваш телефон
+											// .form__info.error Текст ошибки
+										.home-services__feedback__wrapper__item.item2
+											label.form-checkbox.form-checkbox__small(for="#check-0") 
+												input.form-checkbox__input(type="checkbox" id="#check-0")
+												span.form-checkbox__text 
+													| Соглашаюсь на&nbsp;обработку 
+													a(href="#", target="_blank", rel="noopener noreferrer") персональных данных 
+													| в&nbsp;соответствии с&nbsp;
+													a(href="#", target="_blank", rel="noopener noreferrer") политикой конфиденциальности.
+										.home-services__feedback__wrapper__item.item3
+											button.mbtn.mbtn__primary.mbtn__middle.d-block.w-100(type="submit") Отправить
+		// /Услуги для бизнеса
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

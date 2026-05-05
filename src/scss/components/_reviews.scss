@@ -1,0 +1,225 @@
+.home-reviews {
+    display: grid;
+    grid-template-columns: 268px 1fr;
+    gap: 30px;
+
+    @include desktop {
+        grid-template-columns: 160px 1fr;
+    }
+    @include laptop {
+        grid-template-columns: 100%;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+
+        @include laptop {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 30px 40px;
+        }
+
+        &__card {
+            position: relative;
+
+            &__header {
+                display: flex;
+                align-items: flex-end;
+                gap: 7px;
+                margin-bottom: 10px;
+
+                @include laptop {
+                    gap: 5px;
+                    margin-bottom: 6px;
+                }
+
+                &__number {
+                    line-height: 1.2;
+                    font-size: rem(42);
+                    font-family: $font-secondary;
+                    text-transform: uppercase;
+
+                    @include laptop {
+                        font-size: 32px;
+                    }
+                }
+                &__star {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 22px;
+                    height: 22px;
+                    flex: 0 0 auto;
+                    margin-bottom: 7px;
+
+                    @include laptop {
+                        width: 17px;
+                        height: 17px;
+                        margin-bottom: 5px;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+            &__img {
+                height: 18px;
+
+                @include laptop {
+                    height: 13px;
+                }
+
+                img {
+                    display: block;
+                    height: 100%;
+                    width: auto;
+                }
+            }
+        }
+    }
+
+    &__slider {
+        position: relative;
+
+        @include laptop {
+            width: 100dvw;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &__item {
+            width: 516px;
+
+            @include laptop {
+                width: 306px;
+            }
+        }
+    }
+            
+    &__card {
+        padding: 30px;
+        background-color: $cl-white;
+        border: 1px solid $cl-border-grey;
+        width: 100%;
+        border-radius: 12px;
+        height: 100%;
+
+        @include laptop {
+            padding: 20px;
+        }
+
+        &__header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 23px;
+            margin-bottom: 20px;
+
+            @include laptop {
+                margin-bottom: 10px;
+                gap: 10px;
+            }
+
+            &__img {
+                flex: 0 0 auto;
+                width: 57px;
+                height: 57px;
+                border-radius: 50%;
+                background-color: $cl-grey-light;
+                overflow: hidden;
+                
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            &__body {
+                flex: 1 0 0;
+                width: 100%;
+                max-width: 100%;
+                display: grid;
+                grid-template-columns: 1fr auto;
+                grid-template-areas: 
+                    "date side" 
+                    "name side";
+                gap: 0 10px;
+
+                @include laptop {
+                    grid-template-columns: 100%;
+                    grid-template-areas: 
+                        "side" 
+                        "date"
+                        "name";
+                }
+            }
+            &__name {
+                font-size: rem(16);
+                font-weight: 700;
+                line-height: 1.3;
+                grid-area: name;
+
+                @include laptop {
+                    font-size: mrem(14);
+                }
+            }
+            &__date {
+                margin-bottom: 3px;
+                font-size: rem(14);
+                line-height: 1.3;
+                color: $cl-black-hover;
+                grid-area: date;
+
+                @include laptop {
+                    font-size: mrem(12);
+                    margin-bottom: 0;
+                }
+            }
+            &__side {
+                grid-area: side;
+
+                @include laptop {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        &__text {
+            line-height: 1.3;
+        }
+    }
+}
+
+.star-result {
+    width: 78px;
+    height: 14px;
+    position: relative;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: 0 0;
+
+    @include laptop {
+        width: 62px;
+        height: 11px;
+    }
+
+    i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background-image: url();
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-position: 0 0;
+        z-index: 2;
+    }
+}

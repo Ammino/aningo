@@ -1,0 +1,426 @@
+.block__padd {
+	padding: 75px 0;
+
+	@include laptop {
+		padding: 45px 0;
+	}
+
+	&:first-child,
+	&.block__padd__first {
+		padding-top: 150px;
+
+		@include laptop {
+			padding-top: 90px;
+		}
+	}
+	&:last-child,
+	&.block__padd__last {
+		padding-bottom: 150px;
+
+		@include laptop {
+			padding-bottom: 90px;
+		}
+	}
+
+	&.block__padd__nolast {
+		padding-bottom: 75px;
+
+		@include laptop {
+			padding-bottom: 45px;
+		}
+	}
+}
+
+.block__more {
+	text-align: center;
+	padding-top: 60px;
+
+	@include laptop {
+		padding-top: 30px;
+	}
+}
+
+.block__more {
+	text-align: center;
+	padding-top: 60px;
+
+	@include laptop {
+		padding-top: 30px;
+	}
+
+	.row {
+		gap: 30px 0;
+		margin: 0 -15px;
+
+		& > div {
+			padding: 0 15px;
+		}
+	}
+}
+
+.block__overflow {
+	overflow: hidden;
+}
+
+
+.block__title {
+	margin: 60px 0;
+
+	@include laptop {
+		margin: 30px 0;
+	}
+
+	.row {
+		align-items: center;
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.pageinside {
+	padding: 0 0 75px 0;
+
+	@include laptop {
+		padding: 0 0 45px 0;
+	}
+
+	&.pageinside__last {
+		padding-bottom: 150px;
+
+		@include laptop {
+			padding-bottom: 90px;
+		}
+	}
+
+	&__columns {
+		display: grid;
+		grid-template-columns: 297px 1fr;
+		gap: 30px;
+
+		@include desktop-xl {
+			grid-template-columns: 220px 1fr;
+		}
+		@include desktop {
+			grid-template-columns: 220px 1fr;
+		}
+		@include laptop {
+			grid-template-columns: 100%;
+			gap: 20px;
+
+			.pageinside__columns__sidebar.js--sidefilter-sidebar {
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 0;
+				height: 0;
+				padding: 0;
+				margin: 0;
+				overflow: visible;
+				z-index: 9999;
+			}
+		}
+
+		&.is-sidefilter-hidden {
+			.js--sidefilter-sidebar {
+				display: none;
+			}
+
+			.js--sidefilter-sidebar + .pageinside__columns__body {
+				grid-column: 1 / -1;
+			}
+		}
+	}
+
+	&__columns2 {
+		display: grid;
+		grid-template-columns: 1fr 297px;
+		gap: 30px;
+
+		@include desktop {
+			grid-template-columns: 1fr 220px;
+		}
+
+		@include laptop {
+			grid-template-columns: 100%;
+		}
+	}
+
+	&__filter {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		gap: 10px 40px;
+		margin-bottom: 55px;
+
+		@include desktop {
+			margin-bottom: 30px;
+			gap: 10px 30px;
+		}
+
+		&__link {
+			display: inline-block;
+			color: $cl-black;
+			font-size: rem(26);
+			font-family: $font-secondary;
+			line-height: 1.2;
+			text-transform: uppercase;
+			text-decoration: none;
+
+			@include desktop {
+				font-size: rem(22);
+			}
+			@include laptop {
+				font-size: rem(18);
+			}
+	
+
+			&:hover, &:focus {
+				color: $cl-red;
+			}
+
+			&.active {
+				color: $cl-red;
+			}
+		}
+	}
+}
+
+.content-columns {
+	& > .row {
+		gap: 60px 0;
+		margin: 0 -15px;
+
+		@include laptop {
+			gap: 30px 0;
+			margin: 0 -10px;
+		}
+
+		& > div {
+			padding: 0 15px;
+
+			@include laptop {
+				padding: 0 10px;
+			}
+		}
+	}
+
+	&__attation {
+		border: 1px solid $cl-border-grey;
+		background-color: $cl-white;
+		padding: 30px;
+		overflow: hidden;
+		border-radius: 12px;
+
+		@include tablet {
+			padding: 20px;
+		}
+
+		&__header {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 10px;
+			margin-bottom: 30px;
+
+			@include laptop {
+				margin-bottom: 10px;
+			}
+
+			&__icon {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex: 0 0 auto;
+				width: 24px;
+				height: 24px;
+			}
+
+			&__title {
+				flex: 1 0 0;
+				width: 100%;
+    			max-width: 100%;
+			}
+		}
+	}
+
+	&__advantageslist {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-bottom: 30px;
+
+		&__card {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			white-space: nowrap;
+			gap: 7px;
+			background-color: $cl-grey-btn;
+			color: $cl-white;
+			padding: 10px;
+			border-radius: 10px;
+			font-weight: 400;
+			line-height: 1;
+			border-radius: 6px;
+			padding: 3px 10px;
+			min-height: 32px;
+
+			@include desktop {
+				min-height: 28px;
+			}
+
+			i {
+				flex: 0 0 auto;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex: 0 0 auto;
+				width: 26px;
+				height: 26px;
+
+				@include desktop {
+					width: 22px;
+					height: 22px;
+				}
+
+				svg, img {
+					display: block;
+					max-width: 100%;
+					max-height: 100%;
+					object-fit: contain;
+				}
+			}
+			span {
+				flex: 0 0 auto;
+				width: auto;
+			}
+
+			&.style__brown {
+				background-color: #886464;
+			}
+			&.style__green {
+				background-color: #5F905A;
+			}
+			&.style__yellow {
+				background-color: #D6B844;
+			}
+			&.style__purple {
+				background-color: #9D435D;
+			}
+		}
+	}
+
+	&__properties {
+		background-color: $cl-white;
+		padding: 30px;
+		border-radius: 12px;
+		border: 1px solid $cl-border-grey;
+
+		@include tablet {
+			padding: 20px;
+		}
+
+		&__list {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			justify-content: flex-start;
+			gap: 5px;
+			line-height: 1.3;
+			margin: 0 -5px;
+
+			&__item {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 20px;
+				padding: 5px;
+				border-radius: 6px;
+				transition: background-color ease 0.3s;
+
+				&:hover {
+					background-color: $cl-background3;
+				}
+
+				span {
+					flex: 0 0 auto;
+					width: calc(50% - 10px);
+
+					&:first-child {
+						color: $cl-grey-placeholder;
+					}
+					& + span {
+						text-align: right;
+					}
+				}
+			}
+
+			&__more {
+				padding-top: 10px;
+				padding-left: 5px;
+				padding-right: 5px;
+	
+				@include laptop {
+					padding-top: 10px;
+				}
+	
+				&__link {
+					display: inline-block;
+					color: $cl-red;
+	
+					&:hover {
+						color: $cl-red-hover;
+					}
+	
+					span {
+						display: inline-block;
+						transition: all ease 0.3s;
+	
+						&.active {
+							display: none;
+						}
+						&.default {
+							display: block;
+						}
+					}
+	
+					&.active {
+						span {
+							&.active {
+								display: block;
+							}
+							&.default {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__more {
+		padding-top: 16px;
+
+		@include laptop {
+			padding-top: 10px;
+		}
+
+		a {
+			display: inline-block;
+			color: $cl-red;
+
+			&:hover {
+				color: $cl-red-hover;
+			}
+		}
+	}
+}

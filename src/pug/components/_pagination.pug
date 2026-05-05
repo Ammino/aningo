@@ -1,0 +1,18 @@
+.pagination
+
+	.pagination__item
+		a.pagination__btn.disabled(href="#"): +svg('ic-arrow-left-short')
+
+	.pagination__item
+		ul.pagination__list
+			li: a.pagination__list__btn.active(href="#") 1
+			li: a.pagination__list__btn(href="#") 2
+			li: a.pagination__list__btn(href="#") 3
+			li: a.pagination__list__btn(href="#") 4
+			li: a.pagination__list__btn(href="#") 5
+			li: a.pagination__list__btn(href="#") ...
+			li.d-none.d-lg-block: a.pagination__list__btn(href="#") 10
+			li: a.pagination__list__btn(href="#") 11
+
+	.pagination__item
+		a.pagination__btn(href="#"): +svg('ic-arrow-right-short')

@@ -1,0 +1,210 @@
+.modal {
+    display: none;
+	width: 100%;
+	max-width: 510px;
+	padding: 0;
+	flex-direction: column;
+	align-items: stretch;
+	background: none;
+	transition: all ease .3s;
+
+	&.modal__sizelg {
+		max-width: 1280px;
+
+		@include desktop-xxl {
+			max-width: 1140px;
+		}
+		@include desktop-xl {
+			max-width: 1040px;
+		}
+		@include desktop {
+			max-width: 831px;
+		}
+		@include laptop {
+			max-width: 100%;
+		}
+	}
+
+	&.modal__offers {
+		.modal__content__body {
+			padding: 0;
+
+			@include laptop {
+				padding: 50px 0 0 0;
+			}
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		height: 100%;
+
+		&__body {
+			background-color: $cl-white;
+			border-radius: 12px;
+			overflow: hidden;
+			padding: 60px;
+			position: relative;
+
+			@include laptop {
+				padding: 50px 0 0 0;
+				border-radius: 12px 12px 0 0;
+				max-height: calc(100dvh - 50px);
+				min-height: 0;
+				flex: 1 1 auto;
+			}
+
+			&__scroll {
+				max-height: 100%;
+				overflow-y: auto;
+				overflow-x: hidden;
+
+				@include laptop {
+					padding-bottom: 30px;
+				}
+			}
+		}
+		&__container {
+			@include laptop {
+				min-width: 375px;
+				margin-left: auto;
+				margin-right: auto;
+				width: 100%;
+				max-width: 728px;
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+			@include tablet {
+				max-width: 536px;
+			}
+		}
+	}
+
+	&__closemobile {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 50px;
+		cursor: pointer;
+		transition: all ease .3s;
+		z-index: 3;
+
+		@include laptop-min	{
+			display: none;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 15px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 76px;
+			height: 4px;
+			background-color: $cl-grey;
+			z-index: 2;
+		}
+		
+	}
+
+	&__close {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		right: -30px;
+		top: -30px;
+		z-index: 2;
+		cursor: pointer;
+		transition: all ease .3s;
+		color: $cl-white;
+
+		@include laptop {
+			right: 15px;
+			top: 15px;
+			color: $cl-grey-dark;
+			display: none;
+		}
+
+		&:hover {
+			color: $cl-red;
+		}
+
+		svg {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&__header {
+		margin-bottom: 30px;
+
+		&__title {
+			margin-bottom: 10px;
+		}
+		&__text {
+			color: $cl-black;
+		}
+	}
+}
+
+
+$fancy-modal-enter-y: 24px;
+$fancy-modal-exit-y: 28px;
+
+@keyframes fancy-modal-in {
+	from {
+		transform: translate3d(0, $fancy-modal-enter-y, 0);
+		opacity: 0;
+	}
+	to {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+}
+
+@keyframes fancy-modal-out {
+	from {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+	to {
+		transform: translate3d(0, $fancy-modal-exit-y, 0);
+		opacity: 0;
+	}
+}
+
+.fancybox__container.fancy-modaldefault {
+	.fancybox__content {
+		&.fancy-modal-show {
+			animation: fancy-modal-in 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+		}
+
+		&.fancy-modal-hide {
+			animation: fancy-modal-out 0.22s cubic-bezier(0.4, 0, 1, 1) both;
+		}
+	}
+
+	.fancybox__slide {
+		padding: 50px 40px;
+
+		@include laptop {
+			padding: 0;
+			align-items: stretch;
+			justify-content: flex-end;
+		}
+
+		&::after {
+			@include laptop {
+				display: none;
+			}
+		}
+	}
+
+	.fancybox__backdrop {
+		background: rgba(28,28,28,.3);
+	}
+}

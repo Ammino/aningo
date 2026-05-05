@@ -1,0 +1,66 @@
+.header-search.js--search
+    .header-search__wrapper
+        .header-search__close.js--search-close: +svg('ic-close')
+        .header-search__mobile-close.js--search-mobileclose
+        .header-search__header: .header-search__container: form.form(action="#")
+            .header-search__header__form
+                input(type="search", placeholder="Поиск")
+                button.mbtn.mbtn__primary.mbtn__middle(type="submit") Найти
+        .header-search__content.js--search-content
+            .header-search__container: .header-search__content__container.js--styled-scroll
+
+                    // блок по умолчанию при открытии поиска
+                    .header-search__default.js--search-default
+                        .header-search__default__title Быстрые ссылки
+                        ul.header-search__default__list 
+                            li: a(href="#") Гранит 
+                            li: a(href="#") Мрамор 
+                            li: a(href="#") Кварцит 
+                            li: a(href="#") Оникс 
+                            li: a(href="#") Травертин 
+                            li: a(href="#") Сланец
+                        
+                    // /блок по умолчанию при открытии поиска
+
+                    // блок если нет результатов	
+                    .header-search__noresults.js--search-noresults.d-none
+                        .block__text
+                            p К сожалению, по вашему запросу ничего не найдено. <br/>Попробуйте ввести новый запрос или посмотрите <a href="#" class="color-red">каталог товаров</a>
+                    // /блок если нет результатов
+
+                    // блок с результатами контент
+                    .header-search__resultsbody.js--search-resultsbody.d-none
+                        .header-search__columns
+                            .header-search__columns__item
+                                h4.h4 Каталог камня
+                                ul.header-search__columns__list
+                                    - for (let i = 0; i < 6; i++)
+                                        - var item = { image: `img/catalog/img-catalog-${i}.png`, title: 'ADILLA BLACK', description: 'Мрамор полированный из Италии' }
+                                        li
+                                            a.header-search__card(href="#")
+                                                span.header-search__card__image
+                                                    img(src=`${baseDir}${item.image}`, alt="")
+                                                span.header-search__card__body
+                                                    span.header-search__card__title=item.title
+                                                    span.header-search__card__des=item.description
+                                .header-search__columns__more: a(href="#") Еще 45 товаров
+                            .header-search__columns__item
+                                h4.h4 Изделия из камня
+                                ul.header-search__columns__list
+                                    - for (let i = 0; i < 6; i++)
+                                        - var item = { image: `img/catalog/img-catalog2-${i}.png`, title: 'Ступень PIETRA ARABICA', description: 'Мрамор полированный из Италии' }
+                                        li
+                                            a.header-search__card(href="#")
+                                                span.header-search__card__image
+                                                    img(src=`${baseDir}${item.image}`, alt="")
+                                                span.header-search__card__body
+                                                    span.header-search__card__title=item.title
+                                                    span.header-search__card__des=item.description
+                                .header-search__columns__more: a(href="#") Еще 45 товаров
+                    // /блок с результатами контент
+
+            // блок с результатами кнопка
+            .header-search__resultsbtn.js--search-resultsbtn.d-none
+                .header-search__container
+                    a.mbtn.mbtn__secondary.mbtn__middle.d-block.w-100(href="#") Показать все результаты
+            // /блок с результатами кнопка

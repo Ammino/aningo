@@ -1,0 +1,80 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span Портфолио
+
+			h1.h1 Портфолио
+
+			.pageinside__filter
+				a.pageinside__filter__link.active(href="#") все
+				a.pageinside__filter__link(href="#") Монтажные работы
+				a.pageinside__filter__link(href="#") Обработка камня
+				a.pageinside__filter__link(href="#") Гостиницы и рестораны
+				a.pageinside__filter__link(href="#") Благоустройство ЖК
+				a.pageinside__filter__link(href="#") Коммерческие объекты
+				a.pageinside__filter__link(href="#") Частные дома
+				a.pageinside__filter__link(href="#") Квартиры
+				a.pageinside__filter__link(href="#") Камень в интерьере
+
+			.projects-list
+				- var projects = [{ marker: 'Гостиницы и рестораны', name: 'GRAND HOTEL ANAPA' }, { marker: 'Благоустройство ЖК', name: 'ЖК «Седьмой Континент»' }, { marker: 'Частные дома', name: 'Коттедж в г. Краснодаре' }]
+			
+				mixin projectCard(project, index)
+					// el
+					.projects-list__item
+						a.projects__slider__card(href="#")
+							span.projects__slider__card__image
+								img(src=`${baseDir}img/projects/img-project-${index}.png`, alt="")
+							span.projects__slider__card__body
+								span.projects__slider__card__title
+									span.projects__slider__card__title__marker=project.marker
+									span.projects__slider__card__title__name=project.name
+					// /el
+				
+				- for (let index = 0; index < projects.length; index++)
+					- var project = projects[index]
+					+projectCard(project, index)
+
+				- for (let index = 0; index < projects.length; index++)
+					- var project = projects[index]
+					+projectCard(project, index)
+
+				- for (let index = 0; index < projects.length; index++)
+					- var project = projects[index]
+					+projectCard(project, index)
+					
+				- for (let index = 0; index < projects.length; index++)
+					- var project = projects[index]
+					+projectCard(project, index)
+
+				- for (let index = 0; index < projects.length; index++)
+					- var project = projects[index]
+					+projectCard(project, index)
+					
+			.block__more: .row
+				.col-12: a.mbtn.mbtn__white.mbtn__middle.d-block.w-100(href="#") Показать еще
+				.col-12: include ../components/_pagination
+							
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals
