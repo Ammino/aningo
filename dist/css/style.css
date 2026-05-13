@@ -83,7 +83,9 @@ svg {
 
 img {
   vertical-align: top;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 button {
@@ -156,7 +158,8 @@ button:not([disabled]):hover, button:not([disabled]):focus, button:not([disabled
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .infohint__dropdown {
   position: absolute;
@@ -235,7 +238,9 @@ button:not([disabled]):hover, button:not([disabled]):focus, button:not([disabled
   display: inline-block;
   text-align: center;
   vertical-align: middle;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   text-decoration: none;
   outline: none !important;
   transition: all 0.3s ease;
@@ -414,7 +419,8 @@ button:not([disabled]):hover, button:not([disabled]):focus, button:not([disabled
   display: block;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -723,7 +729,8 @@ button:not([disabled]):hover, button:not([disabled]):focus, button:not([disabled
 .block__text__imgs > div img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -845,7 +852,8 @@ button:not([disabled]):hover, button:not([disabled]):focus, button:not([disabled
   display: block;
   width: 100%;
   height: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   border-radius: 12px;
   overflow: hidden;
   margin: 30px 0;
@@ -929,6 +937,9 @@ form {
   .form-input__text {
     font-size: 14px;
   }
+}
+.form-input__text::-moz-placeholder {
+  color: transparent;
 }
 .form-input__text::placeholder {
   color: transparent;
@@ -1242,14 +1253,16 @@ form {
   justify-content: center;
   width: 20px;
   height: 20px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: all ease 0.3s;
 }
 .nselect__label .icon img, .nselect__label .icon svg {
   display: block;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .nselect__label .text {
   flex: 1 0 0;
@@ -1309,7 +1322,8 @@ form {
   display: block;
   max-width: 20px;
   max-height: 20px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media (max-width: 991px) {
   .block-share__label svg, .block-share__label img {
@@ -1371,7 +1385,8 @@ form {
   display: block;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .block__padd {
@@ -1690,7 +1705,8 @@ form {
   display: block;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .content-columns__advantageslist__card span {
   flex: 0 0 auto;
@@ -1862,7 +1878,8 @@ form {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   z-index: 2;
   transition: transform ease 0.5s;
 }
@@ -1898,7 +1915,8 @@ form {
 .block-navpagebottom__link__icon img, .block-navpagebottom__link__icon svg {
   max-width: 20px;
   max-height: 20px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media (max-width: 1199px) {
   .block-navpagebottom__link__icon img, .block-navpagebottom__link__icon svg {
@@ -2065,7 +2083,8 @@ form {
   display: block;
   max-width: 20px;
   max-height: 20px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media (max-width: 991px) {
   .pagination__btn svg, .pagination__btn img {
@@ -2193,7 +2212,8 @@ form {
   width: 100%;
   height: auto;
   aspect-ratio: 844/560;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   margin: 0 !important;
 }
 
@@ -2296,7 +2316,8 @@ form {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .list-downloads__card__title {
   flex: 1 0 0;
@@ -2349,7 +2370,8 @@ form {
   display: block;
   max-width: 20px;
   max-height: 20px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media (max-width: 991px) {
   .list-downloads__card__download svg, .list-downloads__card__download img {
@@ -2399,7 +2421,8 @@ form {
 .home-partners__slider__card img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .list-partners {
@@ -2443,7 +2466,8 @@ form {
 .list-partners__card img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .home-services__buttons {
@@ -2474,7 +2498,8 @@ form {
 .home-services__feedback__header__photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .home-services__feedback__header__body {
   flex: 1 0 0;
@@ -2630,7 +2655,8 @@ form {
 .projects__slider__card__image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: all ease 0.8s;
 }
 .projects__slider__card__title {
@@ -2751,7 +2777,8 @@ form {
 .home-reviews__list__card__header__star img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .home-reviews__list__card__img {
   height: 18px;
@@ -2822,7 +2849,8 @@ form {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .home-reviews__card__header__body {
   flex: 1 0 0;
@@ -3058,8 +3086,10 @@ form {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   border-radius: 12px;
 }
 .about-advantages__card {
@@ -3152,7 +3182,8 @@ form {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .for-business__blockquote__autor__body {
   flex: 1 0 0;
@@ -3355,7 +3386,8 @@ form {
   top: 23.6%;
   right: 0;
   bottom: 0;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -3364,7 +3396,8 @@ form {
 .navpages__card i img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .invitebanner {
@@ -3410,7 +3443,8 @@ form {
 .invitebanner__bg img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .invitebanner__bg video {
   position: absolute;
@@ -3418,7 +3452,8 @@ form {
   top: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .invitebanner__body {
   position: relative;
@@ -3662,7 +3697,8 @@ form {
 .listcard__picture img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .listcard__picture__backlight {
   position: absolute;
@@ -3681,7 +3717,8 @@ form {
 .listcard__picture__backlight img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   filter: blur(10px);
   transform: scale(1.1);
   transition: filter 0.45s ease, transform 0.45s ease;
@@ -3908,7 +3945,8 @@ form {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .invitecalculate__marker span {
   flex: 0 0 auto;
@@ -3974,7 +4012,8 @@ form {
   display: block;
   width: 20px;
   height: 20px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .invitecalculate__bg {
   position: absolute;
@@ -3990,7 +4029,8 @@ form {
 .invitecalculate__bg img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .invitecalculate__link {
   position: absolute;
@@ -4084,7 +4124,8 @@ form {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .invitestream__marker span {
   flex: 0 0 auto;
@@ -4150,7 +4191,8 @@ form {
   display: block;
   width: 20px;
   height: 20px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .invitestream__bg {
   position: absolute;
@@ -4166,7 +4208,8 @@ form {
 .invitestream__bg img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .invitestream__link {
   position: absolute;
@@ -4238,6 +4281,9 @@ form {
     background-size: 19px 19px;
     background-position: 15px center;
   }
+}
+.catalog__search__input::-moz-placeholder {
+  color: #8e8e8e;
 }
 .catalog__search__input::placeholder {
   color: #8e8e8e;
@@ -4324,7 +4370,8 @@ form {
   display: block;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .catalog__filterr-result__clear {
   display: inline-block;
@@ -4385,7 +4432,8 @@ form {
   display: block;
   max-width: 20px;
   max-height: 20px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .catalog-list {
@@ -4515,7 +4563,8 @@ form {
   display: block;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .sidefilter-btnshow span {
   flex: 0 0 auto;
@@ -4794,7 +4843,8 @@ form {
 }
 .sidefilter__range__input {
   -webkit-appearance: none;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   position: absolute;
   left: 0;
   top: 0;
@@ -4933,7 +4983,8 @@ form {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .list-materials__card__title {
   overflow: hidden;
@@ -5073,7 +5124,8 @@ form {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .table-offers__body {
   display: grid;
@@ -5210,7 +5262,8 @@ form {
   display: block;
   max-width: 20px;
   max-height: 20px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .slider-offers__card {
   display: grid;
@@ -5316,7 +5369,8 @@ form {
 .slider-offers__card__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .slider-offers__card .block-share__dropdown {
   top: auto;
@@ -5470,7 +5524,8 @@ form {
 .card__media__thumbs__btn svg, .card__media__thumbs__btn img {
   max-width: 20px;
   max-height: 20px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .card__media__thumbs__item {
   position: relative;
@@ -5507,7 +5562,8 @@ form {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .card__media__images {
   position: relative;
@@ -5554,7 +5610,8 @@ form {
 .card__media__images__card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .card__header {
   display: grid;
@@ -5709,7 +5766,8 @@ form {
 .slidercategory__card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform ease 0.5s;
 }
 .slidercategory__card span {
@@ -5852,7 +5910,8 @@ form {
 .cardoffer__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .cardoffer .block-share__dropdown {
   top: auto;
@@ -5978,7 +6037,8 @@ form {
 .services__sidebar__banner img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform ease 0.5s;
 }
 
@@ -6113,7 +6173,8 @@ form {
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-rows: auto auto;
   align-items: center;
-  column-gap: 14px;
+  -moz-column-gap: 14px;
+       column-gap: 14px;
   row-gap: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -6152,7 +6213,8 @@ form {
   .services__table__row {
     grid-template-columns: minmax(0, 1fr) minmax(0, 160px) auto;
     grid-template-rows: auto;
-    column-gap: 40px;
+    -moz-column-gap: 40px;
+         column-gap: 40px;
     padding-top: 20px;
     padding-bottom: 20px;
   }
@@ -6318,7 +6380,8 @@ form {
   display: block;
   width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .list-compositions__images {
   position: relative;
@@ -6410,7 +6473,8 @@ form {
 .blog__card__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform ease 0.8s;
 }
 .blog__card__line {
@@ -6605,7 +6669,8 @@ form {
   display: block;
   width: 100%;
   height: auto;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 12px;
   background-color: #fff;
   border-radius: 12px;
@@ -6831,7 +6896,8 @@ form {
 .header__nav__else svg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media (min-width: 992px) {
   .header__nav__popup {
@@ -6978,7 +7044,8 @@ form {
 .header__cart__icon svg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .header__cart__body {
   flex: 0 0 auto;
@@ -7042,7 +7109,8 @@ form {
 .header__search__btnopen svg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .header__mobilemenu-btnopen {
   position: relative;
@@ -7149,7 +7217,8 @@ form {
 .header__catalog__nav__btn svg {
   width: 25px;
   height: 15px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .header__catalog__nav__btn.prev {
   left: 0;
@@ -7266,6 +7335,9 @@ form {
     padding: 14px 116px 14px 63px;
     height: 48px;
   }
+}
+.header-search__header__form input::-moz-placeholder {
+  color: #8e8e8e;
 }
 .header-search__header__form input::placeholder {
   color: #8e8e8e;
@@ -7385,7 +7457,8 @@ form {
 .header-search__close svg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .header-search__columns {
   display: grid;
@@ -7447,7 +7520,8 @@ form {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .header-search__card__body {
   display: flex;
@@ -7540,8 +7614,10 @@ form {
   list-style: none;
   margin: 0;
   padding: 0;
-  columns: 2;
-  column-gap: 30px;
+  -moz-columns: 2;
+       columns: 2;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
 }
 @media (max-width: 1199px) {
   .footer__nav {
@@ -7550,14 +7626,17 @@ form {
 }
 @media (max-width: 767px) {
   .footer__nav {
-    columns: 1;
-    column-gap: 0;
+    -moz-columns: 1;
+         columns: 1;
+    -moz-column-gap: 0;
+         column-gap: 0;
   }
 }
 .footer__nav li {
   margin: 0;
   padding: 0;
-  break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
   margin-bottom: 15px;
 }
 .footer__nav li:last-child {
@@ -7613,7 +7692,8 @@ form {
 .footer__socio__card svg {
   height: 100%;
   width: auto;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .footer__phone {
   margin-bottom: 30px;
@@ -7785,7 +7865,8 @@ form {
 .modal__close svg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .modal__header {
   margin-bottom: 30px;
