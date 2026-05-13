@@ -1,0 +1,23 @@
+-
+	var mc_title = [
+		'Akfix 100Е Универсальный силикон. Бежевый',
+		'Akfix 510 ПУ Клей-герметик. Бежевый',
+		'Akfix 610 ПУ Экспресс клей Д4',
+		'Akfix 702 Супер клей',
+		'Akfix 705 Экспрес клей для натурального камня с активатором',
+		'Akfix 905N Нейтральный силикон. Прозрачный',
+		'Akfix 100Е Универсальный силикон. Бежевый',
+		'Akfix 510 ПУ Клей-герметик. Бежевый',
+		'Akfix 610 ПУ Экспресс клей Д4',
+		'Akfix 702 Супер клей',
+		'Akfix 705 Экспрес клей для натурального камня с активатором',
+		'Akfix 905N Нейтральный силикон. Прозрачный',
+		'Akfix 100Е Универсальный силикон. Бежевый',
+		'Akfix 510 ПУ Клей-герметик. Бежевый',
+	]
+
+mixin mixin__materialsCard(i, title)
+	a.list-materials__card(href="#")
+		span.list-materials__card__image
+			img(src=`${baseDir}img/catalog/img-materials-${i}.jpg`, alt="")
+		span.list-materials__card__title=title

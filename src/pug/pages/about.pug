@@ -1,0 +1,145 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span О компании
+			
+			.pageinside__columns2.pageinside__columns2__marginabout
+			
+				// content
+				.pageinside__columns2__content
+					.block__padd.block__padd__nofirst.block__padd__nolast
+						.block__text
+							h1 ООО «АНИНГО» — крупнейший поставщик натурального камня в&nbsp;России
+							p Наша компания специализируется на продаже и обработке натурального камня. Мы предлагаем широкий выбор камня различных пород и цветов, а также услуги по обработке камня для создания уникальных изделий. Одним из главных преимуществ компании является ее профессионализм и опыт. 
+
+							p.text-uppercase мы готовы помочь клиентам выбрать оптимальный вариант натурального камня и <span class="color-red">предложить лучшие решения</span> для Ваших проектов.
+
+			.about-advantages
+				.about-advantages__bg.js--bgparallax(data-parallax="120")
+					img(
+						src=`${baseDir}img/about/bg-about-advantages.jpg`
+						alt="ООО «АНИНГО» — крупнейший поставщик натурального камня в России")
+
+				// el
+				.about-advantages__card
+					.about-advantages__card__number 01
+					.about-advantages__card__title Камень из карьеров мирового класса
+					.about-advantages__card__text Lorem ipsum dolor sit amet consectetur. Congue pretium vitae nisl sed commodo gravida nunc non. Arcu volutpat blandit duis magna pellentesque.
+				// /el
+
+				// el
+				.about-advantages__card
+					.about-advantages__card__number 02
+					.about-advantages__card__title Знание тонкостей работы с материалом
+					.about-advantages__card__text Lorem ipsum dolor sit amet consectetur. Congue pretium vitae nisl sed commodo gravida nunc non. Arcu volutpat blandit duis magna pellentesque.
+				// /el
+
+				// el
+				.about-advantages__card
+					.about-advantages__card__number 03
+					.about-advantages__card__title Широкий выбор пород камня
+					.about-advantages__card__text Lorem ipsum dolor sit amet consectetur. Congue pretium vitae nisl sed commodo gravida nunc non. Arcu volutpat blandit duis magna pellentesque.
+				// /el
+
+				// el
+				.about-advantages__card
+					.about-advantages__card__number 04
+					.about-advantages__card__title Осуществляем комплекс работ “под ключ”
+					.about-advantages__card__text Lorem ipsum dolor sit amet consectetur. Congue pretium vitae nisl sed commodo gravida nunc non. Arcu volutpat blandit duis magna pellentesque.
+				// /el
+
+			.pageinside__columns2.pageinside__columns2__margincompositions
+			
+				// content
+				.pageinside__columns2__content
+					.block__padd.block__padd__nofirst.block__padd__nolast
+						.block__text
+							p У нас всегда в наличии: гранит, мрамор, кварцит, оникс, базальт, лабрадорит, травертин, известняк и т.д. Наша компания также предлагает услуги по созданию уникальных и долговечных изделий, таких как: столешницы, подоконники, камины, фонтаны, карнизы, балясины, балюстрады, ступени и многое другое. В производстве используются только высококачественные материалы и современное оборудование.
+							p Мы предлагаем услуги по доставке и установке изделий из натурального камня на месте заказчика. Осуществляем полный комплекс работ "под ключ". Мы гарантируем высокое качество работы и соблюдение всех сроков. Весь товар сертифицирован и имеет гарантию качества.
+				// /content
+
+		section.block__padd: .container
+			.streams
+				-
+					var st_title = [
+						'Распиловка',
+						'Магия из камня',
+						'Демонстрационная площадка',
+						'Погрузка',
+						'Распил блоков',
+					]
+					var st_text = [
+						'Здесь осуществляется распил камня.',
+						'Здесь камень обретает форму.',
+						'Здесь можно выбрать необходимый камень.',
+						'Здесь осуществляется погрузка натурального камня и изделий из него.',
+						'',
+					]
+
+				mixin mixin__streamsCard(i,title, text)
+					// el
+					.streams__card
+						.streams__card__side
+							h2.h2.streams__card__title=title
+							.streams__card__text: .block__text
+								p=text
+							.streams__card__btns: div
+								a.mbtn.mbtn__primary.mbtn__middle.mbtn__wicon(href="#") 
+									span трансляции из других цехов
+									i: +svg('ic-arrow-right')
+						.streams__card__content
+							video.streams__card__video(
+								src="blob:https://aningo.ru/507d005e-4711-417d-b5ab-7a2e8a14a11e", 
+								autoplay, 
+								muted, 
+								controls)
+					// /el
+				
+				+mixin__streamsCard('0', 'полная открытость', 'Посмотрите как мы готовим для Вас отличные изделия из натурального камня. Онлайн трансляция из цеха, где камень обретает форму.')
+
+		section.block__padd: .container
+			.pageinside__columns2.pageinside__columns2__marginmaterials
+			
+				// content
+				.pageinside__columns2__content
+					.block__text
+						h2 Надежные материалы для монтажа
+						p Все материалы, которые мы применяем при монтаже, прошли проверку временем и показали себя максимально качественно. Используя эти клеевые составы, будьте уверенны в высококачественном, надежном и долговечном результате.
+
+			.list-materials
+
+				- for (let i = 0; i < 6; i++)
+					// el
+					.list-materials__item
+						+mixin__materialsCard(i, mc_title[i])
+					// /el
+
+				- for (let i = 0; i < 5; i++)
+					// el
+					.list-materials__item
+						+mixin__materialsCard(i, mc_title[i])
+					// /el
+
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

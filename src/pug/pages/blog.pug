@@ -1,0 +1,49 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span Блог
+
+			h1.h1 Блог
+
+			.pageinside__filter
+				a.pageinside__filter__link.active(href="#") все
+				a.pageinside__filter__link(href="#") Новости
+				a.pageinside__filter__link(href="#") Проекты
+				a.pageinside__filter__link(href="#") статьи
+				a.pageinside__filter__link(href="#") Видеоблог			
+
+			.blog
+				- for (let i = 0; i < 16; i++)
+					.blog__item
+						// el
+						+blogCard(i, '06.03.2026', 'Уход и защита натурального камня от пятен')
+						// /el
+					
+			.block__more: .row
+				.col-12
+					a.mbtn.mbtn__white.mbtn__middle.d-block.w-100(href="#") Показать еще
+				.col-12
+					include ../components/_pagination
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

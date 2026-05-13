@@ -15,12 +15,32 @@ block content
 	main#main.main
 
 		section.pageinside: .container
-			+crumbsBlock()
-				li: a.crumbs__link(href="home.html" target="_blank") Главная
-				li: a.crumbs__link(href="home.html" target="_blank") Портфолио
-				li: span GRAND HOTEL ANAPA
+			.row.justify-content-center: .col-12.col-xl-9.col-xxl-8
+				+crumbsBlock()
+					li: a.crumbs__link(href="home.html" target="_blank") Главная
+					li: a.crumbs__link(href="home.html" target="_blank") Портфолио
+					li: span GRAND HOTEL ANAPA
 
-			h1.h1 GRAND HOTEL ANAPA
+				h1.h1 GRAND HOTEL ANAPA
+				.block__text
+					img(src=`${baseDir}img/projects/img-prj-text-0.jpg`, alt="")
+
+					p г. Анапа, 2020 г.
+					
+					h6 Виды выполненных работ
+
+					ul
+						li Изготовление и монтаж напольных покрытий, переполировка
+						li Изготовление и монтаж входной группы
+						li Изготовление и облицовка колонн и стен
+						li Изготовление и монтаж брусчатки
+
+					p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. Elit id eget integer elementum ultricies. Semper molestie quam massa aliquam non.
+					p Felis leo faucibus proin tellus sed adipiscing morbi malesuada ipsum. Sed mauris metus faucibus pretium cras sed. Non sagittis auctor tempor a pellentesque molestie ac. Tempus montes vitae fermentum dui in. Neque facilisi viverra egestas orci aliquam pellentesque pulvinar nullam mattis. Consectetur sed felis curabitur sed adipiscing vel facilisis semper.
+
+					img(src=`${baseDir}img/projects/img-prj-text-1.jpg`, alt="")
+					
+					img(src=`${baseDir}img/projects/img-prj-text-2.jpg`, alt="")
 
 		section.block__padd: .container
 			.block__title
@@ -39,7 +59,21 @@ block content
 								// /el	
 											
 		section.block__padd: .container
-			
+			.block-navpagebottom
+				.block-navpagebottom__item
+					a.block-navpagebottom__link(href="#")
+						span.block-navpagebottom__link__bg
+							img(src=`${baseDir}img/projects/img-project-0.png`, alt="")
+						span.block-navpagebottom__link__icon: +svg('ic-arrow-left')
+						span.block-navpagebottom__link__category Благоустройство ЖК
+						span.block-navpagebottom__link__title ЖК «Седьмой Континент»
+				.block-navpagebottom__item
+					a.block-navpagebottom__link.block-navpagebottom__link__reverse(href="#")
+						span.block-navpagebottom__link__bg
+							img(src=`${baseDir}img/projects/img-project-1.png`, alt="")
+						span.block-navpagebottom__link__icon: +svg('ic-arrow-left')
+						span.block-navpagebottom__link__category Частные дома
+						span.block-navpagebottom__link__title Коттедж в г. Краснодаре
 
 	// footer
 	include ../section/footer/footer

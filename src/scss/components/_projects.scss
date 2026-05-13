@@ -5,11 +5,46 @@
         left: 50%;
         transform: translateX(-50%);
     }
+
+	// marquee: constant speed for Swiper autoplay
+    .js--sl-projects {
+		.swiper-wrapper {
+			transition-timing-function: linear !important;
+		}
+	}
+
+	// for-business: отдельный слайдер + фильтр (не бегущая строка)
+	.js--fb-projects {
+		.projects__slider__item.swiper-slide {
+			transition:
+				opacity 0.35s ease,
+				transform 0.35s ease,
+				width 0.38s ease,
+				min-width 0.38s ease,
+				margin 0.38s ease;
+			overflow: hidden;
+		}
+
+		.projects__slider__item.swiper-slide.is-prfilter-hidden {
+			opacity: 0;
+			pointer-events: none;
+			width: 0 !important;
+			min-width: 0 !important;
+			margin-right: 0 !important;
+			transform: scale(0.96);
+		}
+	}
     &__slider {
+        height: 499px;
+
+        @include desktop {
+            height: 375px;
+        }
+
         &__item {
             width: 407px;
 
-            @include laptop {
+            @include desktop {
                 width: 306px;
             }
         }
@@ -29,7 +64,7 @@
             border-radius: 12px;
             overflow: hidden;
 
-            @include laptop {
+            @include desktop {
                 aspect-ratio: 306/375;
                 padding: 20px;
             }
@@ -94,7 +129,7 @@
                     overflow: hidden;
                     text-overflow: ellipsis;
 
-                    @include laptop {
+                    @include desktop {
                         font-size: rem(20);
                     }
                 }

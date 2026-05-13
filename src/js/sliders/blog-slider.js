@@ -1,42 +1,46 @@
 const sliderBlog = document.querySelector('.js--sl-blog');
 
-if(sliderBlog) {
-	const gallerySwiper = new Swiper(sliderBlog, {
+if (sliderBlog) {
+	const sliderBlogOffset = document.querySelector('.js--sl-blog-offset');
+
+	const leftBlog = () => {
+		if (!sliderBlogOffset) return 0;
+		return sliderBlogOffset.offsetLeft + getScrollbarWidth() / 2;
+	};
+
+	const swiperCatalog = new Swiper(sliderBlog, {
 		loop: false,
-		slidesPerView: 2,
-        slidesPerGroup: 2,
-		autoHeight: true,
+		slidesPerView: 'auto',
+		freeMode: true,
+		autoHeight: false,
+		speed: 1000,
 		spaceBetween: 10,
+		slidesOffsetBefore: leftBlog(),
+		slidesOffsetAfter: leftBlog(),
 
-        breakpoints: {
-			768: {
-				slidesPerView: 3,
-				slidesPerGroup: 3,
-				spaceBetween: 10,
+		breakpoints: {
+			992: {
+				spaceBetween: 30,
 			},
-			991: {
-				slidesPerView: 4,
-				slidesPerGroup: 4,
-				spaceBetween: 20,
-			},
-			1200: {
-				slidesPerView: 5,
-				slidesPerGroup: 5,
-				spaceBetween: 20,
-			}
 		},
+	});
 
-        // pagination: {
-		// 	el: '.js--sl-blog-pag',
-		// 	clickable: true,
-		// 	bulletClass: 'slider__pag__bullet',
-		// 	bulletActiveClass: 'active'
-		// },
+	const syncOffsets = () => {
+		const offset = leftBlog();
+		swiperCatalog.params.slidesOffsetBefore = offset;
+		swiperCatalog.params.slidesOffsetAfter = offset;
+		swiperCatalog.update();
+		if (swiperCatalog.activeIndex === 0) {
+			swiperCatalog.slideTo(0);
+		}
+	};
 
-        navigation: {
-			disabledClass: 'disabled',
-			nextEl: '.js--sl-blog-next',
-			prevEl: '.js--sl-blog-prev',
-		},
-	})
+	let syncRaf = 0;
+	const scheduleSyncOffsets = () => {
+		cancelAnimationFrame(syncRaf);
+		syncRaf = requestAnimationFrame(syncOffsets);
+	};
+
+	window.addEventListener('resize', scheduleSyncOffsets);
+	window.addEventListener('orientationchange', scheduleSyncOffsets);
 }

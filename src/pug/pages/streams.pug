@@ -1,0 +1,73 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span Stream 24/7
+
+			h1.h1 Stream 24/7
+			
+			.pageinside__columns2.pageinside__columns2__margincompositions
+			
+				// content
+				.pageinside__columns2__content
+					.block__padd.block__padd__nofirst.block__padd__nolast
+						.block__text
+							p Посмотрите как мы готовим для Вас отличные изделия из натурального камня.
+				// /content
+
+			.streams
+				-
+					var st_title = [
+						'Распиловка',
+						'Магия из камня',
+						'Демонстрационная площадка',
+						'Погрузка',
+						'Распил блоков',
+					]
+					var st_text = [
+						'Здесь осуществляется распил камня.',
+						'Здесь камень обретает форму.',
+						'Здесь можно выбрать необходимый камень.',
+						'Здесь осуществляется погрузка натурального камня и изделий из него.',
+						'',
+					]
+
+				mixin mixin__streamsCard(i,title, text)
+					// el
+					.streams__card
+						.streams__card__side
+							h2.h2.streams__card__title=title
+							.streams__card__text: .block__text
+								p=text
+						.streams__card__content
+							video.streams__card__video(
+								src="blob:https://aningo.ru/507d005e-4711-417d-b5ab-7a2e8a14a11e", 
+								autoplay, 
+								muted, 
+								controls)
+					// /el
+				
+				- for (let i = 0; i < 5; i++)
+					+mixin__streamsCard(i, st_title[i], st_text[i])
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

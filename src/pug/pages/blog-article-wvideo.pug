@@ -1,0 +1,68 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			.row.justify-content-center: .col-12.col-xl-9.col-xxl-8
+				+crumbsBlock()
+					li: a.crumbs__link(href="home.html" target="_blank") Главная
+					li: a.crumbs__link(href="blog.html" target="_blank") Блог
+					li: span Зачем делать столешницу из камня?
+
+				h1.h1 Зачем делать столешницу из камня?
+				.block__text
+
+					.block-video.js--video
+						video.block-video__player.js--video-player( 
+							poster=`${baseDir}img/blog/img-blarticle-0.jpg`)
+							source(src=`${baseDir}img/blog/video-blog-0.mp4` type='video/mp4')
+							source(src=`${baseDir}img/blog/video-blog-0.webm` type='video/webm')
+						.block-video__play.js--video-play: +svg('ic-play')
+
+					.blogarticle__line
+						.blogarticle__marker: span Видеоблог
+						.blogarticle__date 06.03.2026
+
+					p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. Elit id eget integer elementum ultricies. Semper molestie quam massa aliquam non.  
+
+					blockquote
+						p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. Elit id eget integer elementum ultricies. Semper molestie quam massa aliquam non.  
+						span John Doe
+
+					p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. Elit id eget integer elementum ultricies. Semper molestie quam massa aliquam non.  
+
+				.blogarticle__share: div
+					a.mbtn.mbtn__grey.mbtn__middle.mbtn__wicon(href="#") 
+						span Поделиться
+						i: +svg('ic-share')
+
+				.blogarticle__consultation
+					.blogarticle__consultation__body
+						h4.h4.blogarticle__consultation__title Нужна консультация специалиста?
+						.block__text
+							p Возникли вопросы? Закажите консультацию специалиста.
+					.blogarticle__consultation__side
+						a.mbtn.mbtn__primary.mbtn__middle.d-block.w-100(
+							href="#js--modal-recall" 
+							data-fancybox-default) Заказать консультацию
+
+		include ../components/_blog-slider
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

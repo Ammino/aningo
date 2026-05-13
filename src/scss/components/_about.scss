@@ -79,3 +79,257 @@
         }
     }
 }
+
+.about-advantages {
+    border-radius: 12px;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    margin: 60px 0;
+
+    @include desktop-xxl {
+        padding: 50px;
+    }
+    @include desktop-xl {
+        padding: 40px;
+    }
+    @include desktop {
+        padding: 30px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include tablet {
+        gap: 30px;
+        grid-template-columns: 1fr;
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &__bg {
+        position: absolute;
+        left: 0;
+        top: -15%;
+        right: 0;
+        bottom: -15%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba($cl-black, 0.5);
+            z-index: 2;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 12px;
+        }
+    }
+
+    &__card {
+        position: relative;
+        z-index: 3;
+        color: $cl-white;
+
+        &__number {
+            color: $cl-red;
+            font-size: rem(20);
+            line-height: 1.2;
+            font-weight: 400;
+            font-family: $font-secondary;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+
+            @include desktop {
+                font-size: rem(18);
+                margin-bottom: 5px;
+            }
+        }
+        &__title {
+            font-size: rem(20);
+            line-height: 1.2;
+            font-weight: 400;
+            font-family: $font-secondary;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+
+            @include desktop {
+                font-size: rem(18);
+            }
+        }
+        &__text {
+            line-height: 1.3;
+            font-weight: 400;
+        }
+    }
+}
+
+.for-business {
+
+    &__blockquote {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 30px;
+
+        @include desktop {
+            gap: 10px;
+        }
+
+        &__text {
+            font-weight: 400;
+            font-size: rem(20);
+            line-height: 1.5;
+            text-transform: uppercase;
+            font-family: $font-secondary;
+
+            @include desktop {
+                font-size: rem(18);
+            }
+        }
+        &__autor {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 20px;
+            max-width: 270px;
+            margin-left: auto;
+
+            &__img {
+                width: 79px;
+                height: 79px;
+                flex: 0 0 auto;
+                border-radius: 50%;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                @include desktop {
+                    width: 57px;
+                    height: 57px;
+                }
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            &__body {
+                flex: 1 0 0;
+                width: 100%;
+                max-width: 100%;                
+                overflow: hidden;
+                line-height: 1.3;
+            }
+            &__name {
+                display: block;
+            }
+            &__position {
+                display: block;
+                color: $cl-grey-dark;
+                font-size: rem(14);
+            }
+        }
+    }
+
+    &__services {
+        margin: 40px 0 60px 0;
+
+        @include desktop {
+            margin: 30px 0 60px 0;
+        }
+
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+
+            @include desktop {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @include tablet {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &__card {
+            background-color: $cl-white;
+            border: 1px solid $cl-border-grey;
+            border-radius: 12px;
+            padding: 30px;
+
+            &__number {
+                color: $cl-red;
+                font-size: rem(20);
+                line-height: 1.2;
+                font-weight: 400;
+                font-family: $font-secondary;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+
+                @include desktop {
+                    font-size: rem(18);
+                }
+            }
+            &__title {
+                font-size: rem(20);
+                line-height: 1.2;
+                font-weight: 400;
+                font-family: $font-secondary;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+
+                @include desktop {
+                    margin-bottom: 5px;
+                    font-size: rem(18);
+                }
+            }
+            &__text {
+                line-height: 1.3;
+            }
+        }
+
+        &__footer {
+            padding-top: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            @include desktop {
+                padding-top: 30px;
+            }
+
+            & > div {
+                flex: 0 0 auto;
+
+                @include laptop {
+                    flex: 1 0 0;
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}

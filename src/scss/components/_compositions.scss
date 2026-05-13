@@ -1,0 +1,143 @@
+.compositions {
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+
+    @include desktop {
+        gap: 60px;
+    }
+
+    &__title {
+        margin-bottom: 60px;
+
+        @include desktop {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.list-compositions {
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+
+    @include desktop {
+        gap: 60px;
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: minmax(0, 298px) minmax(0, 1fr);
+        gap: 30px;
+
+        @include desktop {
+            grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
+        }
+        @include laptop {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 10px;
+        }
+    }
+
+    &__side {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        @include laptop {
+            gap: 10px;
+        }
+
+        &__header {
+            &__title {
+                margin: 0;
+            }
+        }
+    }
+
+    &__label {
+        font-weight: 400;
+        font-size: rem(14);
+        line-height: 1.3;
+        color: $cl-grey-placeholder;
+
+        @include laptop {
+            font-size: rem(12);
+        }
+    }
+
+    &__media {
+        position: relative;
+    }
+    &__thumbs {
+        margin-top: 10px;
+        margin-bottom: 30px;
+
+        @include laptop {
+            margin-bottom: 10px;
+            width: 100dvw;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &__item {
+            width: 79px;
+
+            @include laptop {
+                width: 60px;
+            }
+
+            &.swiper-slide-thumb-active .list-compositions__thumbs__card {
+                border-color: $cl-black;
+            }
+        }
+        &__card {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1 / 1;
+            padding: 5px;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            background-color: $cl-white;
+            transition: all ease .3s;
+
+            @include laptop {
+                padding: 4px;
+            }
+
+            img {
+                display: block;
+                width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+    &__images {
+        position: relative;
+
+        &__item {
+            position: relative;
+            height: auto;
+        }
+        &__card {
+            position: relative;
+            width: 100%;
+            height: auto;
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    &__footer {
+        padding-top: 10px;
+    }
+}

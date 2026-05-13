@@ -1,0 +1,13 @@
+mixin blogCard(i, date, title)
+	-
+		const isVideo = Math.random() < 0.5;
+		const marker = isVideo
+			? 'Видеоблог'
+			: (Math.random() < 0.5 ? 'Статья' : 'Новости');
+	.blog__card(class=isVideo ? 'blog__card__video' : '')
+		a.blog__card__img(href="#")
+			img(src=`${baseDir}img/blog/img-blog-${i}.jpg`, alt="")
+		.blog__card__line
+			.blog__card__marker: span= marker
+			.blog__card__date= date
+		a.blog__card__title(href="#")= title

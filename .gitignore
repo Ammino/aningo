@@ -1,2 +1,6 @@
 /node_modules
+/dist
 /.idea
+# blog videos (too large for GitHub)
+src/img/blog/*.mp4
+

@@ -7,16 +7,25 @@
 	const HIDDEN_CLASS = 'd-none';
 	const COLLAPSED_CLASS = 'is-sfilter-collapsed';
 	const TRANSITION_MS = 280;
+	const FILTER_SCROLL_HEADER_GAP = 30;
 
-	const root = document.querySelector(FILTER_ROOT);
-	if (!root) return;
+	const getFilterScrollOffset = () => {
+		const header = document.querySelector('.js--nheader');
+		return (header ? header.offsetHeight : 0) + FILTER_SCROLL_HEADER_GAP;
+	};
 
-	const links = Array.from(root.querySelectorAll(LINK_SELECTOR));
-	const items = Array.from(document.querySelectorAll(ITEM_SELECTOR));
-	if (!links.length || !items.length) return;
+	const scrollPageToFilterBlock = (filterRoot) => {
+		const top =
+			filterRoot.getBoundingClientRect().top + window.scrollY - getFilterScrollOffset();
+		window.scrollTo({
+			top: Math.max(0, top),
+			behavior: 'smooth',
+		});
+	};
 
 	const parseValues = (el) => {
-		const raw = el.getAttribute('data-svalue') || '';
+		// canonical: data-svalue (like services.pug); fallback: data-sfilter (for legacy markup)
+		const raw = el.getAttribute('data-svalue') || el.getAttribute('data-sfilter') || '';
 		return raw
 			.split(/[\s,]+/)
 			.map((s) => s.trim())
@@ -70,30 +79,43 @@
 		}, TRANSITION_MS);
 	};
 
-	const applyFilter = (key) => {
-		items.forEach((item) => {
-			const vals = parseValues(item);
-			const show = key === 'all' || vals.includes(key);
-			if (show) {
-				showItem(item);
-			} else {
-				collapseItemPanel(item);
-				hideItem(item);
-			}
+	const getFilterScope = (root) =>
+		root.closest('.tabs') || root.closest('section') || root.parentElement || document;
+
+	const initFilter = (root) => {
+		const links = Array.from(root.querySelectorAll(LINK_SELECTOR));
+		const scope = getFilterScope(root);
+		const items = Array.from(scope.querySelectorAll(ITEM_SELECTOR));
+		if (!links.length || !items.length) return;
+
+		const applyFilter = (key) => {
+			items.forEach((item) => {
+				const vals = parseValues(item);
+				const show = key === 'all' || vals.includes(key);
+				if (show) {
+					showItem(item);
+				} else {
+					collapseItemPanel(item);
+					hideItem(item);
+				}
+			});
+		};
+
+		links.forEach((link) => {
+			link.addEventListener('click', (e) => {
+				e.preventDefault();
+				const key = link.getAttribute('data-sfilter') || 'all';
+				links.forEach((l) => l.classList.remove('active'));
+				link.classList.add('active');
+				applyFilter(key);
+				scrollPageToFilterBlock(root);
+			});
 		});
+
+		const activeLink = links.find((l) => l.classList.contains('active'));
+		const initialKey = activeLink ? activeLink.getAttribute('data-sfilter') || 'all' : 'all';
+		applyFilter(initialKey);
 	};
 
-	links.forEach((link) => {
-		link.addEventListener('click', (e) => {
-			e.preventDefault();
-			const key = link.getAttribute('data-sfilter') || 'all';
-			links.forEach((l) => l.classList.remove('active'));
-			link.classList.add('active');
-			applyFilter(key);
-		});
-	});
-
-	const activeLink = links.find((l) => l.classList.contains('active'));
-	const initialKey = activeLink ? activeLink.getAttribute('data-sfilter') || 'all' : 'all';
-	applyFilter(initialKey);
+	document.querySelectorAll(FILTER_ROOT).forEach((root) => initFilter(root));
 })();

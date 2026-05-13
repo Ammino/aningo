@@ -45,26 +45,7 @@
 												div: a.mbtn.mbtn__primary.mbtn__middle(href="#") Купить
 												div: a.mbtn.mbtn__grey.mbtn__middle(href="#") Подробнее
 												div
-													.block-share
-														.block-share__label: +svg('ic-share')
-														.block-share__dropdown
-															.block-share__dropdown__body
-																ul.block-share__list
-																	li: a.block-share__list__link(href="#", target="_blank")
-																		i: +svg('ic-telegram')
-																		span Telegram
-																	li: a.block-share__list__link(href="#", target="_blank")
-																		i: +svg('ic-whatsapp')
-																		span WhatsApp
-																	li: a.block-share__list__link(href="#", target="_blank")
-																		i: +svg('ic-max')
-																		span Max
-																	li: a.block-share__list__link(href="#", target="_blank")
-																		i: +svg('ic-vk')
-																		span ВКонтакте
-																	li: a.block-share__list__link(href="#", target="_blank")
-																		i: +svg('ic-link')
-																		span Копировать ссылку
+													include ./../../components/_share
 								// /el
 
 						.slider-offers__navbtn.prev.js--slider-offers-prev: +svg('ic-arrow-left-short')

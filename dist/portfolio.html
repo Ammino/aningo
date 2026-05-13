@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/swiper-bundle.css" />
     <link rel="stylesheet" href="assets/css/simplebar.min.css" />
     <link rel="stylesheet" href="css/font.css" />
-    <link rel="stylesheet" href="css/style.css?v=1777963005879" />
+    <link rel="stylesheet" href="css/style.css?v=1778647864781" />
 </head>
 
 <body><!-- header start-->
@@ -267,7 +267,7 @@
                                         <li><a class="pagination__list__btn" href="#">2</a></li>
                                         <li><a class="pagination__list__btn" href="#">3</a></li>
                                         <li><a class="pagination__list__btn" href="#">4</a></li>
-                                        <li><a class="pagination__list__btn" href="#">5</a></li>
+                                        <li class="d-none d-lg-block"><a class="pagination__list__btn" href="#">5</a></li>
                                         <li><a class="pagination__list__btn" href="#">...</a></li>
                                         <li class="d-none d-lg-block"><a class="pagination__list__btn" href="#">10</a></li>
                                         <li><a class="pagination__list__btn" href="#">11</a></li>
@@ -470,6 +470,36 @@
                 </div>
             </div>
         </div>
+    </div><!-- Модалка "Заявка на сотрудничество"-->
+    <div class="modal" id="js--modal-cooperation">
+        <div class="modal__content">
+            <div class="modal__close" data-fancybox-close="data-fancybox-close"><svg>
+                    <use href="img/icons.svg#ic-close" xlink:href="img/icons.svg#ic-close"></use>
+                </svg></div>
+            <div class="modal__closemobile"></div>
+            <div class="modal__content__body">
+                <div class="modal__content__body__scroll">
+                    <div class="modal__content__container">
+                        <div class="modal__header">
+                            <h3 class="h3 modal__header__title">заявка на сотрудничество</h3>
+                            <div class="modal__header__text">Оставьте свои контактные данные и наш менеджер свяжется с вами в ближайшее время.</div>
+                        </div>
+                        <div class="modal__body">
+                            <form class="form">
+                                <div class="form__line row">
+                                    <div class="col-12"><label class="form-input"><input class="form-input__text js--input-text" type="text" name="NAME" required="required" /><span class="form-input__label">Ваше имя</span></label><!-- .form__info.error Текст ошибки--></div>
+                                    <div class="col-12"><label class="form-input"><input class="form-input__text js--input-text js--maskphone" type="tel" name="PHONE" required="required" /><span class="form-input__label">Телефон</span></label><!-- .form__info.error Текст ошибки--></div>
+                                </div>
+                                <div class="form__line2 row">
+                                    <div class="col-12"><label class="form-checkbox form-checkbox__small" for="#check-m3"> <input class="form-checkbox__input" type="checkbox" id="#check-m3" /><span class="form-checkbox__text"> Соглашаюсь на&nbsp;обработку <a href="#" target="_blank" rel="noopener noreferrer">персональных данных </a>в&nbsp;соответствии с&nbsp;<a href="#" target="_blank" rel="noopener noreferrer">политикой конфиденциальности.</a></span></label></div>
+                                    <div class="col-12"><button class="mbtn mbtn__primary mbtn__middle d-block w-100" type="submit">Отправить</button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div><!-- Модалка "Запрос отправлен"-->
     <div class="modal" id="js--modal-info">
         <div class="modal__content">
@@ -541,6 +571,9 @@
                                                                     <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
                                                                                     <use href="img/icons.svg#ic-link" xlink:href="img/icons.svg#ic-link"></use>
                                                                                 </svg></i><span>Копировать ссылку</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-downloads" xlink:href="img/icons.svg#ic-downloads"></use>
+                                                                                </svg></i><span>Сохранить в PDF</span></a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -590,6 +623,9 @@
                                                                     <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
                                                                                     <use href="img/icons.svg#ic-link" xlink:href="img/icons.svg#ic-link"></use>
                                                                                 </svg></i><span>Копировать ссылку</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-downloads" xlink:href="img/icons.svg#ic-downloads"></use>
+                                                                                </svg></i><span>Сохранить в PDF</span></a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -639,6 +675,9 @@
                                                                     <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
                                                                                     <use href="img/icons.svg#ic-link" xlink:href="img/icons.svg#ic-link"></use>
                                                                                 </svg></i><span>Копировать ссылку</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-downloads" xlink:href="img/icons.svg#ic-downloads"></use>
+                                                                                </svg></i><span>Сохранить в PDF</span></a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -688,6 +727,9 @@
                                                                     <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
                                                                                     <use href="img/icons.svg#ic-link" xlink:href="img/icons.svg#ic-link"></use>
                                                                                 </svg></i><span>Копировать ссылку</span></a></li>
+                                                                    <li><a class="block-share__list__link" href="#" target="_blank"><i><svg>
+                                                                                    <use href="img/icons.svg#ic-downloads" xlink:href="img/icons.svg#ic-downloads"></use>
+                                                                                </svg></i><span>Сохранить в PDF</span></a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -717,7 +759,7 @@
     <script src="assets/js/gsap.min.js"></script>
     <script src="assets/js/ScrollTrigger.min.js"></script>
     <script src="assets/js/ScrollToPlugin.min.js"></script>
-    <script src="js/app.js?v=1777963005879"></script>
+    <script src="js/app.js?v=1778647864781"></script>
 </body>
 
 </html>

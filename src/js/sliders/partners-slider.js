@@ -1,11 +1,13 @@
 const sliderPartners = document.querySelector('.js--sl-partners');
 
-if (sliderPartners) {
-	const setLinearTiming = (swiper) => {
-		// Swiper uses ease by default; for marquee we need linear motion
-		if (swiper?.wrapperEl) swiper.wrapperEl.style.transitionTimingFunction = 'linear';
-	};
+function getCurrentTranslate(swiper) {
+	const t = getComputedStyle(swiper.wrapperEl).transform;
+	if (!t || t === 'none') return 0;
+	const m = new DOMMatrixReadOnly(t);
+	return swiper.isHorizontal() ? m.m41 : m.m42;
+}
 
+if (sliderPartners) {
 	let swiperPartners = new Swiper(sliderPartners, {
 		init: false,
 		loop: true,
@@ -18,18 +20,10 @@ if (sliderPartners) {
 		allowTouchMove: true,
 		grabCursor: true,
 		autoplay: {
-			delay: 0,
+			delay: 1,
 			disableOnInteraction: false,
 			waitForTransition: false,
-			pauseOnMouseEnter: true,
-		},
-		on: {
-			init(swiper) {
-				setLinearTiming(swiper);
-			},
-			resize(swiper) {
-				setLinearTiming(swiper);
-			},
+			pauseOnMouseEnter: false,
 		},
 
 		breakpoints: {
@@ -41,8 +35,25 @@ if (sliderPartners) {
 
 	swiperPartners.init();
 
-	// Re-apply linear timing after loop fixes / updates
-	setLinearTiming(swiperPartners);
-	swiperPartners.on('transitionEnd', () => setLinearTiming(swiperPartners));
-	swiperPartners.on('slideChangeTransitionEnd', () => setLinearTiming(swiperPartners));
+	sliderPartners.addEventListener('pointerenter', () => {
+		const current = getCurrentTranslate(swiperPartners);
+
+		swiperPartners.autoplay.stop();
+
+		swiperPartners.setTransition(0);
+		swiperPartners.setTranslate(current);
+
+		swiperPartners.animating = false;
+		if (typeof swiperPartners.transitionEnd === 'function') {
+			swiperPartners.transitionEnd();
+		}
+
+		swiperPartners.updateProgress();
+		swiperPartners.updateActiveIndex();
+		swiperPartners.updateSlidesClasses();
+	});
+
+	sliderPartners.addEventListener('pointerleave', () => {
+		swiperPartners.autoplay.start();
+	});
 }

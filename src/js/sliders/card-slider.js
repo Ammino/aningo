@@ -41,6 +41,11 @@ if (cardThumbsEl && cardImagesEl) {
 			nextEl: '.js--sl-card-thumbs-next',
 			prevEl: '.js--sl-card-thumbs-prev',
 		},
+		pagination: {
+			el: '.js--sl-card-images-pagination',
+			clickable: true,
+			bulletActiveClass: 'active',
+		},
 	});
 
 	let cardSliderResizeRaf = 0;

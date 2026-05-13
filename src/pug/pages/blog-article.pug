@@ -1,0 +1,92 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			.row.justify-content-center: .col-12.col-xl-9.col-xxl-8
+				+crumbsBlock()
+					li: a.crumbs__link(href="home.html" target="_blank") Главная
+					li: a.crumbs__link(href="blog.html" target="_blank") Блог
+					li: span Зачем делать столешницу из камня?
+
+				h1.h1 Зачем делать столешницу из камня?
+				.block__text
+					img(src=`${baseDir}img/blog/img-blarticle-0.jpg`, alt="")
+
+					.blogarticle__line
+						.blogarticle__marker: span Статья
+						.blogarticle__date 06.03.2026
+						
+
+					p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. Elit id eget integer elementum ultricies. Semper molestie quam massa aliquam non. <a href="#">Ссылка</a>
+					p Felis leo faucibus proin tellus sed adipiscing morbi malesuada ipsum. Sed mauris metus faucibus pretium cras sed. Non sagittis auctor tempor a pellentesque molestie ac. Tempus montes vitae fermentum dui in. Neque facilisi viverra egestas orci aliquam pellentesque pulvinar nullam mattis. Consectetur sed felis curabitur sed adipiscing vel facilisis semper. Etiam neque nisl purus dignissim leo. Faucibus amet in habitant iaculis tortor proin quisque ac. Sem non consequat elementum eu. Aenean sollicitudin sit id malesuada ullamcorper pretium varius orci. Tortor sed semper magna convallis mauris. Interdum ullamcorper non neque diam venenatis. In malesuada a elit vulputate porttitor amet molestie.
+
+					h2 подзаголовок
+
+					p Tincidunt semper nam amet hendrerit viverra rhoncus turpis. Tellus sagittis integer aenean nullam sit cursus. Facilisis eleifend odio aliquet viverra. Tristique quam adipiscing amet in fermentum scelerisque. Euismod morbi a volutpat eleifend urna auctor ut a. Cursus sagittis vestibulum netus ornare cursus. Posuere tempus nulla non nunc mauris arcu nisl amet vitae. Velit sit tristique nibh neque. Odio commodo habitasse justo vel quis nec gravida condimentum. Enim lobortis lobortis quis enim tortor. Ipsum imperdiet ultricies sed quis ut enim. Morbi commodo augue in cursus cursus interdum proin pretium. Mauris diam dolor mattis condimentum erat aliquam bibendum. Fringilla lacus lectus arcu enim tincidunt sed venenatis cursus volutpat. Quisque non accumsan proin ornare dui risus ultricies.
+
+					p Elit id eget integer elementum ultricies. Semper molestie quam massa aliquam non:
+
+					ol
+						li Felis leo faucibus proin tellus sed adipiscing morbi malesuada ipsum. 
+						li Sed mauris metus faucibus pretium cras sed. 
+						li Non sagittis auctor tempor a pellentesque molestie ac. 
+
+					.block__text__imgs
+						div: img(src=`${baseDir}img/blog/img-blarticle-1.jpg`, alt="")
+						div: img(src=`${baseDir}img/blog/img-blarticle-2.jpg`, alt="")
+
+					p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. Elit id eget integer elementum ultricies. Semper molestie quam massa aliquam non.
+					p Lorem ipsum dolor sit amet consectetur. 
+
+					ul
+						li Изготовление и монтаж напольных покрытий, переполировка
+						li Изготовление и монтаж входной группы
+						li Изготовление и облицовка колонн и стен
+						li Изготовление и монтаж брусчатки
+
+					p.text-accent Выделенный текст. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. Elit id eget integer elementum ultricies.
+
+					h3 подзаголовок
+
+					p Tincidunt semper nam amet hendrerit viverra rhoncus turpis. Tellus sagittis integer aenean nullam sit cursus. Facilisis eleifend odio aliquet viverra. Tristique quam adipiscing amet in fermentum scelerisque. Euismod morbi a volutpat eleifend urna auctor ut a. Cursus sagittis vestibulum netus ornare cursus. Posuere tempus nulla non nunc mauris arcu nisl amet vitae. 
+
+					img(src=`${baseDir}img/blog/img-blarticle-3.jpg`, alt="")
+
+					p Tincidunt semper nam amet hendrerit viverra rhoncus turpis. Tellus sagittis integer aenean nullam sit cursus. Facilisis eleifend odio aliquet viverra. Tristique quam adipiscing amet in fermentum scelerisque. Euismod morbi a volutpat eleifend urna auctor ut a. Cursus sagittis vestibulum netus ornare cursus. Posuere tempus nulla non nunc mauris arcu nisl amet vitae. 
+
+				.blogarticle__share: div
+					a.mbtn.mbtn__grey.mbtn__middle.mbtn__wicon(href="#") 
+						span Поделиться
+						i: +svg('ic-share')
+
+				.blogarticle__consultation
+					.blogarticle__consultation__body
+						h4.h4.blogarticle__consultation__title Нужна консультация специалиста?
+						.block__text
+							p Возникли вопросы? Закажите консультацию специалиста.
+					.blogarticle__consultation__side
+						a.mbtn.mbtn__primary.mbtn__middle.d-block.w-100(
+							href="#js--modal-recall" 
+							data-fancybox-default) Заказать консультацию
+
+		include ../components/_blog-slider
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

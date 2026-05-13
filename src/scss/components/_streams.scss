@@ -1,0 +1,59 @@
+.streams {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 60px;
+
+    &__card {
+        display: grid;
+        grid-template-columns: minmax(0, 407px) minmax(0, 1fr);
+        gap: 10px 30px;
+
+        @include desktop {
+            grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+        }
+        @include laptop {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        &__title {
+            @include laptop {
+                margin-bottom: 10px;
+            }
+        }
+
+        &__btns {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            padding-top: 30px;
+
+            @include laptop {
+                padding-bottom: 20px;
+            }
+
+            & > div {
+                flex: 0 0 auto;
+                width: auto;
+
+                @include laptop {
+                    width: 100%;
+                }
+            }
+        }
+
+        &__video {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+            background-color: $cl-white;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 843 / 474;
+        }
+    }
+}

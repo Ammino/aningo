@@ -1,0 +1,271 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span Композиции из слэбов
+
+			h1.h1 Композиции из слэбов
+
+			.pageinside__filter
+				a.pageinside__filter__link.active(href="#") все
+				a.pageinside__filter__link(href="#") Оникс MIELE
+				a.pageinside__filter__link(href="#") ONICE FIRE
+				a.pageinside__filter__link(href="#") ONICE GOLDEN WAVE
+				a.pageinside__filter__link(href="#") ONICE LIGHT GREEN
+				a.pageinside__filter__link(href="#") ONICE ROMANTIC BROWN
+				a.pageinside__filter__link(href="#") ONICE TERRACOTA
+				a.pageinside__filter__link(href="#") ONICE TIGER
+				a.pageinside__filter__link(href="#") ONICE TRAVER
+				a.pageinside__filter__link(href="#") ONICE VIOLA
+				a.pageinside__filter__link(href="#") ONICE WHITE FLORENCE
+				a.pageinside__filter__link(href="#") VERDE
+
+			.pageinside__columns2.pageinside__columns2__margincompositions
+			
+				// content
+				.pageinside__columns2__content
+					.block__padd.block__padd__nofirst.block__padd__nolast
+						.block__text
+							p Обратите внимание!<br/>Цвета и оттенки камня вживую могут отличаться от представленных на фото и зависят от освещенности.
+				// /content
+			
+			.compositions
+
+				.compositions__card
+					h2.h2.compositions__title Оникс MIELE
+					.list-compositions
+
+						// el
+						.list-compositions__item
+						
+							.list-compositions__side
+								.list-compositions__side__header
+									.list-compositions__label Композиция из двух слэбов
+									h3.h3.list-compositions__side__header__title 19372–20008
+								.list-compositions__side__text Размер одного слэба 2900x1400x20&nbsp;мм
+								.list-compositions__side__footer.d-none.d-lg-block
+									a.mbtn.mbtn__primary.mbtn__middle(href="#") заказать
+
+							.list-compositions__content
+								.list-compositions__label Варианты раскладки:
+								.list-compositions__media.js--sl-compositions
+									.list-compositions__thumbs__offset.js--sl-compositions-thumbs__offset
+									.list-compositions__thumbs.swiper.js--sl-compositions-thumbs
+										.swiper-wrapper
+											- for (let i = 0; i < 2; i++)
+												// el
+												.list-compositions__thumbs__item.swiper-slide
+													.list-compositions__thumbs__card
+														img(src=`${baseDir}img/compositions/img-composition-${i}.jpg`, alt="")
+												// el
+											- for (let i = 0; i < 2; i++)
+												// el
+												.list-compositions__thumbs__item.swiper-slide
+													.list-compositions__thumbs__card
+														img(src=`${baseDir}img/compositions/img-composition-${i}.jpg`, alt="")
+												// el
+											- for (let i = 0; i < 2; i++)
+												// el
+												.list-compositions__thumbs__item.swiper-slide
+													.list-compositions__thumbs__card
+														img(src=`${baseDir}img/compositions/img-composition-${i}.jpg`, alt="")
+												// el
+									.list-compositions__images.swiper.js--sl-compositions-images
+										.swiper-wrapper
+											- for (let i = 0; i < 2; i++)
+												// el
+												.list-compositions__images__item.swiper-slide
+													a.list-compositions__images__card(
+														href=`${baseDir}img/compositions/img-composition-${i}.jpg`
+														data-fancybox-default
+														data-fancybox="compositions-images-gallery-0")
+														img(src=`${baseDir}img/compositions/img-composition-${i}.jpg`, alt="")
+												// el
+											- for (let i = 0; i < 2; i++)
+												// el
+												.list-compositions__images__item.swiper-slide
+													a.list-compositions__images__card(
+														href=`${baseDir}img/compositions/img-composition-${i}.jpg`
+														data-fancybox-default
+														data-fancybox="compositions-images-gallery-0")
+														img(src=`${baseDir}img/compositions/img-composition-${i}.jpg`, alt="")
+												// el
+											- for (let i = 0; i < 2; i++)
+												// el
+												.list-compositions__images__item.swiper-slide
+													a.list-compositions__images__card(
+														href=`${baseDir}img/compositions/img-composition-${i}.jpg`
+														data-fancybox-default
+														data-fancybox="compositions-images-gallery-0")
+														img(src=`${baseDir}img/compositions/img-composition-${i}.jpg`, alt="")
+												// el
+
+									.list-compositions__footer.d-lg-none
+										a.mbtn.mbtn__primary.mbtn__middle.d-block.w-100(href="#") заказать
+								
+						// /el
+
+						// el
+						.list-compositions__item
+						
+							.list-compositions__side
+								.list-compositions__side__header
+									.list-compositions__label Композиция из двух слэбов
+									h3.h3.list-compositions__side__header__title 19373–19374
+								.list-compositions__side__text Размер одного слэба 2900x1400x20&nbsp;мм
+								.list-compositions__side__footer.d-none.d-lg-block
+									a.mbtn.mbtn__primary.mbtn__middle(href="#") заказать
+
+							.list-compositions__content
+								.list-compositions__label Варианты раскладки:
+								.list-compositions__media.js--sl-compositions
+									.list-compositions__thumbs__offset.js--sl-compositions-thumbs__offset
+									.list-compositions__thumbs.swiper.js--sl-compositions-thumbs
+										.swiper-wrapper
+											- for (let i = 0; i < 2; i++)
+												// el
+												.list-compositions__thumbs__item.swiper-slide
+													.list-compositions__thumbs__card
+														img(src=`${baseDir}img/compositions/img-composition-${i}.jpg`, alt="")
+												// el
+									.list-compositions__images.swiper.js--sl-compositions-images
+										.swiper-wrapper
+											- for (let i = 0; i < 2; i++)
+												// el
+												.list-compositions__images__item.swiper-slide
+													a.list-compositions__images__card(
+														href=`${baseDir}img/compositions/img-composition-${i}.jpg`
+														data-fancybox-default
+														data-fancybox="compositions-images-gallery-0")
+														img(src=`${baseDir}img/compositions/img-composition-${i}.jpg`, alt="")
+												// el
+
+									.list-compositions__footer.d-lg-none
+										a.mbtn.mbtn__primary.mbtn__middle.d-block.w-100(href="#") заказать
+								
+						// /el
+					
+				.compositions__card
+					h2.h2.compositions__title ONICE FIRE
+					.list-compositions
+
+						// el
+						.list-compositions__item
+						
+							.list-compositions__side
+								.list-compositions__side__header
+									.list-compositions__label Композиция из двух слэбов
+									h3.h3.list-compositions__side__header__title 19372–20008
+								.list-compositions__side__text Размер одного слэба 2900x1400x20&nbsp;мм
+								.list-compositions__side__footer.d-none.d-lg-block
+									a.mbtn.mbtn__primary.mbtn__middle(href="#") заказать
+
+							.list-compositions__content
+								.list-compositions__label Варианты раскладки:
+								.list-compositions__media.js--sl-compositions
+									.list-compositions__thumbs__offset.js--sl-compositions-thumbs__offset
+									.list-compositions__thumbs.swiper.js--sl-compositions-thumbs
+										.swiper-wrapper
+											- for (let i = 0; i < 2; i++)
+												// el
+												.list-compositions__thumbs__item.swiper-slide
+													.list-compositions__thumbs__card
+														img(src=`${baseDir}img/compositions/img-composition-${i}.jpg`, alt="")
+												// el
+									.list-compositions__images.swiper.js--sl-compositions-images
+										.swiper-wrapper
+											- for (let i = 0; i < 2; i++)
+												// el
+												.list-compositions__images__item.swiper-slide
+													a.list-compositions__images__card(
+														href=`${baseDir}img/compositions/img-composition-${i}.jpg`
+														data-fancybox-default
+														data-fancybox="compositions-images-gallery-0")
+														img(src=`${baseDir}img/compositions/img-composition-${i}.jpg`, alt="")
+												// el
+
+									.list-compositions__footer.d-lg-none
+										a.mbtn.mbtn__primary.mbtn__middle.d-block.w-100(href="#") заказать
+								
+						// /el
+
+						// el
+						.list-compositions__item
+						
+							.list-compositions__side
+								.list-compositions__side__header
+									.list-compositions__label Композиция из двух слэбов
+									h3.h3.list-compositions__side__header__title 19373–19374
+								.list-compositions__side__text Размер одного слэба 2900x1400x20&nbsp;мм
+								.list-compositions__side__footer.d-none.d-lg-block
+									a.mbtn.mbtn__primary.mbtn__middle(href="#") заказать
+
+							.list-compositions__content
+								.list-compositions__label Варианты раскладки:
+								.list-compositions__media.js--sl-compositions
+									.list-compositions__thumbs__offset.js--sl-compositions-thumbs__offset
+									.list-compositions__thumbs.swiper.js--sl-compositions-thumbs
+										.swiper-wrapper
+											- for (let i = 0; i < 2; i++)
+												// el
+												.list-compositions__thumbs__item.swiper-slide
+													.list-compositions__thumbs__card
+														img(src=`${baseDir}img/compositions/img-composition-${i}.jpg`, alt="")
+												// el
+									.list-compositions__images.swiper.js--sl-compositions-images
+										.swiper-wrapper
+											- for (let i = 0; i < 2; i++)
+												// el
+												.list-compositions__images__item.swiper-slide
+													a.list-compositions__images__card(
+														href=`${baseDir}img/compositions/img-composition-${i}.jpg`
+														data-fancybox-default
+														data-fancybox="compositions-images-gallery-0")
+														img(src=`${baseDir}img/compositions/img-composition-${i}.jpg`, alt="")
+												// el
+
+									.list-compositions__footer.d-lg-none
+										a.mbtn.mbtn__primary.mbtn__middle.d-block.w-100(href="#") заказать
+								
+						// /el
+					
+			.block__more: .row
+				.col-12
+					a.mbtn.mbtn__white.mbtn__middle.d-block.w-100(href="#") Показать еще
+				.col-12
+					include ../components/_pagination
+
+			.pageinside__columns2
+			
+				// content
+				.pageinside__columns2__content
+					.block__padd.block__padd__first.block__padd__nolast
+						.block__text
+							h2.h2 СЕО текст
+							p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. Elit id eget integer elementum ultricies. Semper molestie quam massa aliquam non.
+							p Felis leo faucibus proin tellus sed adipiscing morbi malesuada ipsum. Sed mauris metus faucibus pretium cras sed. Non sagittis auctor tempor a pellentesque molestie ac. Tempus montes vitae fermentum dui in. Neque facilisi viverra egestas orci aliquam pellentesque pulvinar nullam mattis. Consectetur sed felis curabitur sed adipiscing vel facilisis semper. Etiam neque nisl purus dignissim leo. Faucibus amet in habitant iaculis tortor proin quisque ac. Sem non consequat elementum eu. Aenean sollicitudin sit id malesuada ullamcorper pretium varius orci. Tortor sed semper magna convallis mauris. Interdum ullamcorper non neque diam venenatis. In malesuada a elit vulputate porttitor amet molestie.
+							p Tincidunt semper nam amet hendrerit viverra rhoncus turpis. Tellus sagittis integer aenean nullam sit cursus. Facilisis eleifend odio aliquet viverra. Tristique quam adipiscing amet in fermentum scelerisque. Euismod morbi a volutpat eleifend urna auctor ut a. Cursus sagittis vestibulum netus ornare cursus. Posuere tempus nulla non nunc mauris arcu nisl amet vitae. Velit sit tristique nibh neque. Odio commodo habitasse justo vel quis nec gravida condimentum. Enim lobortis lobortis quis enim tortor. Ipsum imperdiet ultricies sed quis ut enim. Morbi commodo augue in cursus cursus interdum proin pretium. Mauris diam dolor mattis condimentum erat aliquam bibendum. Fringilla lacus lectus arcu enim tincidunt sed venenatis cursus volutpat. Quisque non accumsan proin ornare dui risus ultricies.
+				// /content
+							
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

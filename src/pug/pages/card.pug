@@ -118,386 +118,217 @@ block content
 			.block__title
 				h2.h2 Товарные предложения
 
-			.tabs.js--tabs
+			.pageinside__filter.pageinside__filter__sizesmall.js--sfilter
+				a.pageinside__filter__link.js--sfilter-link.active(href="#" data-sfilter="all") все
+				a.pageinside__filter__link.js--sfilter-link(href="#" data-sfilter="sf-slab") слэбы
+				a.pageinside__filter__link.js--sfilter-link(href="#" data-sfilter="sf-tile") плитка
+				a.pageinside__filter__link.js--sfilter-link(href="#" data-sfilter="sf-strip") полосы
+				a.pageinside__filter__link.js--sfilter-link(href="#" data-sfilter="sf-step") ступени
+				a.pageinside__filter__link.js--sfilter-link(href="#" data-sfilter="sf-tile") плитка
+				a.pageinside__filter__link.js--sfilter-link(href="#" data-sfilter="sf-border") бордюры
+				a.pageinside__filter__link.js--sfilter-link(href="#" data-sfilter="sf-brick") брусчатка
 
-				ul.tabs__nav
-					li.tabs__nav__item
-						.tabs__nav__link.js--tabs-link.active(data-tab="ptab-1") слэбы
-					li.tabs__nav__item
-						.tabs__nav__link.js--tabs-link(data-tab="ptab-2") плитка
-					li.tabs__nav__item
-						.tabs__nav__link.js--tabs-link(data-tab="ptab-3") полосы
-					li.tabs__nav__item
-						.tabs__nav__link.js--tabs-link(data-tab="ptab-4") ступени
-					li.tabs__nav__item
-						.tabs__nav__link.js--tabs-link(data-tab="ptab-5") брусчатка
-					li.tabs__nav__item
-						.tabs__nav__link.js--tabs-link(data-tab="ptab-6") бордюры
+			mixin mixin__offer(i = 0)
+				.table-offers__line
 
-				.tabs__content
+						.table-offers__line__item
+							.table-offers__img
+								a.table-offers__img__wrapper(href="#js--modal-offers" data-fancybox-offers="offers-1")
+									img(src=`${baseDir}img/catalog/img-catalog3-0.png`, alt="")
 
-					mixin mixin__offer(i = 0)
-						.table-offers__line
+						.table-offers__line__item
+							.table-offers__body
 
-							.table-offers__line__item
-								.table-offers__img
-									a.table-offers__img__wrapper(href="#js--modal-offers" data-fancybox-offers="offers-1")
-										img(src=`${baseDir}img/catalog/img-catalog3-0.png`, alt="")
+								.table-offers__size
+									span.table-offers__text
+										span.table-offers__text__label Размер 
+										span 3000x1400x20 мм
 
-							.table-offers__line__item
-								.table-offers__body
+								.table-offers__article-storage
+									span.table-offers__text
+										span.table-offers__text__label Код
+										span 25037
 
-									.table-offers__size
-										span.table-offers__text
-											span.table-offers__text__label Размер 
-											span 3000x1400x20 мм
+								.table-offers__article-storage
+									span.table-offers__text
+										span.table-offers__text__label В наличии
+										span 4.2 м<sup>2</sup>
 
-									.table-offers__article-storage
-										span.table-offers__text
-											span.table-offers__text__label Код
-											span 25037
 
-									.table-offers__article-storage
-										span.table-offers__text
-											span.table-offers__text__label В наличии
-											span 4.2 м<sup>2</sup>
+						.table-offers__line__item
+							.table-offers__side
 
+								.table-offers__price-count
+									span.table-offers__text 32 000 ₽/м<sup>2</sup>
 
-							.table-offers__line__item
-								.table-offers__side
+								.table-offers__price-count
+									span.table-offers__text 134 400 ₽/шт
 
-									.table-offers__price-count
-										span.table-offers__text 32 000 ₽/м<sup>2</sup>
+								.table-offers__side__btn
+									a.mbtn.mbtn__small.mbtn__primary.mbtn__wicon(href="#") 
+										i.d-xl-none: +svg('ic-cart')
+										span.d-none.d-xl-block в корзину
+			
+			.table-offers
+				.table-offers__header
 
-									.table-offers__price-count
-										span.table-offers__text 134 400 ₽/шт
+					.table-offers__line
 
-									.table-offers__side__btn
-										a.mbtn.mbtn__small.mbtn__primary.mbtn__wicon(href="#") 
-											i.d-xl-none: +svg('ic-cart')
-											span.d-none.d-xl-block в корзину
+						.table-offers__line__item
+							.table-offers__img
+								.table-offers__label Фото
 
+						.table-offers__line__item
+							.table-offers__body
 
-					// ptab 1
-					.tabs__content__item.js--tabs-item.active#ptab-1
-						.tabs__content__item__content
+								.table-offers__size
+									.table-offers__label Размер
+
+								.table-offers__article-storage
+									.table-offers__label Код
 
-							.table-offers
-								.table-offers__header
+								.table-offers__article-storage
+									.table-offers__label В наличии
 
-									.table-offers__line
+						.table-offers__line__item
+							.table-offers__side
+
+								.table-offers__price-count
+									.table-offers__label Стоимость
+
+								.table-offers__price-count
+									.table-offers__label Стоимость за шт.
 
-										.table-offers__line__item
-											.table-offers__img
-												.table-offers__label Фото
+								.table-offers__side__btn
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-slab")
+					.table-offers__title Слэб 20 мм
+					.table-offers__content
 
-										.table-offers__line__item
-											.table-offers__body
-
-												.table-offers__size
-													.table-offers__label Размер
-
-												.table-offers__article-storage
-													.table-offers__label Код
-
-												.table-offers__article-storage
-													.table-offers__label В наличии
-
-										.table-offers__line__item
-											.table-offers__side
-
-												.table-offers__price-count
-													.table-offers__label Стоимость
-
-												.table-offers__price-count
-													.table-offers__label Стоимость за шт.
-
-												.table-offers__side__btn
-
-								// offer section
-								.table-offers__section
-									.table-offers__title Слэб 20 мм
-									.table-offers__content
-
-										- for (let i = 0; i < 3; i++)
-											+mixin__offer(i)
-								// /offer section
-
-								// offer section
-								.table-offers__section
-									.table-offers__title Слэб Jumbo
-									.table-offers__content
-										+mixin__offer(4)
-
-								// /offer section
-					// /ptab 1
-
-					// ptab 2
-					.tabs__content__item.js--tabs-item#ptab-2
-						.tabs__content__item__content
-							.table-offers
-								.table-offers__header
-
-									.table-offers__line
-
-										.table-offers__line__item
-											.table-offers__img
-												.table-offers__label Фото
-
-										.table-offers__line__item
-											.table-offers__body
-
-												.table-offers__size
-													.table-offers__label Размер
-
-												.table-offers__article-storage
-													.table-offers__label Код
-
-												.table-offers__article-storage
-													.table-offers__label В наличии
-
-										.table-offers__line__item
-											.table-offers__side
-
-												.table-offers__price-count
-													.table-offers__label Стоимость
-
-												.table-offers__price-count
-													.table-offers__label Стоимость за шт.
-
-												.table-offers__side__btn
-
-								// offer section
-								.table-offers__section
-									.table-offers__title Плитка 200x200 мм
-									.table-offers__content
-
-										- for (let i = 0; i < 3; i++)
-											+mixin__offer(i)
-								// /offer section
-
-								// offer section
-								.table-offers__section
-									.table-offers__title Плитка 400x200 мм
-									.table-offers__content
-										+mixin__offer(4)
-
-								// /offer section
-					// /ptab 2
-
-					// ptab 3
-					.tabs__content__item.js--tabs-item#ptab-3
-						.tabs__content__item__content
-							.table-offers
-								.table-offers__header
-
-									.table-offers__line
-
-										.table-offers__line__item
-											.table-offers__img
-												.table-offers__label Фото
-
-										.table-offers__line__item
-											.table-offers__body
-
-												.table-offers__size
-													.table-offers__label Размер
-
-												.table-offers__article-storage
-													.table-offers__label Код
-
-												.table-offers__article-storage
-													.table-offers__label В наличии
-
-										.table-offers__line__item
-											.table-offers__side
-
-												.table-offers__price-count
-													.table-offers__label Стоимость
-
-												.table-offers__price-count
-													.table-offers__label Стоимость за шт.
-
-												.table-offers__side__btn
-
-								// offer section
-								.table-offers__section
-									.table-offers__title Полосы 200x600 мм
-									.table-offers__content
-
-										- for (let i = 0; i < 3; i++)
-											+mixin__offer(i)
-								// /offer section
-
-								// offer section
-								.table-offers__section
-									.table-offers__title Полосы 400x800 мм
-									.table-offers__content
-										+mixin__offer(4)
-
-								// /offer section
-					// /ptab 3
-
-					// ptab 4
-					.tabs__content__item.js--tabs-item#ptab-4
-						.tabs__content__item__content
-							.table-offers
-								.table-offers__header
-
-									.table-offers__line
-
-										.table-offers__line__item
-											.table-offers__img
-												.table-offers__label Фото
-
-										.table-offers__line__item
-											.table-offers__body
-
-												.table-offers__size
-													.table-offers__label Размер
-
-												.table-offers__article-storage
-													.table-offers__label Код
-
-												.table-offers__article-storage
-													.table-offers__label В наличии
-
-										.table-offers__line__item
-											.table-offers__side
-
-												.table-offers__price-count
-													.table-offers__label Стоимость
-
-												.table-offers__price-count
-													.table-offers__label Стоимость за шт.
-
-												.table-offers__side__btn
-
-								// offer section
-								.table-offers__section
-									.table-offers__title Ступени 200x600 мм
-									.table-offers__content
-
-										- for (let i = 0; i < 3; i++)
-											+mixin__offer(i)
-								// /offer section
-
-								// offer section
-								.table-offers__section
-									.table-offers__title Ступени 400x800 мм
-									.table-offers__content
-										+mixin__offer(4)
-
-								// /offer section
-					// /ptab 4
-
-					// ptab 5
-					.tabs__content__item.js--tabs-item#ptab-5
-						.tabs__content__item__content
-							
-							.table-offers
-								.table-offers__header
-
-									.table-offers__line
-
-										.table-offers__line__item
-											.table-offers__img
-												.table-offers__label Фото
-
-										.table-offers__line__item
-											.table-offers__body
-
-												.table-offers__size
-													.table-offers__label Размер
-
-												.table-offers__article-storage
-													.table-offers__label Код
-
-												.table-offers__article-storage
-													.table-offers__label В наличии
-
-										.table-offers__line__item
-											.table-offers__side
-
-												.table-offers__price-count
-													.table-offers__label Стоимость
-
-												.table-offers__price-count
-													.table-offers__label Стоимость за шт.
-
-												.table-offers__side__btn
-
-								// offer section
-								.table-offers__section
-									.table-offers__title Брусчатка 200x600 мм
-									.table-offers__content
-
-										- for (let i = 0; i < 3; i++)
-											+mixin__offer(i)
-								// /offer section
-
-								// offer section
-								.table-offers__section
-									.table-offers__title Брусчатка 400x800 мм
-									.table-offers__content
-										+mixin__offer(4)
-
-								// /offer section
-					// /ptab 5
-
-					// ptab 6
-					.tabs__content__item.js--tabs-item#ptab-6
-						.tabs__content__item__content
-							
-							.table-offers
-								.table-offers__header
-
-									.table-offers__line
-
-										.table-offers__line__item
-											.table-offers__img
-												.table-offers__label Фото
-
-										.table-offers__line__item
-											.table-offers__body
-
-												.table-offers__size
-													.table-offers__label Размер
-
-												.table-offers__article-storage
-													.table-offers__label Код
-
-												.table-offers__article-storage
-													.table-offers__label В наличии
-
-										.table-offers__line__item
-											.table-offers__side
-
-												.table-offers__price-count
-													.table-offers__label Стоимость
-
-												.table-offers__price-count
-													.table-offers__label Стоимость за шт.
-
-												.table-offers__side__btn
-
-								// offer section
-								.table-offers__section
-									.table-offers__title Бордюры 200x600 мм
-									.table-offers__content
-
-										- for (let i = 0; i < 3; i++)
-											+mixin__offer(i)
-								// /offer section
-
-								// offer section
-								.table-offers__section
-									.table-offers__title Бордюры 400x800 мм
-									.table-offers__content
-										+mixin__offer(4)
-
-								// /offer section
-					// /ptab 6
+						- for (let i = 0; i < 3; i++)
+							+mixin__offer(i)
+
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-tile")
+					.table-offers__title Плитка 200x200 мм
+					.table-offers__content
+
+						- for (let i = 0; i < 3; i++)
+							+mixin__offer(i)
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-tile")
+					.table-offers__title Плитка 400x200 мм
+					.table-offers__content
+						+mixin__offer(4)
+
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-slab")
+					.table-offers__title Слэб 20 мм
+					.table-offers__content
+
+						- for (let i = 0; i < 3; i++)
+							+mixin__offer(i)
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-slab")
+					.table-offers__title Слэб Jumbo
+					.table-offers__content
+						+mixin__offer(4)
+
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-tile")
+					.table-offers__title Плитка 200x200 мм
+					.table-offers__content
+
+						- for (let i = 0; i < 3; i++)
+							+mixin__offer(i)
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-tile")
+					.table-offers__title Плитка 400x200 мм
+					.table-offers__content
+						+mixin__offer(4)
+
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-strip")
+					.table-offers__title Полосы 200x600 мм
+					.table-offers__content
+
+						- for (let i = 0; i < 3; i++)
+							+mixin__offer(i)
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-strip")
+					.table-offers__title Полосы 400x800 мм
+					.table-offers__content
+						+mixin__offer(4)
+
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-step")
+					.table-offers__title Ступени 200x600 мм
+					.table-offers__content
+
+						- for (let i = 0; i < 3; i++)
+							+mixin__offer(i)
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-step")
+					.table-offers__title Ступени 400x800 мм
+					.table-offers__content
+						+mixin__offer(4)
+
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-brick")
+					.table-offers__title Брусчатка 200x600 мм
+					.table-offers__content
+
+						- for (let i = 0; i < 3; i++)
+							+mixin__offer(i)
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-brick")
+					.table-offers__title Брусчатка 400x800 мм
+					.table-offers__content
+						+mixin__offer(4)
+
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-border")
+					.table-offers__title Бордюры 200x600 мм
+					.table-offers__content
+
+						- for (let i = 0; i < 3; i++)
+							+mixin__offer(i)
+				// /offer section
+
+				// offer section
+				.table-offers__section.js--sfilter-item(data-sfilter="sf-border")
+					.table-offers__title Бордюры 400x800 мм
+					.table-offers__content
+						+mixin__offer(4)
+
+				// /offer section
 
 		section.block__padd#card-description: .container
 			.block__title

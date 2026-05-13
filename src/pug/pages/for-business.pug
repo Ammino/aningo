@@ -1,0 +1,164 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span Для бизнеса
+			
+			.pageinside__columns2.pageinside__columns2__marginabout
+			
+				// content
+				.pageinside__columns2__content
+					.block__padd.block__padd__nofirst.block__padd__nolast
+						.block__text
+							h1 Мы предлагаем широкий выбор услуг для бизнеса
+							p Мы предлагаем вам широкий спектр услуг:
+			
+			.for-business__services
+				.for-business__services__list
+
+					// el
+					.for-business__services__card
+						.for-business__services__card__number 01
+						.for-business__services__card__title подбор
+						.for-business__services__card__text Профессиональное консультирование и подбор оптимального решения при выборе камня
+					// /el
+
+					// el
+					.for-business__services__card
+						.for-business__services__card__number 02
+						.for-business__services__card__title документация
+						.for-business__services__card__text Подготовка проекта и технического задания для тендера
+					// /el
+
+					// el
+					.for-business__services__card
+						.for-business__services__card__number 03
+						.for-business__services__card__title пилотные проекты
+						.for-business__services__card__text Lorem ipsum dolor sit amet consectetur. Congue pretium vitae nisl sed commodo gravida nunc non. 
+					// /el
+
+					// el
+					.for-business__services__card
+						.for-business__services__card__number 04
+						.for-business__services__card__title Обслуживание
+						.for-business__services__card__text Сервисное обслуживание после гарантийного срока (фасады, мозаичные полы, хамами и др.)
+					// /el
+
+				.for-business__services__footer: div
+					a.mbtn.mbtn__primary.mbtn__middle.d-block.w-100(
+						href="#js--modal-cooperation" 
+						data-fancybox-default) 
+							| оставить заявку на сотрудничество
+			
+			.pageinside__columns2.pageinside__columns2__margincompositions
+			
+				// content
+				.pageinside__columns2__content
+					.for-business__blockquote
+						.for-business__blockquote__text
+							| «Уважаемые клиенты! Для меня, как для менеджера, самое главное — это <span class="color-red">воплотить ваши мысли и желания в материальную и реальную действительность.</span> Понять и предложить то, что нужно именно вам. Обязательно веду весь цикл заказа от изготовления до монтажа.»
+						.for-business__blockquote__autor
+							.for-business__blockquote__autor__img
+								img(src=`${baseDir}img/contacts/photo-manager.jpg`, alt="")
+							.for-business__blockquote__autor__body
+								span.for-business__blockquote__autor__name Александр Коваль
+								span.for-business__blockquote__autor__position Генеральный директор
+
+				// /content
+
+		// partners start
+		section.block__padd: .container
+			.block__title: .row.align-items-center
+				.col-12.col-lg-9: h2.h2 Мы воплотили много масштабных проектов для таких крупных компаний как:
+
+			.list-partners
+				- for (let index = 0; index < 6; index++)
+					.list-partners__card: img(src=`${baseDir}img/partners/img-partner-${index}.png`, alt="")
+				- for (let index = 5; index >= 0; index--)
+					.list-partners__card: img(src=`${baseDir}img/partners/img-partner-${index}.png`, alt="")
+
+		// partners end
+
+		// projects start
+		section.block__padd: .container
+			.block__title: .row.align-items-center
+				.col: h2.h2 реализованные проекты
+				.col-auto.d-none.d-lg-block: a.mbtn.mbtn__primary.mbtn__wicon.mbtn__middle(href="#") 
+					span скачать референс лист в pdf
+					i: +svg('ic-arrow-right')
+
+			.pageinside__filter.js--prfilter
+				a.pageinside__filter__link.js--prfilter-link.active(href="#" data-prvalue="all") все
+				a.pageinside__filter__link.js--prfilter-link(href="#" data-prvalue="linkfilter-0") Гостиницы и рестораны
+				a.pageinside__filter__link.js--prfilter-link(href="#" data-prvalue="linkfilter-1") Благоустройство ЖК
+				a.pageinside__filter__link.js--prfilter-link(href="#" data-prvalue="linkfilter-2") Коммерческие объекты
+
+			.projects
+				.projects__offset.js--sl-projects-offset
+				.projects__body
+					.projects__slider.swiper.js--fb-projects
+						.swiper-wrapper
+							-
+								var projects = [
+									{ marker: 'Гостиницы и рестораны', name: 'GRAND HOTEL ANAPA', pr: 'linkfilter-0' },
+									{ marker: 'Благоустройство ЖК', name: 'ЖК «Седьмой Континент»', pr: 'linkfilter-1' },
+									{ marker: 'Коммерческие объекты', name: 'Бизнес-центр «Горизонт»', pr: 'linkfilter-2' },
+									{ marker: 'Гостиницы и рестораны', name: 'GRAND HOTEL ANAPA', pr: 'linkfilter-0' },
+									{ marker: 'Благоустройство ЖК', name: 'ЖК «Седьмой Континент»', pr: 'linkfilter-1' },
+									{ marker: 'Коммерческие объекты', name: 'Бизнес-центр «Горизонт»', pr: 'linkfilter-2' },
+								]
+							
+							mixin projectSlide(project, index)
+								// el
+								.projects__slider__item.swiper-slide(data-prvalue=project.pr)
+									a.projects__slider__card(href="#")
+										span.projects__slider__card__image
+											img(src=`${baseDir}img/projects/img-project-${index}.png`, alt="")
+										span.projects__slider__card__body
+											span.projects__slider__card__title
+												span.projects__slider__card__title__marker=project.marker
+												span.projects__slider__card__title__name=project.name
+								// /el
+							
+							- for (let index = 0; index < projects.length; index++)
+								- var project = projects[index]
+								+projectSlide(project, index)
+
+							- for (let index = 0; index < projects.length; index++)
+								- var project = projects[index]
+								+projectSlide(project, index)
+
+				.block__more.d-lg-none
+					a.mbtn.mbtn__primary.mbtn__wicon.mbtn__middle(href="#") 
+						span скачать референс лист в pdf
+						i: +svg('ic-arrow-right')
+
+		// projects end
+
+		// form callback start
+		section.block__padd: .container
+			
+
+		// form callback end
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals
