@@ -1,0 +1,257 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+
+	main#main.main
+
+		.container
+			h1.h1 UI‑Kit – Библиотека компонентов
+			p Страница для быстрого доступа к элементам интерфейса.
+
+		// Раздел: Типография
+		section.block__padd
+			.container
+				.block__text
+					h1 Заголовок h1
+					p Это обычный абзац текста. <strong>Выделенный текст</strong> и <em>курсив</em>. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					h2 Заголовок H2
+					p Ещё один абзац с <a href="#">ссылкой</a>. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					h3 Заголовок H3
+					p Третий уровень заголовка. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+					h4 Заголовок H4
+					p Четвёртый уровень.
+					h5 Заголовок H5
+					p Пятый уровень.
+					h6 Заголовок H6
+					p Шестой уровень.
+
+					// Картинка
+					img(
+						src=`${baseDir}img/blog/img-blarticle-0.jpg`,
+						alt="Пример изображения",)
+
+					// Маркированный список
+					ul
+						li Пункт маркированного списка 1
+						li Пункт маркированного списка 2
+						li Пункт маркированного списка 3
+							ul
+								li Вложенный пункт
+								li Ещё один вложенный
+						li Последний пункт
+
+					// Нумерованный список
+					ol
+						li Первый пункт нумерованного списка
+						li Второй пункт
+						li Третий пункт
+							ol
+								li Вложенный нумерованный
+								li Ещё вложенный
+						li Четвёртый пункт
+
+		// Раздел: Кнопки
+		section.block__padd(style="background:#f5f5f5;")
+			.container
+				h2.h2 Кнопки
+				.row.g-4
+					.col-12.col-md-6.col-lg-4
+						h3.h5 Основные кнопки
+						p
+							a.mbtn.mbtn__primary.mbtn__middle(href="#") Кнопка primary
+						p
+							a.mbtn.mbtn__secondary.mbtn__middle(href="#") Кнопка secondary
+						p
+							a.mbtn.mbtn__grey.mbtn__middle(href="#") Кнопка grey
+						p
+							a.mbtn.mbtn__white.mbtn__middle(href="#") Кнопка white
+						p
+							a.mbtn.mbtn__middle.mbtn__bordered.mbtn__primary(href="#") Кнопка primary c обводкой
+						p
+							a.mbtn.mbtn__middle.mbtn__bordered.mbtn__secondary(href="#") Кнопка secondary c обводкой
+						p
+							a.mbtn.mbtn__middle.mbtn__bordered.mbtn__grey(href="#") Кнопка grey c обводкой
+						p
+							a.mbtn.mbtn__primary.mbtn__small(href="#") Маленькая кнопка
+						p
+							a.mbtn.mbtn__secondary.mbtn__small(href="#") Маленькая secondary
+					.col-12.col-md-6.col-lg-4
+						h3.h5 Состояния
+						p
+							a.mbtn.mbtn__primary.mbtn__middle(href="#", disabled) Отключённая
+						p
+							a.mbtn.mbtn__secondary.mbtn__middle(href="#", disabled) Отключённая secondary
+						p
+							a.mbtn.mbtn__grey.mbtn__middle(href="#", disabled) Отключённая grey
+						p
+							a.mbtn.mbtn__white.mbtn__middle(href="#", disabled) Отключённая Кнопка white
+					.col-12.col-md-6.col-lg-4
+						h3.h5 Кнопки с иконками
+						p
+							a.mbtn.mbtn__primary.mbtn__wicon.mbtn__middle(href="#")
+								span С иконкой
+								i: +svg('ic-arrow-right')
+						p
+							a.mbtn.mbtn__secondary.mbtn__wicon.mbtn__middle(href="#")
+								i: +svg('ic-arrow-left')
+								span С иконкой слева
+						p
+							a.mbtn.mbtn__grey.mbtn__wicon.mbtn__small(href="#")
+								span Маленькая с иконкой
+								i: +svg('ic-check')
+
+		// Раздел: Элементы формы
+		section.block__padd
+			.container
+				h2.h2 Элементы формы
+				.row
+					.col-12.col-lg-6
+						h3.h5 Текстовые поля
+						.form: .row.form__line
+							.col-12
+								label.form-input
+									input.form-input__text.js--input-text(
+										type="text",
+										placeholder="",
+										id="input1")
+									span.form-input__label Обычное поле
+							.col-12
+								label.form-input
+									input.form-input__text.js--input-text(
+										type="text",
+										placeholder="",
+										value="Заполненное значение",
+										id="input2")
+									span.form-input__label Заполненное поле
+							.col-12
+								label.form-input
+									input.form-input__text.js--input-text(
+										type="text",
+										placeholder="",
+										disabled,
+										id="input3")
+									span.form-input__label Отключённое поле
+							.col-12
+								label.form-input
+									input.form-input__text.js--input-text(
+										type="text",
+										placeholder="",
+										class="error",
+										id="input4",
+										value="lorem ipsum dolor sit amet")
+									span.form-input__label Поле с ошибкой
+								.form__info.error Ошибка: это поле обязательно для заполнения
+							.col-12
+								label.form-input
+									input.form-input__text.js--input-text(
+										type="text",
+										placeholder=" ",
+										class="valid",
+										id="input5",
+										value="lorem ipsum dolor sit amet")
+									span.form-input__label Поле с успехом
+								.form__info.valid Всё правильно!
+					.col-12.col-lg-6
+						h3.h5 Текстовые области
+
+						.form: .row.form__line
+							.col-12
+								label.form-input
+									textarea.form-input__text.js--input-text(
+										placeholder=" ",
+										rows="4",
+										id="textarea1")
+									span.form-input__label Текстовая область
+							.col-12
+								label.form-input
+									textarea.form-input__text(
+										placeholder=" ",
+										rows="4",
+										disabled,
+										id="textarea2")
+									span.form-input__label Отключённая текстовая область
+				.row.mt-5
+					.col-12
+
+						h3.h5 Чекбоксы и радиокнопки
+						.form: .row.form__line2
+							.col-12
+								label.form-checkbox
+									input.form-checkbox__input(
+										type="checkbox"
+										name="checkbox"
+										value="1")
+									span.form-checkbox__text
+										span Обычный чекбокс
+							.col-12
+								label.form-checkbox
+									input.form-checkbox__input(
+										type="checkbox"
+										name="checkbox"
+										value="1")
+									span.form-checkbox__text
+										span Чекбокс с количеством
+										span.form-checkbox__count 10
+							.col-12
+								label.form-checkbox.form-checkbox__withcolor
+									input.form-checkbox__input(
+										type="checkbox"
+										name="chekcbox"
+										value="1")
+									span.form-checkbox__text
+										span.form-checkbox__color(style="background-color: #ff0000;")
+										span Чекбокс с цветом
+							.col-12
+								label.form-checkbox
+									input.form-checkbox__input(
+										type="checkbox"
+										name="chekcbox"
+										value="1",
+										disabled)
+									span.form-checkbox__text
+										span Не активный чекбокс
+							.col-12
+								label.form-radio
+									input.form-radio__input(
+										type="radio"
+										name="radio")
+									span.form-radio__text
+										span Обычная радиокнопка
+							.col-12
+								label.form-radio
+									input.form-radio__input(
+										type="radio"
+										name="radio"
+										disabled)
+									span.form-radio__text
+										span Не активная радиокнопка
+
+					.col-12.mt-5
+						h3.h5 переключатель
+						.form: .row.form__line2
+							.col-12
+								label.form__radioellipse
+									input.form__radioellipse__input(type="checkbox" name="ACTION" checked="checked")
+									span.form__radioellipse__circle
+
+					.col-12.mt-5
+						h3.h5 Выпадающий список (select)
+
+
+	// footer start
+	include ../section/footer/footer
+	// footer end
+
+	// modals start
+	include ../section/modals/modals
+	// modals end

@@ -1,0 +1,69 @@
+-
+	var pr_title = [
+		'PIETRA ARABICA',
+		'DIAMOND VEIN M11',
+		'PIETRA ARABICA',
+		'DIAMOND VEIN M11',
+		'PIETRA ARABICA',
+		'DIAMOND VEIN M11',
+		'PIETRA ARABICA',
+		'DIAMOND VEIN M11',
+		'PIETRA ARABICA',
+		'DIAMOND VEIN M11',
+	]
+	var pr_description = [
+		'<span class="color-blue">Ступень</span> из <span class="color-wgreen">гранита</span>',
+		'<span class="color-mauve">Карниз</span> из <span class="color-yellow">травентина</span>',
+		'<span class="color-blue">Ступень</span> из <span class="color-wgreen">гранита</span>',
+		'<span class="color-mauve">Карниз</span> из <span class="color-yellow">травентина</span>',
+		'<span class="color-blue">Ступень</span> из <span class="color-wgreen">гранита</span>',
+		'<span class="color-mauve">Карниз</span> из <span class="color-yellow">травентина</span>',
+		'<span class="color-blue">Ступень</span> из <span class="color-wgreen">гранита</span>',
+		'<span class="color-mauve">Карниз</span> из <span class="color-yellow">травентина</span>',
+		'<span class="color-blue">Ступень</span> из <span class="color-wgreen">гранита</span>',
+		'<span class="color-mauve">Карниз</span> из <span class="color-yellow">травентина</span>',
+	]
+	var pr_storage = [
+		'В наличии',
+		'Под заказ',
+		'В наличии',
+		'Под заказ',
+		'Под заказ',
+		'В наличии',
+		'В наличии',
+	]
+	var pr_price = [
+		'5 500',
+		'32 000',
+		'5 500',
+		'32 000',
+		'32 000',
+		'5 500',
+		'5 500',
+	]
+	var pr_priceold = [
+		'',
+		'',
+		'10 500',
+		'',
+		'',
+		'',
+		'',
+	]
+
+mixin mixin__poructCard(i,title, price, priceold, description, storage)
+	.listcard
+		a.listcard__picture(href="#")
+			img(src=`${baseDir}img/catalog/img-product-${i}.jpg`, alt="")
+			.markers
+				if priceold
+					span.marker-sale
+		a.listcard__title(href="#")=title
+		.listcard__description!= description
+		- var storageClass = storage === 'В наличии' ? 'color-green' : (storage === 'Под заказ' ? 'color-red' : '')
+		.listcard__storage(class=storageClass)=storage
+		.listcard__bottom
+			if priceold
+				.price.price__old от <span>#{priceold}</span> ₽/м<sup>2</sup>
+			if price
+				.price от <span>#{price}</span> ₽/м<sup>2</sup>

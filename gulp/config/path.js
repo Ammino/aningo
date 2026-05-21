@@ -4,6 +4,7 @@ const rootFolder = nodePath.basename(nodePath.resolve());
 
 const buildFolder = "./dist";
 const srcFolder = "./src";
+const assetsCopyGlobs = [`${srcFolder}/assets/js/*.*`, `${srcFolder}/assets/maps/**/*.json`];
 
 export const path = {
     build: {
@@ -24,7 +25,7 @@ export const path = {
 		svg: `${srcFolder}/img/**/*.svg`,
 	svgicons: `${srcFolder}/svgicons/**/*.svg`,
 		pug: `${srcFolder}/pug/pages/*.pug`,
-		files: `${srcFolder}/assets/js/*.*`,
+		files: assetsCopyGlobs,
 		vendor: `${srcFolder}/assets/css/*.{scss,css}`
 	},
     watch: {
@@ -35,7 +36,7 @@ export const path = {
 		images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,svg,ico}`,
 		pug: `${srcFolder}/**/*.pug`,
 		svg: `${srcFolder}/svgicons/**/*.svg`,
-		files: `${srcFolder}/assets/js/*.*`,
+		files: assetsCopyGlobs,
 		vendor: `${srcFolder}/assets/css/*.{scss,css}`
 	},
     clean: buildFolder,

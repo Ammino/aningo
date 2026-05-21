@@ -1000,45 +1000,7 @@ if (nselects && nselects.length) {
 	});
 }
 
-// fileinput
-const fileInputs = document.querySelectorAll('.js--fileinput-input');
-
-fileInputs.forEach((input) => {
-    const fileInputWrap = input.closest('.form__fileipnut');
-    const clearButton = fileInputWrap.querySelector('.js--fileinput-clear');
-    const infoText = fileInputWrap.querySelector('.js--fileinput-info');
-
-    input.addEventListener('change', (event) => {
-        infoText.classList.remove('error');
-        clearButton.classList.remove('active');
-
-        const file = event.target.files[0];
-        const validFormats = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/rtf'];
-
-        if (file) {
-            if (!validFormats.includes(file.type) || file.size > 5 * 1024 * 1024) {
-                infoText.classList.add('error');
-                infoText.textContent = "Неверный формат или размер документа: файл PDF, DOC, DOCX или RTF с максимальным размером - 5 мб";
-                input.value = '';
-                clearButton.classList.remove('active');
-            } else {
-                clearButton.classList.add('active');
-                infoText.textContent = "Файл успешно загружен";
-            }
-        } else {
-            clearButton.classList.remove('active');
-        }
-    });
-
-    clearButton.addEventListener('click', (e) => {
-		e.preventDefault()
-        input.value = '';
-        clearButton.classList.remove('active');
-        infoText.classList.remove('error');
-        infoText.textContent = "Формат PDF, DOC, DOCX или RTF с максимальным размером - 5 мб";
-    });
-});
-
+// подсветка на странице каталога
 const backlightInput = document.querySelectorAll('.js--backlight');
 if (backlightInput && backlightInput.length) {
 	const backlightImgs = document.querySelectorAll('.js--backlight-img');
@@ -1062,7 +1024,259 @@ if (backlightInput && backlightInput.length) {
 	backlightInput.forEach((input) => {
 		input.addEventListener('change', syncBacklightClass);
 	});
-};
+}
+
+// счетчик количества товара в корзине
+const cartCounters = document.querySelectorAll('.js--inputcount');
+if (cartCounters && cartCounters.length) {
+	cartCounters.forEach((box) => {
+		const btnMinus = box.querySelector('.js--inputcount-minus');
+		const btnPlus  = box.querySelector('.js--inputcount-plus');
+		const input    = box.querySelector('.js--inputcount-input');
+
+		if (!input || !btnMinus || !btnPlus) return;
+
+		const getMin = () => (input.min !== '' ? Number(input.min) : 0);
+		const getMax = () => (input.max !== '' ? Number(input.max) : Infinity);
+		const getStep = () => (input.step !== '' ? Number(input.step) : 1);
+
+		const clamp = (v) => {
+		const min = getMin();
+		const max = getMax();
+
+		if (!Number.isFinite(v)) v = min;
+		if (v < min) v = min;
+		if (v > max) v = max;
+
+		return v;
+		};
+
+		const readValue = () => {
+		const raw = input.value.trim();
+		if (raw === '') return NaN;
+		return Number.parseInt(raw, 10); // если нужны дробные — замени на parseFloat
+		};
+
+		const updateButtons = (v = clamp(readValue())) => {
+		const min = getMin();
+		const max = getMax();
+
+		btnMinus.disabled = v <= min;
+		btnPlus.disabled  = v >= max;
+		};
+
+		const writeValue = (v) => {
+		const fixed = clamp(v);
+		input.value = String(fixed);
+		updateButtons(fixed);
+		};
+
+		// init
+		writeValue(clamp(readValue()));
+
+		btnMinus.addEventListener('click', () => {
+		writeValue(clamp(readValue()) - getStep());
+		});
+
+		btnPlus.addEventListener('click', () => {
+		writeValue(clamp(readValue()) + getStep());
+		});
+
+		input.addEventListener('input', () => {
+		const v = readValue();
+		if (Number.isFinite(v)) updateButtons(clamp(v));
+		});
+
+		const fixManual = () => {
+		const v = readValue();
+		writeValue(Number.isFinite(v) ? v : getMin());
+		};
+
+		input.addEventListener('change', fixManual);
+		input.addEventListener('blur', fixManual);
+	});
+}
+
+
+// мастер чекбоксов
+const containers = document.querySelectorAll('.js--mastercheck-container');
+
+if (containers && containers.length) {
+	containers.forEach((container) => {
+		const master = container.querySelector('input[type="checkbox"].js--mastercheck');
+
+		if (master) {
+			const getGroup = () =>
+				Array.from(container.querySelectorAll('input[type="checkbox"].js--groupcheck'))
+				.filter(cb => !cb.disabled);
+
+			const updateMaster = () => {
+				const group = getGroup();
+
+				if (group.length === 0) {
+					master.checked = false;
+					master.indeterminate = false;
+				} else {
+					const checkedCount = group.filter(cb => cb.checked).length;
+					master.checked = checkedCount === group.length;
+					master.indeterminate = checkedCount > 0 && checkedCount < group.length;
+				}
+			};
+
+			// Мастер -> группа
+			master.addEventListener('change', () => {
+				const group = getGroup();
+				group.forEach(cb => { cb.checked = master.checked; });
+				master.indeterminate = false;
+			});
+
+			// Группа -> мастер (делегирование внутри контейнера)
+			container.addEventListener('change', (e) => {
+				const t = e.target;
+				if (!(t instanceof HTMLInputElement)) return;
+				if (t.type !== 'checkbox') return;
+				if (!t.classList.contains('js--groupcheck')) return;
+
+				updateMaster();
+			});
+
+			// Инициализация
+			updateMaster();
+		}
+	});
+}
+;
+	// Форма с шагами
+(function () {
+  'use strict';
+
+  function FormSteps(container) {
+    this.container = container;
+    this.form = container.querySelector('.js--formsteps form');
+    this.steps = Array.from(container.querySelectorAll('.js--formsteps-step'));
+    this.prevBtn = container.querySelector('.js--formsteps-prev');
+    this.nextBtn = container.querySelector('.js--formsteps-next');
+    this.counterEl = container.querySelector('.js--formsteps-counter');
+    this.progressLine = container.querySelector('.js--formsteps-progress');
+    this.currentIndex = 0;
+    this.totalSteps = this.steps.length;
+
+    this.init();
+  }
+
+  FormSteps.prototype.init = function () {
+    if (this.totalSteps === 0) return;
+
+    this.updateView();
+    this.bindEvents();
+    this.updateCounter();
+    this.updateProgress();
+  };
+
+  FormSteps.prototype.bindEvents = function () {
+    var self = this;
+
+    if (this.prevBtn) {
+      this.prevBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        self.prev();
+      });
+    }
+
+    if (this.nextBtn) {
+      this.nextBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        self.next();
+      });
+    }
+  };
+
+  FormSteps.prototype.prev = function () {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.updateView();
+      this.updateCounter();
+      this.updateProgress();
+    }
+  };
+
+  FormSteps.prototype.next = function () {
+    if (this.currentIndex < this.totalSteps - 1) {
+      this.currentIndex++;
+      this.updateView();
+      this.updateCounter();
+      this.updateProgress();
+    } else {
+      // Если это последний шаг, можно отправить форму
+      this.submitForm();
+    }
+  };
+
+  FormSteps.prototype.updateView = function () {
+    var self = this;
+
+    this.steps.forEach(function (slide, index) {
+      if (index === self.currentIndex) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+
+    // Обновляем состояние кнопок
+    if (this.prevBtn) {
+      if (this.currentIndex === 0) {
+        this.prevBtn.disabled = true;
+      } else {
+        this.prevBtn.disabled = false;
+      }
+    }
+
+    if (this.nextBtn) {
+      var nextText = this.currentIndex === this.totalSteps - 1 ? 'Отправить' : 'Дальше';
+      var nextSpan = this.nextBtn.querySelector('span');
+      if (nextSpan) nextSpan.textContent = nextText;
+    }
+  };
+
+  FormSteps.prototype.updateCounter = function () {
+    if (this.counterEl) {
+      this.counterEl.textContent = (this.currentIndex + 1) + '/' + this.totalSteps;
+    }
+  };
+
+  FormSteps.prototype.updateProgress = function () {
+    if (this.progressLine && this.totalSteps > 0) {
+      var percent = ((this.currentIndex + 1) / this.totalSteps) * 100;
+      this.progressLine.style.width = percent + '%';
+    }
+  };
+
+  FormSteps.prototype.submitForm = function () {
+    if (this.form) {
+      // Здесь можно добавить валидацию перед отправкой
+      console.log('Форма отправлена');
+      this.form.submit();
+    }
+  };
+
+  // Инициализация при загрузке DOM
+  function initFormSteps() {
+    var containers = document.querySelectorAll('.js--formsteps');
+    if (!containers.length) return;
+
+    containers.forEach(function (container) {
+      new FormSteps(container);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFormSteps);
+  } else {
+    initFormSteps();
+  }
+})();
+;
 	(() => {
 	const HIDDEN_CLASS = 'd-none';
 	const ACTIVE_CLASS = 'active';
@@ -1414,6 +1628,116 @@ if (backlightInput && backlightInput.length) {
 	}
 })();
 
+;
+	// 404 page animations
+const page404Element = document.querySelector('.page-404');
+if (page404Element) {
+	const eyesContainer = document.querySelector('.p404-eyes');
+	const eyebrowsContainer = document.querySelector('.p404-eyebrows');
+	const faceElement = document.querySelector('.p404-face');
+	const imgBlock = document.querySelector('.page-404__img');
+	const imgStone = document.querySelector('.page-404__img__stone');
+	const svg = imgBlock?.querySelector('svg');
+
+	if (eyesContainer && eyebrowsContainer && faceElement && imgBlock && imgStone && svg) {
+		// Get eye circles
+		const eyes = eyesContainer.querySelectorAll('circle');
+
+		// Eye positions in SVG coordinates (initial positions)
+		const eyePositions = [
+			{ x: 183, y: 145, r: 7 }, // left eye
+			{ x: 220, y: 145, r: 7 }, // right eye (adjusted for transform)
+		];
+
+		// Store original positions for reset
+		const originalPositions = eyePositions.map(ep => ({ ...ep }));
+
+		// Get viewBox dimensions
+		const viewBox = svg.getAttribute('viewBox');
+		const [, , vbWidth, vbHeight] = viewBox.split(' ').map(Number);
+
+		// Eye following - track mouse movement
+		const followEyesCursor = (e) => {
+			const svgRect = svg.getBoundingClientRect();
+			const mouseX = e.clientX - svgRect.left;
+			const mouseY = e.clientY - svgRect.top;
+
+			// Convert mouse position to SVG coordinates
+			const svgX = (mouseX / svgRect.width) * vbWidth;
+			const svgY = (mouseY / svgRect.height) * vbHeight;
+
+			eyes.forEach((eye, index) => {
+				const eyePos = eyePositions[index];
+				const dx = svgX - eyePos.x;
+				const dy = svgY - eyePos.y;
+				const distance = Math.sqrt(dx * dx + dy * dy);
+				const angle = Math.atan2(dy, dx);
+
+				// Limit pupil movement within the eye - max 30% of eye radius
+				const maxDist = eyePos.r * 0.5;
+				const pupilX = eyePos.x + Math.cos(angle) * Math.min(distance * 0.15, maxDist);
+				const pupilY = eyePos.y + Math.sin(angle) * Math.min(distance * 0.15, maxDist);
+
+				gsap.to(eye, {
+					attr: {
+						cx: pupilX,
+						cy: pupilY,
+					},
+					duration: 0.08,
+				});
+			});
+
+			// Eyebrows movement - raise slightly on cursor movement
+			if (eyebrowsContainer) {
+				const eyebrows = eyebrowsContainer.querySelectorAll('path');
+				eyebrows.forEach((brow) => {
+					gsap.to(brow, {
+						y: -5,
+						duration: 0.15,
+					});
+				});
+			}
+		};
+
+		// Reset eyebrows on mouse leave
+		const resetEyebrows = () => {
+			if (eyebrowsContainer) {
+				const eyebrows = eyebrowsContainer.querySelectorAll('path');
+				eyebrows.forEach((brow) => {
+					gsap.to(brow, {
+						y: 0,
+						duration: 0.3,
+						ease: 'power2.out',
+					});
+				});
+			}
+		};
+
+		document.addEventListener('mousemove', followEyesCursor);
+		document.addEventListener('mouseleave', resetEyebrows);
+
+		// Floating animation for stone (img block with ::after) and face
+		// Stone moves via its parent, face moves with it
+		const floatingTimeline = gsap.timeline({ repeat: -1, yoyo: true });
+
+		floatingTimeline.to(
+			[imgStone, faceElement],
+			{
+				y: 5,
+				duration: 2,
+				ease: 'sine.inOut',
+			},
+			0 // Start at the same time
+		);
+
+		// Cleanup function
+		window.page404Cleanup = () => {
+			document.removeEventListener('mousemove', followEyesCursor);
+			document.removeEventListener('mouseleave', resetEyebrows);
+			floatingTimeline.kill();
+		};
+	}
+}
 ;
 	const sliderPartners = document.querySelector('.js--sl-partners');
 
@@ -2211,6 +2535,323 @@ if (sliderBlog) {
 	window.addEventListener('resize', scheduleSyncOffsets);
 	window.addEventListener('orientationchange', scheduleSyncOffsets);
 }
+;
+
+	/**
+ * Пресеты карт Яндекса: центр, зум и маркеры.
+ * Новая карта: добавьте объект в __YANDEX_MAP_PRESETS и разметку с class="js--map-yandex" data-yandex-preset="ключ".
+ * Блок с class="js--map-pickup" всегда использует пресет pickup.
+ */
+(function () {
+	window.__YANDEX_MAP_PRESETS = window.__YANDEX_MAP_PRESETS || {};
+
+	// Координаты ориентировочные (х. Копанской) — замените на точку склада при необходимости
+	window.__YANDEX_MAP_PRESETS.pickup = {
+		location: {
+			center: [38.79517, 45.16871],
+			zoom: 15,
+		},
+		points: [
+			{
+				coordinates: [38.79517, 45.16871],
+				title: 'Aningo',
+			},
+		],
+	};
+})();
+;
+	/**
+ * Яндекс.Карты JS API v3: только при наличии .js--map-pickup или .js--map-yandex.
+ * Ключ API: data-yandex-api-key на контейнере (или первый непустой среди карт на странице).
+ */
+(function () {
+	var roots = document.querySelectorAll('.js--map-pickup, .js--map-yandex');
+	if (!roots.length) return;
+
+	var scriptPromise = null;
+
+	function resolvePresetKey(el) {
+		if (el.classList.contains('js--map-pickup')) return 'pickup';
+		var key = el.getAttribute('data-yandex-preset');
+		return key || null;
+	}
+
+	function loadYandexScript(apiKey) {
+		if (window.ymaps3) return Promise.resolve(window.ymaps3);
+		if (scriptPromise) return scriptPromise;
+		scriptPromise = new Promise(function (resolve, reject) {
+			var s = document.createElement('script');
+			s.async = true;
+			s.src =
+				'https://api-maps.yandex.ru/v3/?apikey=' +
+				encodeURIComponent(apiKey) +
+				'&lang=ru_RU';
+			s.onload = function () {
+				resolve(window.ymaps3);
+			};
+			s.onerror = function () {
+				scriptPromise = null;
+				reject(new Error('Yandex Maps: не удалось загрузить скрипт API'));
+			};
+			document.head.appendChild(s);
+		});
+		return scriptPromise;
+	}
+
+	/**
+	 * Редактор стилей Яндекса часто отдаёт JSON в укороченном виде (не как в JS API v3):
+	 * — tags: "country" вместо { all: ["country"] }
+	 * — tags: { any: "admin", none: [...] } вместо { any: ["admin"], none: [...] }
+	 * Без этого блоки стилей API игнорирует.
+	 */
+	function normalizeTagList(val) {
+		if (val == null) return undefined;
+		if (Array.isArray(val)) return val;
+		if (typeof val === 'string') return [val];
+		return undefined;
+	}
+
+	function normalizeStyleRule(rule) {
+		if (!rule || typeof rule !== 'object') return rule;
+		var out = Object.assign({}, rule);
+		var t = out.tags;
+		if (typeof t === 'string') {
+			out.tags = { all: [t] };
+		} else if (t && typeof t === 'object' && !Array.isArray(t)) {
+			var tags = Object.assign({}, t);
+			['all', 'any', 'none'].forEach(function (k) {
+				if (tags[k] == null) return;
+				var n = normalizeTagList(tags[k]);
+				if (n) tags[k] = n;
+			});
+			out.tags = tags;
+		}
+		return out;
+	}
+
+	function normalizeCustomization(data) {
+		if (!data) return undefined;
+		var rawStyle = null;
+		if (Array.isArray(data)) rawStyle = data;
+		else if (data.style && Array.isArray(data.style)) rawStyle = data.style;
+		if (!rawStyle) return undefined;
+		var style = rawStyle.map(normalizeStyleRule);
+		var rest = {};
+		if (!Array.isArray(data) && typeof data === 'object') {
+			Object.keys(data).forEach(function (k) {
+				if (k !== 'style') rest[k] = data[k];
+			});
+		}
+		return Object.keys(rest).length ? Object.assign({ style: style }, rest) : { style: style };
+	}
+
+	/**
+	 * В props слоя допускается Customization = массив правил ИЛИ { style, 'render-3d'? }.
+	 * Если в JSON только список правил — отдаём массив (как в vanilla-примерах API).
+	 */
+	function customizationForSchemeLayer(normalized) {
+		if (!normalized) return undefined;
+		if (Array.isArray(normalized)) return normalized;
+		if (normalized.style && Array.isArray(normalized.style)) {
+			var keys = Object.keys(normalized);
+			var extra = keys.filter(function (k) {
+				return k !== 'style';
+			});
+			if (!extra.length) return normalized.style;
+		}
+		return normalized;
+	}
+
+	function fetchCustomization(url) {
+		if (!url) return Promise.resolve(undefined);
+		return fetch(url, { credentials: 'same-origin' })
+			.then(function (r) {
+				if (!r.ok) {
+					console.warn('Yandex Maps: стиль не загружен', url, r.status);
+					return undefined;
+				}
+				return r.json();
+			})
+			.then(normalizeCustomization)
+			.catch(function (e) {
+				console.warn('Yandex Maps: ошибка чтения JSON стиля', url, e);
+				return undefined;
+			});
+	}
+
+	function mergeLocation(presetLoc, dataCenter, dataZoom) {
+		var loc = Object.assign({}, presetLoc || {});
+		var cz = dataCenter ? String(dataCenter).trim() : '';
+		if (cz) {
+			var parts = cz.split(/[\s,;]+/).filter(Boolean);
+			if (parts.length >= 2) {
+				var lng = parseFloat(parts[0]);
+				var lat = parseFloat(parts[1]);
+				if (!isNaN(lng) && !isNaN(lat)) loc.center = [lng, lat];
+			}
+		}
+		if (dataZoom != null && dataZoom !== '') {
+			var z = parseFloat(dataZoom);
+			if (!isNaN(z)) loc.zoom = z;
+		}
+		return loc;
+	}
+
+	function createPinElement(pinUrl, title) {
+		var wrap = document.createElement('div');
+		wrap.style.position = 'relative';
+		wrap.style.transform = 'translate(-50%, -100%)';
+		wrap.style.pointerEvents = 'none';
+		var img = document.createElement('img');
+		img.src = pinUrl;
+		img.alt = title || '';
+		img.width = 39;
+		img.height = 52;
+		img.style.display = 'block';
+		img.draggable = false;
+		wrap.appendChild(img);
+		return wrap;
+	}
+
+	function pickApiKey(nodes) {
+		for (var i = 0; i < nodes.length; i++) {
+			var k = (nodes[i].getAttribute('data-yandex-api-key') || '').trim();
+			if (k) return k;
+		}
+		return '';
+	}
+
+	var apiKey = pickApiKey(roots);
+	if (!apiKey) {
+		console.warn(
+			'Yandex Maps: задайте data-yandex-api-key на контейнере карты (https://developer.tech.yandex.ru/)'
+		);
+		return;
+	}
+
+	var presets = window.__YANDEX_MAP_PRESETS || {};
+
+	loadYandexScript(apiKey)
+		.then(function (ymaps3) {
+			return ymaps3.ready.then(function () {
+				return ymaps3;
+			});
+		})
+		.then(function (ymaps3) {
+			var YMap = ymaps3.YMap;
+			var YMapDefaultSchemeLayer = ymaps3.YMapDefaultSchemeLayer;
+			var YMapDefaultFeaturesLayer = ymaps3.YMapDefaultFeaturesLayer;
+			var YMapMarker = ymaps3.YMapMarker;
+
+			var inits = [];
+
+			roots.forEach(function (el) {
+				var presetKey = resolvePresetKey(el);
+				if (!presetKey) {
+					console.warn(
+						'Yandex Maps: для элемента с .js--map-yandex укажите data-yandex-preset="..."'
+					);
+					return;
+				}
+				var preset = presets[presetKey];
+				if (!preset) {
+					console.warn('Yandex Maps: нет пресета «' + presetKey + '» в __YANDEX_MAP_PRESETS');
+					return;
+				}
+
+				var styleUrl =
+					el.getAttribute('data-yandex-style') ||
+					el.getAttribute('data-map-style-url') ||
+					'';
+				var pinUrl =
+					el.getAttribute('data-yandex-pin') ||
+					el.getAttribute('data-pin-src') ||
+					'img/pin-map.svg';
+
+				var loc = mergeLocation(
+					preset.location,
+					el.getAttribute('data-yandex-center'),
+					el.getAttribute('data-yandex-zoom')
+				);
+
+				var points = preset.points && preset.points.length ? preset.points : [];
+
+				inits.push(
+					fetchCustomization(styleUrl).then(function (customization) {
+						var layerCustomization = customizationForSchemeLayer(customization);
+						var schemeOpts =
+							layerCustomization !== undefined
+								? { customization: layerCustomization }
+								: {};
+						var wantsVector =
+							!!(styleUrl && String(styleUrl).trim()) || !!layerCustomization;
+						var mapOpts = {
+							location: loc,
+							showScaleInCopyrights: true,
+							theme: 'light',
+						};
+						// Кастомизация — векторные тайлы; при mode: 'auto' сначала рисуется растр без стиля
+						if (wantsVector) {
+							mapOpts.mode = 'vector';
+						}
+						var map = new YMap(el, mapOpts);
+						var schemeLayer = new YMapDefaultSchemeLayer(schemeOpts);
+						map.addChild(schemeLayer);
+						map.addChild(new YMapDefaultFeaturesLayer({}));
+						// Повторная установка кастомизации после attach (на случай гонки с mode)
+						if (
+							layerCustomization !== undefined &&
+							schemeLayer &&
+							typeof schemeLayer.update === 'function'
+						) {
+							queueMicrotask(function () {
+								schemeLayer.update({
+									customization: layerCustomization,
+								});
+							});
+						}
+						if (el.getAttribute('data-yandex-debug') === '1') {
+							var blockCount = 0;
+							if (Array.isArray(layerCustomization)) {
+								blockCount = layerCustomization.length;
+							} else if (
+								layerCustomization &&
+								layerCustomization.style &&
+								Array.isArray(layerCustomization.style)
+							) {
+								blockCount = layerCustomization.style.length;
+							}
+							console.info('Yandex Maps debug', {
+								styleUrl: styleUrl,
+								mapMode: mapOpts.mode,
+								customizationBlocks: blockCount,
+							});
+						}
+
+						points.forEach(function (pt) {
+							if (!pt || !pt.coordinates) return;
+							var markerEl = createPinElement(pinUrl, pt.title);
+							map.addChild(
+								new YMapMarker(
+									{
+										coordinates: pt.coordinates,
+									},
+									markerEl
+								)
+							);
+						});
+
+						return map;
+					})
+				);
+			});
+
+			return Promise.all(inits);
+		})
+		.catch(function (e) {
+			console.warn(e && e.message ? e.message : e);
+		});
+})();
 ;
 })
 

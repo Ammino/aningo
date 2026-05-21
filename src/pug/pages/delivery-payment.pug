@@ -1,0 +1,125 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span Доставка и оплата
+			
+			.pageinside__columns2.pageinside__columns2__marginabout
+			
+				// content
+				.pageinside__columns2__content
+					.block__padd.block__padd__nofirst.block__padd__nolast
+						.block__text
+							h1 Доставка и оплата
+							p Интернет-магазин «ANINGO» предлагает Вам различные виды доставки и оплаты.
+				// /content
+
+			.list-delivery-services
+
+				// el
+				.list-delivery-services__card.list-delivery-services__card__style1
+					.list-delivery-services__card__bg
+						img(src=`${baseDir}img/delivery-payment/bg-delivery-services-0.jpg`, alt="")
+					.list-delivery-services__card__body
+						h3.h3.list-delivery-services__card__title Собственный автопарк
+						.list-delivery-services__card__text 
+							|Автомобили оборудованы всем необходимым, чтобы Ваши покупки доехали в целости.
+				// /el
+
+				// el
+				.list-delivery-services__card.list-delivery-services__card__style1
+					.list-delivery-services__card__bg
+						img(src=`${baseDir}img/delivery-payment/bg-delivery-services-1.jpg`, alt="")
+					.list-delivery-services__card__body
+						h3.h3.list-delivery-services__card__title Доставка по Краснодару
+						.list-delivery-services__card__text 
+							| Стоимость доставки<br/>
+							| До 100 тонн - 2000 ₽<br/>
+							| От 100 тонн - бесплатно<br/>
+				// /el
+			
+				// el
+				.list-delivery-services__card.list-delivery-services__card__style1
+					.list-delivery-services__card__bg
+						img(src=`${baseDir}img/delivery-payment/bg-delivery-services-2.jpg`, alt="")
+					.list-delivery-services__card__body
+						h3.h3.list-delivery-services__card__title Доставка по Краснодарскому краю
+						.list-delivery-services__card__text 
+							| Стоимость доставки<br/>
+							| До 2 тонн - 50 ₽/км
+				// /el
+
+				// el
+				.list-delivery-services__card
+					.list-delivery-services__card__bg2
+						img(src=`${baseDir}img/delivery-payment/bg-delivery-services-3.svg`, alt="")
+					.list-delivery-services__card__body
+						h3.h3.list-delivery-services__card__title Доставка по России
+						.list-delivery-services__card__text 
+							| Доставка логистической компанией Деловые линии
+						.list-delivery-services__card__footer
+							a.mbtn.mbtn__primary.mbtn__middle(href="#" data-fancybox) рассчитать стоимость
+				// /el
+
+				// el
+				.list-delivery-services__card.list-delivery-services__card__style2
+					.list-delivery-services__card__body
+						h3.h3.list-delivery-services__card__title Самовывоз
+						.list-delivery-services__card__text Вы можете самостоятельно забрать Ваш заказ со&nbsp;склада в&nbsp;хуторе Копанской.
+						.list-delivery-services__card__map
+							//- Ключ JS API 3: https://developer.tech.yandex.ru/ → data-yandex-api-key
+							.list-delivery-services__card__map__yandex#map-pickup.js--map-pickup(
+								data-yandex-api-key="6c385eb6-43a4-490f-9cc9-bb318a95d256"
+								data-yandex-style=`${baseDir}assets/maps/yandex-pickup-style.json`
+								data-yandex-pin=`${baseDir}img/pin-map.svg`
+							)
+				// /el
+			
+		// Варианты оплаты
+		section.block__padd: .container
+			.block__title: .row.align-items-center
+				.col: h2.h2 Варианты оплаты
+
+			.list-payment
+
+				// el
+				.list-payment__card
+					.list-payment__card__bg
+						img(src=`${baseDir}img/delivery-payment/bg-delivery-payment-0.jpg`, alt="")
+					.list-payment__card__body
+						h3.h3.list-payment__card__title Наличный расчет
+						.list-payment__card__text Оплата заказа производится в российских рублях. Вместе со стоимостью товара оплачивается доставка товара. Сотрудник службы доставки имеет при себе кассовый аппарат. Вы получите кассовый и товарный чек, абсолютно идентичные тем, которые выдаются в “обычном” магазине. Оплату наличными можно также произвести и в кассе магазина (при самовывозе). Вы оплачиваете стоимость товара наличными и получаете товарный и кассовый чек.
+				// /el
+			
+				// el
+				.list-payment__card
+					.list-payment__card__bg
+						img(src=`${baseDir}img/delivery-payment/bg-delivery-payment-1.jpg`, alt="")
+					.list-payment__card__body
+						h3.h3.list-payment__card__title Безналичный расчет
+						.list-payment__card__text При заказе товара, наш менеджер выставит Вам счет на оплату заказа. Обязательно предоставляйте все необходимые реквизиты для выписки квитанции. Товар резервируется. Квитанция будет выписана (с учетом стоимости доставки товара при отправке транспортными службами) и сброшена по указанному номеру факса или на электронную почту. Оплатить квитанцию Вы сможете в любом отделении банка. Доставка товара осуществиться только после поступления Ваших денег на расчетный счет.
+				// /el
+
+		// /Варианты оплаты
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

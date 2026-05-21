@@ -1,0 +1,49 @@
+.modal.modal__sizelg.modal__offers#js--modal-offers2
+	.modal__content
+		.modal__close(data-fancybox-close): +svg('ic-close')
+		.modal__closemobile
+		.modal__content__body
+			.modal__content__body__scroll
+				.modal__content__container
+					.slider-offers__slider.swiper.js--slider-offers
+						.swiper-wrapper
+							- for (let i = 0; i < 4; i++)
+								// el
+								.slider-offers__slider__item.swiper-slide
+									.slider-offers__card
+										.slider-offers__card__header
+											h4.h4 Ступень из гранита PIETRA ARABICA
+											h2.h2 25037
+
+										.slider-offers__card__img
+											img(src=`${baseDir}img/catalog/img-product-offer.jpg`, alt="")
+
+										.slider-offers__card__body
+											-
+												var cm_property = [
+													'Размер',
+													'В наличии',
+													'Стоимость за шт.',
+												]
+												var cm_value = [
+													'3000x1400x20 мм',
+													'20 шт',
+													'134 400 ₽',
+												]
+
+											.content-columns__properties__list
+												- for (let i = 0; i < cm_property.length; i++)
+													- var property = cm_property[i]
+													- var value = cm_value[i]
+													.content-columns__properties__list__item
+														span=property
+														span!=value
+
+											.slider-offers__card__footer
+												div: a.mbtn.mbtn__primary.mbtn__middle(href="#") в корзину
+												div
+													include ./../../components/_share
+								// /el
+
+						.slider-offers__navbtn.prev.js--slider-offers-prev: +svg('ic-arrow-left-short')
+						.slider-offers__navbtn.next.js--slider-offers-next: +svg('ic-arrow-right-short')

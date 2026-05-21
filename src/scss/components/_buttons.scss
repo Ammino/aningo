@@ -155,7 +155,7 @@
 
 		@media (hover: hover) {
 			&:not([disabled]):hover {
-				color: inherit;
+				color: $cl-white;
 			}
 		}
 		&[disabled] {
@@ -166,6 +166,35 @@
 		&.mbtn__light {
 			border-color: $cl-grey-placeholder;
 			color: $cl-black-hover;
+		}
+		&.mbtn__primary {
+			color: $cl-red;
+
+			@media (hover: hover) {
+				&:not([disabled]):hover {
+					background-color: $cl-red !important;
+				}
+			}
+		}
+		&.mbtn__secondary {
+			color: $cl-grey;
+
+			@media (hover: hover) {
+				&:not([disabled]):hover {
+					background-color: $cl-black !important;
+				}
+			}
+		}
+		&.mbtn__grey {
+			color: $cl-black;
+
+			@media (hover: hover) {
+				&:not([disabled]):hover {
+					color: $cl-white;
+					border-color: $cl-black-hover;
+					background-color: $cl-black-hover !important;
+				}
+			}
 		}
 	}
 

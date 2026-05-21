@@ -1,0 +1,159 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span Контакты
+
+			h1.h1 Контакты
+
+			.contacts
+
+				.contacts__info
+
+					.contacts__info__card
+						a.contacts__info__card__phone(href="tel:88007700106") 8 (800) 770-01-06
+
+					.contacts__info__card
+						.contacts__info__card__label E-mail
+						a.contacts__info__card__link(href="mailto:aningo@aningo.ru") aningo@aningo.ru
+
+					.contacts__info__card
+						.contacts__info__card__label Мы в соц сетях
+						.footer__socio
+							.footer__socio__item: a.footer__socio__card(href="#" target="_blank")
+								include ../../img/icons/ic-telegram.svg
+							.footer__socio__item: a.footer__socio__card(href="#" target="_blank")
+								include ../../img/icons/ic-max.svg
+							.footer__socio__item: a.footer__socio__card(href="#" target="_blank")
+								include ../../img/icons/ic-youtube.svg
+							.footer__socio__item: a.footer__socio__card(href="#" target="_blank")
+								include ../../img/icons/ic-youtube-shorts.svg
+							.footer__socio__item: a.footer__socio__card(href="#" target="_blank")
+								include ../../img/icons/ic-rutube.svg
+							.footer__socio__item: a.footer__socio__card(href="#" target="_blank")
+								include ../../img/icons/ic-instagram.svg
+							.footer__socio__item: a.footer__socio__card(href="#" target="_blank")
+								include ../../img/icons/ic-vk.svg
+							.footer__socio__item: a.footer__socio__card(href="#" target="_blank")
+								include ../../img/icons/ic-yandex-rythm.svg
+
+				.contacts__address
+
+					.contacts__address__side
+						.contacts__address__header
+							h3.h3.contacts__address__header__title Офис, выставочный зал и&nbsp;склад
+							.contacts__address__header__text Мы будем рады видеть Вас. Приезжайте к нам, Вас ждет огромный выбор камня и сопутствующих товаров.
+						.contacts__address__item
+							.contacts__address__label Адрес
+							.contacts__address__content г. Краснодар, хутор Копанской, участок 201, Краснодарский край, Россия, 350904
+						.contacts__address__item
+							.contacts__address__label Режим работы
+							.contacts__address__content
+								| Пн-Пт: 9:00 - 18:00<br/>
+								| Пт-Вс: 10:00 - 16:00
+
+					.contacts__address__map
+						//- Ключ JS API 3: https://developer.tech.yandex.ru/ → data-yandex-api-key
+						.contacts__address__map__yandex#map-pickup.js--map-pickup(
+							data-yandex-api-key="6c385eb6-43a4-490f-9cc9-bb318a95d256"
+							data-yandex-style=`${baseDir}assets/maps/yandex-pickup-style.json`
+							data-yandex-pin=`${baseDir}img/pin-map.svg`
+						)
+
+				.contacts__requisites
+					h3.h3 Реквизиты
+					ul.contacts__requisites__list
+						li
+							.contacts__requisites__label Полное наименование
+							.contacts__requisites__text Общество с ограниченной ответственностью "АНИНГО"
+						li
+							.contacts__requisites__label Краткое наименование
+							.contacts__requisites__text ООО "АНИНГО"
+						li
+							.contacts__requisites__label Адрес
+							.contacts__requisites__text 350904 г.&nbsp;Россия, Краснодарский край, г.&nbsp;Краснодар, хутор Копанской а/я 1276 для ООО&nbsp;«АНИНГО»
+						li
+							.contacts__requisites__label ОГРН
+							.contacts__requisites__text 1142311013789
+						li
+							.contacts__requisites__label ИНН
+							.contacts__requisites__text 2311178294
+						li
+							.contacts__requisites__label КПП
+							.contacts__requisites__text 231101001
+						li
+							.contacts__requisites__label ОКВЭД
+							.contacts__requisites__text 23.7
+						li
+							.contacts__requisites__label Банк
+							.contacts__requisites__text АО "ТИНЬКОФФ БАНК"
+						li
+							.contacts__requisites__label БИК
+							.contacts__requisites__text 044525974
+						li
+							.contacts__requisites__label К/с
+							.contacts__requisites__text 30101810145250000974
+						li
+							.contacts__requisites__label Р/с
+							.contacts__requisites__text 40702810610001102267
+
+				.contacts__callback
+					h3.h3 Связяться с нами
+					.home-services__feedback__header
+						.home-services__feedback__header__photo
+							img(src=`${baseDir}img/contacts/photo-manager.jpg`, alt="")
+						.home-services__feedback__header__body
+							.home-services__feedback__header__name Орлов Виталий
+							.home-services__feedback__header__position Проект-менеджер
+
+					.contacts__callback__text Наш менеджер свяжется с вами, чтобы обсудить выгодные условия сотрудничества.
+
+					.contacts__callback__body
+						form.form
+							.form__line.row
+								.col-12
+									label.form-input
+										input.form-input__text.js--input-text.js--maskphone(
+											type="tel",
+											name="PHONE",
+											required)
+										span.form-input__label Телефон
+									// .form__info.error Текст ошибки
+							.form__line2.row
+								.col-12
+									label.form-checkbox.form-checkbox__small(for="#check-d3")
+										input.form-checkbox__input(
+											type="checkbox"
+											id="#check-d3"
+											required)
+										span.form-checkbox__text
+											| Соглашаюсь на&nbsp;обработку
+											a(href="#", target="_blank", rel="noopener noreferrer") персональных данных
+											| в&nbsp;соответствии с&nbsp;
+											a(href="#", target="_blank", rel="noopener noreferrer") политикой конфиденциальности.
+								.col-12
+									button.mbtn.mbtn__primary.mbtn__middle.d-block.w-100(type="submit") Отправить
+
+
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

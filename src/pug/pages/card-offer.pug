@@ -11,7 +11,7 @@ block content
 	// search
 	include ../section/header/_search
 	// /search
-	
+
 	main#main.main
 
 		section.pageinside: .container
@@ -32,7 +32,7 @@ block content
 				.cardoffer__body
 					-
 						var cm_property = [
-							'Размер',		
+							'Размер',
 							'В наличии',
 							'Тип',
 						]
@@ -41,7 +41,7 @@ block content
 							'4.2 м<sup>2</sup>',
 							'Плитка',
 						]
-					
+
 					.content-columns__properties__list.js--filterlist
 						- for (let i = 0; i < cm_property.length; i++)
 							.content-columns__properties__list__item.js--filterlist-item
@@ -55,9 +55,9 @@ block content
 							.content-columns__properties__list__item.js--filterlist-item
 								span=cm_property[i]
 								span!=cm_value[i]
-							
+
 						.content-columns__properties__list__more.js--filterlist-footer.d-none
-							a.content-columns__properties__list__more__link.js--filterlist-more(href="#") 
+							a.content-columns__properties__list__more__link.js--filterlist-more(href="#")
 								span.default Показать больше
 								span.active Свернуть
 
@@ -66,21 +66,21 @@ block content
 						.cardoffer__prices.order-1
 							.cardoffer__prices__item
 								.cardoffer__prices__old
-									.cardoffer__prices__old__text 
-										span 33 000 
-										| ₽/м<sup>2</sup>
+									.cardoffer__prices__old__text
+										span 33 000
+										| &nbsp;₽/м<sup>2</sup>
 									.cardoffer__prices__label 140 000 ₽/шт
-									
+
 							.cardoffer__prices__item
 								.cardoffer__prices__actual
-									.cardoffer__prices__actual__text 
+									.cardoffer__prices__actual__text
 										span 32 000
-										| ₽/м<sup>2</sup>
+										| &nbsp;₽/м<sup>2</sup>
 									.cardoffer__prices__label 134 000 ₽/шт
-								
+
 						div.order-3.order-lg-2: a.mbtn.mbtn__primary.mbtn__middle(href="#") в корзину
 						div.order-4.order-lg-3: a.mbtn.mbtn__grey.mbtn__middle(
-							href="#js--modal-recall" 
+							href="#js--modal-recall"
 							data-fancybox-default) Заказать консультацию
 						.cardoffer__footer__share.order-2.order-lg-4
 							.block-share
@@ -103,11 +103,11 @@ block content
 											li: a.block-share__list__link(href="#", target="_blank")
 												i: +svg('ic-link')
 												span Копировать ссылку
-						div.order-5: a.mbtn.mbtn__middle.mbtn__wicon.mbtn__bordered.mbtn__light(href="#") 
+						div.order-5: a.mbtn.mbtn__middle.mbtn__wicon.mbtn__bordered.mbtn__light(href="#")
 							i: +svg('ic-arrow-left-short')
 							span другие размеры
-			
-		
+
+
 		section.block__padd: .container
 			.block__title
 				h2.h2 Вам также может понравиться
@@ -138,7 +138,7 @@ block content
 								+mixin__mainCategoryCard(i, mc_title[i])
 							- for (let i = 0; i < mc_title.length; i++)
 								+mixin__mainCategoryCard(i, mc_title[i])
-							
+
 
 	// footer
 	include ../section/footer/footer

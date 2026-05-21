@@ -1,0 +1,73 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span Для дизайнеров
+			
+			.pageinside__columns2.pageinside__columns2__marginabout
+			
+				// content
+				.pageinside__columns2__content
+					.block__padd.block__padd__nofirst.block__padd__nolast
+						.block__text
+							h1 Приглашаем к&nbsp;сотрудничеству дизайнеров и&nbsp;архитекторов
+							p Мы рады представить наши продукты дизайн-студиям и&nbsp;частным дизайнерам. Все материалы подготовлены для максимально эффективной работы.
+				// /content
+
+			.list-resource
+
+				// el
+				.list-resource__card
+					h3.h3.list-resource__card__title Каталог
+					.list-resource__card__text Скачайте каталог и узнайте больше о натуральном камне, его огромной палитре цветов, обработке и вариантах применения.
+					.list-resource__card__btn
+						a.mbtn.mbtn__primary.mbtn__middle.mbtn__wicon(href="#") 
+							span скачать pdf
+							i: +svg('ic-downloads')
+				// /el
+
+				// el
+				.list-resource__card
+					h3.h3.list-resource__card__title Презентация
+					.list-resource__card__text Ознакомьтесь с нашими реализованными проектами. Благодаря профессионализму и многолетнему опыту нам доверяют компании по всей России.
+					.list-resource__card__btn
+						a.mbtn.mbtn__primary.mbtn__middle.mbtn__wicon(href="#") 
+							span скачать pdf
+							i: +svg('ic-downloads')
+				// /el
+
+				// el
+				.list-resource__card
+					h3.h3.list-resource__card__title Референс-лист
+					.list-resource__card__text Ознакомьтесь со списком реализованных нами объектов.
+					.list-resource__card__btn
+						a.mbtn.mbtn__primary.mbtn__middle.mbtn__wicon(href="#") 
+							span скачать pdf
+							i: +svg('ic-downloads')
+				// /el
+
+		// form callback start
+		include ../components/_form-callback
+		// /form callback end
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

@@ -1,0 +1,193 @@
+.contacts {
+	display: grid;
+	grid-template-columns: minmax(0,1fr) minmax(0,407px);
+	align-items: stretch;
+	gap: 30px;
+
+	@include desktop {
+		grid-template-columns: 1fr;
+	}
+
+	& > div {
+		background-color: $cl-white;
+		padding: 60px;
+		overflow: hidden;
+		border-radius: 12px;
+		border: 1px solid $cl-border-grey;
+
+		@include desktop {
+			padding: 30px;
+		}
+	}
+
+	&__info {
+		grid-column: span 2;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 30px;
+
+		@include desktop {
+			grid-column: auto;
+		}
+
+		@include laptop {
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+		}
+
+		&__card {
+			flex: 0 0 auto;
+    		width: auto;
+
+			&__phone {
+				font-weight: 400;
+				font-size: rem(30);
+				line-height: 1.2;
+				text-transform: uppercase;
+				font-family: $font-secondary;
+				text-decoration: none;
+				display: inline-block;
+				max-width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			&__label {
+				font-weight: 700;
+				line-height: 1.3;
+				margin-bottom: 5px;
+			}
+			&__link {
+				display: inline-block;
+				max-width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				text-decoration: none;
+			}
+
+			.footer__socio {
+				margin: 0;
+
+				&__card {
+					color: $cl-black;
+
+					&:hover, &:focus, &:active {
+						color: $cl-red;
+					}
+				}
+			}
+		}
+	}
+
+	&__address {
+		grid-column: span 2;
+		display: grid;
+		grid-template-columns: minmax(0,347px) minmax(0,1fr);
+		align-items: stretch;
+		gap: 30px 139px;
+		min-height: 562px;
+
+		@include desktop-xxl {
+			gap: 30px 60px;
+		}
+		@include desktop {
+			grid-column: auto;
+			gap: 30px;
+		}
+		@include laptop {
+			grid-template-columns: minmax(0,1fr);
+			min-height: auto;
+		}
+
+		&__side {
+			display: flex;
+			flex-direction: column;
+			gap: 30px;
+			align-items: stretch;
+			padding: 50px 0;
+
+			@include desktop {
+				padding: 30px 0;
+			}
+			@include laptop {
+				padding: 0;
+			}
+		}
+
+		&__header {
+			&__title {
+				margin-bottom: 10px;
+			}
+			&__text {
+				line-height: 1.3;
+				color: $cl-grey-placeholder;
+			}
+		}
+		&__label {
+			font-weight: 700;
+			line-height: 1.3;
+			margin-bottom: 5px;
+		}
+		&__content {
+			line-height: 1.3;
+		}
+
+		&__map {
+			position: relative;
+			overflow: hidden;
+			border-radius: 12px;
+			height: 100%;
+			min-height: 442px;
+			background-color: $cl-border-grey;
+
+			@include laptop {
+				min-height: 260px;
+			}
+
+			&__yandex {
+				position: absolute;
+				left:0;
+				top:0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	&__requisites {
+		&__list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			line-height: 1.3;
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			gap: 10px;
+
+			li {
+				display: grid;
+				grid-template-columns: minmax(0,185px) minmax(0,1fr);
+				gap: 5px 30px;
+
+				@include tablet {
+					grid-template-columns: minmax(0,1fr);
+				}
+			}
+		}
+		&__label {
+			color: $cl-grey-placeholder;
+		}
+	}
+
+	&__callback {
+		&__text {
+			margin: 30px 0;
+			line-height: 1.3;
+		}
+	}
+}

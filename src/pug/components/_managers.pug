@@ -1,0 +1,45 @@
+.managers
+	-
+		var man_name = [
+			'Гуля',
+			'Марина',
+			'Екатерина',
+		]
+		var man_post = [
+			'Старший консультант',
+			'Старший консультант',
+			'Старший консультант',
+		]
+
+	mixin mixin__managerCard(i,name,post)
+
+		// el
+		.managers__card
+			.managers__card__header
+				.managers__card__header__img
+					img(
+						src=`${baseDir}img/calculator/img-manager-${i}.webp`,
+						width="94",
+						height="94",
+						alt="")
+				.managers__card__header__body
+					.managers__card__header__name=name
+					.managers__card__header__post=post
+			.managers__card__btns
+				div: a.mbtn.mbtn__grey.mbtn__middle.mbtn__wicon(
+					href="#"
+					rel="noopener noreferrer"
+					target="_blank")
+						span Telegram
+						i: +svg('ic-telegram')
+				div: a.mbtn.mbtn__grey.mbtn__middle.mbtn__wicon(
+					href="#"
+					rel="noopener noreferrer"
+					target="_blank")
+						span max
+						i: +svg('ic-max')
+
+		// /el
+
+	- for (let i = 0; i < man_name.length; i++)
+		+mixin__managerCard(i, man_name[i], man_post[i])

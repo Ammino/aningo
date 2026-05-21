@@ -30,7 +30,6 @@
 	}
 
 	&__header {
-		margin: 0 0 30px 0;
 		top: 0;
 		z-index: 5;
 
@@ -63,8 +62,8 @@
 		display: grid;
 		grid-template-columns:
 			#{$line-col-img}
-			minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total}) / 2), 1fr)
-			minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total}) / 2), max-content);
+			minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total} / 2)), 1fr)
+			minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total} / 2)), max-content);
 		align-items: center;
 		gap: 0 #{$line-gap-h};
 
@@ -72,8 +71,8 @@
 			$line-col-img: 110px;
 			grid-template-columns:
 				#{$line-col-img}
-				minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total}) / 2), 1fr)
-				minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total}) / 2), max-content);
+				minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total} / 2)), 1fr)
+				minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total} / 2)), max-content);
 		}
 		@include desktop {
 			padding: 10px;
@@ -81,8 +80,8 @@
 			$line-col-img: 90px;
 			grid-template-columns:
 				#{$line-col-img}
-				minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total}) / 2), max-content)
-				minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total}) / 2), max-content);
+				minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total} / 2)), max-content)
+				minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total} / 2)), max-content);
 			gap: 0 #{$line-gap-h};
 		}
 
@@ -111,9 +110,6 @@
 	&__label {
 		color: $cl-grey-placeholder;
 		width: 100%;
-		// overflow: hidden;
-		// text-overflow: ellipsis;
-		// white-space: nowrap;
 	}
 
 	&__img {
@@ -170,7 +166,7 @@
 		grid-template-columns: 1fr repeat(2, minmax(85px, 120px));
 		align-items: center;
 		gap: 0 30px;
-		
+
 		@include desktop-xl {
 			gap: 0 20px;
 			grid-template-columns: 1fr repeat(2, minmax(85px, 90px));
@@ -282,6 +278,72 @@
 			}
 		}
 	}
+
+	&.table-offers__style2 {
+		.table-offers__line {
+			$line-col-img: 140px;
+			$line-gap-h: 30px;
+			$line-gaps-total: 2 * $line-gap-h;
+			grid-template-columns:
+				#{$line-col-img}
+				minmax(calc(60% - (#{$line-col-img} + #{$line-gaps-total} / 2)), 1fr)
+				minmax(calc(45% - (#{$line-col-img} + #{$line-gaps-total} / 2)), max-content);
+			gap: 0 #{$line-gap-h};
+
+			@include desktop-xxl {
+				$line-col-img: 110px;
+				grid-template-columns:
+					#{$line-col-img}
+					minmax(calc(60% - (#{$line-col-img} + #{$line-gaps-total} / 2)), 1fr)
+					minmax(calc(45% - (#{$line-col-img} + #{$line-gaps-total} / 2)), max-content);
+			}
+			@include desktop {
+				$line-gap-h: 20px;
+				$line-col-img: 90px;
+				grid-template-columns: #{$line-col-img} 1fr auto;
+				gap: 0 #{$line-gap-h};
+			}
+
+			@include laptop {
+				grid-template-columns: 110px 1fr;
+				gap: 10px #{$line-gap-h};
+
+				&__item:last-child {
+					grid-column: 1 / -1;
+				}
+			}
+
+			@include tablet {
+				grid-template-columns: 90px 1fr;
+
+				&__item:last-child {
+					grid-column: 1 / -1;
+				}
+			}
+		}
+
+		.table-offers__side {
+			$side-col-last: 125px;
+			grid-template-columns: minmax(0, 1fr) #{$side-col-last};
+
+			@include desktop {
+				$side-col-last: 44px;
+				grid-template-columns: 120px #{$side-col-last};
+			}
+			@include laptop {
+				$side-col-last: 36px;
+				grid-template-columns: 1fr #{$side-col-last};
+			}
+		}
+
+		.table-offers__body {
+			grid-template-columns: calc(40% - 10px) calc(30% - 10px) calc(30% - 10px);
+
+			@include desktop {
+				grid-template-columns: 100%;
+			}
+		}
+	}
 }
 
 .slider-offers {
@@ -326,7 +388,7 @@
 			max-height: 20px;
 			object-fit: contain;
 		}
-		
+
 	}
 	&__card {
 		display: grid;
@@ -391,7 +453,7 @@
 			& > div {
 				flex: 0 0 auto;
 				width: auto;
-				
+
 				@include laptop {
 					flex: 1 0 0;
 					width: 100%;
@@ -422,7 +484,7 @@
 			width: 100%;
 			overflow: hidden;
 			border-radius: 12px;
-			
+
 			@include laptop {
 				grid-column: 1;
 				grid-row: 2;
@@ -440,6 +502,13 @@
 			bottom: 100%;
 			padding-bottom: 5px;
 			padding-top: 0;
+			right: 50%;
+			transform: translateX(50%);
+
+			@include laptop {
+				right: 0;
+				transform: none;
+			}
 		}
 	}
 }
@@ -652,7 +721,7 @@
 				justify-content: center;
 				flex-wrap: wrap;
 				gap: 7px;
-				
+
 				span {
 					width: 10px;
 					height: 10px;
@@ -773,7 +842,7 @@
 		@include tablet {
 			font-size: rem(18);
 		}
-		
+
 		span {
 			font-size: rem(42);
 
@@ -788,7 +857,7 @@
 			@include tablet {
 				font-size: rem(11);
 			}
-			
+
 			span {
 				font-size: rem(27);
 
@@ -796,7 +865,7 @@
 					font-size: rem(20);
 				}
 			}
-		}	
+		}
 	}
 }
 
@@ -981,7 +1050,7 @@
 		aspect-ratio: 734 / 539;
 		overflow: hidden;
 		border-radius: 12px;
-		
+
 		@include laptop {
 			grid-column: 1;
 			grid-row: 2;

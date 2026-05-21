@@ -1,0 +1,59 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span Корзина
+
+			h1.h1 Корзина
+
+			.basket-empty
+				.basket-empty__text
+					| Ваша корзина пуста. Пора посмотреть каталог и выбрать что-нибудь интересное!
+				.basket-empty__btn
+					a.mbtn.mbtn__primary.mbtn__middle(
+						href="catalog.html"
+						target="_blank") Перейти в каталог
+				.basket-empty__img
+					img(
+						src=`${baseDir}img/cart/no-goods.svg`,
+						alt="Корзина пуста",
+						width="402",
+						height="260")
+
+		section.block__padd: .container
+			.block__title
+				h2.h2 Вам также может понравиться
+
+			.slidercatalog
+				.slidercatalog__offset.js--sl-catalog-offset
+				.slidercatalog__body
+					.slidercatalog__slider.swiper.js--sl-catalog
+						.swiper-wrapper
+
+							-for (let i = 0; i < 6; i++)
+								// el
+								.slidercatalog__slider__item.swiper-slide
+									+mixin__mainCard(i, m_title[i], m_price[i], m_priceold[i], m_description[i], m_storage[i])
+								// /el
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

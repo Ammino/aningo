@@ -11,7 +11,7 @@ block content
 	// search
 	include ../section/header/_search
 	// /search
-	
+
 	main#main.main
 
 		section.pageinside: .container
@@ -55,34 +55,15 @@ block content
 						.card__header__title: .h1 Кварцевый агломерат ANTRACITE
 						.card__header__storage
 							span.color-green В наличии
-							span.color-red Нет в наличии
+							span.color-red Под заказ
 						.card__header__share
-							.block-share
-								.block-share__label: +svg('ic-share')
-								.block-share__dropdown
-									.block-share__dropdown__body
-										ul.block-share__list
-											li: a.block-share__list__link(href="#", target="_blank")
-												i: +svg('ic-telegram')
-												span Telegram
-											li: a.block-share__list__link(href="#", target="_blank")
-												i: +svg('ic-whatsapp')
-												span WhatsApp
-											li: a.block-share__list__link(href="#", target="_blank")
-												i: +svg('ic-max')
-												span Max
-											li: a.block-share__list__link(href="#", target="_blank")
-												i: +svg('ic-vk')
-												span ВКонтакте
-											li: a.block-share__list__link(href="#", target="_blank")
-												i: +svg('ic-link')
-												span Копировать ссылку
-					
+							include ../components/_share
+
 					.card__body
 						.card__body__content
 							-
 								var tc_property = [
-									'Камень',		
+									'Камень',
 									'Цвет',
 									'Страна',
 									'Тип обработки',
@@ -141,7 +122,7 @@ block content
 
 								.table-offers__size
 									span.table-offers__text
-										span.table-offers__text__label Размер 
+										span.table-offers__text__label Размер
 										span 3000x1400x20 мм
 
 								.table-offers__article-storage
@@ -165,10 +146,10 @@ block content
 									span.table-offers__text 134 400 ₽/шт
 
 								.table-offers__side__btn
-									a.mbtn.mbtn__small.mbtn__primary.mbtn__wicon(href="#") 
+									a.mbtn.mbtn__small.mbtn__primary.mbtn__wicon(href="#")
 										i.d-xl-none: +svg('ic-cart')
 										span.d-none.d-xl-block в корзину
-			
+
 			.table-offers
 				.table-offers__header
 
@@ -378,7 +359,7 @@ block content
 										// /el
 
 										// el
-										.content-columns__advantageslist__card.style__yellow 
+										.content-columns__advantageslist__card.style__yellow
 											i: img(src=`${baseDir}img/card/ic-advantage-3.svg`, alt="")
 											span УФ стойкость
 										// /el
@@ -393,7 +374,7 @@ block content
 										h4.h4 характеристики
 										-
 											var c_property = [
-												'Камень',		
+												'Камень',
 												'Цвет',
 												'Страна',
 												'Тип обработки',
@@ -425,7 +406,7 @@ block content
 												'0.12',
 											]
 
-										
+
 										.content-columns__properties__list
 											- for (let i = 0; i < c_property.length; i++)
 												- var property = c_property[i]
@@ -433,7 +414,7 @@ block content
 												.content-columns__properties__list__item
 													span=property
 													span=value
-							
+
 					//- tab 2
 					.tabs__content__item.js--tabs-item#tab-2
 						.tabs__content__item__content
@@ -495,16 +476,16 @@ block content
 											div.content-columns__attation__header__title
 												h4.h4 Обратите внимание
 										.content-columns__attation__content
-											.block__text: p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. 
+											.block__text: p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam.
 
 
-							
+
 					//- tab 4
 					.tabs__content__item.js--tabs-item#tab-4
 						.tabs__content__item__content
 							.projects-list
 								- var projects = [{ marker: 'Гостиницы и рестораны', name: 'GRAND HOTEL ANAPA' }, { marker: 'Благоустройство ЖК', name: 'ЖК «Седьмой Континент»' }, { marker: 'Частные дома', name: 'Коттедж в г. Краснодаре' }]
-							
+
 								mixin projectCard(project, index)
 									// el
 									.projects-list__item
@@ -516,7 +497,7 @@ block content
 													span.projects__slider__card__title__marker=project.marker
 													span.projects__slider__card__title__name=project.name
 									// /el
-								
+
 								- for (let index = 0; index < projects.length; index++)
 									- var project = projects[index]
 									+projectCard(project, index)
@@ -524,12 +505,12 @@ block content
 								- for (let index = 0; index < projects.length; index++)
 									- var project = projects[index]
 									+projectCard(project, index)
-									
+
 							.block__more: .row.justify-content-center: .col-12.col-lg-auto
-								a.mbtn.mbtn__grey.mbtn__wicon.mbtn__middle(href="#") 
+								a.mbtn.mbtn__grey.mbtn__wicon.mbtn__middle(href="#")
 									span Смотреть все проекты
 									i: +svg('ic-arrow-right')
-		
+
 		section.block__padd: .container
 			.block__title
 				h2.h2 Вам также может понравиться
@@ -545,7 +526,7 @@ block content
 								.slidercatalog__slider__item.swiper-slide
 									+mixin__mainCard(i, m_title[i], m_price[i], m_priceold[i], m_description[i], m_storage[i])
 								// /el
-							
+
 
 	// footer
 	include ../section/footer/footer

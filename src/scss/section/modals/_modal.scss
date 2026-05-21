@@ -24,6 +24,16 @@
 			max-width: 100%;
 		}
 	}
+	&.modal__sizemd {
+		max-width: 991px;
+
+		@include desktop {
+			max-width: 831px;
+		}
+		@include laptop {
+			max-width: 100%;
+		}
+	}
 
 	&.modal__offers {
 		.modal__content__body {
@@ -107,7 +117,7 @@
 			background-color: $cl-grey;
 			z-index: 2;
 		}
-		
+
 	}
 
 	&__close {
@@ -151,6 +161,72 @@
 	}
 }
 
+.modal-questionnaire {
+	&__content {
+		&__step {
+			display: none;
+
+			&.active {
+				display: block;
+			}
+		}
+	}
+	&__footer {
+		padding-top: 40px;
+		display: grid;
+		grid-template-columns: auto calc(50% - 15px);
+		align-items: center;
+		grid-gap: 30px;
+
+		@include laptop {
+			grid-template-columns: 1fr;
+			padding-top: 30px;
+		}
+
+		&__btns {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 10px;
+		}
+		&__pagination {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 10px 30px;
+
+			&__line {
+				position: relative;
+				height: 4px;
+				background-color: $cl-lines2;
+				border-radius: 2px;
+				overflow: hidden;
+				align-self: center;
+
+				i {
+					position: absolute;
+					left: 0;
+					top: 0;
+					bottom: 0;
+					background-color: $cl-black;
+					border-radius: 2px;
+					transition: width 0.2s ease-in-out;
+				}
+			}
+
+			&__counter {
+				text-align: end;
+				font-family: $font-secondary;
+				color: $cl-grey-placeholder;
+				font-size: rem(20);
+				line-height: 1.2;
+				text-transform: uppercase;
+
+				@include laptop {
+					font-size: rem(18);
+				}
+			}
+		}
+	}
+}
 
 $fancy-modal-enter-y: 24px;
 $fancy-modal-exit-y: 28px;

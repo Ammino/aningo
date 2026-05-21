@@ -108,45 +108,7 @@ if (nselects && nselects.length) {
 	});
 }
 
-// fileinput
-const fileInputs = document.querySelectorAll('.js--fileinput-input');
-
-fileInputs.forEach((input) => {
-    const fileInputWrap = input.closest('.form__fileipnut');
-    const clearButton = fileInputWrap.querySelector('.js--fileinput-clear');
-    const infoText = fileInputWrap.querySelector('.js--fileinput-info');
-
-    input.addEventListener('change', (event) => {
-        infoText.classList.remove('error');
-        clearButton.classList.remove('active');
-
-        const file = event.target.files[0];
-        const validFormats = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/rtf'];
-
-        if (file) {
-            if (!validFormats.includes(file.type) || file.size > 5 * 1024 * 1024) {
-                infoText.classList.add('error');
-                infoText.textContent = "Неверный формат или размер документа: файл PDF, DOC, DOCX или RTF с максимальным размером - 5 мб";
-                input.value = '';
-                clearButton.classList.remove('active');
-            } else {
-                clearButton.classList.add('active');
-                infoText.textContent = "Файл успешно загружен";
-            }
-        } else {
-            clearButton.classList.remove('active');
-        }
-    });
-
-    clearButton.addEventListener('click', (e) => {
-		e.preventDefault()
-        input.value = '';
-        clearButton.classList.remove('active');
-        infoText.classList.remove('error');
-        infoText.textContent = "Формат PDF, DOC, DOCX или RTF с максимальным размером - 5 мб";
-    });
-});
-
+// подсветка на странице каталога
 const backlightInput = document.querySelectorAll('.js--backlight');
 if (backlightInput && backlightInput.length) {
 	const backlightImgs = document.querySelectorAll('.js--backlight-img');
@@ -169,5 +131,125 @@ if (backlightInput && backlightInput.length) {
 	// change state
 	backlightInput.forEach((input) => {
 		input.addEventListener('change', syncBacklightClass);
+	});
+}
+
+// счетчик количества товара в корзине
+const cartCounters = document.querySelectorAll('.js--inputcount');
+if (cartCounters && cartCounters.length) {
+	cartCounters.forEach((box) => {
+		const btnMinus = box.querySelector('.js--inputcount-minus');
+		const btnPlus  = box.querySelector('.js--inputcount-plus');
+		const input    = box.querySelector('.js--inputcount-input');
+
+		if (!input || !btnMinus || !btnPlus) return;
+
+		const getMin = () => (input.min !== '' ? Number(input.min) : 0);
+		const getMax = () => (input.max !== '' ? Number(input.max) : Infinity);
+		const getStep = () => (input.step !== '' ? Number(input.step) : 1);
+
+		const clamp = (v) => {
+		const min = getMin();
+		const max = getMax();
+
+		if (!Number.isFinite(v)) v = min;
+		if (v < min) v = min;
+		if (v > max) v = max;
+
+		return v;
+		};
+
+		const readValue = () => {
+		const raw = input.value.trim();
+		if (raw === '') return NaN;
+		return Number.parseInt(raw, 10); // если нужны дробные — замени на parseFloat
+		};
+
+		const updateButtons = (v = clamp(readValue())) => {
+		const min = getMin();
+		const max = getMax();
+
+		btnMinus.disabled = v <= min;
+		btnPlus.disabled  = v >= max;
+		};
+
+		const writeValue = (v) => {
+		const fixed = clamp(v);
+		input.value = String(fixed);
+		updateButtons(fixed);
+		};
+
+		// init
+		writeValue(clamp(readValue()));
+
+		btnMinus.addEventListener('click', () => {
+		writeValue(clamp(readValue()) - getStep());
+		});
+
+		btnPlus.addEventListener('click', () => {
+		writeValue(clamp(readValue()) + getStep());
+		});
+
+		input.addEventListener('input', () => {
+		const v = readValue();
+		if (Number.isFinite(v)) updateButtons(clamp(v));
+		});
+
+		const fixManual = () => {
+		const v = readValue();
+		writeValue(Number.isFinite(v) ? v : getMin());
+		};
+
+		input.addEventListener('change', fixManual);
+		input.addEventListener('blur', fixManual);
+	});
+}
+
+
+// мастер чекбоксов
+const containers = document.querySelectorAll('.js--mastercheck-container');
+
+if (containers && containers.length) {
+	containers.forEach((container) => {
+		const master = container.querySelector('input[type="checkbox"].js--mastercheck');
+
+		if (master) {
+			const getGroup = () =>
+				Array.from(container.querySelectorAll('input[type="checkbox"].js--groupcheck'))
+				.filter(cb => !cb.disabled);
+
+			const updateMaster = () => {
+				const group = getGroup();
+
+				if (group.length === 0) {
+					master.checked = false;
+					master.indeterminate = false;
+				} else {
+					const checkedCount = group.filter(cb => cb.checked).length;
+					master.checked = checkedCount === group.length;
+					master.indeterminate = checkedCount > 0 && checkedCount < group.length;
+				}
+			};
+
+			// Мастер -> группа
+			master.addEventListener('change', () => {
+				const group = getGroup();
+				group.forEach(cb => { cb.checked = master.checked; });
+				master.indeterminate = false;
+			});
+
+			// Группа -> мастер (делегирование внутри контейнера)
+			container.addEventListener('change', (e) => {
+				const t = e.target;
+				if (!(t instanceof HTMLInputElement)) return;
+				if (t.type !== 'checkbox') return;
+				if (!t.classList.contains('js--groupcheck')) return;
+
+				updateMaster();
+			});
+
+			// Инициализация
+			updateMaster();
+		}
 	});
 }

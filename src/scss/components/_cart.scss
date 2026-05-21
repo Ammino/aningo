@@ -1,0 +1,427 @@
+.basket-empty {
+	position: relative;
+
+	&__text {
+		@include tablet-min {
+			max-width: 60%;
+		}
+	}
+	&__btn {
+		margin-top: 30px;
+	}
+	&__img {
+		aspect-ratio: 402/260;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include tablet-min {
+			position: absolute;
+			bottom: -30px;
+			right: 0;
+			height: 200px;
+		}
+		@include laptop-min {
+			height: 260px;
+		}
+		@include tablet {
+			height: 217px;
+			margin-top: 30px;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+}
+
+.order {
+	display: grid;
+	grid-template-columns: repeat(2, calc(50% - 15px));
+	gap: 30px;
+	max-width: calc(100% - 327px);
+
+	@include desktop {
+		grid-template-columns: 1fr;
+		max-width: calc(100% - 277px);
+	}
+	@include laptop {
+		max-width: 100%;
+	}
+
+	&__card {
+		border: 1px solid $cl-border-grey;
+		background-color: $cl-white;
+		border-radius: 12px;
+		padding: 30px;
+
+		&.order__card__style1 {
+			grid-column: span 2;
+
+			@include desktop {
+				grid-column: auto;
+			}
+		}
+	}
+
+	&__footer {
+		grid-column: span 2;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: flex-start;
+		gap: 30px;
+
+		@include desktop {
+			grid-column: auto;
+		}
+		@include laptop {
+			.mbtn {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}
+
+.basket {
+	display: grid;
+	grid-template-columns: minmax(0,1fr) minmax(0,297px);
+	gap: 30px;
+
+	@include desktop {
+		grid-template-columns: minmax(0,1fr) minmax(0,247px);
+	}
+	@include laptop {
+		grid-template-columns: 1fr;
+	}
+
+	&__side {
+
+		&__card {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			justify-content: flex-start;
+			gap: 30px;
+
+			@include laptop {
+				gap: 10px;
+			}
+
+			&__header {
+				display: grid;
+				grid-template-columns: auto minmax(0,1fr);
+				align-items: flex-end;
+				gap: 30px;
+				font-family: $font-secondary;
+				text-transform: uppercase;
+				color: $cl-black;
+				font-size: rem(30);
+				line-height: 1.2;
+
+				@include desktop {
+					font-size: rem(20);
+				}
+
+				&__summ {
+					text-align: end;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+
+					span {
+						font-size: rem(42);
+						padding-right: 10px;
+
+						@include desktop {
+							font-size: rem(24);
+						}
+					}
+				}
+			}
+
+			&__list {
+				ul {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					display: flex;
+					flex-direction: column;
+					align-items: stretch;
+					justify-content: flex-start;
+					gap: 10px;
+					line-height: 1.3;
+
+					li {
+						display: grid;
+						grid-template-columns: minmax(0,1fr) minmax(0,calc(50% - 10px));
+						gap: 10px;
+					}
+				}
+				&__label {}
+				&__price {
+					text-align: right;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+			&__footer {
+				@include laptop {
+					padding-top: 20px;
+				}
+			}
+		}
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 31px 30px 31px;
+		gap: 10px 30px;
+
+		@include desktop-xl {
+			padding: 0 21px 30px 21px;
+		}
+		@include laptop {
+			padding: 0 0 30px 0;
+		}
+
+		&__delete {
+			&__btn {
+				display: inline-block;
+				padding: 0;
+				outline: none;
+				text-decoration: underline;
+				color: $cl-black;
+				-webkit-tap-highlight-color: transparent;
+				text-decoration-thickness: 1px;
+				text-decoration-color: currentColor;
+				text-underline-position: auto;
+				text-underline-offset: .125em;
+				transition: all ease .3s;
+
+				&:hover, &:focus, &:active {
+					text-decoration-color: transparent;
+					color: $cl-red;
+				}
+			}
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: flex-start;
+		gap: 30px;
+	}
+
+	&__card {
+		position: relative;
+		background-color: $cl-white;
+		border-radius: 12px;
+		overflow: hidden;
+		display: grid;
+		grid-template-columns: minmax(0,1fr) 299px;
+		border: 1px solid $cl-border-grey;
+		align-items: center;
+		gap: 30px;
+		padding: 30px;
+
+		@include desktop-xl {
+			gap: 20px;
+			grid-template-columns: minmax(0,1fr) 279px;
+			padding: 20px;
+		}
+		@include desktop {
+			align-items: start;
+			grid-template-columns: 1fr;
+		}
+		@include mobilehr {
+			padding: 10px;
+			gap: 12px;
+		}
+
+		&__content {
+			display: grid;
+			grid-template-columns: 18px 126px minmax(0,1fr);
+			align-items: center;
+			gap: 20px;
+
+			@include desktop-xl {
+				grid-template-columns: 18px 100px minmax(0,1fr);
+			}
+			@include desktop {
+				align-items: start;
+				grid-template-columns: 95px minmax(0,1fr);
+			}
+			@include mobilehr {
+				gap: 10px;
+			}
+		}
+
+		&__check {
+			@include desktop {
+				position: absolute;
+				left: 25px;
+				top: 25px;
+				z-index: 5;
+			}
+			@include mobilehr {
+				left: 15px;
+				top: 15px;
+			}
+		}
+
+		&__img {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			aspect-ratio: 1/1;
+			overflow: hidden;
+			border-radius: 12px;
+
+			@include desktop {
+				border-radius: 6px;
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+		&__header {
+			margin-bottom: 10px;
+			display: flex;
+			align-items: flex-end;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			gap: 5px 10px;
+
+			@include desktop {
+				margin-bottom: 7px;
+				gap: 3px 10px;
+			}
+
+			&__title {
+				font-weight: 500;
+				font-size: rem(20);
+				line-height: 1.2;
+				text-transform: uppercase;
+				text-decoration: none;
+				font-family: $font-secondary;
+
+				@include desktop {
+					font-size: rem(16);
+				}
+			}
+			&__article {
+				font-weight: 400;
+				font-size: rem(15);
+				line-height: 1.3;
+				color: $cl-grey-placeholder;
+
+				@include desktop {
+					font-size: rem(13);
+				}
+			}
+		}
+		&__list {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			justify-content: flex-start;
+			gap: 5px;
+			font-size: rem(15);
+			line-height: 1.3;
+
+			@include desktop {
+				font-size: rem(13);
+				gap: 3px;
+			}
+
+			& > div {
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				flex-wrap: wrap;
+				gap: 5px 10px;
+			}
+		}
+
+		&__side {
+			display: grid;
+			grid-template-columns: 110px minmax(0,1fr) 20px;
+			align-items: center;
+			gap: 30px;
+
+			@include desktop-xl {
+				gap: 20px;
+			}
+			@include desktop {
+				grid-template-columns: 95px minmax(0,1fr) 20px;
+			}
+			@include mobilehr {
+				gap: 10px;
+			}
+		}
+
+		&__price {
+			font-weight: 500;
+			font-size: rem(13);
+			line-height: 1.2;
+			text-transform: uppercase;
+			text-decoration: none;
+			font-family: $font-secondary;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			text-wrap: nowrap;
+
+			@include desktop {
+				font-size: rem(11);
+			}
+
+			span {
+				font-size: rem(24);
+				padding-right: 5px;
+
+				@include desktop {
+					font-size: rem(20);
+					padding-right: 3px;
+				}
+			}
+		}
+
+		&__trash {
+			&__btn {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 20px;
+				height: 20px;
+				padding: 0;
+				color: $cl-black;
+
+				svg {
+					display: block;
+					max-width: 100%;
+					max-height: 100%;
+					object-fit: contain;
+				}
+
+				&:hover,
+				&:focus {
+					color: $cl-red;
+				}
+			}
+		}
+	}
+}

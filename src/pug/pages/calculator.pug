@@ -1,0 +1,75 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span Калькулятор
+
+			h1.h1 Калькулятор
+
+			.calculator-nav
+
+				// el
+				.calculator-nav__card
+					a.calculator-nav__card__link(href="calculator-vid-1.html")
+					.calculator-nav__card__bg
+						img(src=`${baseDir}img/calculator/img-calculator-nav-0.jpg`, alt="")
+					.calculator-nav__card__body
+						h3.h3.calculator-nav__card__title Калькулятор столешниц
+						.calculator-nav__card__text Lorem ipsum dolor sit amet consectetur. Non porta consectetur laoreet vulputate dolor amet nibh. Nisl eget ut arcu ac vitae turpis non.
+						.calculator-nav__card__btn
+							.calculator-nav__card__btn__link
+								+svg('ic-arrow-right-short')
+				// /el
+
+				// el
+				.calculator-nav__card
+					a.calculator-nav__card__link(href="calculator-vid-2.html")
+					.calculator-nav__card__bg
+						img(src=`${baseDir}img/calculator/img-calculator-nav-1.jpg`, alt="")
+					.calculator-nav__card__body
+						h3.h3.calculator-nav__card__title Калькулятор подоконников
+						.calculator-nav__card__text Lorem ipsum dolor sit amet consectetur. Non porta consectetur laoreet vulputate dolor amet nibh. Nisl eget ut arcu ac vitae turpis non.
+						.calculator-nav__card__btn
+							.calculator-nav__card__btn__link
+								+svg('ic-arrow-right-short')
+				// /el
+
+
+		// Консультация специалиста
+		section.block__padd: .container
+			.block__title: .row.align-items-center
+				.col: h2.h2 Консультация специалиста
+
+			.pageinside__columns2.pageinside__columns2__marginabout
+
+				// content
+				.pageinside__columns2__content
+					.block__padd.block__padd__nofirst.block__padd__nolast
+						.block__text
+							p Напишите специалисту и получите консультацию по характеристикам материалов.<br/>Рабочее время: Пн-Пт 9:00-18:00, Сб 10:00-16:00
+
+			include ../components/_managers
+
+		// /Консультация специалиста
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

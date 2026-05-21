@@ -1,0 +1,397 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: a.crumbs__link(href="catalog.html" target="_blank") Каталог
+				li: span Кварцевый агломерат ANTRACITE
+
+			h1.h1.d-lg-none Кварцевый агломерат ANTRACITE
+
+			.card
+				.card__media
+					.card__media__side
+						.card__media__thumbs__btn.prev.js--sl-card-thumbs-prev: +svg('ic-arrow-top-short')
+						.card__media__thumbs__btn.next.js--sl-card-thumbs-next: +svg('ic-arrow-down-short')
+						.card__media__thumbs.swiper.js--sl-card-thumbs
+							.swiper-wrapper
+
+								- for (let i = 0; i < 2; i++)
+									// el
+									.card__media__thumbs__item.swiper-slide
+										.card__media__thumbs__card
+											img(src=`${baseDir}img/catalog/img-product-${i}.jpg`, alt="")
+									// el
+					.card__media__body
+						.card__media__markers.markers: span.marker-sale
+						.card__media__images.swiper.js--sl-card-images
+							.swiper-wrapper
+								- for (let i = 0; i < 2; i++)
+									// el
+									.card__media__images__item.swiper-slide
+										a.card__media__images__card(
+											href=`${baseDir}img/catalog/img-product-${i}.jpg`
+											data-fancybox-default
+											data-fancybox="card-media-gallery")
+											img(src=`${baseDir}img/catalog/img-product-${i}.jpg`, alt="")
+									// el
+
+				.card__content
+					.card__header
+						.card__header__title: .h1 Кварцевый агломерат ANTRACITE
+						.card__header__storage
+							span.color-green В наличии
+							span.color-red Под заказ
+						.card__header__share
+							include ../components/_share
+
+					.card__body
+						.card__body__content
+							-
+								var tc_property = [
+									'Камень',
+									'Цвет',
+									'Страна',
+									'Тип обработки',
+									'Производитель',
+								]
+								var tc_value = [
+									'Гранит',
+									'Коричневый',
+									'Россия',
+									'Полированный',
+									'ALEPHSTONE',
+								]
+
+							.content-columns__properties__list
+								- for (let i = 0; i < tc_property.length; i++)
+									- var property = tc_property[i]
+									- var value = tc_value[i]
+									.content-columns__properties__list__item
+										span=property
+										span=value
+							.content-columns__more: a.js--linkto(href="#card-description") Подробное описание
+
+						.card__body__prices
+							.price.price__old от <span>3 000</span> ₽/шт
+							.price от <span>2 750</span> ₽/шт
+						.card__body__footer
+							div: a.mbtn.mbtn__primary.mbtn__middle.d-block.w-100.js--linkto(href="#card-product-offers") Выбрать размер
+							div: a.mbtn.mbtn__grey.mbtn__middle.d-block.w-100(href="#js--modal-recall" data-fancybox-default) Заказать консультацию
+
+		section.block__padd#card-product-offers: .container
+			.block__title
+				h2.h2 Товарные предложения
+
+			mixin mixin__offer(i = 0)
+				.table-offers__line
+
+						.table-offers__line__item
+							.table-offers__img
+								a.table-offers__img__wrapper(href="#js--modal-offers2" data-fancybox-offers="offers-1")
+									img(src=`${baseDir}img/catalog/img-product-offer.jpg`, alt="")
+
+						.table-offers__line__item
+							.table-offers__body
+
+								.table-offers__size
+									span.table-offers__text
+										span.table-offers__text__label Размер
+										span 3000x1400x20 мм
+
+								.table-offers__article-storage
+									span.table-offers__text
+										span.table-offers__text__label Код
+										span 25037
+
+								.table-offers__article-storage
+									span.table-offers__text
+										span.table-offers__text__label В наличии
+										span 20 шт
+
+
+						.table-offers__line__item
+							.table-offers__side
+
+								.table-offers__price-count
+									span.table-offers__text 32 000 ₽/м<sup>2</sup>
+
+								.table-offers__side__btn
+									a.mbtn.mbtn__small.mbtn__primary.mbtn__wicon(href="#")
+										i.d-xl-none: +svg('ic-cart')
+										span.d-none.d-xl-block в корзину
+
+			.table-offers.table-offers__style2
+				.table-offers__header
+
+					.table-offers__line
+
+						.table-offers__line__item
+							.table-offers__img
+								.table-offers__label Фото
+
+						.table-offers__line__item
+							.table-offers__body
+
+								.table-offers__size
+									.table-offers__label Размер
+
+								.table-offers__article-storage
+									.table-offers__label Код
+
+								.table-offers__article-storage
+									.table-offers__label В наличии
+
+						.table-offers__line__item
+							.table-offers__side
+
+								.table-offers__price-count
+									.table-offers__label Стоимость
+
+								.table-offers__side__btn
+
+				// offer section
+				.table-offers__section
+					.table-offers__content
+
+						- for (let i = 0; i < 3; i++)
+							+mixin__offer(i)
+
+				// /offer section
+
+		section.block__padd#card-description: .container
+			.block__title
+				h2.h2 О Ступенях из гранита PIETRA ARABICA
+
+			.tabs.js--tabs
+
+				ul.tabs__nav
+					li.tabs__nav__item
+						.tabs__nav__link.js--tabs-link.active(data-tab="tab-1") описание
+					li.tabs__nav__item
+						.tabs__nav__link.js--tabs-link(data-tab="tab-2") документация
+					li.tabs__nav__item
+						.tabs__nav__link.js--tabs-link(data-tab="tab-3") уход
+					li.tabs__nav__item
+						.tabs__nav__link.js--tabs-link(data-tab="tab-4") примеры работ
+
+				.tabs__content
+					//- tab 1
+					.tabs__content__item.js--tabs-item.active#tab-1
+						.tabs__content__item__content
+							.content-columns: .row
+								.col-12.col-lg-7.order-2.order-lg-1
+									.block__text
+										p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. Elit id eget integer elementum ultricies. Semper molestie quam massa aliquam non.
+										p Felis leo faucibus proin tellus sed adipiscing morbi malesuada ipsum. Sed mauris metus faucibus pretium cras sed. Non sagittis auctor tempor a pellentesque molestie ac. Tempus montes vitae fermentum dui in. Neque facilisi viverra egestas orci aliquam pellentesque pulvinar nullam mattis. Consectetur sed felis curabitur sed adipiscing vel facilisis semper.
+
+										img(src=`${baseDir}img/card/img-product-text-0.jpg`, alt="")
+
+										p Felis leo faucibus proin tellus sed adipiscing morbi malesuada ipsum. Sed mauris metus faucibus pretium cras sed. Non sagittis auctor tempor a pellentesque molestie ac. Tempus montes vitae fermentum dui in. Neque facilisi viverra egestas orci aliquam pellentesque pulvinar nullam mattis. Consectetur sed felis curabitur sed adipiscing vel facilisis semper.
+
+										img(src=`${baseDir}img/card/img-product-text-1.jpg`, alt="")
+
+								.col-12.col-lg-5.order-1.order-lg-2
+									.content-columns__advantageslist
+
+										// el
+										.content-columns__advantageslist__card.style__brown
+											i: img(src=`${baseDir}img/card/ic-advantage-1.svg`, alt="")
+											span Устойчив к повреждениям
+										// /el
+
+										// el
+										.content-columns__advantageslist__card.style__green
+											i: img(src=`${baseDir}img/card/ic-advantage-2.svg`, alt="")
+											span Устойчив к пятнам
+										// /el
+
+										// el
+										.content-columns__advantageslist__card.style__yellow
+											i: img(src=`${baseDir}img/card/ic-advantage-3.svg`, alt="")
+											span УФ стойкость
+										// /el
+
+										// el
+										.content-columns__advantageslist__card.style__purple
+											i: img(src=`${baseDir}img/card/ic-advantage-4.svg`, alt="")
+											span Высокая термостойкость
+										// /el
+
+									.content-columns__properties
+										h4.h4 характеристики
+										-
+											var c_property = [
+												'Камень',
+												'Цвет',
+												'Страна',
+												'Тип обработки',
+												'Производитель',
+												'Тип',
+												'Прочность по шкале Мооса',
+												'Плотность',
+												'Водопоглащение',
+												'Морозостойкость',
+												'Термостойкость',
+												'Кислотостойкость',
+												'Возможность переполировки',
+												'Истираемость',
+											]
+											var c_value = [
+												'Кварцевый агломерат',
+												'Серый',
+												'Россия',
+												'Полированный',
+												'ALEPHSTONE',
+												'Слэб 20 мм, полоса',
+												'6-7',
+												'2.6-2.7 т/м³',
+												'0.15-0.30%',
+												'300 циклов',
+												'до 600 °C',
+												'Высокая',
+												'да',
+												'0.12',
+											]
+
+										.content-columns__properties__list
+											- for (let i = 0; i < c_property.length; i++)
+												- var property = c_property[i]
+												- var value = c_value[i]
+												.content-columns__properties__list__item
+													span=property
+													span=value
+
+					//- tab 2
+					.tabs__content__item.js--tabs-item#tab-2
+						.tabs__content__item__content
+							.list-downloads
+
+								// el
+								a.list-downloads__card(href="#", download="File Name")
+									span.list-downloads__card__icon: +svg('ic-pdf')
+									span.list-downloads__card__title
+										span.list-downloads__card__title__name Название документа
+										span.list-downloads__card__title__size pdf, 14 Мб
+									span.list-downloads__card__download: +svg('ic-download')
+								// /el
+
+								// el
+								a.list-downloads__card(href="#", download="File Name")
+									span.list-downloads__card__icon: +svg('ic-jpg')
+									span.list-downloads__card__title
+										span.list-downloads__card__title__name Название документа
+										span.list-downloads__card__title__size pdf, 14 Мб
+									span.list-downloads__card__download: +svg('ic-download')
+								// /el
+
+								// el
+								a.list-downloads__card(href="#", download="File Name")
+									span.list-downloads__card__icon: +svg('ic-excel')
+									span.list-downloads__card__title
+										span.list-downloads__card__title__name Название документа
+										span.list-downloads__card__title__size pdf, 14 Мб
+									span.list-downloads__card__download: +svg('ic-download')
+								// /el
+
+								// el
+								a.list-downloads__card(href="#", download="File Name")
+									span.list-downloads__card__icon: +svg('ic-doc')
+									span.list-downloads__card__title
+										span.list-downloads__card__title__name Название документа
+										span.list-downloads__card__title__size pdf, 14 Мб
+									span.list-downloads__card__download: +svg('ic-download')
+								// /el
+
+					//- tab 3
+					.tabs__content__item.js--tabs-item#tab-3
+						.tabs__content__item__content
+							.content-columns: .row
+								.col-12.col-lg-7.order-2.order-lg-1
+									.block__text
+										p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. Elit id eget integer elementum ultricies. Semper molestie quam massa aliquam non.
+										p Felis leo faucibus proin tellus sed adipiscing morbi malesuada ipsum. Sed mauris metus faucibus pretium cras sed. Non sagittis auctor tempor a pellentesque molestie ac. Tempus montes vitae fermentum dui in. Neque facilisi viverra egestas orci aliquam pellentesque pulvinar nullam mattis. Consectetur sed felis curabitur sed adipiscing vel facilisis semper.
+
+										img(src=`${baseDir}img/card/img-text-0.jpg`, alt="")
+
+										p Felis leo faucibus proin tellus sed adipiscing morbi malesuada ipsum. Sed mauris metus faucibus pretium cras sed. Non sagittis auctor tempor a pellentesque molestie ac. Tempus montes vitae fermentum dui in. Neque facilisi viverra egestas orci aliquam pellentesque pulvinar nullam mattis. Consectetur sed felis curabitur sed adipiscing vel facilisis semper.
+								.col-12.col-lg-5.order-1.order-lg-2
+									.content-columns__attation
+										.content-columns__attation__header
+											div.content-columns__attation__header__icon
+												img(src=`${baseDir}img/icons/ic-attation.svg`, alt="")
+											div.content-columns__attation__header__title
+												h4.h4 Обратите внимание
+										.content-columns__attation__content
+											.block__text: p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam.
+
+
+
+					//- tab 4
+					.tabs__content__item.js--tabs-item#tab-4
+						.tabs__content__item__content
+							.projects-list
+								- var projects = [{ marker: 'Гостиницы и рестораны', name: 'GRAND HOTEL ANAPA' }, { marker: 'Благоустройство ЖК', name: 'ЖК «Седьмой Континент»' }, { marker: 'Частные дома', name: 'Коттедж в г. Краснодаре' }]
+
+								mixin projectCard(project, index)
+									// el
+									.projects-list__item
+										a.projects__slider__card(href="#")
+											span.projects__slider__card__image
+												img(src=`${baseDir}img/projects/img-project-${index}.png`, alt="")
+											span.projects__slider__card__body
+												span.projects__slider__card__title
+													span.projects__slider__card__title__marker=project.marker
+													span.projects__slider__card__title__name=project.name
+									// /el
+
+								- for (let index = 0; index < projects.length; index++)
+									- var project = projects[index]
+									+projectCard(project, index)
+
+								- for (let index = 0; index < projects.length; index++)
+									- var project = projects[index]
+									+projectCard(project, index)
+
+							.block__more: .row.justify-content-center: .col-12.col-lg-auto
+								a.mbtn.mbtn__grey.mbtn__wicon.mbtn__middle(href="#")
+									span Смотреть все проекты
+									i: +svg('ic-arrow-right')
+
+		section.block__padd: .container
+			.block__title
+				h2.h2 Вам также может понравиться
+
+			.slidercatalog
+				.slidercatalog__offset.js--sl-catalog-offset
+				.slidercatalog__body
+					.slidercatalog__slider.swiper.js--sl-catalog
+						.swiper-wrapper
+
+							-for (let i = 0; i < 6; i++)
+								// el
+								.slidercatalog__slider__item.swiper-slide
+									+mixin__poructCard(i, pr_title[i], pr_price[i], pr_priceold[i], pr_description[i], pr_storage[i])
+								// /el
+
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

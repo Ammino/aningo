@@ -1,0 +1,50 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: a.crumbs__link(href="calculator.html" target="_blank") Калькулятор
+				li: span Калькулятор подоконников из натурального камня
+
+			h1.h1 Калькулятор подоконников из натурального камня
+
+
+
+
+		// Консультация специалиста
+		section.block__padd: .container
+			.block__title: .row.align-items-center
+				.col: h2.h2 Консультация специалиста
+
+			.pageinside__columns2.pageinside__columns2__marginabout
+
+				// content
+				.pageinside__columns2__content
+					.block__padd.block__padd__nofirst.block__padd__nolast
+						.block__text
+							p Напишите специалисту и получите консультацию по характеристикам материалов.<br/>Рабочее время: Пн-Пт 9:00-18:00, Сб 10:00-16:00
+
+			include ../components/_managers
+
+		// /Консультация специалиста
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

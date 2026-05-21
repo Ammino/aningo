@@ -1,0 +1,107 @@
+.modal.modal__sizemd#js--modal-questionnaire
+	.modal__content
+		.modal__close(data-fancybox-close): +svg('ic-close')
+		.modal__closemobile
+		.modal__content__body
+			.modal__content__body__scroll
+				.modal__content__container
+					.modal__header
+						h3.h3.modal__header__title Для чего вы планируете использовать камень?
+						.modal__header__text.color-grey Выберите один или несколько вариантов ответа.
+
+					.modal-questionnaire.js--formsteps
+						form.form(action="#")
+							.modal-questionnaire__content
+
+								// step 1
+								.modal-questionnaire__content__step.active.js--formsteps-step
+									.form__line2.row
+										.col-12.col-xl-6
+											label.form-checkbox.form-checkbox__styleblock
+												input.form-checkbox__input(
+													type="checkbox",
+													name="m-ch-0")
+												span.form-checkbox__text Нужна столешница
+										.col-12.col-xl-6
+											label.form-checkbox.form-checkbox__styleblock
+												input.form-checkbox__input(
+													type="checkbox",
+													name="m-ch-0")
+												span.form-checkbox__text Нужны ступеньки
+										.col-12.col-xl-6
+											label.form-checkbox.form-checkbox__styleblock
+												input.form-checkbox__input(
+													type="checkbox",
+													name="m-ch-0")
+												span.form-checkbox__text Нужны подоконники
+										.col-12.col-xl-6
+											label.form-checkbox.form-checkbox__styleblock
+												input.form-checkbox__input(
+													type="checkbox",
+													name="m-ch-0")
+												span.form-checkbox__text Для стен
+										.col-12.col-xl-6
+											label.form-checkbox.form-checkbox__styleblock
+												input.form-checkbox__input(
+													type="checkbox",
+													name="m-ch-0")
+												span.form-checkbox__text Нужны баллясины для лестницы
+										.col-12.col-xl-6
+											label.form-checkbox.form-checkbox__styleblock
+												input.form-checkbox__input(
+													type="checkbox",
+													name="m-ch-0")
+												span.form-checkbox__text Еще не решил
+								// /step 1
+
+								// step 2
+								.modal-questionnaire__content__step.js--formsteps-step
+									.form__line2.row
+										.col-12.col-xl-6
+											label.form-checkbox.form-checkbox__styleblock
+												input.form-checkbox__input(
+													type="checkbox",
+													name="m-ch-1")
+												span.form-checkbox__text Lorem ipsum dolor sit amet.
+										.col-12.col-xl-6
+											label.form-checkbox.form-checkbox__styleblock
+												input.form-checkbox__input(
+													type="checkbox",
+													name="m-ch-1")
+												span.form-checkbox__text Lorem ipsum dolor sit amet.
+								// /step 2
+
+								// step 3
+								.modal-questionnaire__content__step.js--formsteps-step
+									.form__line2.row
+										.col-12.col-xl-6
+											label.form-checkbox.form-checkbox__styleblock
+												input.form-checkbox__input(
+													type="checkbox",
+													name="m-ch-2")
+												span.form-checkbox__text Lorem ipsum dolor sit amet.
+										.col-12.col-xl-6
+											label.form-checkbox.form-checkbox__styleblock
+												input.form-checkbox__input(
+													type="checkbox",
+													name="m-ch-2")
+												span.form-checkbox__text Lorem ipsum dolor sit amet.
+										.col-12.col-xl-6
+											label.form-checkbox.form-checkbox__styleblock
+												input.form-checkbox__input(
+													type="checkbox",
+													name="m-ch-2")
+												span.form-checkbox__text Lorem ipsum dolor sit amet.
+								// /step 3
+
+							.modal-questionnaire__footer
+								.modal-questionnaire__footer__btns
+									div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__bordered.mbtn__white.w-100.js--formsteps-prev(type="button")
+										i: +svg('ic-arrow-left-short')
+										span Назад
+									div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__primary.w-100.js--formsteps-next(type="button")
+										span Дальше
+										i: +svg('ic-arrow-right-short')
+								.modal-questionnaire__footer__pagination
+									.modal-questionnaire__footer__pagination__line: i.js--formsteps-progress(style="width: 33%;")
+									.modal-questionnaire__footer__pagination__counter.js--formsteps-counter 1/3

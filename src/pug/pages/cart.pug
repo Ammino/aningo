@@ -1,0 +1,249 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span Корзина
+
+			h1.h1 Корзина
+
+			.basket
+				// cart list
+				.basket__content.js--mastercheck-container
+
+					.basket__header
+						.basket__header__check
+							label.form-checkbox
+								input.form-checkbox__input.js--mastercheck(type="checkbox" name="all")
+								span.form-checkbox__text: span Выбрать все
+						.basket__header__delete
+							button.basket__header__delete__btn(type="button") Удалить выбранные
+
+					.basket__list
+
+						.basket__card
+							.basket__card__content
+								.basket__card__check
+									label.form-checkbox
+										input.form-checkbox__input.js--groupcheck(type="checkbox" name="#")
+										span.form-checkbox__text
+
+								a.basket__card__img(href="#")
+									img(src=`${baseDir}img/catalog/img-catalog-3.png`, alt="")
+
+								.basket__card__body
+									.basket__card__header
+										a.basket__card__header__title(href="#") ABOVYAN
+										span.basket__card__header__article Код: 25037
+									.basket__card__list
+										div Пиленный базальт из Армении
+										div: span.color-green В наличии
+										div
+											span.color-grey Размер:
+											span 3000x1400x20 мм
+										div
+											span.color-grey Цена за м<sup>2</sup>:
+											span 5 500 ₽/м<sup>2</sup>
+
+							.basket__card__side
+								.basket__card__counter
+									.form-inputcount.js--inputcount
+										button.form-inputcount__btn.minus.js--inputcount-minus(type="button")
+											+svg('ic-minus')
+										button.form-inputcount__btn.plus.js--inputcount-plus(type="button")
+											+svg('ic-plus')
+										input.form-inputcount__input.js--inputcount.js--inputcount-input(
+											type="number",
+											name=""
+											min="1",
+											max="100",
+											value="20")
+
+								.basket__card__price
+									span 1 550 500
+									| ₽
+
+								.basket__card__trash
+									button.basket__card__trash__btn(
+										type="button"
+										aria-label="Удалить товар из корзины")
+										+svg('ic-trash')
+
+						.basket__card
+							.basket__card__content
+								.basket__card__check
+									label.form-checkbox
+										input.form-checkbox__input.js--groupcheck(type="checkbox" name="#")
+										span.form-checkbox__text
+
+								a.basket__card__img(href="#")
+									img(src=`${baseDir}img/catalog/img-catalog-0.png`, alt="")
+
+								.basket__card__body
+									.basket__card__header
+										a.basket__card__header__title(href="#") ANTRACITE
+										span.basket__card__header__article Код: 25037
+									.basket__card__list
+										div Пиленный базальт из Армении
+										div: span.color-green В наличии
+										div
+											span.color-grey Размер:
+											span 3000x1400x20 мм
+										div
+											span.color-grey Цена за м<sup>2</sup>:
+											span 5 500 ₽/м<sup>2</sup>
+
+							.basket__card__side
+								.basket__card__counter
+									.form-inputcount.js--inputcount
+										button.form-inputcount__btn.minus.js--inputcount-minus(type="button")
+											+svg('ic-minus')
+										button.form-inputcount__btn.plus.js--inputcount-plus(type="button")
+											+svg('ic-plus')
+										input.form-inputcount__input.js--inputcount.js--inputcount-input(
+											type="number",
+											name=""
+											min="1",
+											max="100",
+											value="20")
+
+								.basket__card__price
+									span 1 550 500
+									| ₽
+
+								.basket__card__trash
+									button.basket__card__trash__btn(
+										type="button"
+										aria-label="Удалить товар из корзины")
+										+svg('ic-trash')
+
+
+				// /cart list
+
+				// sidebar
+				.basket__side
+					.basket__side__card
+						.basket__side__card__header
+							.basket__side__card__header__label Итого
+							.basket__side__card__header__summ
+								span 1 000 000
+								| ₽
+
+						.basket__side__card__list
+							ul
+								li
+									span.basket__side__card__list__label 2 товара  на сумму
+									span.basket__side__card__list__price 1 120 000 ₽
+								li
+									span.basket__side__card__list__label Ваша скидка
+									span.basket__side__card__list__price.color-red 120 000 ₽
+
+						.basket__side__card__footer
+							a.mbtn.mbtn__primary.mbtn__middle.d-block.w-100.js--linkto(href="#order") перейти к оформлению заказа
+				// /sidebar
+
+		// Оформить заказ
+		section#order.block__padd.home-services: .container
+			.block__title: .row.align-items-center
+				.col: h2.h2 Оформить заказ
+
+			.order
+				.order__card.order__card__style1
+					h3.h3.order__card__title Контактные данные
+					.form
+						.form__line.row
+							.col-12.col-xl-6
+								label.form-input
+									input.form-input__text.js--input-text(
+										type="text",
+										name="NAME",
+										required)
+									span.form-input__label Ваше имя
+								// .form__info.error Текст ошибки
+							.col-12.col-xl-6
+								label.form-input
+									input.form-input__text.js--input-text.js--maskphone(
+										type="tel",
+										name="PHONE",
+										required)
+									span.form-input__label Телефон
+								// .form__info.error Текст ошибки
+							.col-12
+								label.form-input
+									input.form-input__text.js--input-text(
+										type="text",
+										name="ADDRESS")
+									span.form-input__label Адрес доставки
+								// .form__info.error Текст ошибки
+							.col-12
+								label.form-input
+									input.form-input__text.js--input-text(
+										type="text",
+										name="TEXT")
+									span.form-input__label Комментарий
+								// .form__info.error Текст ошибки
+
+				.order__card
+					h3.h3.order__card__title Способ доставки
+					ul.form-list
+						li: label.form-radio(for="delivery-1")
+							input#delivery-1.form-radio__input(type="radio" name="delivery" checked)
+							span.form-radio__text Самовывоз
+						li: label.form-radio(for="delivery-2")
+							input#delivery-2.form-radio__input(type="radio" name="delivery")
+							span.form-radio__text Доставка по Краснодару
+						li: label.form-radio(for="delivery-3")
+							input#delivery-3.form-radio__input(type="radio" name="delivery")
+							span.form-radio__text Доставка по Краснодарскому краю
+						li: label.form-radio(for="delivery-4")
+							input#delivery-4.form-radio__input(type="radio" name="delivery")
+							span.form-radio__text Доставка по России
+
+
+				.order__card
+					h3.h3.order__card__title Способ оплаты
+					ul.form-list
+						li: label.form-radio(for="payment-1")
+							input#payment-1.form-radio__input(type="radio" name="payment" checked)
+							span.form-radio__text Наличными при получении
+						li: label.form-radio(for="payment-2")
+							input#payment-2.form-radio__input(type="radio" name="payment")
+							span.form-radio__text Безналичный рассчет
+						li: label.form-radio(for="payment-3")
+							input#payment-3.form-radio__input(type="radio" name="payment")
+							span.form-radio__text СБП
+
+				.order__footer
+					.order__footer__item
+						label.form-checkbox.form-checkbox__small(for="#check-d4")
+							input.form-checkbox__input(type="checkbox" id="#check-d4" required)
+							span.form-checkbox__text
+								| Соглашаюсь на&nbsp;обработку&nbsp;
+								a(href="#", target="_blank", rel="noopener noreferrer") персональных данных
+								| &nbsp;в&nbsp;соответствии с&nbsp;
+								a(href="#", target="_blank", rel="noopener noreferrer") политикой конфиденциальности.
+					.order__footer__item
+						button.mbtn.mbtn__primary.mbtn__middle(type="submit") оформить заказ
+
+		// /Оформить заказ
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals
