@@ -1,0 +1,57 @@
+// Шаг 1, Выбор формы столешницы
+.calculator-card__step
+
+	.calculator-card__header
+		h3.h3.calculator-card__header__title Выберите форму столешницы для кухни
+		.calculator-card__header__text: .block__text
+			p Форма столешницы соотвествует конструкции вашего кухонного гарнитура и&nbsp;бывает 3&nbsp;основных видов: прямая, L-образная(угловая) и&nbsp;U-образная.
+
+	.calculator-card__content
+		.calculator-card__columns3
+
+			// el
+			.calculator-card__columns3__item
+				label.calculator-card__radioblock
+					input.calculator-card__radioblock__input(
+						name="form-tabletop"
+						type="radio",
+						checked,
+						data-tabletop="tabletop__0")
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text Прямая
+						span.calculator-card__radioblock__img
+							img(
+								src=`${baseDir}img/calculator/img-calc-tabletop-0.jpg`,
+								alt="")
+			// /el
+
+			// el
+			.calculator-card__columns3__item
+				label.calculator-card__radioblock
+					input.calculator-card__radioblock__input(
+						name="form-tabletop"
+						type="radio",
+						data-tabletop="tabletop__1")
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text L-образная
+						span.calculator-card__radioblock__img
+							img(
+								src=`${baseDir}img/calculator/img-calc-tabletop-1.jpg`,
+								alt="")
+			// /el
+
+			// el
+			.calculator-card__columns3__item
+				label.calculator-card__radioblock
+					input.calculator-card__radioblock__input(
+						name="form-tabletop"
+						type="radio",
+						data-tabletop="tabletop__2")
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text U-образная
+						span.calculator-card__radioblock__img
+							img(
+								src=`${baseDir}img/calculator/img-calc-tabletop-2.jpg`,
+								alt="")
+			// /el
+// /Шаг 1

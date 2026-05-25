@@ -225,6 +225,14 @@
 		grid-template-columns: minmax(0,1fr) 480px;
 		gap: 60px;
 
+		@include desktop {
+			gap: 30px;
+			grid-template-columns: minmax(0,1fr) 360px;
+		}
+		@include laptop {
+			grid-template-columns: 1fr;
+		}
+
 		&__img {
 			display: flex;
 			align-items: center;
@@ -232,27 +240,57 @@
 			aspect-ratio: 480/360;
 			position: relative;
 
-			&__sett {
+			@include laptop {
+				order: 1;
+				max-width: 420px;
+				margin:0 auto;
+			}
+
+			&__bg {
 				position: absolute;
 				left: 0;
 				top: 0;
 				width: 100%;
 				height: 100%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				aspect-ratio: 1/1;
-				background-color: $cl-white;
-				display: none;
-
-				&.active {
-					display: block;
-				}
 
 				img {
+					position: absolute;
 					width: 100%;
 					height: 100%;
 					object-fit: contain;
+					object-position: center;
+				}
+			}
+
+			&__layer {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+
+				img {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+					object-position: center;
+					opacity: 0;
+					transition: opacity ease 0.3s;
+
+					&.active {
+						opacity: 1;
+					}
+				}
+
+				// Скрытие изображений по умолчанию (если нет класса .active)
+				.calculator-card__settings__img__layer img:not(.active) {
+					opacity: 0;
+				}
+
+				// Показ изображений с классом .active (уже есть, но продублируем для ясности)
+				.calculator-card__settings__img__layer img.active {
+					opacity: 1;
 				}
 			}
 		}
@@ -274,6 +312,7 @@
     			width: auto;
 			}
 		}
+
 		&__listchecks {
 			display: flex;
 			flex-direction: column;
@@ -283,6 +322,26 @@
 
 			.calculator-card__settings__listradios {
 				padding-left: 30px;
+			}
+			.calculator-card__settings__listchecks {
+				padding-left: 30px;
+				margin: 15px 0 0 0;
+			}
+
+			& > div {
+				&.js--masterchekradios-wrapper .js--droplist {
+					display: none;
+
+					&.active {
+						display: flex;
+					}
+				}
+			}
+		}
+
+		&__content {
+			@include laptop {
+				order: 2;
 			}
 		}
 	}
@@ -305,13 +364,24 @@
 
 		.calculator-card__header__title {
 			margin-bottom: 60px;
+
+			@include desktop {
+				margin-bottom: 30px;
+			}
 		}
 	}
 
 	&__rezult {
 		display: grid;
-		grid-template-columns: minmax(0,1fr) 349px;
+		grid-template-columns: minmax(0,1fr) 30%;
 		gap: 60px;
+
+		@include desktop {
+			gap: 30px;
+		}
+		@include laptop {
+			grid-template-columns: 1fr;
+		}
 
 		&__content {
 			display: flex;
@@ -319,6 +389,11 @@
 			align-items: stretch;
 			justify-content: flex-start;
 			gap: 60px;
+
+			@include laptop {
+				order: 2;
+				gap: 30px;
+			}
 		}
 		&__list {
 			list-style: none;
@@ -329,13 +404,82 @@
 			align-items: stretch;
 			justify-content: flex-start;
 			gap: 15px;
+			line-height: 1.3;
+
+			li {
+				display: grid;
+				grid-template-columns: repeat(2, calc(50% - 15px));
+				gap: 30px;
+
+				@include tablet {
+					grid-template-columns: 1fr;
+					gap: 3px;
+				}
+			}
+
+			.label {
+				color: $cl-grey-placeholder;
+			}
 		}
+
+		&__summ {
+			padding-top: 60px;
+			border-top: 1px solid $cl-grey;
+			line-height: 1.3;
+
+			@include desktop {
+				padding-top: 30px;
+			}
+
+			&__price {
+				font-size: rem(20);
+				font-family: $font-secondary;
+				line-height: 1.2;
+
+				@include desktop {
+					font-size: rem(18);
+				}
+
+				span {
+					font-size: rem(42);
+					display: inline-block;
+					margin-left: 5px;
+					margin-right: 5px;
+
+					@include desktop {
+						font-size: rem(24);
+					}
+				}
+				sup {
+					color: $cl-red;
+				}
+			}
+
+			&__info {
+				color: $cl-grey-placeholder;
+				font-size: rem(14);
+				margin-top: 10px;
+
+				@include desktop {
+					font-size: rem(12);
+				}
+			}
+		}
+
 		&__side {
 			display: flex;
 			flex-direction: column;
 			align-items: stretch;
 			justify-content: flex-start;
 			gap: 30px;
+
+			@include laptop {
+				order: 1;
+				flex-direction: row;
+				align-items: flex-start;
+				justify-content: flex-start;
+				gap: 10px;
+			}
 		}
 
 		&__img {
@@ -343,10 +487,13 @@
 			align-items: center;
 			justify-content: center;
 			width: 100%;
-			height: 100%;
 			aspect-ratio: 1/1;
 			overflow: hidden;
 			border-radius: 12px;
+
+			@include laptop {
+				width: calc(50% - 5px);
+			}
 
 			img {
 				width: 100%;
@@ -458,6 +605,77 @@
 				width: 100%;
 				height: 100%;
 				object-fit: contain;
+			}
+		}
+	}
+
+	// Стили для управления шагами калькулятора
+	&__step {
+		&.hidden {
+			display: none !important;
+		}
+		&.active {
+			display: block;
+		}
+	}
+
+	// Стили для tabletops (разные формы столешниц)
+	&__tabletop {
+		&.hidden {
+			display: none !important;
+		}
+		&.active {
+			display: block;
+		}
+	}
+
+	// Стили для barcount (разные формы барных стоек)
+	&__barcount {
+		&.hidden {
+			display: none !important;
+		}
+		&.active {
+			display: block;
+		}
+	}
+
+	// Стили для kitchenisland (разные формы кухонных островов)
+	&__kitchenisland {
+		&.hidden {
+			display: none !important;
+		}
+		&.active {
+			display: block;
+		}
+	}
+
+	.card {
+		&__media {
+			grid-template-columns: 88px minmax(0, 1fr);
+
+			@include desktop-xxl {
+				grid-template-columns: 64px minmax(0, 1fr);
+			}
+
+			@include desktop-xl {
+				grid-template-columns: 55px minmax(0, 1fr);
+			}
+
+			@include desktop {
+				grid-template-columns: 59px minmax(0, 1fr);
+				gap: 20px;
+			}
+
+			@include laptop {
+				grid-template-columns: 95px minmax(0, 1fr);
+			}
+
+			@include tablet {
+				grid-template-columns: 74px minmax(0, 1fr);
+			}
+
+			@include mobilehr {
+				grid-template-columns: 100%;
 			}
 		}
 	}

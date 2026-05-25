@@ -1,0 +1,1160 @@
+﻿.calculator-card__step.hidden
+
+	.calculator-card__header
+		h3.h3.calculator-card__header__title Укажите размеры столешницы в миллиметрах
+		.calculator-card__header__text: .block__text
+			p Отметьте наличие на столешнице скосов или скруглений, а также вырезы под мойку и варочную панель.
+
+	.calculator-card__content
+
+		// прямая столлешница
+		.calculator-card__tabletop.hidden(data-tabletop="tabletop__0")
+			.calculator-card__settings
+
+				.calculator-card__settings__content
+					.row.form__line4
+						.col-12.col-xl-6
+
+							.row.form__line3
+								.col-12
+									label.form-calc__label(for="inp-tabletop-0") Длина A (мм)<sup>*</sup>
+									input#inp-tabletop-0.form-calc__input(
+										type="text",
+										name="tabletop",
+										value="600",
+										required)
+								.col-12
+									label.form-calc__label(for="inp-tabletop-1") Ширина B (мм)<sup>*</sup>
+									input#inp-tabletop-1.form-calc__input(
+										type="text",
+										name="tabletop",
+										value="1800",
+										required)
+
+						.col-12.col-xl-6
+							.calculator-card__settings__listchecks.js--droplist
+								div
+									label.form-checkbox
+										input.form-checkbox__input(
+											type="checkbox"
+											name="tabletop",
+											data-price="10"
+											data-image-id="hog")
+										span.form-checkbox__text
+											span Вырез под варочную панель
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop"
+											data-image-id="sink")
+										span.form-checkbox__text
+											span Вырез под мойку
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-washing"
+													data-price="10",
+													data-image-id="sink-top",
+													disabled)
+												span.form-radio__text
+													span Сверху
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-washing"
+													data-price="10",
+													data-image-id="sink-bottom",
+													disabled)
+												span.form-radio__text
+													span Снизу
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-washing"
+													data-price="10",
+													data-image-id="sink-quarter",
+													disabled)
+												span.form-radio__text
+													span В четверть
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop",
+											data-image-id="left")
+										span.form-checkbox__text
+											span Скос и скругление (слева)
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-circleleft"
+													data-price="10",
+													data-image-id="left-corner",
+													disabled)
+												span.form-radio__text
+													span Скос
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-circleleft"
+													data-price="10",
+													data-image-id="left-half-rounded",
+													disabled)
+												span.form-radio__text
+													span Скругление
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-circleleft"
+													data-price="10",
+													data-image-id="left-rounded",
+													disabled)
+												span.form-radio__text
+													span Скругление 2 угла
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop",
+											data-image-id="right")
+										span.form-checkbox__text
+											span Скос и скругление (справа)
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-circleright"
+													data-price="10",
+													data-image-id="right-corner",
+													disabled)
+												span.form-radio__text
+													span Скос
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-circleright"
+													data-price="10",
+													data-image-id="right-half-rounded",
+													disabled)
+												span.form-radio__text
+													span Скругление
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-circleright"
+													data-price="10",
+													data-image-id="right-half-rounded2",
+													disabled)
+												span.form-radio__text
+													span Скругление 2 угла
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop",
+											data-image-id="ledge")
+										span.form-checkbox__text
+											span Выступ
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-ledges"
+													data-price="10",
+													data-image-id="ledge-straight",
+													disabled)
+												span.form-radio__text
+													span Прямой
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-ledges"
+													data-price="10",
+													data-image-id="ledge-radial",
+													disabled)
+												span.form-radio__text
+													span Радиусный
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-ledges"
+													data-price="10",
+													data-image-id="ledge-radial-else",
+													disabled)
+												span.form-radio__text
+													span С радиусами
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-ledges"
+													data-price="10",
+													data-image-id="ledge-corner",
+													disabled)
+												span.form-radio__text
+													span Скосы
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-ledges"
+													data-price="10",
+													data-image-id="ledge-figure",
+													disabled)
+												span.form-radio__text
+													span Фигурный
+
+				.calculator-card__settings__side
+					.calculator-card__settings__img
+						// общий фон по умолчанию
+						.calculator-card__settings__img__bg
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/base-layout_480_360.png`,
+								alt="")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/straight-size-map_960_720.png`,
+								alt="")
+
+						// вырез под мойку
+						.calculator-card__settings__img__layer
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/sink-top_480_360.png`,
+								alt=""
+								data-image="sink-top"
+								data-group="sink")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/sink-bottom_480_360.png`,
+								alt=""
+								data-image="sink-bottom"
+								data-group="sink")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/sink-quarter_480_360.png`,
+								alt=""
+								data-image="sink-quarter"
+								data-group="sink")
+
+						// Скос и скругление (слева)
+						.calculator-card__settings__img__layer
+							img.default.active(
+								src=`${baseDir}img/calculator/tabletop/type-1/left-straight_480_360.png`,
+								alt=""
+								data-image="left-straight"
+								data-group="left")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/left-corner_480_360.png`,
+								alt=""
+								data-image="left-corner"
+								data-group="left")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/left-half-rounded_480_360.png`,
+								alt=""
+								data-image="left-half-rounded"
+								data-group="left")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/left-rounded_480_360.png`,
+								alt=""
+								data-image="left-rounded"
+								data-group="left")
+
+						// Скос и скругление (справа)
+						.calculator-card__settings__img__layer
+							img.default.active(
+								src=`${baseDir}img/calculator/tabletop/type-1/right-straight_480_360.png`,
+								alt=""
+								data-image="right-straight"
+								data-group="right")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/right-corner_480_360.png`,
+								alt=""
+								data-image="right-corner"
+								data-group="right")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/right-half-rounded_480_360.png`,
+								alt=""
+								data-image="right-half-rounded"
+								data-group="right")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/right-rounded_480_360.png`,
+								alt=""
+								data-image="right-half-rounded2"
+								data-group="right")
+
+						// Скос и скругление (выступ)
+						.calculator-card__settings__img__layer
+							img.default.active(
+								src=`${baseDir}img/calculator/tabletop/type-1/stove_480_360.png`,
+								alt=""
+								data-image="ledge-default"
+								data-group="ledge")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/ledge-straigh-corner_480_360.png`,
+								alt=""
+								data-image="ledge-straight"
+								data-group="ledge")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/ledge-radial_480_360.png`,
+								alt=""
+								data-image="ledge-radial"
+								data-group="ledge")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/ledge-radial-corner_480_360.png`,
+								alt=""
+								data-image="ledge-radial-else"
+								data-group="ledge")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/ledge-corner_480_360.png`,
+								alt=""
+								data-image="ledge-corner"
+								data-group="ledge")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/ledge-figure-corner_480_360.png`,
+								alt=""
+								data-image="ledge-figure"
+								data-group="ledge")
+
+						// вырез под варочную панель
+						.calculator-card__settings__img__layer
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-1/hog_480_360.png`,
+								alt=""
+								data-image="hog")
+		// /прямая столлешница
+
+		// L-образная столлешница
+		.calculator-card__tabletop.hidden(data-tabletop="tabletop__1")
+			.calculator-card__settings
+
+				.calculator-card__settings__content
+					.row.form__line4
+						.col-12.col-xl-6
+
+							.row.form__line3
+								.col-6.col-xl-12.col-xxl-6
+									label.form-calc__label(for="inp-tabletop1-0") Ширина A (мм)<sup>*</sup>
+									input#inp-tabletop1-0.form-calc__input(
+										type="text",
+										name="tabletop1",
+										value="600",
+										required)
+								.col-6.col-xl-12.col-xxl-6
+									label.form-calc__label(for="inp-tabletop1-1") Дилина B (мм)<sup>*</sup>
+									input#inp-tabletop1-1.form-calc__input(
+										type="text",
+										name="tabletop1",
+										value="1800",
+										required)
+								.col-6.col-xl-12.col-xxl-6
+									label.form-calc__label(for="inp-tabletop1-2") Ширина C (мм)<sup>*</sup>
+									input#inp-tabletop1-2.form-calc__input(
+										type="text",
+										name="tabletop1",
+										value="1800",
+										required)
+								.col-6.col-xl-12.col-xxl-6
+									label.form-calc__label(for="inp-tabletop1-3") Длина D (мм)<sup>*</sup>
+									input#inp-tabletop1-3.form-calc__input(
+										type="text",
+										name="tabletop1",
+										value="1800",
+										required)
+
+						.col-12.col-xl-6
+							.calculator-card__settings__listchecks.js--droplist
+								div
+									label.form-checkbox
+										input.form-checkbox__input(
+											type="checkbox"
+											name="tabletop1"
+											data-price="10"
+											data-image-id="hog1")
+										span.form-checkbox__text
+											span Вырез под варочную панель
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop1-washing"
+											data-image-id="sink1")
+										span.form-checkbox__text
+											span Вырез под мойку
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-washing"
+													data-price="10"
+													data-image-id="sink1-top")
+												span.form-radio__text
+													span Сверху
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-washing"
+													data-price="10"
+													data-image-id="sink1-bottom")
+												span.form-radio__text
+													span Снизу
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-washing"
+													data-price="10"
+													data-image-id="sink1-quarter")
+												span.form-radio__text
+													span В четверть
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop1"
+											data-image-id="left1")
+										span.form-checkbox__text
+											span Скос и скругление (слева)
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-circleleft"
+													data-price="10"
+													data-image-id="left1-corner")
+												span.form-radio__text
+													span Скос
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-circleleft"
+													data-price="10"
+													data-image-id="left1-half-rounded")
+												span.form-radio__text
+													span Скругление
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-circleleft"
+													data-price="10"
+													data-image-id="left1-rounded")
+												span.form-radio__text
+													span Скругление 2 угла
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop1"
+											data-image-id="center1")
+										span.form-checkbox__text
+											span Скос и скругление (центр)
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-circlecenter"
+													data-price="10",
+													data-image-id="center1-corner")
+												span.form-radio__text
+													span Скос
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-circlecenter"
+													data-price="10",
+													data-image-id="center1-rounded")
+												span.form-radio__text
+													span Скругление
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop1"
+											data-image-id="right1")
+										span.form-checkbox__text
+											span Скос и скругление (справа)
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-circleright"
+													data-price="10",
+													data-image-id="right1-corner")
+												span.form-radio__text
+													span Скос
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-circleright"
+													data-price="10",
+													data-image-id="right1-halfrounded")
+												span.form-radio__text
+													span Скругление
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-circleright"
+													data-price="10",
+													data-image-id="right1-rounded")
+												span.form-radio__text
+													span Скругление 2 угла
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop1"
+											data-image-id="ledge1")
+										span.form-checkbox__text
+											span Выступ
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-ledges"
+													data-price="10",
+													data-image-id="ledge1-straight")
+												span.form-radio__text
+													span Прямой
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-ledges"
+													data-price="10",
+													data-image-id="ledge1-radial")
+												span.form-radio__text
+													span Радиусный
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-ledges"
+													data-price="10",
+													data-image-id="ledge1-radial-else")
+												span.form-radio__text
+													span С радиусами
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-ledges"
+													data-price="10",
+													data-image-id="ledge1-corner")
+												span.form-radio__text
+													span Скосы
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop1-ledges"
+													data-price="10",
+													data-image-id="ledge1-figure")
+												span.form-radio__text
+													span Фигурный
+
+				.calculator-card__settings__side
+					.calculator-card__settings__img
+						// общий фон по умолчанию
+						.calculator-card__settings__img__bg
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/base-layout_480_360.png`,
+								alt="")
+
+						// вырез под мойку
+						.calculator-card__settings__img__layer
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/sink-top_480_360.png`,
+								alt=""
+								data-image="sink1-top"
+								data-group="sink1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/sink-bottom_480_360.png`,
+								alt=""
+								data-image="sink1-bottom"
+								data-group="sink1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/sink-quarter_480_360.png`,
+								alt=""
+								data-image="sink1-quarter"
+								data-group="sink1")
+
+						// Скос и скругление (слева)
+						.calculator-card__settings__img__layer
+							img.default.active(
+								src=`${baseDir}img/calculator/tabletop/type-2/left-straight_480_360.png`,
+								alt=""
+								data-image="left1-straight"
+								data-group="left1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/left-corner_480_360.png`,
+								alt=""
+								data-image="left1-corner"
+								data-group="left1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/left-half-rounded_480_360.png`,
+								alt=""
+								data-image="left1-half-rounded"
+								data-group="left1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/left-rounded_480_360.png`,
+								alt=""
+								data-image="left1-rounded"
+								data-group="left1")
+
+						// Скос и скругление (центр)
+						.calculator-card__settings__img__layer
+							img.default.active(
+								src=`${baseDir}img/calculator/tabletop/type-2/inner-straight_480_360.png`,
+								alt=""
+								data-image="center1-straight"
+								data-group="center1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/inner-corner_480_360.png`,
+								alt=""
+								data-image="center1-corner"
+								data-group="center1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/inner-rounded_480_360.png`,
+								alt=""
+								data-image="center1-rounded"
+								data-group="center1")
+
+						// Скос и скругление (справа)
+						.calculator-card__settings__img__layer
+							img.default.active(
+								src=`${baseDir}img/calculator/tabletop/type-2/right-straight_480_360.png`,
+								alt=""
+								data-image="right1-straight"
+								data-group="right1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/right-corner_480_360.png`,
+								alt=""
+								data-image="right1-corner"
+								data-group="right1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/right-half-rounded_480_360.png`,
+								alt=""
+								data-image="right1-halfrounded"
+								data-group="right1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/right-rounded_480_360.png`,
+								alt=""
+								data-image="right1-rounded"
+								data-group="right1")
+
+						// Скос и скругление (выступ)
+						.calculator-card__settings__img__layer
+							img.default.active(
+								src=`${baseDir}img/calculator/tabletop/type-2/stove_480_360.png`,
+								alt=""
+								data-image="ledge1-default"
+								data-group="ledge1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/ledge-straigh-corner_480_360.png`,
+								alt=""
+								data-image="ledge1-straight"
+								data-group="ledge1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/ledge-radial_480_360.png`,
+								alt=""
+								data-image="ledge1-radial"
+								data-group="ledge1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/ledge-radial-corner_480_360.png`,
+								alt=""
+								data-image="ledge1-radial-else"
+								data-group="ledge1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/ledge-corner_480_360.png`,
+								alt=""
+								data-image="ledge1-corner"
+								data-group="ledge1")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/ledge-figure-corner_480_360.png`,
+								alt=""
+								data-image="ledge1-figure"
+								data-group="ledge1")
+
+						// вырез под варочную панель
+						.calculator-card__settings__img__layer
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/hog_480_360.png`,
+								alt=""
+								data-image="hog1")
+
+						// разметка размеров
+						.calculator-card__settings__img__bg
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-2/lshape-size-map_960_720.png`,
+								alt="")
+		// /L-образная столлешница
+
+		// U-образная столлешница
+		.calculator-card__tabletop.active(data-tabletop="tabletop__2")
+			.calculator-card__settings
+
+				.calculator-card__settings__content
+					.row.form__line4
+						.col-12.col-xl-6
+
+							.row.form__line3
+								.col-6.col-xl-12.col-xxl-6
+									label.form-calc__label(for="inp-tabletop2-0") Ширина A (мм)<sup>*</sup>
+									input#inp-tabletop-0.form-calc__input(
+										type="text",
+										name="tabletop2",
+										value="600",
+										required)
+								.col-6.col-xl-12.col-xxl-6
+									label.form-calc__label(for="inp-tabletop2-1") Дилина B (мм)<sup>*</sup>
+									input#inp-tabletop-1.form-calc__input(
+										type="text",
+										name="tabletop2",
+										value="3000",
+										required)
+								.col-6.col-xl-12.col-xxl-6
+									label.form-calc__label(for="inp-tabletop2-1") Ширина C (мм)<sup>*</sup>
+									input#inp-tabletop-1.form-calc__input(
+										type="text",
+										name="tabletop2",
+										value="600",
+										required)
+								.col-6.col-xl-12.col-xxl-6
+									label.form-calc__label(for="inp-tabletop2-1") Длина D (мм)<sup>*</sup>
+									input#inp-tabletop-1.form-calc__input(
+										type="text",
+										name="tabletop2",
+										value="2000",
+										required)
+								.col-6.col-xl-12.col-xxl-6
+									label.form-calc__label(for="inp-tabletop2-1") Ширина E (мм)<sup>*</sup>
+									input#inp-tabletop-1.form-calc__input(
+										type="text",
+										name="tabletop2",
+										value="600",
+										required)
+								.col-6.col-xl-12.col-xxl-6
+									label.form-calc__label(for="inp-tabletop2-1") Длина F (мм)<sup>*</sup>
+									input#inp-tabletop-1.form-calc__input(
+										type="text",
+										name="tabletop2",
+										value="2500",
+										required)
+
+						.col-12.col-xl-6
+							.calculator-card__settings__listchecks.js--droplist
+								div
+									label.form-checkbox
+										input.form-checkbox__input(
+											type="checkbox"
+											name="tabletop2"
+											data-image-id="hog2")
+										span.form-checkbox__text
+											span Вырез под варочную панель
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop2"
+											data-image-id="sink2")
+										span.form-checkbox__text
+											span Вырез под мойку
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-washing"
+													data-image-id="sink2-top")
+												span.form-radio__text
+													span Сверху
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-washing"
+													data-image-id="sink2-bottom")
+												span.form-radio__text
+													span Снизу
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-washing"
+													data-image-id="sink2-quarter")
+												span.form-radio__text
+													span В четверть
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop2"
+											data-image-id="left2")
+										span.form-checkbox__text
+											span Скос и скругление (слева)
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-left"
+													data-image-id="left2-corner")
+												span.form-radio__text
+													span Скос
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-left"
+													data-image-id="left2-half-rounded")
+												span.form-radio__text
+													span Скругление
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-left"
+													data-image-id="left2-rounded")
+												span.form-radio__text
+													span Скругление 2 угла
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop2"
+											data-image-id="centerleft2")
+										span.form-checkbox__text
+											span Скос и скругление (центр слева)
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-centerleft"
+													data-image-id="centerleft2-corner")
+												span.form-radio__text
+													span Скос
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-centerleft"
+													data-image-id="centerleft2-rounded")
+												span.form-radio__text
+													span Скругление
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop2"
+											data-image-id="centerright2")
+										span.form-checkbox__text
+											span Скос и скругление (центр справа)
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-centerright"
+													data-image-id="centerright2-corner")
+												span.form-radio__text
+													span Скос
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-centerright"
+													data-image-id="centerright2-rounded")
+												span.form-radio__text
+													span Скругление
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop2"
+											data-image-id="right2")
+										span.form-checkbox__text
+											span Скос и скругление (справа)
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-right"
+													data-image-id="right2-corner")
+												span.form-radio__text
+													span Скос
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-right"
+													data-image-id="right2-halfrounded")
+												span.form-radio__text
+													span Скругление
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-right"
+													data-image-id="right2-rounded")
+												span.form-radio__text
+													span Скругление 2 угла
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="tabletop2"
+											data-image-id="ledge2")
+										span.form-checkbox__text
+											span Выступ
+
+									.calculator-card__settings__listchecks.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-ledges"
+													data-image-id="ledge2-straight")
+												span.form-radio__text
+													span Прямой
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-ledges"
+													data-image-id="ledge2-radial")
+												span.form-radio__text
+													span Радиусный
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-ledges"
+													data-image-id="ledge2-radial-else")
+												span.form-radio__text
+													span С радиусами
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop2-ledges"
+													data-image-id="ledge2-corner")
+												span.form-radio__text
+													span Скосы
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="tabletop-ledges"
+													data-image-id="ledge2-figure")
+												span.form-radio__text
+													span Фигурный
+
+				.calculator-card__settings__side
+					.calculator-card__settings__img
+						// общий фон по умолчанию
+						.calculator-card__settings__img__bg
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/base-layout_480_360.png`,
+								alt="")
+
+						// вырез под мойку
+						.calculator-card__settings__img__layer
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/sink-top_480_360.png`,
+								alt=""
+								data-image="sink2-top"
+								data-group="sink2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/sink-bottom_480_360.png`,
+								alt=""
+								data-image="sink2-bottom"
+								data-group="sink2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/sink-quarter_480_360.png`,
+								alt=""
+								data-image="sink2-quarter"
+								data-group="sink2")
+
+						// Скос и скругление (слева)
+						.calculator-card__settings__img__layer
+							img.default.active(
+								src=`${baseDir}img/calculator/tabletop/type-3/left-straight_480_360.png`,
+								alt=""
+								data-image="left2-straight"
+								data-group="left2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/left-corner_480_360.png`,
+								alt=""
+								data-image="left2-corner"
+								data-group="left2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/left-half-rounded_480_360.png`,
+								alt=""
+								data-image="left2-half-rounded"
+								data-group="left2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/left-rounded_480_360.png`,
+								alt=""
+								data-image="left2-rounded"
+								data-group="left2")
+
+						// Скос и скругление (центр слева)
+						.calculator-card__settings__img__layer
+							img.default.active(
+								src=`${baseDir}img/calculator/tabletop/type-3/inner-centerleft-straight_480_360.png`,
+								alt=""
+								data-image="centerleft2-straight"
+								data-group="centerleft2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/inner-centerleft-corner_480_360.png`,
+								alt=""
+								data-image="centerleft2-corner"
+								data-group="centerleft2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/inner-centerleft-rounded_480_360.png`,
+								alt=""
+								data-image="centerleft2-rounded"
+								data-group="centerleft2")
+
+						// Скос и скругление (центр справа)
+						.calculator-card__settings__img__layer
+							img.default.active(
+								src=`${baseDir}img/calculator/tabletop/type-3/inner-centerright-straight_480_360.png`,
+								alt=""
+								data-image="centerright2-straight"
+								data-group="centerright2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/inner-centerright-corner_480_360.png`,
+								alt=""
+								data-image="centerright2-corner"
+								data-group="centerright2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/inner-centerright-rounded_480_360.png`,
+								alt=""
+								data-image="centerright2-rounded"
+								data-group="centerright2")
+
+						// Скос и скругление (справа)
+						.calculator-card__settings__img__layer
+							img.default.active(
+								src=`${baseDir}img/calculator/tabletop/type-3/right-straight_480_360.png`,
+								alt=""
+								data-image="right2-straight"
+								data-group="right2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/right-corner_480_360.png`,
+								alt=""
+								data-image="right2-corner"
+								data-group="right2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/right-half-rounded_480_360.png`,
+								alt=""
+								data-image="right2-halfrounded"
+								data-group="right2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/right-rounded_480_360.png`,
+								alt=""
+								data-image="right2-rounded"
+								data-group="right2")
+
+						// Скос и скругление (выступ)
+						.calculator-card__settings__img__layer
+							img.default.active(
+								src=`${baseDir}img/calculator/tabletop/type-3/stove_480_360.png`,
+								alt=""
+								data-image="ledge2-default"
+								data-group="ledge2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/ledge-straigh-corner_480_360.png`,
+								alt=""
+								data-image="ledge2-straight"
+								data-group="ledge2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/ledge-radial_480_360.png`,
+								alt=""
+								data-image="ledge2-radial"
+								data-group="ledge2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/ledge-radial-corner_480_360.png`,
+								alt=""
+								data-image="ledge2-radial-else"
+								data-group="ledge2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/ledge-corner_480_360.png`,
+								alt=""
+								data-image="ledge2-corner"
+								data-group="ledge2")
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/ledge-figure-corner_480_360.png`,
+								alt=""
+								data-image="ledge2-figure"
+								data-group="ledge2")
+
+						// вырез под варочную панель
+						.calculator-card__settings__img__layer
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/hog_480_360.png`,
+								alt=""
+								data-image="hog2")
+
+						// общий фон по умолчанию
+						.calculator-card__settings__img__bg
+							img(
+								src=`${baseDir}img/calculator/tabletop/type-3/ushape-size-map_960_720.png`,
+								alt="")
+
+		// /U-образная столлешница
+// /Шаг 2

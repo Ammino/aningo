@@ -1,0 +1,146 @@
+// Шаг 9, Расчет стоимости
+.calculator-card__step.hidden
+
+	.calculator-card__header
+		h3.h3.calculator-card__header__title Расчет стоимости
+
+	.calculator-card__content
+		.calculator-card__rezult
+
+			.calculator-card__rezult__content
+				.calculator-card__rezult__item
+					h4.h4 Описание
+					ul.calculator-card__rezult__list
+						li
+							span.label Форма
+							span.text.js-result-shape
+						li
+							span.label Материал
+							span.text.js-result-stone
+						li
+							span.label Страна
+							span.text.js-result-country
+						li
+							span.label Цвет
+							span.text.js-result-color
+						li
+							span.label Вид камня
+							span.text.js-result-stone-type
+						li
+							span.label Толщина
+							span.text.js-result-slab
+						li
+							span.label Фаска
+							span.text.js-result-chamfer
+						li
+							span.label Площадь столешницы
+							span.text.js-result-area
+						li
+							span.label Ширина A (мм)
+							span.text.js-result-width
+						li
+							span.label Длина B (мм)
+							span.text.js-result-length
+
+				.calculator-card__rezult__item.js-result-cuts-section
+					h4.h4 Вырезы и скосы
+					ul.calculator-card__rezult__list.js-result-cuts-list
+						// Динамически заполняется через JavaScript
+
+				.calculator-card__rezult__item.js-result-bar-section
+					h4.h4 Барная стойка
+					ul.calculator-card__rezult__list
+						li
+							span.label Форма
+							span.text.js-result-bar-form
+						li
+							span.label Ширина
+							span.text.js-result-bar-width
+						li
+							span.label Длина
+							span.text.js-result-bar-length
+						li
+							span.label Высота
+							span.text.js-result-bar-height
+
+				.calculator-card__rezult__item.js-result-island-section
+					h4.h4 Кухонный остров
+					ul.calculator-card__rezult__list
+						li
+							span.label Форма
+							span.text.js-result-island-form
+						li
+							span.label Ширина
+							span.text.js-result-island-width
+						li
+							span.label Длина
+							span.text.js-result-island-length
+						li
+							span.label Высота
+							span.text.js-result-island-height
+
+				.calculator-card__rezult__item
+					h4.h4 Дополнительные опции
+					ul.calculator-card__rezult__list
+						li
+							span.label Вырез под розетку
+							span.text.js-result-option-socket Нет
+						li
+							span.label Вырез под смеситель/дозатор
+							span.text.js-result-option-faucet Нет
+						li
+							span.label Замер
+							span.text.js-result-option-measure Нет
+						li
+							span.label Подклейка торца заподлицо
+							span.text.js-result-option-glue-flush Нет
+						li
+							span.label Подклейка торца под 45°
+							span.text.js-result-option-glue-45 Нет
+
+				.calculator-card__rezult__summ
+					.calculator-card__rezult__summ__price
+						| Стоимость
+						span.js-result-total
+						| ₽
+						span: sup *
+					.calculator-card__rezult__summ__info
+						| <sup>*</sup> Ориентировочная стоимость, не является офертой!
+
+			.calculator-card__rezult__side
+				.calculator-card__rezult__img
+					img.js-result-imgtabletop(src=`${baseDir}img/calculator/img-calc-tabletop-0.jpg`, alt="")
+				.calculator-card__rezult__img
+					img(src=`${baseDir}img/catalog/img-catalog-0.png`, alt="")
+
+		.calculator-card__form
+			h3.h3.calculator-card__header__title Оставьте свои контактные данные - мы вам перезвоним.
+			.form
+				.form__line.row
+					.col-12.col-lg-6
+						label.form-input
+							input.form-input__text.js--input-text(
+								type="text",
+								name="NAME",
+								required)
+							span.form-input__label Ваше имя
+						// .form__info.error Текст ошибки
+					.col-12.col-lg-6
+						label.form-input
+							input.form-input__text.js--input-text.js--maskphone(
+								type="tel",
+								name="PHONE",
+								required)
+							span.form-input__label Телефон
+						// .form__info.error Текст ошибки
+				.form__line2.row
+					.col-12
+						label.form-checkbox.form-checkbox__small(for="#check-m2")
+							input.form-checkbox__input(type="checkbox" id="#check-m2" required)
+							span.form-checkbox__text
+								| Соглашаюсь на&nbsp;обработку
+								a(href="#", target="_blank", rel="noopener noreferrer") персональных данных
+								| в&nbsp;соответствии с&nbsp;
+								a(href="#", target="_blank", rel="noopener noreferrer") политикой конфиденциальности.
+
+// /Шаг 9

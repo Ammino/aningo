@@ -1,0 +1,89 @@
+// Шаг 3, вы выбрали
+.calculator-card__step.hidden
+
+	.calculator-card__header
+		h3.h3.calculator-card__header__title вы выбрали Кварцевый агломерат ANTRACITE
+
+	.calculator-card__content
+
+		.card
+			.card__media
+				.card__media__side
+					.card__media__thumbs__btn.prev.js--sl-card-thumbs-prev: +svg('ic-arrow-top-short')
+					.card__media__thumbs__btn.next.js--sl-card-thumbs-next: +svg('ic-arrow-down-short')
+					.card__media__thumbs.swiper.js--sl-card-thumbs
+						.swiper-wrapper
+
+							- for (let i = 0; i < 6; i++)
+								// el
+								.card__media__thumbs__item.swiper-slide
+									.card__media__thumbs__card
+										img(src=`${baseDir}img/catalog/img-catalog-${i}.png`, alt="")
+								// el
+				.card__media__body
+					.card__media__markers.markers: span.marker-sale
+					.card__media__images.swiper.js--sl-card-images
+						.swiper-wrapper
+							- for (let i = 0; i < 6; i++)
+								// el
+								.card__media__images__item.swiper-slide
+									a.card__media__images__card(
+										href=`${baseDir}img/catalog/img-catalog-${i}.png`
+										data-fancybox-default
+										data-fancybox="card-media-gallery")
+										img(src=`${baseDir}img/catalog/img-catalog-${i}.png`, alt="")
+								// el
+
+			.card__content
+
+				.card__body
+					.card__body__content
+						-
+							var tc_property = [
+								'Камень',
+								'Цвет',
+								'Страна',
+								'Тип обработки',
+								'Производитель',
+							]
+							var tc_value = [
+								'Кварцевый агломерат',
+								'Серый',
+								'Россия',
+								'Полированный',
+								'ALEPHSTONE',
+							]
+
+						.content-columns__properties__list
+							- for (let i = 0; i < tc_property.length; i++)
+								- var property = tc_property[i]
+								- var value = tc_value[i]
+								.content-columns__properties__list__item
+									span=property
+									span=value
+
+					.card__body__radios
+						.calculator-card__settings__listchecks
+								div
+									label.form-radio
+										input.form-radio__input(
+											type="radio"
+											name="slab"
+											data-price="10",
+											checked)
+										span.form-radio__text
+											span Слэб 20 мм
+								div
+									label.form-radio
+										input.form-radio__input(
+											type="radio"
+											name="slab"
+											data-price="10")
+										span.form-radio__text
+											span Слэб 30 мм
+
+					.card__body__prices
+						.price.price__old от <span>33 000</span> ₽/м<sup>2</sup>
+						.price от <span>32 000</span> ₽/м<sup>2</sup>
+
+// /Шаг 3

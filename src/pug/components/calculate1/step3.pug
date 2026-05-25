@@ -1,0 +1,193 @@
+﻿// Шаг 3, Выбор наличия барной стойки
+.calculator-card__step.hidden
+
+	.calculator-card__header
+		h3.h3.calculator-card__header__title Выберите наличие барной стойки
+		.calculator-card__header__text: .block__text
+			p Если в вашей кухне присутсвует барная стойка, то её столешница также может быть изготовлена из натурального камня - добавьте к расчёту барную стойку. Выберите параметры барной стойки или нажмите "Далее", чтобы пропустить это шаг
+
+	.calculator-card__content
+
+		.calculator-card__columns4
+
+			// el
+			.calculator-card__columns4__item
+				label.calculator-card__radioblock.calculator-card__radioblock__grid4
+					input.calculator-card__radioblock__input(
+						name="form-barcounter"
+						type="radio",
+						checked)
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text
+							span Без барной стойки
+			// /el
+
+			// el
+			.calculator-card__columns4__item
+				label.calculator-card__radioblock.calculator-card__radioblock__grid2
+					input.calculator-card__radioblock__input(
+						name="form-barcounter"
+						type="radio",
+						data-barcount="barcount-type__1")
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text
+							span Плоская
+						span.calculator-card__radioblock__img3
+							img(
+								src=`${baseDir}img/calculator/img-calc-barcounter-0.png`,
+								alt="")
+			// /el
+
+			// el
+			.calculator-card__columns4__item
+				label.calculator-card__radioblock.calculator-card__radioblock__grid2
+					input.calculator-card__radioblock__input(
+						name="form-barcounter"
+						type="radio",
+						data-sett="sett-1")
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text
+							span L-образная
+						span.calculator-card__radioblock__img3
+							img(
+								src=`${baseDir}img/calculator/img-calc-barcounter-1.png`,
+								alt="")
+			// /el
+
+			// el
+			.calculator-card__columns4__item
+				label.calculator-card__radioblock.calculator-card__radioblock__grid3
+					input.calculator-card__radioblock__input(
+						name="form-barcounter"
+						type="radio",
+						data-sett="sett-2")
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text
+							span U-образная
+						span.calculator-card__radioblock__img3
+							img(
+								src=`${baseDir}img/calculator/img-calc-barcounter-2.png`,
+								alt="")
+			// /el
+
+		// плоская барная стойка
+		.calculator-card__barcount(data-barcount="barcount__1")
+
+			.calculator-card__settings
+
+				.calculator-card__settings__content
+					.row.form__line3
+						.col-6.col-sm-4.col-xl-4
+							label.form-calc__label(for="inp-bar-0") Ширина (мм)<sup>*</sup>
+							input#inp-bar-0.form-calc__input(
+								type="text",
+								name="barcounter1",
+								value="600",
+								required)
+						.col-6.col-sm-4.col-xl-4
+							label.form-calc__label(for="inp-bar-1") Длина (мм)<sup>*</sup>
+							input#inp-bar-1.form-calc__input(
+								type="text",
+								name="barcounter1",
+								value="1800",
+								required)
+						.col-12
+							label.form-checkbox
+								input.form-checkbox__input.js--sett-1(
+									type="checkbox"
+									name="barcounter1-circle"
+									data-default-image="barstraight-type1"
+									data-image-id="barstraight-type2")
+								span.form-checkbox__text
+									span Добавить скругление
+
+				.calculator-card__settings__side
+					.calculator-card__settings__img
+
+							.calculator-card__settings__img__layer
+								img.default.active(
+									src=`${baseDir}img/calculator/barcounter/straight-bar_480_360.png`,
+									alt=""
+									data-image="barstraight-type1"
+									data-group="barstraight")
+								img(
+									src=`${baseDir}img/calculator/barcounter/radial-bar_480_360.png`,
+									alt=""
+									data-image="barstraight-type2"
+									data-group="barstraight")
+
+		// L-образная барная стойка
+		.calculator-card__barcount(data-barcount="barcount__2")
+
+			.calculator-card__settings
+
+				.calculator-card__settings__content
+					.row.form__line3
+						.col-6.col-sm-4.col-xl-4
+							label.form-calc__label(for="inp-bar-0") Ширина (мм)<sup>*</sup>
+							input#inp-bar-0.form-calc__input(
+								type="text",
+								name="barcounter2",
+								value="600",
+								required)
+						.col-6.col-sm-4.col-xl-4
+							label.form-calc__label(for="inp-bar-1") Длина (мм)<sup>*</sup>
+							input#inp-bar-1.form-calc__input(
+								type="text",
+								name="barcounter2",
+								value="1800",
+								required)
+						.col-6.col-sm-4.col-xl-4
+							label.form-calc__label(for="inp-bar-2") Высота (мм)<sup>*</sup>
+							input#inp-bar-2.form-calc__input(
+								type="text",
+								name="barcounter2",
+								value="750",
+								required)
+
+				.calculator-card__settings__side
+					.calculator-card__settings__img
+
+							.calculator-card__settings__img__layer
+								img.default.active(
+									src=`${baseDir}img/calculator/barcounter/l-shape-bar_480_360.png`,
+									alt="")
+
+		// U-образная барная стойка
+		.calculator-card__barcount(data-barcount="barcount__3")
+
+			.calculator-card__settings
+
+				.calculator-card__settings__content
+					.row.form__line3
+						.col-6.col-sm-4.col-xl-4
+							label.form-calc__label(for="inp-bar-0") Ширина (мм)<sup>*</sup>
+							input#inp-bar-0.form-calc__input(
+								type="text",
+								name="barcounter3",
+								value="600",
+								required)
+						.col-6.col-sm-4.col-xl-4
+							label.form-calc__label(for="inp-bar-1") Длина (мм)<sup>*</sup>
+							input#inp-bar-1.form-calc__input(
+								type="text",
+								name="barcounter3",
+								value="1800",
+								required)
+						.col-6.col-sm-4.col-xl-4
+							label.form-calc__label(for="inp-bar-2") Высота (мм)<sup>*</sup>
+							input#inp-bar-2.form-calc__input(
+								type="text",
+								name="barcounter3",
+								value="750",
+								required)
+
+				.calculator-card__settings__side
+					.calculator-card__settings__img
+
+							.calculator-card__settings__img__layer
+								img.default.active(
+									src=`${baseDir}img/calculator/barcounter/u-shape-bar_480_360.png`,
+									alt="")
+
+// /Шаг 3

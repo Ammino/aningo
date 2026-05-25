@@ -1,0 +1,371 @@
+﻿// Шаг 4, Выбор наличия острова
+.calculator-card__step.hidden
+
+	.calculator-card__header
+		h3.h3.calculator-card__header__title Выберите наличие острова
+		.calculator-card__header__text: .block__text
+			p Если в вашей кухне присутсвует остров, то его столешница также может быть изготовлена из натурального камня - добавьте к расчету остров.
+
+	.calculator-card__content
+
+		.calculator-card__columns4
+
+			// el
+			.calculator-card__columns4__item
+				label.calculator-card__radioblock.calculator-card__radioblock__grid4
+					input.calculator-card__radioblock__input(
+						name="form-kitchenisland"
+						type="radio",
+						checked)
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text
+							span Без острова
+			// /el
+
+			// el
+			.calculator-card__columns4__item
+				label.calculator-card__radioblock.calculator-card__radioblock__grid3
+					input.calculator-card__radioblock__input(
+						name="form-kitchenisland"
+						type="radio",
+						data-kitchenisland="kitchenisland-type__1")
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text
+							span Плоский
+						span.calculator-card__radioblock__img3
+							img(
+								src=`${baseDir}img/calculator/img-calc-kitchenisland-0.png`,
+								alt="")
+			// /el
+
+			// el
+			.calculator-card__columns4__item
+				label.calculator-card__radioblock.calculator-card__radioblock__grid3
+					input.calculator-card__radioblock__input(
+						name="form-kitchenisland"
+						type="radio",
+						data-kitchenisland="kitchenisland-type__2")
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text
+							span L-образный
+						span.calculator-card__radioblock__img3
+							img(
+								src=`${baseDir}img/calculator/img-calc-kitchenisland-1.png`,
+								alt="")
+			// /el
+
+			// el
+			.calculator-card__columns4__item
+				label.calculator-card__radioblock.calculator-card__radioblock__grid3
+					input.calculator-card__radioblock__input(
+						name="form-kitchenisland"
+						type="radio",
+						data-kitchenisland="kitchenisland-type__3")
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text
+							span U-образный
+						span.calculator-card__radioblock__img3
+							img(
+								src=`${baseDir}img/calculator/img-calc-kitchenisland-2.png`,
+								alt="")
+			// /el
+
+		// Кухонный остров плоская
+		.calculator-card__kitchenisland(data-kitchenisland="kitchenisland__1")
+
+			.calculator-card__settings
+
+				.calculator-card__settings__content
+					.row.form__line3
+						.col-6.col-sm-4.col-xl-4
+							label.form-calc__label(for="inp-kitchenisland1-0") Ширина (мм)<sup>*</sup>
+							input#inp-kitchenisland1-0.form-calc__input(
+								type="text",
+								name="island1",
+								value="600",
+								required)
+						.col-6.col-sm-4.col-xl-4.js--line-sett
+							label.form-calc__label(for="inp-kitchenisland1-1") Длина (мм)<sup>*</sup>
+							input#inp-kitchenisland1-1.form-calc__input(
+								type="text",
+								name="island1",
+								value="1800",
+								required)
+						.col-6.col-sm-4.col-xl-4.js--line-sett
+							label.form-calc__label(for="inp-kitchenisland1-2") Высота (мм)<sup>*</sup>
+							input#inp-kitchenisland1-2.form-calc__input(
+								type="text",
+								name="island1",
+								value="750",
+								required)
+
+						.col-12
+							.calculator-card__settings__listchecks
+
+								div.js--masterchekradios-wrapper
+									label.form-checkbox
+										input.form-checkbox__input.js--masterchekradios(
+											type="checkbox"
+											name="island1-check-circle"
+											data-image-id="island1")
+										span.form-checkbox__text
+											span Добавить скругление углов
+
+									.calculator-card__settings__listradios.js--droplist
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="island1-circle"
+													data-price="10"
+													data-image-id="island1-type-1")
+												span.form-radio__text
+													span 1
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="island1-circle"
+													data-price="10"
+													data-image-id="island1-type-2")
+												span.form-radio__text
+													span 2
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="island1-circle"
+													data-price="10"
+													data-image-id="island1-type-3")
+												span.form-radio__text
+													span 3
+										div
+											label.form-radio
+												input.form-radio__input.js--masterchekradios-radio(
+													type="radio"
+													name="island1-circle"
+													data-price="10"
+													data-image-id="island1-type-4")
+												span.form-radio__text
+													span 4
+								div
+									label.form-checkbox
+										input.form-checkbox__input(
+											type="checkbox"
+											name="kitchenisland1",
+											data-price="10"
+											data-image-id="island1-hog")
+										span.form-checkbox__text
+											span Вырез под варочную панель
+
+								div
+									label.form-checkbox
+										input.form-checkbox__input(
+											type="checkbox"
+											name="kitchenisland1"
+											data-image-id="island1-sink")
+										span.form-checkbox__text
+											span Вырез под мойку
+
+				.calculator-card__settings__side
+					.calculator-card__settings__img
+						// общий фон по умолчанию
+						.calculator-card__settings__img__bg
+							img(
+								src=`${baseDir}img/calculator/island/type-1/island-base_480_320.png`,
+								alt="")
+
+						// Скругление углов
+						.calculator-card__settings__img__layer
+							img.default.active(
+								src=`${baseDir}img/calculator/island/type-1/island-corners-default.png`,
+								alt=""
+								data-image="island1-straight"
+								data-group="island1")
+							img(
+								src=`${baseDir}img/calculator/island/type-1/island-corners-type-1.png`,
+								alt=""
+								data-image="island1-type-1"
+								data-group="island1")
+							img(
+								src=`${baseDir}img/calculator/island/type-1/island-corners-type-2.png`,
+								alt=""
+								data-image="island1-type-2"
+								data-group="island1")
+							img(
+								src=`${baseDir}img/calculator/island/type-1/island-corners-type-3.png`,
+								alt=""
+								data-image="island1-type-3"
+								data-group="island1")
+							img(
+								src=`${baseDir}img/calculator/island/type-1/island-corners-type-4.png`,
+								alt=""
+								data-image="island1-type-4"
+								data-group="island1")
+
+						// вырез под мойку
+						.calculator-card__settings__img__layer
+							img(
+								src=`${baseDir}img/calculator/island/type-1/island-sink_480_320.png`,
+								alt=""
+								data-image="island1-sink")
+
+						// вырез под варочную панель
+						.calculator-card__settings__img__layer
+							img(
+								src=`${baseDir}img/calculator/island/type-1/island-hog_480_320.png`,
+								alt=""
+								data-image="island1-hog")
+
+		// Кухонный остров L-образная
+		.calculator-card__kitchenisland(data-kitchenisland="kitchenisland__2")
+
+			.calculator-card__settings
+
+				.calculator-card__settings__content
+					.row.form__line3
+						.col-6.col-sm-4.col-xl-4
+							label.form-calc__label(for="inp-kitchenisland2-0") Ширина (мм)<sup>*</sup>
+							input#inp-kitchenisland2-0.form-calc__input(
+								type="text",
+								name="island2",
+								value="600",
+								required)
+						.col-6.col-sm-4.col-xl-4.js--line-sett
+							label.form-calc__label(for="inp-kitchenisland2-1") Длина (мм)<sup>*</sup>
+							input#inp-kitchenisland2-1.form-calc__input(
+								type="text",
+								name="island2",
+								value="1800",
+								required)
+						.col-6.col-sm-4.col-xl-4.js--line-sett
+							label.form-calc__label(for="inp-kitchenisland2-2") Высота (мм)<sup>*</sup>
+							input#inp-kitchenisland2-2.form-calc__input(
+								type="text",
+								name="island2",
+								value="750",
+								required)
+
+						.col-12
+							.calculator-card__settings__listchecks
+								div
+									label.form-checkbox
+										input.form-checkbox__input(
+											type="checkbox"
+											name="kitchenisland2",
+											data-price="10"
+											data-image-id="island2-hog")
+										span.form-checkbox__text
+											span Вырез под варочную панель
+
+								div
+									label.form-checkbox
+										input.form-checkbox__input(
+											type="checkbox"
+											name="kitchenisland2"
+											data-image-id="island2-sink")
+										span.form-checkbox__text
+											span Вырез под мойку
+
+				.calculator-card__settings__side
+					.calculator-card__settings__img
+						// общий фон по умолчанию
+						.calculator-card__settings__img__bg
+							img(
+								src=`${baseDir}img/calculator/island/type-2/island-lshape_480_320.png`,
+								alt="")
+							img(
+								src=`${baseDir}img/calculator/island/type-2/island-base_480_320.png`,
+								alt="")
+
+						// вырез под мойку
+						.calculator-card__settings__img__layer
+							img(
+								src=`${baseDir}img/calculator/island/type-2/island-sink_480_320.png`,
+								alt=""
+								data-image="island2-sink")
+
+						// вырез под варочную панель
+						.calculator-card__settings__img__layer
+							img(
+								src=`${baseDir}img/calculator/island/type-2/island-hog_480_320.png`,
+								alt=""
+								data-image="island2-hog")
+
+		// Кухонный остров U-образная
+		.calculator-card__kitchenisland(data-kitchenisland="kitchenisland__3")
+
+			.calculator-card__settings
+
+				.calculator-card__settings__content
+					.row.form__line3
+						.col-6.col-sm-4.col-xl-4
+							label.form-calc__label(for="inp-kitchenisland3-0") Ширина (мм)<sup>*</sup>
+							input#inp-kitchenisland3-0.form-calc__input(
+								type="text",
+								name="island3",
+								value="600",
+								required)
+						.col-6.col-sm-4.col-xl-4.js--line-sett
+							label.form-calc__label(for="inp-kitchenisland3-1") Длина (мм)<sup>*</sup>
+							input#inp-kitchenisland3-1.form-calc__input(
+								type="text",
+								name="island3",
+								value="1800",
+								required)
+						.col-6.col-sm-4.col-xl-4.js--line-sett
+							label.form-calc__label(for="inp-kitchenisland3-2") Высота (мм)<sup>*</sup>
+							input#inp-kitchenisland3-2.form-calc__input(
+								type="text",
+								name="island3",
+								value="750",
+								required)
+
+						.col-12
+							.calculator-card__settings__listchecks
+								div
+									label.form-checkbox
+										input.form-checkbox__input(
+											type="checkbox"
+											name="kitchenisland3",
+											data-price="10"
+											data-image-id="island3-hog")
+										span.form-checkbox__text
+											span Вырез под варочную панель
+
+								div
+									label.form-checkbox
+										input.form-checkbox__input(
+											type="checkbox"
+											name="tabletop"
+											data-image-id="island3-sink")
+										span.form-checkbox__text
+											span Вырез под мойку
+
+				.calculator-card__settings__side
+					.calculator-card__settings__img
+						// общий фон по умолчанию
+						.calculator-card__settings__img__bg
+							img(
+								src=`${baseDir}img/calculator/island/type-3/island-base_480_320.png`,
+								alt="")
+							img(
+								src=`${baseDir}img/calculator/island/type-3/island-ushape_480_320.png`,
+								alt="")
+
+						// вырез под мойку
+						.calculator-card__settings__img__layer
+							img(
+								src=`${baseDir}img/calculator/island/type-3/island-sink_480_320.png`,
+								alt=""
+								data-image="island3-sink")
+
+						// вырез под варочную панель
+						.calculator-card__settings__img__layer
+							img(
+								src=`${baseDir}img/calculator/island/type-3/island-hog_480_320.png`,
+								alt=""
+								data-image="island3-hog")
+
+
+// /Шаг 4

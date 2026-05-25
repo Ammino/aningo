@@ -63,3 +63,19 @@ mixin mixin__mainCard(i,title, price, priceold, description, storage)
 				.price.price__old от <span>#{priceold}</span> ₽/м<sup>2</sup>
 			if price
 				.price от <span>#{price}</span> ₽/м<sup>2</sup>
+
+mixin mixin__mainCardCalculate(i, title, description, storage)
+	.listcard
+		.listcard__picture
+			img(src=`${baseDir}img/catalog/img-catalog-${i}.png`, alt="")
+			span.listcard__picture__backlight.js--backlight-img
+				img(src=`${baseDir}img/catalog/img-catalog-${i}-backlight.png`, alt="")
+			.markers
+				if priceold
+					span.marker-sale
+		.listcard__title=title
+		.listcard__description!= description
+		- var storageClass = storage === 'В наличии' ? 'color-green' : (storage === 'Под заказ' ? 'color-red' : '')
+		.listcard__storage(class=storageClass)=storage
+		.listcard__btn
+			button.mbtn.mbtn__middle.mbtn__primary.d-block.w-100.js--calculator1-tonextstep6(type="button") Выбрать
