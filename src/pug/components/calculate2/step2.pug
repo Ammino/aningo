@@ -1,5 +1,5 @@
 // Шаг 2, Выбор камня из каталога
-.calculator-card__step.hidden
+.calculator-card__step.js--calculator2-step.hidden
 
 	.calculator-card__header
 		h3.h3.calculator-card__header__title Выберите камень из нашего каталога
@@ -84,7 +84,7 @@
 					- for (let i = 0; i < 6; i++)
 						// el
 						.catalog-list__item
-							+mixin__mainCardCalculate(i, m_title[i], m_description[i], m_storage[i])
+							+mixin__mainCardCalculate(i, m_title[i], m_description[i], m_storage[i], 'js--calculator2-tonextstep3')
 						// el
 
 				// /каталог товаров

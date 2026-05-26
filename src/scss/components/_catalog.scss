@@ -364,6 +364,7 @@
     justify-content: flex-start;
     align-items: stretch;
     height: 100%;
+	transition: background-color .8s ease-in-out;
 
 	@include laptop {
 		padding: 10px;
@@ -372,10 +373,6 @@
     &:hover {
         .listcard__description {
             span {
-                &::after {
-                    transform: scaleX(1);
-                }
-
                 &.color-mauve,
                 &.color-blue {
                     color: $cl-white;
@@ -414,15 +411,12 @@
             justify-content: center;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.35s ease;
+            transition: opacity .8s ease-in-out;
 
             img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                filter: blur(10px);
-                transform: scale(1.1);
-                transition: filter 0.45s ease, transform 0.45s ease;
             }
 
             &.is-active {

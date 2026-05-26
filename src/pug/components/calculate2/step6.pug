@@ -1,5 +1,5 @@
-// Шаг 9, Расчет стоимости
-.calculator-card__step.hidden
+// Шаг 6, Расчет стоимости
+.calculator-card__step.js--calculator2-step.hidden
 
 	.calculator-card__header
 		h3.h3.calculator-card__header__title Расчет стоимости
@@ -8,6 +8,10 @@
 		.calculator-card__rezult
 
 			.calculator-card__rezult__content
+				.calculator-card__rezult__item
+					h4.h4 Список изделий
+					.calculator-card__rezult__windowsills.js--result-windowsills-list
+
 				.calculator-card__rezult__item
 					h4.h4 Описание
 					ul.calculator-card__rezult__list
@@ -31,14 +35,14 @@
 							span.text.js-result-chamfer
 
 				.calculator-card__rezult__item
-					h4.h4 Дополнительные опции
+					h4.h4 Услуги и опции
 					ul.calculator-card__rezult__list
 						li
-							span.label Вырез под розетку
-							span.text.js-result-option-socket Нет
+							span.label Ушки
+							span.text.js-result-option-ears Нет
 						li
-							span.label Вырез под смеситель/дозатор
-							span.text.js-result-option-faucet Нет
+							span.label Отверстие для конвекции
+							span.text.js-result-option-convection Нет
 						li
 							span.label Замер
 							span.text.js-result-option-measure Нет
@@ -60,36 +64,37 @@
 
 			.calculator-card__rezult__side
 				.calculator-card__rezult__img
-					img(src=`${baseDir}img/catalog/img-catalog-0.png`, alt="")
+					img.js--result-stone-img(src=`${baseDir}img/catalog/img-catalog-0.png`, alt="")
 
-		.calculator-card__form
+		.calculator-card__form.js--calculator2-contacts
 			h3.h3.calculator-card__header__title Оставьте свои контактные данные - мы вам перезвоним.
-			.form
-				.form__line.row
-					.col-12.col-lg-6
-						label.form-input
-							input.form-input__text.js--input-text(
-								type="text",
-								name="NAME",
-								required)
-							span.form-input__label Ваше имя
-						// .form__info.error Текст ошибки
-					.col-12.col-lg-6
-						label.form-input
-							input.form-input__text.js--input-text.js--maskphone(
-								type="tel",
-								name="PHONE",
-								required)
-							span.form-input__label Телефон
-						// .form__info.error Текст ошибки
-				.form__line2.row
-					.col-12
-						label.form-checkbox.form-checkbox__small(for="#check-m2")
-							input.form-checkbox__input(type="checkbox" id="#check-m2" required)
-							span.form-checkbox__text
-								| Соглашаюсь на&nbsp;обработку
-								a(href="#", target="_blank", rel="noopener noreferrer") персональных данных
-								| в&nbsp;соответствии с&nbsp;
-								a(href="#", target="_blank", rel="noopener noreferrer") политикой конфиденциальности.
+			.form__line.row
+				.col-12.col-lg-6
+					label.form-input
+						input.form-input__text.js--input-text(
+							type="text",
+							name="NAME",
+							required)
+						span.form-input__label Ваше имя
+				.col-12.col-lg-6
+					label.form-input
+						input.form-input__text.js--input-text.js--maskphone(
+							type="tel",
+							name="PHONE",
+							required)
+						span.form-input__label Телефон
+			.form__line2.row
+				.col-12
+					label.form-checkbox.form-checkbox__small(for="check-calculator2")
+						input.form-checkbox__input#check-calculator2(
+							type="checkbox"
+							name="CONSENT"
+							required)
+						span.form-checkbox__text
+							| Соглашаюсь на&nbsp;обработку
+							a(href="#", target="_blank", rel="noopener noreferrer") персональных данных
+							| в&nbsp;соответствии с&nbsp;
+							a(href="#", target="_blank", rel="noopener noreferrer") политикой конфиденциальности.
+			.form__info.js--calculator2-form-error(style="display: none")
 
 // /Шаг 9

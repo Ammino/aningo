@@ -586,7 +586,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	@@include('./sliders/compositions-slider.js');
 	@@include('./sliders/blog-slider.js');
 
+	@@include('./components/calculator-form-utils.js');
 	@@include('./components/_calculator.js');
+	@@include('./components/calculator-windowsill.js');
 
 	@@include('./maps/yandex-map-presets.js');
 	@@include('./maps/yandex-maps.js');

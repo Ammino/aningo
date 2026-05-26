@@ -48,9 +48,9 @@
 mixin mixin__mainCard(i,title, price, priceold, description, storage)
 	.listcard
 		a.listcard__picture(href="#")
-			img(src=`${baseDir}img/catalog/img-catalog-${i}.png`, alt="")
+			img(src=`${baseDir}img/catalog/img-catalog-${i}.webp`, alt="")
 			span.listcard__picture__backlight.js--backlight-img
-				img(src=`${baseDir}img/catalog/img-catalog-${i}-backlight.png`, alt="")
+				img(src=`${baseDir}img/catalog/img-catalog-${i}-backlight.webp`, alt="")
 			.markers
 				if priceold
 					span.marker-sale
@@ -64,8 +64,9 @@ mixin mixin__mainCard(i,title, price, priceold, description, storage)
 			if price
 				.price от <span>#{price}</span> ₽/м<sup>2</sup>
 
-mixin mixin__mainCardCalculate(i, title, description, storage)
-	.listcard
+mixin mixin__mainCardCalculate(i, title, description, storage, nextBtnClass)
+	- var stonePrice = (m_price[i] || '32000').replace(/\s/g, '')
+	.listcard.js--calculator-stone-card(data-stone-title=title data-stone-price=stonePrice)
 		.listcard__picture
 			img(src=`${baseDir}img/catalog/img-catalog-${i}.png`, alt="")
 			span.listcard__picture__backlight.js--backlight-img
@@ -78,4 +79,5 @@ mixin mixin__mainCardCalculate(i, title, description, storage)
 		- var storageClass = storage === 'В наличии' ? 'color-green' : (storage === 'Под заказ' ? 'color-red' : '')
 		.listcard__storage(class=storageClass)=storage
 		.listcard__btn
-			button.mbtn.mbtn__middle.mbtn__primary.d-block.w-100.js--calculator1-tonextstep6(type="button") Выбрать
+			- var btnClass = nextBtnClass || 'js--calculator1-tonextstep6'
+			button.mbtn.mbtn__middle.mbtn__primary.d-block.w-100(class=btnClass type="button") Выбрать

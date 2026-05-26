@@ -113,34 +113,35 @@
 				.calculator-card__rezult__img
 					img(src=`${baseDir}img/catalog/img-catalog-0.png`, alt="")
 
-		.calculator-card__form
+		.calculator-card__form.js--calculator1-contacts
 			h3.h3.calculator-card__header__title Оставьте свои контактные данные - мы вам перезвоним.
-			.form
-				.form__line.row
-					.col-12.col-lg-6
-						label.form-input
-							input.form-input__text.js--input-text(
-								type="text",
-								name="NAME",
-								required)
-							span.form-input__label Ваше имя
-						// .form__info.error Текст ошибки
-					.col-12.col-lg-6
-						label.form-input
-							input.form-input__text.js--input-text.js--maskphone(
-								type="tel",
-								name="PHONE",
-								required)
-							span.form-input__label Телефон
-						// .form__info.error Текст ошибки
-				.form__line2.row
-					.col-12
-						label.form-checkbox.form-checkbox__small(for="#check-m2")
-							input.form-checkbox__input(type="checkbox" id="#check-m2" required)
-							span.form-checkbox__text
-								| Соглашаюсь на&nbsp;обработку
-								a(href="#", target="_blank", rel="noopener noreferrer") персональных данных
-								| в&nbsp;соответствии с&nbsp;
-								a(href="#", target="_blank", rel="noopener noreferrer") политикой конфиденциальности.
+			.form__line.row
+				.col-12.col-lg-6
+					label.form-input
+						input.form-input__text.js--input-text(
+							type="text",
+							name="NAME",
+							required)
+						span.form-input__label Ваше имя
+				.col-12.col-lg-6
+					label.form-input
+						input.form-input__text.js--input-text.js--maskphone(
+							type="tel",
+							name="PHONE",
+							required)
+						span.form-input__label Телефон
+			.form__line2.row
+				.col-12
+					label.form-checkbox.form-checkbox__small(for="check-calculator1")
+						input.form-checkbox__input#check-calculator1(
+							type="checkbox"
+							name="CONSENT"
+							required)
+						span.form-checkbox__text
+							| Соглашаюсь на&nbsp;обработку
+							a(href="#", target="_blank", rel="noopener noreferrer") персональных данных
+							| в&nbsp;соответствии с&nbsp;
+							a(href="#", target="_blank", rel="noopener noreferrer") политикой конфиденциальности.
+			.form__info.js--calculator1-form-error(style="display: none")
 
 // /Шаг 9

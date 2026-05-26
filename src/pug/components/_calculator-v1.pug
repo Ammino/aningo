@@ -1,5 +1,5 @@
 ﻿.calculator-card.js--calculator1
-	form.form(action="#")
+	form.form.js--calculator1-form(action="#" novalidate)
 
 		//- Шаг 1, Выбор формы столешницы
 		include calculate1/step1
@@ -25,7 +25,7 @@
 				div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__bordered.mbtn__white.js--calculator1-prev(type="button")
 					i: +svg('ic-arrow-left-short')
 					span.js--calculator1-prev-text Назад
-				div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__primary.js--calculator1-next(type="submit")
+				div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__primary.js--calculator1-next(type="button")
 					span.js--calculator1-next-text Дальше
 					i: +svg('ic-arrow-right-short')
 			.calculator-card__footer__pagination

@@ -1,3 +1,10 @@
+// sticky aside внутри .js--basket не работает при overflow: hidden у .main
+.main:has(.js--basket) {
+	@include laptop-min {
+		overflow: visible;
+	}
+}
+
 .basket-empty {
 	position: relative;
 
@@ -107,6 +114,14 @@
 			align-items: stretch;
 			justify-content: flex-start;
 			gap: 30px;
+
+			// «Итого» фиксируется на высоте списка корзины (только десктоп)
+			@include laptop-min {
+				position: sticky;
+				top: calc(106px + 30px); // отступ .main + зазор под шапкой
+				z-index: 5;
+				align-self: start;
+			}
 
 			@include laptop {
 				gap: 10px;

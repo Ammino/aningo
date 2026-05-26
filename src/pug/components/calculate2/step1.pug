@@ -1,6 +1,347 @@
-.calculator-card__step
+.calculator-card__step.js--calculator2-step
 
 	.calculator-card__header
 		h3.h3.calculator-card__header__title Выберите форму и размер подоконника
 
 	.calculator-card__content
+
+		.calculator-card__columns4
+
+			// el
+			.calculator-card__columns4__item
+				label.calculator-card__radioblock.calculator-card__radioblock__grid5
+					input.calculator-card__radioblock__input.js--windowsill-type-radio(
+						name="form-windowsill-type"
+						type="radio",
+						data-windowsill="windowsill__0",
+						checked)
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text
+							span Прямой
+						span.calculator-card__radioblock__img2
+							img(
+								src=`${baseDir}img/calculator/windowsill/windowsill-0.jpg`,
+								alt="")
+			// /el
+
+			// el
+			.calculator-card__columns4__item
+				label.calculator-card__radioblock.calculator-card__radioblock__grid5
+					input.calculator-card__radioblock__input.js--windowsill-type-radio(
+						name="form-windowsill-type"
+						type="radio"
+						data-windowsill="windowsill__1",)
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text
+							span Угловой
+						span.calculator-card__radioblock__img2
+							img(
+								src=`${baseDir}img/calculator/windowsill/windowsill-1.jpg`,
+								alt="")
+			// /el
+
+			// el
+			.calculator-card__columns4__item
+				label.calculator-card__radioblock.calculator-card__radioblock__grid5
+					input.calculator-card__radioblock__input.js--windowsill-type-radio(
+						name="form-windowsill-type"
+						type="radio"
+						data-windowsill="windowsill__2",)
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text
+							span Эркерный
+						span.calculator-card__radioblock__img2
+							img(
+								src=`${baseDir}img/calculator/windowsill/windowsill-2.jpg`,
+								alt="")
+			// /el
+
+			// el
+			.calculator-card__columns4__item
+				label.calculator-card__radioblock.calculator-card__radioblock__grid5
+					input.calculator-card__radioblock__input.js--windowsill-type-radio(
+						name="form-windowsill-type"
+						type="radio"
+						data-windowsill="windowsill__3",)
+					span.calculator-card__radioblock__content
+						span.calculator-card__radioblock__text
+							span Эркерный радиусный
+						span.calculator-card__radioblock__img2
+							img(
+								src=`${baseDir}img/calculator/windowsill/windowsill-3.jpg`,
+								alt="")
+			// /el
+
+
+		.calc-windowsill
+			.calc-windowsill__content
+
+				// Прямой
+				.calc-windowsill__settings.js--windowsill-settings.active(data-windowsill="windowsill__0")
+					.calc-windowsill__settings__body
+						h4.h4 размеры
+						.row.form__line3
+							.col-6
+								label.form-calc__label(for="inp-windowsill1-0") A (мм)<sup>*</sup>
+								input#inp-windowsill1-0.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill1",
+									value="400",
+									required)
+							.col-6
+								label.form-calc__label(for="inp-windowsill1-1") B (мм)<sup>*</sup>
+								input#inp-windowsill1-1.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill1",
+									value="400",
+									required)
+
+					.calc-windowsill__settings__img
+						img(src=`${baseDir}img/calculator/windowsill/straight_orig.png`, alt="")
+
+					.calc-windowsill__settings__footer
+						button.mbtn.mbtn__grey.mbtn__middle.js--windowsill-add-btn(type="button") добавить подоконник
+				// /Прямой
+
+				// Угловой
+				.calc-windowsill__settings.js--windowsill-settings.hidden(data-windowsill="windowsill__1")
+					.calc-windowsill__settings__body
+						h4.h4 размеры
+						.row.form__line3
+							.col-6
+								label.form-calc__label(for="inp-windowsill2-0") A (мм)<sup>*</sup>
+								input#inp-windowsill2-0.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill2",
+									value="400",
+									required)
+							.col-6
+								label.form-calc__label(for="inp-windowsill2-1") B (мм)<sup>*</sup>
+								input#inp-windowsill2-1.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill2",
+									value="400",
+									required)
+							.col-6
+								label.form-calc__label(for="inp-windowsill2-2") C (мм)<sup>*</sup>
+								input#inp-windowsill2-2.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill2",
+									value="400",
+									required)
+							.col-6
+								label.form-calc__label(for="inp-windowsill2-3") D (мм)<sup>*</sup>
+								input#inp-windowsill2-3.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill2",
+									value="400",
+									required)
+
+					.calc-windowsill__settings__img
+						img(src=`${baseDir}img/calculator/windowsill/corner_orig.png`, alt="")
+					.calc-windowsill__settings__footer
+						button.mbtn.mbtn__grey.mbtn__middle.js--windowsill-add-btn(type="button") добавить подоконник
+				// /Угловой
+
+				// Эркерный
+				.calc-windowsill__settings.js--windowsill-settings.hidden(data-windowsill="windowsill__2")
+					.calc-windowsill__settings__body
+						h4.h4 размеры
+						.row.form__line3
+							.col-6
+								label.form-calc__label(for="inp-windowsill3-0") A (мм)<sup>*</sup>
+								input#inp-windowsill3-0.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill3",
+									value="400",
+									required)
+							.col-6
+								label.form-calc__label(for="inp-windowsill3-1") B (мм)<sup>*</sup>
+								input#inp-windowsill3-1.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill3",
+									value="400",
+									required)
+							.col-6
+								label.form-calc__label(for="inp-windowsill3-2") C (мм)<sup>*</sup>
+								input#inp-windowsill3-2.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill3",
+									value="400",
+									required)
+							.col-6
+								label.form-calc__label(for="inp-windowsill3-3") D (мм)<sup>*</sup>
+								input#inp-windowsill3-3.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill3",
+									value="400",
+									required)
+							.col-6
+								label.form-calc__label(for="inp-windowsill3-4") E (мм)<sup>*</sup>
+								input#inp-windowsill3-4.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill3",
+									value="400",
+									required)
+							.col-6
+								label.form-calc__label(for="inp-windowsill3-5") F (мм)<sup>*</sup>
+								input#inp-windowsill3-5.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill3",
+									value="400",
+									required)
+
+					.calc-windowsill__settings__img
+						img(src=`${baseDir}img/calculator/windowsill/bay_orig.png`, alt="")
+					.calc-windowsill__settings__footer
+						button.mbtn.mbtn__grey.mbtn__middle.js--windowsill-add-btn(type="button") добавить подоконник
+				// /Эркерный
+
+				// Эркерный радиусный
+				.calc-windowsill__settings.js--windowsill-settings.hidden(data-windowsill="windowsill__3")
+					.calc-windowsill__settings__body
+						h4.h4 размеры
+						.row.form__line3
+							.col-6
+								label.form-calc__label(for="inp-windowsill4-0") A (мм)<sup>*</sup>
+								input#inp-windowsill4-0.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill4",
+									value="400",
+									required)
+							.col-6
+								label.form-calc__label(for="inp-windowsill4-1") B (мм)<sup>*</sup>
+								input#inp-windowsill4-1.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill4",
+									value="400",
+									required)
+							.col-6
+								label.form-calc__label(for="inp-windowsill4-3") D (мм)<sup>*</sup>
+								input#inp-windowsill4-3.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill4",
+									value="400",
+									required)
+							.col-6
+								label.form-calc__label(for="inp-windowsill4-5") F (мм)<sup>*</sup>
+								input#inp-windowsill4-5.form-calc__input.js--windowsill-dimension(
+									type="text",
+									name="windowsill4",
+									value="400",
+									required)
+
+					.calc-windowsill__settings__img
+						img(src=`${baseDir}img/calculator/windowsill/bay-radius_orig.png`, alt="")
+					.calc-windowsill__settings__footer
+						button.mbtn.mbtn__grey.mbtn__middle.js--windowsill-add-btn(type="button") добавить подоконник
+				// /Эркерный радиусный
+
+			.calc-windowsill__side
+				h4.h4 Список изделий
+				.calc-windowsill__empty.js--windowsill-empty.active
+					.calc-windowsill__empty__text: .block__text
+						p: b Список изделий пуст
+						p Пока вы не выбрали ни одного подоконника. <br/>Найдите подходящий вариант и добавьте его в список изделий.
+					.calc-windowsill__empty__img
+						img(src=`${baseDir}img/cart/no-goods.svg`, alt="")
+
+				.calc-windowsill__resultlist.js--windowsill-resultlist.hidden
+					.js--windowsill-items
+
+				//- Шаблоны карточек (не отображаются в DOM до клонирования)
+				.calc-windowsill__templates.js--windowsill-templates
+
+					// шаблон: прямой
+					template.js--windowsill-card-template(data-windowsill="windowsill__0")
+						.calc-windowsill__cardcart.js--windowsill-result-item
+							.calc-windowsill__cardcart__img
+								img(src=`${baseDir}img/calculator/windowsill/windowsill-0.jpg`, alt="")
+							.calc-windowsill__cardcart__body
+								.calc-windowsill__cardcart__name Прямой
+								ul.calc-windowsill__cardcart__list
+								.calc-windowsill__cardcart__footer
+									div
+										.form-inputcount.js--inputcount
+											button.form-inputcount__btn.minus.js--inputcount-minus(type="button")
+												+svg('ic-minus')
+											button.form-inputcount__btn.plus.js--inputcount-plus(type="button")
+												+svg('ic-plus')
+											input.form-inputcount__input.js--inputcount-input(
+												type="number",
+												name="windowsill-quantity",
+												min="1",
+												max="100",
+												value="1")
+									div: button.calc-windowsill__cardcart__clear.js--windowsill-remove-btn(type="button"): +svg('trash')
+
+					// шаблон: угловой
+					template.js--windowsill-card-template(data-windowsill="windowsill__1")
+						.calc-windowsill__cardcart.js--windowsill-result-item
+							.calc-windowsill__cardcart__img
+								img(src=`${baseDir}img/calculator/windowsill/windowsill-1.jpg`, alt="")
+							.calc-windowsill__cardcart__body
+								.calc-windowsill__cardcart__name Угловой
+								ul.calc-windowsill__cardcart__list
+								.calc-windowsill__cardcart__footer
+									div
+										.form-inputcount.js--inputcount
+											button.form-inputcount__btn.minus.js--inputcount-minus(type="button")
+												+svg('ic-minus')
+											button.form-inputcount__btn.plus.js--inputcount-plus(type="button")
+												+svg('ic-plus')
+											input.form-inputcount__input.js--inputcount-input(
+												type="number",
+												name="windowsill-quantity",
+												min="1",
+												max="100",
+												value="1")
+									div: button.calc-windowsill__cardcart__clear.js--windowsill-remove-btn(type="button"): +svg('trash')
+
+					// шаблон: эркерный
+					template.js--windowsill-card-template(data-windowsill="windowsill__2")
+						.calc-windowsill__cardcart.js--windowsill-result-item
+							.calc-windowsill__cardcart__img
+								img(src=`${baseDir}img/calculator/windowsill/windowsill-2.jpg`, alt="")
+							.calc-windowsill__cardcart__body
+								.calc-windowsill__cardcart__name Эркерный
+								ul.calc-windowsill__cardcart__list
+								.calc-windowsill__cardcart__footer
+									div
+										.form-inputcount.js--inputcount
+											button.form-inputcount__btn.minus.js--inputcount-minus(type="button")
+												+svg('ic-minus')
+											button.form-inputcount__btn.plus.js--inputcount-plus(type="button")
+												+svg('ic-plus')
+											input.form-inputcount__input.js--inputcount-input(
+												type="number",
+												name="windowsill-quantity",
+												min="1",
+												max="100",
+												value="1")
+									div: button.calc-windowsill__cardcart__clear.js--windowsill-remove-btn(type="button"): +svg('trash')
+
+					// шаблон: эркерный радиусный
+					template.js--windowsill-card-template(data-windowsill="windowsill__3")
+						.calc-windowsill__cardcart.js--windowsill-result-item
+							.calc-windowsill__cardcart__img
+								img(src=`${baseDir}img/calculator/windowsill/windowsill-3.jpg`, alt="")
+							.calc-windowsill__cardcart__body
+								.calc-windowsill__cardcart__name Эркерный радиусный
+								ul.calc-windowsill__cardcart__list
+								.calc-windowsill__cardcart__footer
+									div
+										.form-inputcount.js--inputcount
+											button.form-inputcount__btn.minus.js--inputcount-minus(type="button")
+												+svg('ic-minus')
+											button.form-inputcount__btn.plus.js--inputcount-plus(type="button")
+												+svg('ic-plus')
+											input.form-inputcount__input.js--inputcount-input(
+												type="number",
+												name="windowsill-quantity",
+												min="1",
+												max="100",
+												value="1")
+									div: button.calc-windowsill__cardcart__clear.js--windowsill-remove-btn(type="button"): +svg('trash')
+
+		.form__info.js--windowsill-step-error(style="display: none")

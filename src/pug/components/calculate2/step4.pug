@@ -1,5 +1,5 @@
 // Шаг 4, Выбор фаски
-.calculator-card__step.hidden
+.calculator-card__step.js--calculator2-step.hidden
 
 	.calculator-card__header
 		h3.h3.calculator-card__header__title Выберите фаску
@@ -11,9 +11,10 @@
 			// el
 			.calculator-card__columns3__item
 				label.calculator-card__radioblock.calculator-card__radioblock__grid2
-					input.calculator-card__radioblock__input(
+					input.calculator-card__radioblock__input.js--calculator2-chamfer(
 						name="form-chamfer"
 						type="radio",
+						data-price="0",
 						checked)
 					span.calculator-card__radioblock__content
 						span.calculator-card__radioblock__text
@@ -28,9 +29,10 @@
 			// el
 			.calculator-card__columns3__item
 				label.calculator-card__radioblock.calculator-card__radioblock__grid2
-					input.calculator-card__radioblock__input(
+					input.calculator-card__radioblock__input.js--calculator2-chamfer(
 						name="form-chamfer"
-						type="radio")
+						type="radio"
+						data-price="6200")
 					span.calculator-card__radioblock__content
 						span.calculator-card__radioblock__text
 							span Фаска сложная (полировка)
@@ -44,9 +46,10 @@
 			// el
 			.calculator-card__columns3__item
 				label.calculator-card__radioblock.calculator-card__radioblock__grid2
-					input.calculator-card__radioblock__input(
+					input.calculator-card__radioblock__input.js--calculator2-chamfer(
 						name="form-chamfer"
-						type="radio")
+						type="radio"
+						data-price="3700")
 					span.calculator-card__radioblock__content
 						span.calculator-card__radioblock__text
 							span Фаска простая (полировка)

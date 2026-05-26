@@ -1,5 +1,5 @@
-﻿.calculator-card.js--calculator1
-	form.form(action="#")
+﻿.calculator-card.js--calculator2
+	form.form.js--calculator2-form(action="#" novalidate)
 
 		//- Шаг 1, Выбор формы и размера подоконников
 		include calculate2/step1
@@ -20,10 +20,10 @@
 			.calculator-card__footer__btns
 				div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__bordered.mbtn__white.js--calculator2-prev(type="button")
 					i: +svg('ic-arrow-left-short')
-					span.js--calculator1-prev-text Назад
-				div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__primary.js--calculator2-next(type="submit")
-					span.js--calculator1-next-text Дальше
+					span.js--calculator2-prev-text Назад
+				div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__primary.js--calculator2-next(type="button")
+					span.js--calculator2-next-text Дальше
 					i: +svg('ic-arrow-right-short')
 			.calculator-card__footer__pagination
-				.modal-questionnaire__footer__pagination__line: i.js--calculator2-progress(style="width: 33%;")
-				.modal-questionnaire__footer__pagination__counter.js--calculator2-counter 1/9
+				.modal-questionnaire__footer__pagination__line: i.js--calculator2-progress(style="width: 17%;")
+				.modal-questionnaire__footer__pagination__counter.js--calculator2-counter 1/6
