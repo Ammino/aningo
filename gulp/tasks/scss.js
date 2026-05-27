@@ -3,9 +3,8 @@ import gulpSass from 'gulp-sass';
 import rename from "gulp-rename";
 
 import cleanCss from "gulp-clean-css";
-import webpcss from "gulp-webpcss";
 import autoprefixer from 'gulp-autoprefixer';
-import gzip from 'gulp-gzip';
+import groupMedia from 'gulp-group-css-media-queries';
 
 
 const sass = gulpSass(dartSass);
@@ -24,22 +23,7 @@ export const scss = () => {
 		.pipe(sass({
 			outputStyle: "expanded"
 		}))
-		// .pipe(
-		// 	app.plugins.if(
-		// 		app.isBuild,
-		// 		groupMedia()
-		// 	)
-		// )
-		// .pipe(
-		// 	app.plugins.if(
-		// 		app.isBuild,
-		// 		webpcss(
-		// 		{
-		// 			webpClass: '.webp',
-		// 			noWebpClass: '.no-webp'
-		// 		})
-		// 	)
-		// )
+		.pipe(groupMedia())
 		.pipe(
 			app.plugins.if(
 				app.isBuild,
@@ -62,7 +46,6 @@ export const scss = () => {
 				})
 			)
 		)
-		// .pipe(gzip({  extension : 'gzip' }))
 		.pipe(app.gulp.dest(app.path.build.css))
 		.pipe(app.plugins.browsersync.stream())
 }

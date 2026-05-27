@@ -246,7 +246,114 @@ block content
 
 					.col-12.mt-5
 						h3.h5 Выпадающий список (select)
+						.form: .row.form__line
+							.col-12.col-md-6
+								.nselect.js--nselect
+									.nselect__label.js--nselect-label(data-text="Выберите значение:")
+										span.text.js--nselect-label-text Выберите значение:
+									.nselect__dropdown.js--nselect-dropdown
+										.nselect__dropdown__body.js--styled-scroll
+											ul
+												li: a.nselect__dropdown__item.js--nselect-option.default(href="#") Все
+												li: a.nselect__dropdown__item.js--nselect-option(href="#") Вариант 1
+												li: a.nselect__dropdown__item.js--nselect-option(href="#") Вариант 2
+												li: a.nselect__dropdown__item.js--nselect-option(href="#") Вариант 3
+							.col-12.col-md-6
+								.nselect.nselect-wmobversion.js--nselect
+									.nselect__label.js--nselect-label(data-text="Сортировать по:")
+										span.text.js--nselect-label-text Сортировать по:
+									.nselect__dropdown.nselect__dropdown__rightdropdown.js--nselect-dropdown
+										.nselect__dropdown__body.js--styled-scroll
+											ul
+												li: a.nselect__dropdown__item.js--nselect-option.default(href="#") Все
+												li: a.nselect__dropdown__item.js--nselect-option(href="#") Сначала дешевле
+												li: a.nselect__dropdown__item.js--nselect-option(href="#") Сначала дороже
+												li: a.nselect__dropdown__item.js--nselect-option(href="#") По популярности
 
+					.col-12.mt-5
+						h3.h5 Поле телефона (с маской)
+						.form: .row.form__line
+							.col-12.col-md-6
+								label.form-input
+									input.form-input__text.js--input-text.js--maskphone(
+										type="tel",
+										placeholder="",
+										id="input-phone")
+									span.form-input__label Телефон
+
+					.col-12.mt-5
+						h3.h5 Счётчик количества
+						.form: .row.form__line
+							.col-12.col-md-3
+								.form-inputcount.js--inputcount
+									button.form-inputcount__btn.minus.js--inputcount-minus(type="button")
+										+svg('ic-minus')
+									button.form-inputcount__btn.plus.js--inputcount-plus(type="button")
+										+svg('ic-plus')
+									input.form-inputcount__input.js--inputcount-input(
+										type="number",
+										name="count",
+										min="1",
+										max="100",
+										value="1")
+
+					.col-12.mt-5
+						h3.h5 Поля калькулятора
+						.form: .row.form__line3
+							.col-12.col-md-4
+								label.form-calc__label(for="calc-width") Ширина (мм)<sup>*</sup>
+								input#calc-width.form-calc__input(
+									type="text",
+									inputmode="numeric",
+									placeholder="000")
+							.col-12.col-md-4
+								label.form-calc__label(for="calc-length") Длина (мм)<sup>*</sup>
+								input#calc-length.form-calc__input(
+									type="text",
+									inputmode="numeric",
+									placeholder="000")
+
+					.col-12.mt-5
+						h3.h5 Списки выбора (form-list)
+						.form: .row.form__line
+							.col-12.col-md-6
+								ul.form-list
+									li: label.form-radio(for="uikit-delivery-1")
+										input#uikit-delivery-1.form-radio__input(type="radio" name="uikit-delivery" checked)
+										span.form-radio__text Самовывоз
+									li: label.form-radio(for="uikit-delivery-2")
+										input#uikit-delivery-2.form-radio__input(type="radio" name="uikit-delivery")
+										span.form-radio__text Доставка по городу
+									li: label.form-radio(for="uikit-delivery-3")
+										input#uikit-delivery-3.form-radio__input(type="radio" name="uikit-delivery")
+										span.form-radio__text Доставка по региону
+
+				.row.mt-5
+					.col-12
+						h3.h5 Форма на тёмном фоне (form__white)
+						.block__padd(style="background:#1a1a1a;padding:40px 0;")
+							.container
+								form.form.form__white
+									.row.form__line
+										.col-12.col-md-6
+											label.form-input
+												input.form-input__text.js--input-text(
+													type="text",
+													placeholder="",
+													id="input-white")
+												span.form-input__label Имя
+										.col-12.col-md-6
+											label.form-input
+												input.form-input__text.js--input-text.js--maskphone(
+													type="tel",
+													placeholder="",
+													id="input-white-phone")
+												span.form-input__label Телефон
+										.col-12
+											label.form-checkbox
+												input.form-checkbox__input(type="checkbox" name="uikit-agree" value="1")
+												span.form-checkbox__text
+													span Согласие на обработку данных
 
 	// footer start
 	include ../section/footer/footer
