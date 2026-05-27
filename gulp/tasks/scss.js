@@ -18,11 +18,13 @@ export const scss = () => {
 			})
 			)
 		)
-		.pipe(app.plugins.replace(/@img\//g, '../img/'))
 		.pipe(app.plugins.replace('@npm', "../../node_modules"))
 		.pipe(sass({
 			outputStyle: "expanded"
 		}))
+		.pipe(app.plugins.replace(/@img\//g, '../img/'))
+		.pipe(app.plugins.replace(/url\(["']?\.\/\.\.\/\.\.\/img\//g, 'url("../img/'))
+		.pipe(app.plugins.replace(/url\(["']?\.\/\.\.\/img\//g, 'url("../img/'))
 		.pipe(groupMedia())
 		.pipe(
 			app.plugins.if(

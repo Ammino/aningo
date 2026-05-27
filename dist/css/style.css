@@ -659,7 +659,7 @@ button:not([disabled]):active {
   top: 30px;
   width: 50px;
   height: 50px;
-  background-image: url("./../../img/icons/ic-quote.svg");
+  background-image: url("../img/icons/ic-quote.svg");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -966,7 +966,7 @@ form {
   height: 18px;
   border-radius: 4px;
   background-color: #E52D12;
-  background-image: url("./../../img/icons/ic-check.svg");
+  background-image: url("../img/icons/ic-check.svg");
   background-repeat: no-repeat;
   background-size: 12px auto;
   background-position: 50% 50%;
@@ -1332,7 +1332,7 @@ form {
   margin-top: -6px;
   width: 12px;
   height: 12px;
-  background-image: url("./../../img/icons/check-red.svg");
+  background-image: url("../img/icons/check-red.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -1384,7 +1384,7 @@ form {
   width: 9px;
   height: 13px;
   margin-top: -6.5px;
-  background-image: url("./../../img/icons/arrow-down.svg");
+  background-image: url("../img/icons/arrow-down.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -2218,7 +2218,7 @@ form {
 }
 
 .page-404__img__stone {
-  background-image: url("./../../img/page404/bg-page404-stone.png");
+  background-image: url("../img/page404/bg-page404-stone.png");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -2310,7 +2310,7 @@ form {
   height: 80px;
   margin-top: -40px;
   margin-left: -40px;
-  background-image: url("./../../img/icons/ic-play.svg");
+  background-image: url("../img/icons/ic-play.svg");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -3579,7 +3579,7 @@ form {
 }
 
 .markers span.marker-sale {
-  background-image: url("./../img/icons/marker-persent.svg");
+  background-image: url("../img/icons/marker-persent.svg");
 }
 
 .listcard {
@@ -4101,7 +4101,7 @@ form {
   border: 1px solid #e0e1e4;
   border-radius: 6px;
   background-color: #e8e9eb;
-  background-image: url("./../../img/icons/ic-search-grey.svg");
+  background-image: url("../img/icons/ic-search-grey.svg");
   background-repeat: no-repeat;
   background-position: 20px center;
   background-size: 23px 23px;
@@ -4427,7 +4427,7 @@ form {
   margin-top: -7px;
   width: 14px;
   height: 14px;
-  background-image: url("./../../img/icons/arrow-down-dark.svg");
+  background-image: url("../img/icons/arrow-down-dark.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -4751,7 +4751,7 @@ form {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: url("./../../img/icons/ic-plus.svg");
+  background-image: url("../img/icons/ic-plus.svg");
   background-size: 27px 27px;
   background-repeat: no-repeat;
   background-position: center;

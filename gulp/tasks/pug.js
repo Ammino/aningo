@@ -15,7 +15,10 @@ export const pugHTML = () => {
 		)
 		.pipe(pug({
 			// closeVoid: true,
-			plugins: [pugbem]
+			plugins: [pugbem],
+			data: {
+				baseDir: process.env.BASE_PATH || ''
+			}
 		}))
 		.pipe(app.plugins.replace("<?xml version=\"1.0\" encoding=\"utf-8\"?>", ''))
 		.pipe(htmlbeautify())

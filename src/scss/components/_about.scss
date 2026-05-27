@@ -23,14 +23,14 @@
         top: -20%;
         right: 0;
         bottom: -20%;
-        background-image: url('../img/about/bg-about.jpg');
+        background-image: url('@img/about/bg-about.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
         z-index: 1;
 
         @include laptop {
-            background-image: url('../img/about/bg-about-mobile.jpg');
+            background-image: url('@img/about/bg-about-mobile.jpg');
         }
     }
     &__body {

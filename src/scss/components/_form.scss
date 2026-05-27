@@ -255,7 +255,7 @@ form {
 				height: 18px;
 				border-radius: 4px;
 				background-color: $cl-red;
-				background-image: url('./../../img/icons/ic-check.svg');
+				background-image: url('@img/icons/ic-check.svg');
 				background-repeat: no-repeat;
 				background-size: 12px auto;
 				background-position: 50% 50%;
@@ -634,7 +634,7 @@ form {
 				margin-top: -6px;
 				width: 12px;
 				height: 12px;
-				background-image: url('./../../img/icons/check-red.svg');
+				background-image: url('@img/icons/check-red.svg');
 				background-repeat: no-repeat;
 				background-position: center;
 				background-size: contain;
@@ -685,7 +685,7 @@ form {
 			width: 9px;
 			height: 13px;
 			margin-top: -6.5px;
-			background-image: url('./../../img/icons/arrow-down.svg');
+			background-image: url('@img/icons/arrow-down.svg');
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: contain;
