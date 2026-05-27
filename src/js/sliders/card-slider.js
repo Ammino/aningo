@@ -2,6 +2,10 @@ const cardThumbsEl = document.querySelector('.js--sl-card-thumbs');
 const cardImagesEl = document.querySelector('.js--sl-card-images');
 
 if (cardThumbsEl && cardImagesEl) {
+	const cardImagesPaginationEl = cardImagesEl
+		.closest('.card__media__body')
+		?.querySelector('.js--sl-card-images-pagination');
+
 	const swiperCardThumbs = new Swiper(cardThumbsEl, {
 		loop: false,
 		direction: 'vertical',
@@ -41,11 +45,11 @@ if (cardThumbsEl && cardImagesEl) {
 			nextEl: '.js--sl-card-thumbs-next',
 			prevEl: '.js--sl-card-thumbs-prev',
 		},
-		pagination: {
-			el: '.js--sl-card-images-pagination',
+		pagination: cardImagesPaginationEl ? {
+			el: cardImagesPaginationEl,
 			clickable: true,
 			bulletActiveClass: 'active',
-		},
+		} : undefined,
 	});
 
 	let cardSliderResizeRaf = 0;

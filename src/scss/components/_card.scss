@@ -48,6 +48,18 @@
 		align-items: stretch;
 		justify-content: flex-start;
 		gap: 10px;
+
+		.js--table-offers-line {
+			cursor: pointer;
+
+			&:hover .table-offers__img__wrapper::before {
+				opacity: 1;
+			}
+		}
+
+		.table-offers__side__btn .mbtn {
+			cursor: pointer;
+		}
 	}
 
 	&__line {
@@ -66,6 +78,19 @@
 			minmax(calc(50% - (#{$line-col-img} + #{$line-gaps-total} / 2)), max-content);
 		align-items: center;
 		gap: 0 #{$line-gap-h};
+		position: relative;
+
+		&__trigger {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			white-space: nowrap;
+			border: 0;
+		}
 
 		@include desktop-xxl {
 			$line-col-img: 110px;
@@ -603,6 +628,15 @@
 			}
 		}
 
+		&__new {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			z-index: 2;
+			font-size: rem(12);
+			line-height: 1;
+		}
+
 		&__thumbs {
 			flex: 1 1 auto;
 			min-height: 0;
@@ -722,20 +756,23 @@
 				flex-wrap: wrap;
 				gap: 7px;
 
+				@include laptop-min {
+					display: none;
+				}
+
 				span {
 					width: 10px;
 					height: 10px;
 					border-radius: 50%;
 					border: 1px solid $cl-black;
-					background-color: $cl-white;
-					transition: all ease .3s;
+					background-color: transparent;
+					transition: background-color ease .3s;
 					cursor: pointer;
 					margin: 0 !important;
 					opacity: 1 !important;
 
 					&.active {
 						background-color: $cl-black;
-						cursor: default;
 					}
 				}
 			}
@@ -964,7 +1001,7 @@
 	}
 	@include laptop {
 		padding: 0;
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(0, 1fr);
 		grid-template-rows: auto auto auto;
 		gap: 15px;
 	}
@@ -1045,24 +1082,109 @@
 	&__img {
 		grid-column: 2;
 		grid-row: 1 / span 2;
-		min-height: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		align-self: start;
 		width: 100%;
-		aspect-ratio: 734 / 539;
-		overflow: hidden;
-		border-radius: 12px;
+		position: relative;
+
+		&__slider {
+			overflow: hidden;
+			border-radius: 12px;
+			position: relative;
+			width: 100%;
+
+			&__item {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				aspect-ratio: 734 / 550;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+
+			&__nav {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+				z-index: 2;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+
+				@include laptop {
+					display: none;
+				}
+			}
+
+			&__navbtn {
+				width: 36px;
+				height: 36px;
+				border: none;
+				border-radius: 50%;
+				background-color: $cl-white;
+				color: $cl-black;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0;
+				cursor: pointer;
+				transition: color ease .3s;
+
+				&:hover:not(.disabled):not(:disabled) {
+					color: $cl-red;
+				}
+
+				&.disabled,
+				&:disabled {
+					opacity: 0.5;
+					cursor: default;
+				}
+
+				svg {
+					display: block;
+					max-width: 14px;
+					max-height: 14px;
+					object-fit: contain;
+				}
+			}
+		}
+
+		&__slider__pagination {
+			padding-top: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 7px;
+
+			@include laptop-min {
+				display: none;
+			}
+
+			span {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				border: 1px solid $cl-black;
+				background-color: transparent;
+				transition: background-color ease .3s;
+				cursor: pointer;
+				margin: 0 !important;
+				opacity: 1 !important;
+
+				&.active {
+					background-color: $cl-black;
+				}
+			}
+		}
 
 		@include laptop {
 			grid-column: 1;
 			grid-row: 2;
-		}
-
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
 		}
 	}
 

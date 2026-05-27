@@ -323,35 +323,48 @@
         right: 5px;
         top: 5px;
     }
+}
 
-    span {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 37px;
-        height: 37px;
-        border-radius: 50%;
-        background-color: $cl-white;
-        color: $cl-red;
-        font-size: rem(12);
-        line-height: 1;
-        text-transform: uppercase;
-        font-family: $font-secondary;
-        font-weight: 400;
-        background-size: 17px 17px;
-        background-position: center;
-        background-repeat: no-repeat;
+span.marker-sale {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    background-color: $cl-white;
+    color: $cl-red;
+    font-size: rem(12);
+    line-height: 1;
+    text-transform: uppercase;
+    font-family: $font-secondary;
+    font-weight: 400;
+    background-size: 17px 17px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('@img/icons/marker-persent.svg');
 
-        @include tablet {
-            width: 26px;
-            height: 26px;
-            background-size: 13px 13px;
-        }
-
-        &.marker-sale {
-            background-image: url('@img/icons/marker-persent.svg');
-        }
+    @include tablet {
+        width: 26px;
+        height: 26px;
+        background-size: 13px 13px;
     }
+}
+span.marker-new {
+    display: inline-block;
+    background-color: $cl-white;
+    border-radius: 50%;
+    padding: 5px;
+    text-transform: uppercase;
+    font-family: $font-secondary;
+    font-weight: 400;
+    color: $cl-black;
+    border: 1px solid $cl-border-grey;
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-size: rem(13);
+    color: $cl-green;
+    line-height: 1;
 }
 
 .listcard {
@@ -373,6 +386,10 @@
     &:hover {
         .listcard__description {
             span {
+                &::after {
+                    transform: scaleX(1);
+                }
+
                 &.color-mauve,
                 &.color-blue {
                     color: $cl-white;

@@ -54,6 +54,8 @@ mixin mixin__mainCard(i,title, price, priceold, description, storage)
 			.markers
 				if priceold
 					span.marker-sale
+			if Math.random() >= 0.5
+				.card__media__new: span.marker-new Новинка
 		a.listcard__title(href="#")=title
 		.listcard__description!= description
 		- var storageClass = storage === 'В наличии' ? 'color-green' : (storage === 'Под заказ' ? 'color-red' : '')

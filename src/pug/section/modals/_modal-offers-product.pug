@@ -16,7 +16,17 @@
 											h2.h2 25037
 
 										.slider-offers__card__img
-											img(src=`${baseDir}img/catalog/img-product-offer.jpg`, alt="")
+											.cardoffer__img__slider.swiper.js--sl-cardofferimages
+												.swiper-wrapper
+													.cardoffer__img__slider__item.swiper-slide
+														img(src=`${baseDir}img/catalog/img-catalog3-0.png`, alt="")
+													.cardoffer__img__slider__item.swiper-slide
+														img(src=`${baseDir}img/catalog/img-catalog-3.png`, alt="")
+													.cardoffer__img__slider__item.swiper-slide
+														img(src=`${baseDir}img/catalog/img-catalog-4.webp`, alt="")
+												.cardoffer__img__slider__nav
+													button.cardoffer__img__slider__navbtn.prev.js--sl-cardofferimages-prev(type="button" aria-label="Предыдущее фото"): +svg('ic-arrow-left-short')
+													button.cardoffer__img__slider__navbtn.next.js--sl-cardofferimages-next(type="button" aria-label="Следующее фото"): +svg('ic-arrow-right-short')
 
 										.slider-offers__card__body
 											-

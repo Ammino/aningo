@@ -38,6 +38,7 @@ block content
 									// el
 					.card__media__body
 						.card__media__markers.markers: span.marker-sale
+						.card__media__new: span.marker-new Новинка
 						.card__media__images.swiper.js--sl-card-images
 							.swiper-wrapper
 								- for (let i = 0; i < 6; i++)
@@ -49,6 +50,7 @@ block content
 											data-fancybox="card-media-gallery")
 											img(src=`${baseDir}img/catalog/img-catalog-${i}.png`, alt="")
 									// el
+						.card__media__images__pagination.js--sl-card-images-pagination
 
 				.card__content
 					.card__header
@@ -110,45 +112,49 @@ block content
 				a.pageinside__filter__link.js--sfilter-link(href="#" data-sfilter="sf-brick") брусчатка
 
 			mixin mixin__offer(i = 0)
-				.table-offers__line
+				.table-offers__line.js--table-offers-line
+					a.table-offers__line__trigger.js--table-offers-line-trigger(
+						href="#js--modal-offers"
+						data-fancybox-offers="offers-1"
+						tabindex="-1"
+						aria-hidden="true")
+					.table-offers__line__item
+						.table-offers__img
+							.table-offers__img__wrapper
+								img(src=`${baseDir}img/catalog/img-catalog3-0.png`, alt="")
 
-						.table-offers__line__item
-							.table-offers__img
-								a.table-offers__img__wrapper(href="#js--modal-offers" data-fancybox-offers="offers-1")
-									img(src=`${baseDir}img/catalog/img-catalog3-0.png`, alt="")
+					.table-offers__line__item
+						.table-offers__body
 
-						.table-offers__line__item
-							.table-offers__body
+							.table-offers__size
+								span.table-offers__text
+									span.table-offers__text__label Размер
+									span 3000x1400x20 мм
 
-								.table-offers__size
-									span.table-offers__text
-										span.table-offers__text__label Размер
-										span 3000x1400x20 мм
+							.table-offers__article-storage
+								span.table-offers__text
+									span.table-offers__text__label Код
+									span 25037
 
-								.table-offers__article-storage
-									span.table-offers__text
-										span.table-offers__text__label Код
-										span 25037
-
-								.table-offers__article-storage
-									span.table-offers__text
-										span.table-offers__text__label В наличии
-										span 4.2 м<sup>2</sup>
+							.table-offers__article-storage
+								span.table-offers__text
+									span.table-offers__text__label В наличии
+									span 4.2 м<sup>2</sup>
 
 
-						.table-offers__line__item
-							.table-offers__side
+					.table-offers__line__item
+						.table-offers__side
 
-								.table-offers__price-count
-									span.table-offers__text 32 000 ₽/м<sup>2</sup>
+							.table-offers__price-count
+								span.table-offers__text 32 000 ₽/м<sup>2</sup>
 
-								.table-offers__price-count
-									span.table-offers__text 134 400 ₽/шт
+							.table-offers__price-count
+								span.table-offers__text 134 400 ₽/шт
 
-								.table-offers__side__btn
-									a.mbtn.mbtn__small.mbtn__primary.mbtn__wicon(href="#")
-										i.d-xl-none: +svg('ic-cart')
-										span.d-none.d-xl-block в корзину
+							.table-offers__side__btn
+								a.mbtn.mbtn__small.mbtn__primary.mbtn__wicon(href="#")
+									i.d-xl-none: +svg('ic-cart')
+									span.d-none.d-xl-block в корзину
 
 			.table-offers
 				.table-offers__header

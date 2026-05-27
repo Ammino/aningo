@@ -28,7 +28,18 @@ block content
 					//- h4.h4 Ступень из гранита PIETRA ARABICA
 
 				.cardoffer__img
-					img(src=`${baseDir}img/catalog/img-product-offer.jpg`, alt="")
+					.cardoffer__img__slider.swiper.js--sl-cardofferimages
+						.swiper-wrapper
+							.cardoffer__img__slider__item.swiper-slide
+								img(src=`${baseDir}img/catalog/img-catalog3-0.png`, alt="")
+							.cardoffer__img__slider__item.swiper-slide
+								img(src=`${baseDir}img/catalog/img-catalog-3.png`, alt="")
+							.cardoffer__img__slider__item.swiper-slide
+								img(src=`${baseDir}img/catalog/img-catalog-4.webp`, alt="")
+						.cardoffer__img__slider__nav
+							button.cardoffer__img__slider__navbtn.prev.js--sl-cardofferimages-prev(type="button" aria-label="Предыдущее фото"): +svg('ic-arrow-left-short')
+							button.cardoffer__img__slider__navbtn.next.js--sl-cardofferimages-next(type="button" aria-label="Следующее фото"): +svg('ic-arrow-right-short')
+					.cardoffer__img__slider__pagination.js--sl-cardofferimages-pagination
 
 				.cardoffer__body
 					-
@@ -84,26 +95,7 @@ block content
 							href="#js--modal-recall"
 							data-fancybox-default) Заказать консультацию
 						.cardoffer__footer__share.order-2.order-lg-4
-							.block-share
-								.block-share__label: +svg('ic-share')
-								.block-share__dropdown
-									.block-share__dropdown__body
-										ul.block-share__list
-											li: a.block-share__list__link(href="#", target="_blank")
-												i: +svg('ic-telegram')
-												span Telegram
-											li: a.block-share__list__link(href="#", target="_blank")
-												i: +svg('ic-whatsapp')
-												span WhatsApp
-											li: a.block-share__list__link(href="#", target="_blank")
-												i: +svg('ic-max')
-												span Max
-											li: a.block-share__list__link(href="#", target="_blank")
-												i: +svg('ic-vk')
-												span ВКонтакте
-											li: a.block-share__list__link(href="#", target="_blank")
-												i: +svg('ic-link')
-												span Копировать ссылку
+							include ../components/_share
 						div.order-5: a.mbtn.mbtn__middle.mbtn__wicon.mbtn__bordered.mbtn__light(href="#")
 							i: +svg('ic-arrow-left-short')
 							span другие размеры

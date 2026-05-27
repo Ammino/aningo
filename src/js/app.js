@@ -574,6 +574,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	@@include('./components/_form.js');
 	@@include('./components/_formsteps.js');
 	@@include('./components/_filter.js');
+	@@include('./components/_table-offers.js');
 	@@include('./components/_page404.js');
 	@@include('./sliders/partners-slider.js');
 	@@include('./sliders/projects-slider.js');
@@ -582,6 +583,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	@@include('./sliders/catalog-slider.js');
 	@@include('./sliders/offers-slider.js');
 	@@include('./sliders/card-slider.js');
+	@@include('./sliders/cardoffer-images-slider.js');
 	@@include('./sliders/category-slider.js');
 	@@include('./sliders/compositions-slider.js');
 	@@include('./sliders/blog-slider.js');
