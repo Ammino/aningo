@@ -574,6 +574,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	@@include('./components/_form.js');
 	@@include('./components/_formsteps.js');
 	@@include('./components/_filter.js');
+	@@include('./components/calculator-form-utils.js');
+	@@include('./components/_calculator.js');
+	@@include('./components/calculator-windowsill.js');
 	@@include('./components/_table-offers.js');
 	@@include('./components/_page404.js');
 	@@include('./sliders/partners-slider.js');
@@ -587,10 +590,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	@@include('./sliders/category-slider.js');
 	@@include('./sliders/compositions-slider.js');
 	@@include('./sliders/blog-slider.js');
-
-	@@include('./components/calculator-form-utils.js');
-	@@include('./components/_calculator.js');
-	@@include('./components/calculator-windowsill.js');
 
 	@@include('./maps/yandex-map-presets.js');
 	@@include('./maps/yandex-maps.js');

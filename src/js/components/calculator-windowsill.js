@@ -706,8 +706,4 @@ function setTextContent(context, selector, text) {
 	if (element) element.textContent = text;
 }
 
-if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', initWindowsillCalculator);
-} else {
-	initWindowsillCalculator();
-}
+initWindowsillCalculator();

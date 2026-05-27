@@ -9,6 +9,9 @@ function initMasterCheckRadios() {
     const masterCheckboxes = document.querySelectorAll('.js--masterchekradios');
 
     masterCheckboxes.forEach(function(masterCheckbox) {
+        if (masterCheckbox.dataset.masterCheckBound === '1') return;
+        masterCheckbox.dataset.masterCheckBound = '1';
+
         // Находим соответствующую группу радио-кнопок
         // Они находятся в том же wrapper или следующем sibling
         const wrapper = masterCheckbox.closest('.js--masterchekradios-wrapper');
@@ -310,7 +313,7 @@ initBarcounterRadios();
 initKitchenislandRadios();
 
 // Также инициализируем при динамических изменениях (если будут добавляться новые элементы)
-const observer = new MutationObserver(function(mutations) {
+const calculatorDomObserver = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
         if (mutation.addedNodes.length) {
             initMasterCheckRadios();
@@ -321,7 +324,7 @@ const observer = new MutationObserver(function(mutations) {
     });
 });
 
-observer.observe(document.body, { childList: true, subtree: true });
+calculatorDomObserver.observe(document.body, { childList: true, subtree: true });
 
 /**
  * Управление шагами калькулятора
@@ -786,13 +789,7 @@ function initCalculatorSteps() {
     updateSteps();
 }
 
-// Инициализация шагов калькулятора при загрузке
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCalculatorSteps);
-} else {
-    // DOM уже загружен
-    initCalculatorSteps();
-}
+initCalculatorSteps();
 
 /**
  * Сбор данных калькулятора
@@ -1293,9 +1290,4 @@ function initResultUpdate() {
     });
 }
 
-// Инициализация после загрузки DOM
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initResultUpdate);
-} else {
-    initResultUpdate();
-}
+initResultUpdate();

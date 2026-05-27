@@ -166,6 +166,13 @@
 		&.mbtn__light {
 			border-color: $cl-grey-placeholder;
 			color: $cl-black-hover;
+
+			@media (hover: hover) {
+				&:not([disabled]):hover {
+					border-color: $cl-black;
+					color: $cl-black;
+				}
+			}
 		}
 		&.mbtn__primary {
 			color: $cl-red;
