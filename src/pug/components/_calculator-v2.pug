@@ -33,13 +33,22 @@
 				div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__primary.js--calculator2-next(type="button")
 					span.js--calculator2-next-text Дальше
 					i: +svg('ic-arrow-right-short')
+
+				div.calculator-card__footer__share.js--calculator-share.hidden
+					div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__grey(type="button")
+						span скачать расчЁт в pdf
+						i: +svg('ic-downloads')
+					div
+						include ../components/_share
+
 			.calculator-card__footer__pagination
 				.modal-questionnaire__footer__pagination__line: i.js--calculator2-progress(style="width: 17%;")
 				.modal-questionnaire__footer__pagination__counter.js--calculator2-counter 1/6
 
 		.calculator-card__formsend.js--calculator2-formsend.hidden
-			h3.h3.calculator-card__formsend__title Заявка отправлена
-			.calculator-card__formsend__text Наши менеджеры скоро вам позвонят. Спасибо, что выбрали нас!
+			.js--calculator1-formsend__body
+				h3.h3.calculator-card__formsend__title Заявка отправлена
+				.calculator-card__formsend__text Наши менеджеры скоро вам позвонят. Спасибо, что выбрали нас!
 			.calculator-card__footer__btns
 				div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__primary(type="button")
 					span поделиться расчЁтом

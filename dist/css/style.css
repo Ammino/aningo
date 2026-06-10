@@ -6703,16 +6703,26 @@ span.marker-new {
 .calculator-card__footer {
   padding-top: 60px;
   display: grid;
-  grid-template-columns: 1fr 350px;
+  grid-template-columns: 1fr 275px;
   align-items: center;
   gap: 60px;
 }
 
 .calculator-card__footer__btns {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(3, auto);
   justify-content: start;
   gap: 10px;
+}
+
+.calculator-card__footer__share {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+}
+
+.calculator-card__footer__share.hidden {
+  display: none !important;
 }
 
 .calculator-card__footer__pagination {
@@ -9230,6 +9240,7 @@ span.marker-new {
   .calculator-card__footer {
     padding-top: 30px;
     gap: 30px;
+    grid-template-columns: 1fr 147px;
   }
 
   .calculator-card__columns3 {
@@ -10392,7 +10403,7 @@ span.marker-new {
   }
 
   .calculator-card__footer {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .calculator-card__footer__btns {
@@ -10401,6 +10412,15 @@ span.marker-new {
 
   .calculator-card__footer__btns .mbtn {
     width: 100%;
+  }
+
+  .calculator-card__footer__share {
+    grid-column: span 2;
+    grid-template-columns: 1fr auto;
+  }
+
+  .calculator-card__footer .calculator-card__rezult__summ {
+    grid-column: span 1;
   }
 
   .calculator-card__columns4 {
@@ -11080,6 +11100,14 @@ span.marker-new {
 
   .basket__card__side {
     gap: 10px;
+  }
+
+  .calculator-card__footer__btns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .calculator-card__footer__share {
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 
   .calculator-card .card__media {

@@ -384,6 +384,7 @@ function initCalculatorSteps() {
     const footerEl = calculator.querySelector('.js--calculator-card-footer');
     const footerSummEl = calculator.querySelector('.js--calculator-card-rezult-summ');
     const formsendEl = calculator.querySelector('.js--calculator1-formsend');
+    const shareEls = calculator.querySelectorAll('.js--calculator-share');
 
     if (steps.length === 0) return;
 
@@ -499,6 +500,10 @@ function initCalculatorSteps() {
         if (footerSummEl && !formSubmitted) {
             footerSummEl.classList.toggle('hidden', currentStep === totalSteps - 1);
         }
+
+        shareEls.forEach(shareEl => {
+            shareEl.classList.toggle('hidden', currentStep !== totalSteps - 1 || formSubmitted);
+        });
     }
 
     // Функция показа соответствующего .calculator-card__tabletop по data-атрибуту

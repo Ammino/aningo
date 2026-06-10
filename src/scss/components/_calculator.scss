@@ -156,21 +156,22 @@
 
 		padding-top: 60px;
 		display: grid;
-		grid-template-columns: 1fr 350px;
+		grid-template-columns: 1fr 275px;
 		align-items: center;
 		gap: 60px;
 
 		@include desktop {
 			padding-top: 30px;
 			gap: 30px;
+			grid-template-columns: 1fr 147px;
 		}
 		@include laptop {
-			grid-template-columns: 1fr;
+			grid-template-columns: minmax(0,1fr);
 		}
 
 		&__btns {
 			display: grid;
-			grid-template-columns: repeat(2,auto);
+			grid-template-columns: repeat(3,auto);
 			justify-content: start;
 			gap: 10px;
 
@@ -180,6 +181,26 @@
 				.mbtn {
 					width: 100%;
 				}
+			}
+			@include mobilehr {
+				grid-template-columns: minmax(0,1fr);
+			}
+		}
+		&__share {
+			display: grid;
+			grid-template-columns: repeat(2,auto);
+			gap: 10px;
+
+			@include laptop {
+				grid-column: span 2;
+				grid-template-columns: 1fr auto;
+			}
+			@include mobilehr {
+				grid-template-columns: minmax(0,1fr) auto;
+			}
+
+			&.hidden {
+				display: none !important;
 			}
 		}
 		&__pagination {
@@ -191,6 +212,10 @@
 
 		.calculator-card__rezult__summ {
 			grid-column: span 2;
+
+			@include laptop {
+				grid-column: span 1;
+			}
 
 			&.hidden {
 				display: none !important;

@@ -337,6 +337,7 @@ function initCalculator2Steps(calculator) {
 	const footerEl = calculator.querySelector('.js--calculator-card-footer');
 	const footerSummEl = calculator.querySelector('.js--calculator-card-rezult-summ');
 	const formsendEl = calculator.querySelector('.js--calculator2-formsend');
+	const shareEls = calculator.querySelectorAll('.js--calculator-share');
 
 	if (!steps.length) return;
 
@@ -420,6 +421,10 @@ function initCalculator2Steps(calculator) {
 		if (footerSummEl && !formSubmitted) {
 			footerSummEl.classList.toggle('hidden', currentStep === totalSteps - 1);
 		}
+
+		shareEls.forEach(shareEl => {
+			shareEl.classList.toggle('hidden', currentStep !== totalSteps - 1 || formSubmitted);
+		});
 	}
 
 	function validateCurrentStep() {
