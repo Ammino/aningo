@@ -3,6 +3,8 @@
  * Управление мастер-чекбоксами и связанными радио-кнопками
  */
 
+let calculator1PricingRefreshLock = false;
+
 // Функция для инициализации мастер-чекбоксов
 function initMasterCheckRadios() {
     // Находим все мастер-чекбоксы
@@ -164,10 +166,12 @@ function updateImageForRadio(masterCheckbox, radio) {
 // Если указан атрибут data-default-image, то при выключении чекбокса
 // будет показано изображение с соответствующим data-image.
 function initSimpleCheckboxes() {
-    // Находим все чекбоксы с data-image-id, но не являющиеся мастер-чекбоксами
     const checkboxes = document.querySelectorAll('input[type="checkbox"][data-image-id]:not(.js--masterchekradios)');
     checkboxes.forEach(function(checkbox) {
-        function handleChange() {
+        if (checkbox.dataset.simpleCheckBound === '1') return;
+        checkbox.dataset.simpleCheckBound = '1';
+
+        function updateImages() {
             const isChecked = checkbox.checked;
             const imageId = checkbox.dataset.imageId;
             if (!imageId) return;
@@ -177,7 +181,6 @@ function initSimpleCheckboxes() {
             if (defaultImageId) {
                 defaultImageElement = document.querySelector(`.calculator-card__settings__img [data-image="${defaultImageId}"]`);
             }
-            // Управление основным изображением
             if (imageElement) {
                 if (isChecked) {
                     imageElement.classList.add('active');
@@ -185,7 +188,6 @@ function initSimpleCheckboxes() {
                     imageElement.classList.remove('active');
                 }
             }
-            // Управление default-изображением
             if (defaultImageElement) {
                 if (isChecked) {
                     defaultImageElement.classList.remove('active');
@@ -194,9 +196,9 @@ function initSimpleCheckboxes() {
                 }
             }
         }
-        // Инициализация начального состояния
-        handleChange();
-        checkbox.addEventListener('change', handleChange);
+
+        updateImages();
+        checkbox.addEventListener('change', updateImages);
     });
 }
 
@@ -204,6 +206,8 @@ function initSimpleCheckboxes() {
 function initBarcounterRadios() {
     const calculator = document.querySelector('.js--calculator1');
     if (!calculator) return;
+    if (calculator.dataset.barcounterRadiosBound === '1') return;
+    calculator.dataset.barcounterRadiosBound = '1';
 
     const radios = calculator.querySelectorAll('input[name="form-barcounter"]');
     if (radios.length === 0) return;
@@ -249,7 +253,10 @@ function initBarcounterRadios() {
 
     // Добавить обработчики изменений
     radios.forEach(radio => {
-        radio.addEventListener('change', updateBarcountVisibility);
+        radio.addEventListener('change', () => {
+            updateBarcountVisibility();
+            refreshCalculator1Pricing(calculator);
+        });
     });
 }
 
@@ -257,6 +264,8 @@ function initBarcounterRadios() {
 function initKitchenislandRadios() {
     const calculator = document.querySelector('.js--calculator1');
     if (!calculator) return;
+    if (calculator.dataset.kitchenislandRadiosBound === '1') return;
+    calculator.dataset.kitchenislandRadiosBound = '1';
 
     const radios = calculator.querySelectorAll('input[name="form-kitchenisland"]');
     if (radios.length === 0) return;
@@ -302,7 +311,10 @@ function initKitchenislandRadios() {
 
     // Добавить обработчики изменений
     radios.forEach(radio => {
-        radio.addEventListener('change', updateKitchenislandVisibility);
+        radio.addEventListener('change', () => {
+            updateKitchenislandVisibility();
+            refreshCalculator1Pricing(calculator);
+        });
     });
 }
 
@@ -312,16 +324,43 @@ initSimpleCheckboxes();
 initBarcounterRadios();
 initKitchenislandRadios();
 
+function isCalculatorDynamicResultNode(node) {
+    if (!node || node.nodeType !== 1) return false;
+
+    return Boolean(
+        node.closest?.('.calculator-card__rezult') ||
+        node.classList?.contains('js-result-dimension-extra') ||
+        node.classList?.contains('js-result-cuts-list') ||
+        node.querySelector?.('.js-result-dimension-extra, .js-result-cuts-list')
+    );
+}
+
+function shouldReinitCalculatorControls(mutations) {
+    for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+            if (node.nodeType !== 1) continue;
+            if (isCalculatorDynamicResultNode(node)) continue;
+
+            if (
+                node.matches?.('.js--masterchekradios, .js--masterchekradios-radio, .js--calculator1, .js--calculator2') ||
+                node.querySelector?.('.js--masterchekradios, .js--masterchekradios-radio, .js--calculator1, .js--calculator2')
+            ) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
 // Также инициализируем при динамических изменениях (если будут добавляться новые элементы)
 const calculatorDomObserver = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-        if (mutation.addedNodes.length) {
-            initMasterCheckRadios();
-            initSimpleCheckboxes();
-            initBarcounterRadios();
-            initKitchenislandRadios();
-        }
-    });
+    if (!shouldReinitCalculatorControls(mutations)) return;
+
+    initMasterCheckRadios();
+    initSimpleCheckboxes();
+    initBarcounterRadios();
+    initKitchenislandRadios();
 });
 
 calculatorDomObserver.observe(document.body, { childList: true, subtree: true });
@@ -342,11 +381,24 @@ function initCalculatorSteps() {
     const nextBtnText = calculator.querySelector('.js--calculator1-next-text');
     const progressLine = calculator.querySelector('.js--calculator1-progress');
     const counter = calculator.querySelector('.js--calculator1-counter');
+    const footerEl = calculator.querySelector('.js--calculator-card-footer');
+    const footerSummEl = calculator.querySelector('.js--calculator-card-rezult-summ');
+    const formsendEl = calculator.querySelector('.js--calculator1-formsend');
 
     if (steps.length === 0) return;
 
     let currentStep = 0;
+    let formSubmitted = false;
     const totalSteps = steps.length;
+
+    function showCalculator1FormSent() {
+        formSubmitted = true;
+
+        const lastStep = steps[totalSteps - 1];
+        lastStep.querySelector('.js--calculator1-contacts')?.classList.add('hidden');
+        footerEl?.classList.add('hidden');
+        formsendEl?.classList.remove('hidden');
+    }
 
     function submitCalculator1() {
         const lastStep = steps[totalSteps - 1];
@@ -364,6 +416,8 @@ function initCalculatorSteps() {
         const payload = buildCalculator1Payload(calculator);
         console.log('[Calculator tabletop] submit payload:', payload);
         console.log('[Calculator tabletop] submit payload JSON:', JSON.stringify(payload, null, 2));
+
+        showCalculator1FormSent();
     }
 
     // Функция обновления видимости шагов
@@ -440,9 +494,10 @@ function initCalculatorSteps() {
             showTabletopForSelectedShape();
         }
 
-        // После перехода на последний шаг (шаг 9), обновляем результаты
-        if (currentStep === totalSteps - 1) {
-            updateResultStep();
+        refreshCalculator1Pricing(calculator);
+
+        if (footerSummEl && !formSubmitted) {
+            footerSummEl.classList.toggle('hidden', currentStep === totalSteps - 1);
         }
     }
 
@@ -736,10 +791,10 @@ function initCalculatorSteps() {
     // Обработчик кнопки "Назад"
     if (prevBtn) {
         prevBtn.addEventListener('click', function() {
-            if (currentStep > 0) {
-                currentStep--;
-                updateSteps();
-            }
+            if (formSubmitted || currentStep <= 0) return;
+
+            currentStep--;
+            updateSteps();
         });
     }
 
@@ -752,7 +807,7 @@ function initCalculatorSteps() {
             const card = button.closest('.js--calculator-stone-card');
             if (card) {
                 const title = card.dataset.stoneTitle || card.querySelector('.listcard__title')?.textContent?.trim() || '';
-                const price = parseFloat(card.dataset.stonePrice || '32000') || 32000;
+                const price = parseFloat(card.dataset.stonePrice || '10000') || 10000;
 
                 const titleEl = calculator.querySelector('.js--calculator1-stone-title');
                 if (titleEl && title) {
@@ -794,8 +849,7 @@ initCalculatorSteps();
 /**
  * Сбор данных калькулятора
  */
-function collectCalculatorData() {
-    const calculator = document.querySelector('.js--calculator1');
+function collectCalculatorData(calculator = document.querySelector('.js--calculator1')) {
     if (!calculator) return null;
 
     const data = {};
@@ -857,16 +911,28 @@ function collectCalculatorData() {
 
     data.area = totalArea;
 
-    // 3. Вырезы и скосы (чекбоксы с data-price)
-    const checkboxes = calculator.querySelectorAll('input[type="checkbox"][data-price]');
+    // 3. Вырезы и скосы (чекбоксы и радио с data-price)
     data.cuts = [];
-    checkboxes.forEach(cb => {
-        if (cb.checked) {
-            const label = cb.closest('label');
-            const text = label?.querySelector('span span')?.textContent || '';
-            const price = parseFloat(cb.dataset.price) || 0;
-            data.cuts.push({ text, price });
-        }
+    calculator.querySelectorAll('input[type="checkbox"][data-price]:checked').forEach(cb => {
+        if (cb.classList.contains('js--masterchekradios')) return;
+
+        const label = cb.closest('label');
+        const text = label?.querySelector('span span')?.textContent || '';
+        const price = parseFloat(cb.dataset.price) || 0;
+        data.cuts.push({ text, price });
+    });
+
+    calculator.querySelectorAll('.js--masterchekradios-wrapper').forEach(wrapper => {
+        const master = wrapper.querySelector('.js--masterchekradios');
+        if (!master?.checked) return;
+
+        const selectedRadio = wrapper.querySelector('.js--masterchekradios-radio:checked');
+        if (!selectedRadio) return;
+
+        const label = selectedRadio.closest('label');
+        const text = label?.querySelector('span span')?.textContent || '';
+        const price = parseFloat(selectedRadio.dataset.price) || 1500;
+        data.cuts.push({ text, price });
     });
 
     // 4. Материал (камень) — шаг 6
@@ -875,7 +941,7 @@ function collectCalculatorData() {
         || calculator.dataset.selectedStoneTitle
         || 'Не выбрано';
 
-    data.stonePrice = parseFloat(calculator.querySelector('.js--calculator1-stone-price')?.dataset.price || '32000') || 32000;
+    data.stonePrice = parseFloat(calculator.querySelector('.js--calculator1-stone-price')?.dataset.price || '10000') || 10000;
 
     // 5. Характеристики камня (свойства из списка на шаге 6)
     data.stoneProperties = {};
@@ -908,10 +974,13 @@ function collectCalculatorData() {
 
     // 7. Барная стойка
     const barRadio = calculator.querySelector('input[name="form-barcounter"]:checked');
+    data.barPrice = 0;
     if (barRadio) {
         data.bar = barRadio.closest('label')?.querySelector('span span')?.textContent?.trim() || '';
 
         if (data.bar && !data.bar.includes('Без барной стойки')) {
+            data.barPrice = parseFloat(barRadio.dataset.price) || 0;
+
             const barType = barRadio.dataset.barcount || barRadio.dataset.sett;
             if (barType) {
                 // Маппинг data-атрибутов радио-кнопок на data-barcount блоков
@@ -935,10 +1004,13 @@ function collectCalculatorData() {
 
     // 8. Кухонный остров
     const islandRadio = calculator.querySelector('input[name="form-kitchenisland"]:checked');
+    data.islandPrice = 0;
     if (islandRadio) {
         data.island = islandRadio.closest('label')?.querySelector('span span')?.textContent?.trim() || '';
 
         if (data.island && !data.island.includes('Без острова')) {
+            data.islandPrice = parseFloat(islandRadio.dataset.price) || 0;
+
             const islandType = islandRadio.dataset.kitchenisland;
             if (islandType) {
                 // Маппинг data-атрибутов радио-кнопок на data-kitchenisland блоков
@@ -988,7 +1060,7 @@ function calculateTotal(data) {
 
     // Базовая стоимость за материал (пока предположим 0)
     // Можно добавить логику расчета на основе площади и цены за м2
-    const pricePerM2 = data.stonePrice || 32000;
+    const pricePerM2 = data.stonePrice || 10000;
     total += data.area * pricePerM2;
 
     // Добавки за толщину
@@ -1002,6 +1074,10 @@ function calculateTotal(data) {
         data.cuts.forEach(cut => total += cut.price);
     }
 
+    // Барная стойка и остров
+    if (data.barPrice) total += data.barPrice;
+    if (data.islandPrice) total += data.islandPrice;
+
     // Дополнительные опции
     if (data.options) {
         data.options.forEach(opt => total += opt.price);
@@ -1013,8 +1089,34 @@ function calculateTotal(data) {
     return Math.round(total);
 }
 
+function updateCalculator1FooterTotal(calculator) {
+    const stepTotalEl = calculator?.querySelector('.js--result-steptotal');
+    if (!stepTotalEl) return;
+
+    const data = collectCalculatorData(calculator);
+    if (!data) return;
+
+    stepTotalEl.textContent = calculateTotal(data).toLocaleString('ru-RU');
+}
+
+function refreshCalculator1Pricing(calculator) {
+    if (!calculator || calculator1PricingRefreshLock) return;
+
+    calculator1PricingRefreshLock = true;
+    try {
+        updateCalculator1FooterTotal(calculator);
+
+        const lastStep = calculator.querySelector('.calculator-card__step:last-child');
+        if (lastStep?.classList.contains('active')) {
+            updateResultStep(calculator);
+        }
+    } finally {
+        calculator1PricingRefreshLock = false;
+    }
+}
+
 function buildCalculator1Payload(calculator) {
-    const data = collectCalculatorData();
+    const data = collectCalculatorData(calculator);
     if (!data) return null;
 
     const total = calculateTotal(data);
@@ -1050,9 +1152,11 @@ function buildCalculator1Payload(calculator) {
         pricing: {
             total,
             area: data.area,
-            stonePricePerM2: data.stonePrice || 32000,
+            stonePricePerM2: data.stonePrice || 10000,
             slabPrice: data.slabPrice || 0,
             chamferPrice: data.chamferPrice || 0,
+            barPrice: data.barPrice || 0,
+            islandPrice: data.islandPrice || 0,
             gluingPrice: data.gluingPrice || 0
         },
         contacts: collectContactFields(contactsRoot)
@@ -1062,8 +1166,7 @@ function buildCalculator1Payload(calculator) {
 /**
  * Обновление шага 9 (расчет стоимости) на основе собранных данных
  */
-function updateResultStep() {
-    const calculator = document.querySelector('.js--calculator1');
+function updateResultStep(calculator = document.querySelector('.js--calculator1')) {
     if (!calculator) return;
 
     const steps = calculator.querySelectorAll('.calculator-card__step');
@@ -1072,7 +1175,7 @@ function updateResultStep() {
     const step9 = steps[steps.length - 1];
     if (!step9) return;
 
-    const data = collectCalculatorData();
+    const data = collectCalculatorData(calculator);
     if (!data) return;
 
     const total = calculateTotal(data);
@@ -1255,9 +1358,10 @@ function updateResultStep() {
         }
     }
 
+    const totalFormatted = total.toLocaleString('ru-RU');
     const totalElement = step9.querySelector('.js-result-total');
     if (totalElement) {
-        totalElement.textContent = total.toLocaleString('ru-RU');
+        totalElement.textContent = totalFormatted;
     }
 }
 
@@ -1280,14 +1384,20 @@ function setHtmlContent(context, selector, html) {
 function initResultUpdate() {
     const calculator = document.querySelector('.js--calculator1');
     if (!calculator) return;
+    if (calculator.dataset.pricingBound === '1') return;
+    calculator.dataset.pricingBound = '1';
 
-    calculator.addEventListener('change', function() {
-        const activeStep = calculator.querySelector('.calculator-card__step.active');
-        const lastStep = calculator.querySelector('.calculator-card__step:last-child');
-        if (activeStep && activeStep === lastStep) {
-            updateResultStep();
+    function handlePricingInput(event) {
+        const target = event.target;
+        if (!target.matches('input[type="checkbox"], input[type="radio"], input[type="text"], input[type="number"], select, textarea')) {
+            return;
         }
-    });
+
+        refreshCalculator1Pricing(calculator);
+    }
+
+    calculator.addEventListener('change', handlePricingInput);
+    calculator.addEventListener('input', handlePricingInput);
 }
 
 initResultUpdate();

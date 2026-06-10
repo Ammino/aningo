@@ -1,0 +1,104 @@
+extends ../layouts/default
+
+prepend vars
+
+block content
+
+	// header start
+	include ../section/header/header
+	// header end
+
+	// search
+	include ../section/header/_search
+	// /search
+	
+	main#main.main
+
+		section.pageinside: .container
+			+crumbsBlock()
+				li: a.crumbs__link(href="home.html" target="_blank") Главная
+				li: span Гульназ Галимова
+			
+			.pagecard-manager
+
+				.pagecard-manager__img
+					img(src=`${baseDir}img/calculator/img-manager-0.webp`, alt="")
+
+				.pagecard-manager__body
+					h1.h1.pagecard-manager__name Гульназ Галимова
+					.pagecard-manager__post Старший консультант
+					.pagecard-manager__footer.row
+						.col-6
+							.pagecard-manager__label Телефон
+							.pagecard-manager__value
+								a(href="tel:+79180219696") +7 918 021 96 96
+						.col-6
+							.pagecard-manager__label E-mail
+							.pagecard-manager__value
+								a(href="mailto:gg@aningo.ru") gg@aningo.ru
+						.col-6
+							a.mbtn.mbtn__grey.mbtn__middle.mbtn__wicon(href="#")
+								span Telegram
+								i: +svg('ic-telegram')
+						.col-6
+							a.mbtn.mbtn__grey.mbtn__middle.mbtn__wicon(href="#")
+								span Max
+								i: +svg('ic-max')
+						.col-12
+							a.mbtn.mbtn__primary.mbtn__middle.mbtn__wicon(href="#")
+								span скачать контакт
+								i: +svg('ic-downloads')
+
+				.pagecard-manager__side
+					h4.h4 Контакты компании:
+					.pagecard-manager__socio
+						.pagecard-manager__socio__item
+							a.pagecard-manager__socio__card(
+								href="#" 
+								target="_blank")
+								i: include ../../img/icons/ic-telegram.svg
+								span Telegram
+						.pagecard-manager__socio__item
+							a.pagecard-manager__socio__card(
+								href="#" 
+								target="_blank")
+								i: include ../../img/icons/ic-max.svg
+								span Max
+						.pagecard-manager__socio__item
+							a.pagecard-manager__socio__card(
+								href="#" 
+								target="_blank")
+								i: include ../../img/icons/ic-vk.svg
+								span ВКонтакте
+						.pagecard-manager__socio__item
+							a.pagecard-manager__socio__card(
+								href="#" 
+								target="_blank")
+								i: include ../../img/icons/ic-ydzen.svg
+								span Яндекс Дзен
+						.pagecard-manager__socio__item
+							a.pagecard-manager__socio__card(
+								href="#" 
+								target="_blank")
+								i: include ../../img/icons/ic-youtube.svg
+								span YouTube
+						.pagecard-manager__socio__item
+							a.pagecard-manager__socio__card(
+								href="#" 
+								target="_blank")
+								i: include ../../img/icons/ic-instagram.svg
+								span Instagram
+						.pagecard-manager__socio__item
+							a.pagecard-manager__socio__card(
+								href="#" 
+								target="_blank")
+								i: include ../../img/icons/ic-rutube.svg
+								span Rutube
+
+
+	// footer
+	include ../section/footer/footer
+	// end footer
+
+block modals
+	include ../section/modals/modals

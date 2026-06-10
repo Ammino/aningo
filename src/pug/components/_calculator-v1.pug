@@ -20,7 +20,16 @@
 		//- Шаг 9, Расчет
 		include calculate1/step9
 
-		.calculator-card__footer
+		.calculator-card__footer.js--calculator-card-footer
+			.calculator-card__rezult__summ.js--calculator-card-rezult-summ
+				.calculator-card__rezult__summ__price
+					| Стоимость
+					span.js--result-steptotal
+					| ₽
+					span: sup *
+				.calculator-card__rezult__summ__info
+					| <sup>*</sup> Ориентировочная стоимость, не является офертой!
+
 			.calculator-card__footer__btns
 				div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__white.js--calculator1-prev(type="button")
 					i: +svg('ic-arrow-left-short')
@@ -31,3 +40,15 @@
 			.calculator-card__footer__pagination
 				.modal-questionnaire__footer__pagination__line: i.js--calculator1-progress(style="width: 33%;")
 				.modal-questionnaire__footer__pagination__counter.js--calculator1-counter 1/9
+
+		.calculator-card__formsend.js--calculator1-formsend.hidden
+			h3.h3.calculator-card__formsend__title Заявка отправлена
+			.calculator-card__formsend__text Наши менеджеры скоро вам позвонят. Спасибо, что выбрали нас!
+			.calculator-card__footer__btns
+				div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__primary(type="button")
+					span поделиться расчЁтом
+					i: +svg('ic-share')
+				div: button.mbtn.mbtn__middle.mbtn__wicon.mbtn__grey(type="button")
+					span скачать расчЁт в pdf
+					i: +svg('ic-downloads')
+

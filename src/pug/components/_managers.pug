@@ -16,14 +16,14 @@
 		// el
 		.managers__card
 			.managers__card__header
-				.managers__card__header__img
+				a.managers__card__header__img(href="#")
 					img(
 						src=`${baseDir}img/calculator/img-manager-${i}.webp`,
 						width="94",
 						height="94",
 						alt="")
 				.managers__card__header__body
-					.managers__card__header__name=name
+					a.managers__card__header__name(href="#")=name
 					.managers__card__header__post=post
 			.managers__card__btns
 				div: a.mbtn.mbtn__grey.mbtn__middle.mbtn__wicon(

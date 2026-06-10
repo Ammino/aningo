@@ -6445,12 +6445,120 @@ span.marker-new {
 
 .managers__card__header__name {
   font-weight: 700;
+  text-decoration: none;
+  color: #1C1C1C;
 }
 
 .managers__card__btns {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
+}
+
+.pagecard-manager {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  padding-top: 15px;
+}
+
+.pagecard-manager__img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.pagecard-manager__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pagecard-manager__body {
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid #EBEDF0;
+}
+
+.pagecard-manager .h1.pagecard-manager__name {
+  margin-bottom: 10px;
+}
+
+.pagecard-manager__post {
+  margin-bottom: 25px;
+}
+
+.pagecard-manager__footer {
+  margin-left: -5px;
+  margin-right: -5px;
+  gap: 10px 0;
+}
+
+.pagecard-manager__footer > div {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.pagecard-manager__label {
+  line-height: 1.3;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.pagecard-manager__value {
+  margin-bottom: 14px;
+}
+
+.pagecard-manager__value a {
+  display: inline-block;
+  text-decoration: none;
+  color: #1C1C1C;
+}
+
+.pagecard-manager__btns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.pagecard-manager__side {
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid #EBEDF0;
+}
+
+.pagecard-manager__socio {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.pagecard-manager__socio__card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.pagecard-manager__socio__card i {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+}
+
+.pagecard-manager__socio__card span {
+  flex: 1 0 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 .calculator-nav {
@@ -6588,12 +6696,16 @@ span.marker-new {
   max-width: 763px;
 }
 
+.calculator-card__footer.hidden {
+  display: none !important;
+}
+
 .calculator-card__footer {
   padding-top: 60px;
   display: grid;
   grid-template-columns: 1fr 350px;
   align-items: center;
-  gap: 30px 60px;
+  gap: 60px;
 }
 
 .calculator-card__footer__btns {
@@ -6608,6 +6720,14 @@ span.marker-new {
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 20px;
+}
+
+.calculator-card__footer .calculator-card__rezult__summ {
+  grid-column: span 2;
+}
+
+.calculator-card__footer .calculator-card__rezult__summ.hidden {
+  display: none !important;
 }
 
 .calculator-card__columns3 {
@@ -6742,6 +6862,10 @@ span.marker-new {
 .calculator-card__form {
   margin: 60px 0 0 0;
   max-width: 942px;
+}
+
+.calculator-card__form.hidden {
+  display: none !important;
 }
 
 .calculator-card__form .calculator-card__header__title {
@@ -7015,6 +7139,22 @@ span.marker-new {
 
 .calculator-card .card__media {
   grid-template-columns: 88px minmax(0, 1fr);
+}
+
+.calculator-card__formsend {
+  padding-top: 60px;
+}
+
+.calculator-card__formsend.hidden {
+  display: none;
+}
+
+.calculator-card__formsend__title {
+  margin-bottom: 10px;
+}
+
+.calculator-card__formsend__text {
+  margin-bottom: 30px;
 }
 
 .calc-windowsill {
@@ -9063,6 +9203,22 @@ span.marker-new {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .pagecard-manager {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pagecard-manager__btns {
+    grid-template-columns: 1fr;
+  }
+
+  .pagecard-manager__side {
+    grid-column: span 2;
+  }
+
+  .pagecard-manager__socio {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .calculator-card {
     padding: 30px;
   }
@@ -9073,6 +9229,7 @@ span.marker-new {
 
   .calculator-card__footer {
     padding-top: 30px;
+    gap: 30px;
   }
 
   .calculator-card__columns3 {
@@ -9125,6 +9282,10 @@ span.marker-new {
   .calculator-card .card__media {
     grid-template-columns: 59px minmax(0, 1fr);
     gap: 20px;
+  }
+
+  .calculator-card__formsend {
+    padding-top: 30px;
   }
 
   .calc-windowsill {
@@ -10221,6 +10382,15 @@ span.marker-new {
     padding: 0 0 30px 0;
   }
 
+  .pagecard-manager__socio {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pagecard-manager__socio__card i {
+    min-width: 18px;
+    height: 18px;
+  }
+
   .calculator-card__footer {
     grid-template-columns: 1fr;
   }
@@ -10777,6 +10947,22 @@ span.marker-new {
     grid-template-columns: 1fr;
   }
 
+  .pagecard-manager {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pagecard-manager__img {
+    aspect-ratio: 1/1;
+  }
+
+  .pagecard-manager__side {
+    grid-column: span 1;
+  }
+
+  .pagecard-manager__socio {
+    grid-template-columns: 1fr;
+  }
+
   .calculator-nav {
     grid-template-columns: 1fr;
   }
@@ -10796,6 +10982,10 @@ span.marker-new {
 
   .calculator-card .card__media {
     grid-template-columns: 74px minmax(0, 1fr);
+  }
+
+  .calculator-card__formsend .calculator-card__footer__btns {
+    grid-template-columns: 1fr;
   }
 
   .calc-windowsill__settings {
@@ -10963,6 +11153,14 @@ span.marker-new {
   }
 
   .services__card__header:hover .services__card__header__title {
+    color: #E52D12;
+  }
+
+  .managers__card__header__name:not([disabled]):hover {
+    color: #E52D12;
+  }
+
+  .pagecard-manager__value a:not([disabled]):hover {
     color: #E52D12;
   }
 

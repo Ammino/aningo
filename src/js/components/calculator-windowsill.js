@@ -2,6 +2,8 @@
  * Калькулятор подоконников
  */
 
+let calculator2PricingRefreshLock = false;
+
 const WINDOWSILL_TYPE_LABELS = {
 	'windowsill__0': 'Прямой',
 	'windowsill__1': 'Угловой',
@@ -51,6 +53,7 @@ function initWindowsillFormToggle(calculator) {
 		if (!target.matches('.js--windowsill-type-radio') || !target.checked) return;
 		const selectedValue = target.getAttribute('data-windowsill');
 		if (selectedValue) toggleSettings(selectedValue);
+		refreshCalculator2Pricing(calculator);
 	});
 
 	const checkedRadio = calculator.querySelector('.js--windowsill-type-radio:checked');
@@ -99,6 +102,7 @@ function initAddWindowsill(calculator) {
 		if (card) {
 			initWindowsillInputCount(card.querySelector('.js--inputcount'));
 			updateWindowsillListVisibility(calculator);
+			refreshCalculator2Pricing(calculator);
 		}
 	});
 }
@@ -172,6 +176,7 @@ function addWindowsillCardFromTemplate(calculator, { windowsillId, typeLabel, di
 function initWindowsillInputCount(box) {
 	if (!box || box.dataset.inputcountInit === 'true') return;
 
+	const calculator = box.closest('.js--calculator2');
 	const btnMinus = box.querySelector('.js--inputcount-minus');
 	const btnPlus = box.querySelector('.js--inputcount-plus');
 	const input = box.querySelector('.js--inputcount-input');
@@ -192,6 +197,7 @@ function initWindowsillInputCount(box) {
 		input.value = value;
 		btnMinus.disabled = value <= getMin();
 		btnPlus.disabled = value >= getMax();
+		if (calculator) refreshCalculator2Pricing(calculator);
 	};
 
 	btnMinus.addEventListener('click', () => {
@@ -314,6 +320,7 @@ function initWindowsillListActions(calculator) {
 		if (card) card.remove();
 
 		updateWindowsillListVisibility(calculator);
+		refreshCalculator2Pricing(calculator);
 	});
 }
 
@@ -327,15 +334,28 @@ function initCalculator2Steps(calculator) {
 	const nextBtnText = calculator.querySelector('.js--calculator2-next-text');
 	const progressLine = calculator.querySelector('.js--calculator2-progress');
 	const counter = calculator.querySelector('.js--calculator2-counter');
+	const footerEl = calculator.querySelector('.js--calculator-card-footer');
+	const footerSummEl = calculator.querySelector('.js--calculator-card-rezult-summ');
+	const formsendEl = calculator.querySelector('.js--calculator2-formsend');
 
 	if (!steps.length) return;
 
 	const form = calculator.querySelector('.js--calculator2-form');
 	let currentStep = 0;
+	let formSubmitted = false;
 	const totalSteps = steps.length;
 	let selectedStoneTitle = '';
-	let selectedStonePrice = 32000;
+	let selectedStonePrice = 10000;
 	let selectedStoneImage = '';
+
+	function showCalculator2FormSent() {
+		formSubmitted = true;
+
+		const lastStep = steps[totalSteps - 1];
+		lastStep.querySelector('.js--calculator2-contacts')?.classList.add('hidden');
+		footerEl?.classList.add('hidden');
+		formsendEl?.classList.remove('hidden');
+	}
 
 	function submitCalculator2() {
 		const lastStep = steps[totalSteps - 1];
@@ -353,6 +373,8 @@ function initCalculator2Steps(calculator) {
 		const payload = buildWindowsillCalculatorPayload(calculator);
 		console.log('[Calculator windowsill] submit payload:', payload);
 		console.log('[Calculator windowsill] submit payload JSON:', JSON.stringify(payload, null, 2));
+
+		showCalculator2FormSent();
 	}
 
 	function updateSteps() {
@@ -393,11 +415,10 @@ function initCalculator2Steps(calculator) {
 			}
 		}
 
-		if (currentStep === totalSteps - 1) {
-			updateWindowsillResultStep(calculator, {
-				selectedStoneTitle,
-				selectedStonePrice
-			});
+		refreshCalculator2Pricing(calculator);
+
+		if (footerSummEl && !formSubmitted) {
+			footerSummEl.classList.toggle('hidden', currentStep === totalSteps - 1);
 		}
 	}
 
@@ -437,10 +458,10 @@ function initCalculator2Steps(calculator) {
 
 	if (prevBtn) {
 		prevBtn.addEventListener('click', () => {
-			if (currentStep > 0) {
-				currentStep -= 1;
-				updateSteps();
-			}
+			if (formSubmitted || currentStep <= 0) return;
+
+			currentStep -= 1;
+			updateSteps();
 		});
 	}
 
@@ -451,7 +472,7 @@ function initCalculator2Steps(calculator) {
 			const card = button.closest('.js--calculator-stone-card');
 			if (card) {
 				selectedStoneTitle = card.dataset.stoneTitle || card.querySelector('.listcard__title')?.textContent?.trim() || '';
-				selectedStonePrice = parseFloat(card.dataset.stonePrice || '32000') || 32000;
+				selectedStonePrice = parseFloat(card.dataset.stonePrice || '10000') || 10000;
 				const img = card.querySelector('.listcard__picture img');
 				selectedStoneImage = img?.getAttribute('src') || '';
 				if (selectedStoneImage) {
@@ -479,16 +500,20 @@ function initCalculator2Steps(calculator) {
 }
 
 function initCalculator2ResultUpdate(calculator) {
-	calculator.addEventListener('change', () => {
-		const steps = calculator.querySelectorAll('.js--calculator2-step');
-		const lastStep = steps[steps.length - 1];
-		if (lastStep?.classList.contains('active')) {
-			updateWindowsillResultStep(calculator, {
-				selectedStoneTitle: calculator.querySelector('.js--calculator2-stone-title')?.textContent?.replace(/^вы выбрали\s*/i, '') || '',
-				selectedStonePrice: parseFloat(calculator.querySelector('.js--calculator2-stone-price span')?.dataset.price || '32000') || 32000
-			});
+	if (calculator.dataset.pricingBound === '1') return;
+	calculator.dataset.pricingBound = '1';
+
+	function handlePricingInput(event) {
+		const target = event.target;
+		if (!target.matches('input[type="checkbox"], input[type="radio"], input[type="text"], input[type="number"], select, textarea')) {
+			return;
 		}
-	});
+
+		refreshCalculator2Pricing(calculator);
+	}
+
+	calculator.addEventListener('change', handlePricingInput);
+	calculator.addEventListener('input', handlePricingInput);
 }
 
 function collectWindowsillCalculatorData(calculator) {
@@ -523,7 +548,7 @@ function collectWindowsillCalculatorData(calculator) {
 
 	const stoneTitleEl = calculator.querySelector('.js--calculator2-stone-title');
 	data.stone = stoneTitleEl?.textContent?.replace(/^вы выбрали\s*/i, '').trim() || 'Не выбрано';
-	data.stonePrice = parseFloat(calculator.querySelector('.js--calculator2-stone-price span')?.dataset.price || '32000') || 32000;
+	data.stonePrice = parseFloat(calculator.querySelector('.js--calculator2-stone-price span')?.dataset.price || '10000') || 10000;
 
 	data.stoneProperties = {};
 	calculator.querySelectorAll('.content-columns__properties__list__item').forEach(item => {
@@ -606,6 +631,34 @@ function calculateWindowsillTotal(data) {
 	return Math.round(total);
 }
 
+function updateCalculator2FooterTotal(calculator) {
+	const stepTotalEl = calculator?.querySelector('.js--result-steptotal');
+	if (!stepTotalEl) return;
+
+	const data = collectWindowsillCalculatorData(calculator);
+	stepTotalEl.textContent = calculateWindowsillTotal(data).toLocaleString('ru-RU');
+}
+
+function refreshCalculator2Pricing(calculator) {
+	if (!calculator || calculator2PricingRefreshLock) return;
+
+	calculator2PricingRefreshLock = true;
+	try {
+		updateCalculator2FooterTotal(calculator);
+
+		const steps = calculator.querySelectorAll('.js--calculator2-step');
+		const lastStep = steps[steps.length - 1];
+		if (lastStep?.classList.contains('active')) {
+			updateWindowsillResultStep(calculator, {
+				selectedStoneTitle: calculator.querySelector('.js--calculator2-stone-title')?.textContent?.replace(/^вы выбрали\s*/i, '') || '',
+				selectedStonePrice: parseFloat(calculator.querySelector('.js--calculator2-stone-price span')?.dataset.price || '10000') || 10000
+			});
+		}
+	} finally {
+		calculator2PricingRefreshLock = false;
+	}
+}
+
 function updateWindowsillResultStep(calculator, { selectedStoneTitle, selectedStonePrice }) {
 	const steps = calculator.querySelectorAll('.js--calculator2-step');
 	const stepResult = steps[steps.length - 1];
@@ -648,9 +701,10 @@ function updateWindowsillResultStep(calculator, { selectedStoneTitle, selectedSt
 		setTextContent(stepResult, '.js-result-option-glue-45', 'Нет');
 	}
 
+	const totalFormatted = total.toLocaleString('ru-RU');
 	const totalElement = stepResult.querySelector('.js-result-total');
 	if (totalElement) {
-		totalElement.textContent = total.toLocaleString('ru-RU');
+		totalElement.textContent = totalFormatted;
 	}
 
 	const stoneImg = stepResult.querySelector('.js--result-stone-img');
