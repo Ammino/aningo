@@ -46,18 +46,16 @@ block content
 							'Размер',
 							'В наличии',
 							'Тип',
+							'Производитель',
 						]
 						var cm_value = [
 							'3000x1400x20 мм',
 							'4.2 м<sup>2</sup>',
 							'Плитка',
+							'ALEPHSTONE',
 						]
 
 					.content-columns__properties__list.js--filterlist
-						- for (let i = 0; i < cm_property.length; i++)
-							.content-columns__properties__list__item.js--filterlist-item
-								span=cm_property[i]
-								span!=cm_value[i]
 						- for (let i = 0; i < cm_property.length; i++)
 							.content-columns__properties__list__item.js--filterlist-item
 								span=cm_property[i]
