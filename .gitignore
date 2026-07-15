@@ -1,6 +1,5 @@
 /node_modules
 /node_modules.bak.ci
-/dist
 /.idea
 # blog videos (too large for GitHub)
 src/img/blog/*.mp4
