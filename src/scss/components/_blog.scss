@@ -183,11 +183,37 @@
             margin-top: 0;
         }
 
-        & > div {
+        .block-share {
             display: inline-block;
 
             @include tablet {
                 display: block;
+                width: 100%;
+            }
+
+            &:hover .block-share__label {
+                color: inherit;
+                border-color: transparent;
+            }
+
+            &__label {
+                width: auto;
+                height: auto;
+                border: none;
+                border-radius: 0;
+
+                @include tablet {
+                    width: 100%;
+
+                    .mbtn {
+                        width: 100%;
+                    }
+                }
+            }
+
+            &__dropdown {
+                left: 0;
+                right: auto;
             }
         }
     }

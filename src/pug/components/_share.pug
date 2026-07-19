@@ -1,5 +1,4 @@
-.block-share
-	.block-share__label: +svg('ic-share')
+mixin shareMenu()
 	.block-share__dropdown
 		.block-share__dropdown__body
 			ul.block-share__list
@@ -21,3 +20,8 @@
 				li: a.block-share__list__link(href="#", target="_blank")
 					i: +svg('ic-downloads')
 					span Сохранить в PDF
+
+if !shareMenuOnly
+	.block-share
+		.block-share__label: +svg('ic-share')
+		+shareMenu()

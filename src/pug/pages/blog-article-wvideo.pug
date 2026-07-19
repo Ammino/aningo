@@ -43,10 +43,16 @@ block content
 
 					p Lorem ipsum dolor sit amet consectetur. Nunc commodo aliquam consectetur placerat augue sit sit. Volutpat magna scelerisque massa pulvinar vitae ipsum morbi. Dictum sapien cursus et ultrices rhoncus lorem gravida lorem. Lectus cras vehicula faucibus duis nullam. Elit id eget integer elementum ultricies. Semper molestie quam massa aliquam non.  
 
-				.blogarticle__share: div
-					a.mbtn.mbtn__grey.mbtn__middle.mbtn__wicon(href="#") 
-						span Поделиться
-						i: +svg('ic-share')
+				- var shareMenuOnly = true
+				include ../components/_share
+
+				.blogarticle__share
+					.block-share
+						.block-share__label
+							button.mbtn.mbtn__grey.mbtn__middle.mbtn__wicon(type="button")
+								span Поделиться
+								i: +svg('ic-share')
+						+shareMenu()
 
 				.blogarticle__consultation
 					.blogarticle__consultation__body

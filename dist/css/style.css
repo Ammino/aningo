@@ -5892,8 +5892,25 @@ span.marker-new {
   margin-top: 0;
 }
 
-.blogarticle__share > div {
+.blogarticle__share .block-share {
   display: inline-block;
+}
+
+.blogarticle__share .block-share:hover .block-share__label {
+  color: inherit;
+  border-color: transparent;
+}
+
+.blogarticle__share .block-share__label {
+  width: auto;
+  height: auto;
+  border: none;
+  border-radius: 0;
+}
+
+.blogarticle__share .block-share__dropdown {
+  left: 0;
+  right: auto;
 }
 
 .blogarticle__consultation {
@@ -10944,8 +10961,17 @@ span.marker-new {
     grid-column: 1/-1;
   }
 
-  .blogarticle__share > div {
+  .blogarticle__share .block-share {
     display: block;
+    width: 100%;
+  }
+
+  .blogarticle__share .block-share__label {
+    width: 100%;
+  }
+
+  .blogarticle__share .block-share__label .mbtn {
+    width: 100%;
   }
 
   .blogarticle__consultation {

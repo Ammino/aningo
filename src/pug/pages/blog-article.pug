@@ -67,10 +67,16 @@ block content
 
 					p Tincidunt semper nam amet hendrerit viverra rhoncus turpis. Tellus sagittis integer aenean nullam sit cursus. Facilisis eleifend odio aliquet viverra. Tristique quam adipiscing amet in fermentum scelerisque. Euismod morbi a volutpat eleifend urna auctor ut a. Cursus sagittis vestibulum netus ornare cursus. Posuere tempus nulla non nunc mauris arcu nisl amet vitae. 
 
-				.blogarticle__share: div
-					a.mbtn.mbtn__grey.mbtn__middle.mbtn__wicon(href="#") 
-						span Поделиться
-						i: +svg('ic-share')
+				- var shareMenuOnly = true
+				include ../components/_share
+
+				.blogarticle__share
+					.block-share
+						.block-share__label
+							button.mbtn.mbtn__grey.mbtn__middle.mbtn__wicon(type="button")
+								span Поделиться
+								i: +svg('ic-share')
+						+shareMenu()
 
 				.blogarticle__consultation
 					.blogarticle__consultation__body
