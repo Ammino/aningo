@@ -179,18 +179,18 @@
 		grid-gap: 30px;
 
 		@include laptop {
-			grid-template-columns: 1fr;
+			grid-template-columns: minmax(0, 1fr);
 			padding-top: 30px;
 		}
 
 		&__btns {
 			display: grid;
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 			gap: 10px;
 		}
 		&__pagination {
 			display: grid;
-			grid-template-columns: 1fr auto;
+			grid-template-columns: minmax(0, 1fr) auto;
 			gap: 10px 30px;
 
 			&__line {

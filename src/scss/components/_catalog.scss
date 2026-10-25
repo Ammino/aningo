@@ -19,12 +19,12 @@
 
 .navpages {
     display: grid;
-    grid-template-columns: 50% 1fr 1fr;
+    grid-template-columns: minmax(0, 50%) minmax(0, 1fr) minmax(0, 1fr);
     align-items: stretch;
     gap: 30px;
 
 	@include laptop {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: repeat(2, auto);
         gap: 30px 10px;
 
@@ -221,18 +221,18 @@
 
 .maincatalog {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 30px;
 
 	@include desktop {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 	@include laptop {
         gap: 10px;
         grid-auto-flow: row;
 	}
 	@include tablet {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
         grid-auto-flow: row;
 	}
@@ -266,18 +266,18 @@
 
 .mainactions {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 30px;
 
 	@include desktop {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 	@include laptop {
         gap: 10px;
         grid-auto-flow: row;
 	}
 	@include tablet {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
         grid-auto-flow: row;
 	}
@@ -377,6 +377,7 @@ span.marker-new {
     justify-content: flex-start;
     align-items: stretch;
     height: 100%;
+    min-width: 0;
 	transition: background-color .8s ease-in-out;
 
 	@include laptop {
@@ -939,7 +940,7 @@ span.marker-new {
 
     &__line {
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: minmax(0, 1fr) auto;
         gap: 30px;
 
         @include desktop {
@@ -947,10 +948,10 @@ span.marker-new {
         }
 
         &.catalog__line__backlight {
-            grid-template-columns: auto 1fr auto;
+            grid-template-columns: auto minmax(0, 1fr) auto;
 
             @include laptop {
-                grid-template-columns: 1fr auto;
+                grid-template-columns: minmax(0, 1fr) auto;
                 grid-template-rows: auto auto;
             }
         }
@@ -1162,25 +1163,27 @@ span.marker-new {
 
 .catalog-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 30px;
 
 	@include desktop {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-auto-flow: row dense;
 	}
 	@include laptop {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 10px;
         grid-auto-flow: row dense;
 	}
 	@include tablet {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
         grid-auto-flow: row dense;
 	}
 
     &__item {
+        min-width: 0;
+
         &.catalog-list__item__banner {
             @include laptop {
                 grid-column: span 3;
@@ -1229,7 +1232,7 @@ span.marker-new {
 .js--sidefilter-columns.is-sidefilter-hidden {
     @include laptop-min {
         .catalog-list {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             grid-auto-flow: row dense;
         }
 
@@ -1239,7 +1242,7 @@ span.marker-new {
     }
     @include desktop-min {
         .catalog-list {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             grid-auto-flow: row dense;
         }
 
@@ -1435,7 +1438,7 @@ span.marker-new {
 
             li {
                 display: grid;
-                grid-template-columns: 1fr auto;
+                grid-template-columns: minmax(0, 1fr) auto;
                 align-items: center;
                 gap: 0 20px;
             }
@@ -1693,17 +1696,17 @@ span.marker-new {
 
 .list-materials {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: stretch;
     gap: 30px;
     margin: 30px 0;
 
     @include desktop {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 20px;
     }
     @include tablet {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(1, minmax(0, 1fr));
         gap: 10px;
     }
 
@@ -1724,6 +1727,7 @@ span.marker-new {
         background-color: $cl-white;
         border: 1px solid $cl-border-grey;
         height: 100%;
+        min-width: 0;
         text-decoration: none;
 
         @include desktop {

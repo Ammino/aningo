@@ -52,7 +52,7 @@
 	max-width: calc(100% - 327px);
 
 	@include desktop {
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(0, 1fr);
 		max-width: calc(100% - 277px);
 	}
 	@include laptop {
@@ -103,7 +103,7 @@
 		grid-template-columns: minmax(0,1fr) minmax(0,247px);
 	}
 	@include laptop {
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(0, 1fr);
 	}
 
 	&__side {
@@ -256,7 +256,7 @@
 		}
 		@include desktop {
 			align-items: start;
-			grid-template-columns: 1fr;
+			grid-template-columns: minmax(0, 1fr);
 		}
 		@include mobilehr {
 			padding: 10px;

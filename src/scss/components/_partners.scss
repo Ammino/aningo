@@ -51,22 +51,22 @@
 
 .list-partners {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 30px;
 
 	@include desktop-xl {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(5, minmax(0, 1fr));
 	}
 	@include desktop {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 20px;
 	}
 	@include laptop {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 10px;
 	}
 	@include tablet {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
     &__card {
@@ -158,7 +158,7 @@
         &__wrapper {
             display: grid;
             gap: 10px 30px;
-            grid-template-columns: 1fr auto;
+            grid-template-columns: minmax(0, 1fr) auto;
             grid-template-areas: 
             'a c'
             'b b';

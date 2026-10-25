@@ -8,7 +8,7 @@
 		grid-template-columns: repeat(2, minmax(0,1fr));
 	}
 	@include tablet {
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(0, 1fr);
 	}
 
 	&:first-child {
@@ -66,7 +66,7 @@
 		}
 		&__btns {
 			display: grid;
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 			gap: 30px;
 
 			@include desktop-xxl {
@@ -74,11 +74,11 @@
 			}
 			@include desktop-xl {
 				gap: 10px;
-				grid-template-columns: 1fr;
+				grid-template-columns: minmax(0, 1fr);
 			}
 			@include desktop {
 				gap: 10px;
-				grid-template-columns: repeat(2, 1fr);
+				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
 		}
 	}
@@ -158,11 +158,11 @@
 	}
 	&__btns {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 30px;
 
 		@include desktop {
-			grid-template-columns: 1fr;
+			grid-template-columns: minmax(0, 1fr);
 		}
 	}
 	&__side {
@@ -181,17 +181,17 @@
 
 	&__socio {
 		display: grid;
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(0, 1fr);
 		gap: 15px;
 
 		@include desktop {
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 		@include laptop {
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 		@include tablet {
-			grid-template-columns: 1fr;
+			grid-template-columns: minmax(0, 1fr);
 		}
 
 		&__card {

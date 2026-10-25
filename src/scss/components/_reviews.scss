@@ -1,10 +1,10 @@
 .home-reviews {
     display: grid;
-    grid-template-columns: 268px 1fr;
+    grid-template-columns: 268px minmax(0, 1fr);
     gap: 30px;
 
     @include desktop {
-        grid-template-columns: 160px 1fr;
+        grid-template-columns: 160px minmax(0, 1fr);
     }
     @include laptop {
         grid-template-columns: 100%;
@@ -147,7 +147,7 @@
                 width: 100%;
                 max-width: 100%;
                 display: grid;
-                grid-template-columns: 1fr auto;
+                grid-template-columns: minmax(0, 1fr) auto;
                 grid-template-areas: 
                     "date side" 
                     "name side";

@@ -106,14 +106,14 @@
 
 	&__columns {
 		display: grid;
-		grid-template-columns: 297px 1fr;
+		grid-template-columns: 297px minmax(0, 1fr);
 		gap: 30px;
 
 		@include desktop-xl {
-			grid-template-columns: 220px 1fr;
+			grid-template-columns: 220px minmax(0, 1fr);
 		}
 		@include desktop {
-			grid-template-columns: 220px 1fr;
+			grid-template-columns: 220px minmax(0, 1fr);
 		}
 		@include laptop {
 			grid-template-columns: 100%;
@@ -145,11 +145,11 @@
 
 	&__columns2 {
 		display: grid;
-		grid-template-columns: 1fr 297px;
+		grid-template-columns: minmax(0, 1fr) 297px;
 		gap: 30px;
 
 		@include desktop {
-			grid-template-columns: 1fr 220px;
+			grid-template-columns: minmax(0, 1fr) 220px;
 		}
 
 		@include laptop {
@@ -455,17 +455,17 @@
 
 .block-navpagebottom {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 30px;
 
 	@include tablet {
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(0, 1fr);
 		gap: 10px;
 	}
 
 	&__link {
 		display: grid;
-		grid-template-columns: 50px 1fr;
+		grid-template-columns: 50px minmax(0, 1fr);
 		grid-template-rows: auto auto;
 		align-items: center;
 		align-content: center;
@@ -483,7 +483,7 @@
 		@include desktop {
 			padding: 40px;
 			gap: 5px 20px;
-			grid-template-columns: 36px 1fr;
+			grid-template-columns: 36px minmax(0, 1fr);
 			min-height: 160px;
 		}
 		@include tablet {
@@ -593,7 +593,7 @@
 
 		&.block-navpagebottom__link__reverse {
 			text-align: right;
-			grid-template-columns: 1fr 50px;
+			grid-template-columns: minmax(0, 1fr) 50px;
 
 			.block-navpagebottom__link__icon {
 				grid-column: 2 / 3;

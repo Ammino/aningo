@@ -566,7 +566,7 @@ button:not([disabled]):active {
 .block__text__imgs {
   display: grid;
   gap: 30px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin: 30px 0;
 }
 
@@ -1557,7 +1557,7 @@ form {
 
 .form-wrapper__contacts {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
 }
 
@@ -1654,7 +1654,7 @@ form {
 
 .pageinside__columns {
   display: grid;
-  grid-template-columns: 297px 1fr;
+  grid-template-columns: 297px minmax(0, 1fr);
   gap: 30px;
 }
 
@@ -1668,7 +1668,7 @@ form {
 
 .pageinside__columns2 {
   display: grid;
-  grid-template-columns: 1fr 297px;
+  grid-template-columns: minmax(0, 1fr) 297px;
   gap: 30px;
 }
 
@@ -1913,13 +1913,13 @@ form {
 
 .block-navpagebottom {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
 }
 
 .block-navpagebottom__link {
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 50px minmax(0, 1fr);
   grid-template-rows: auto auto;
   align-items: center;
   align-content: center;
@@ -2024,7 +2024,7 @@ form {
 
 .block-navpagebottom__link.block-navpagebottom__link__reverse {
   text-align: right;
-  grid-template-columns: 1fr 50px;
+  grid-template-columns: minmax(0, 1fr) 50px;
 }
 
 .block-navpagebottom__link.block-navpagebottom__link__reverse .block-navpagebottom__link__icon {
@@ -2482,7 +2482,7 @@ form {
 
 .list-partners {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 30px;
 }
 
@@ -2566,7 +2566,7 @@ form {
 .home-services__feedback__wrapper {
   display: grid;
   gap: 10px 30px;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas: "a c" "b b";
   align-items: center;
 }
@@ -2707,13 +2707,17 @@ form {
 
 .projects-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
+}
+
+.projects-list > * {
+  min-width: 0;
 }
 
 .home-reviews {
   display: grid;
-  grid-template-columns: 268px 1fr;
+  grid-template-columns: 268px minmax(0, 1fr);
   gap: 30px;
 }
 
@@ -2814,7 +2818,7 @@ form {
   width: 100%;
   max-width: 100%;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas: "date side" "name side";
   gap: 0 10px;
 }
@@ -2914,7 +2918,7 @@ form {
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 60px;
   margin: 60px 0;
 }
@@ -3056,7 +3060,7 @@ form {
 
 .for-business__services__list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 30px;
 }
 
@@ -3103,7 +3107,7 @@ form {
 
 .list-resource {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
   gap: 30px;
   margin: 30px 0;
@@ -3127,6 +3131,7 @@ form {
   align-items: stretch;
   justify-content: flex-start;
   gap: 10px;
+  min-width: 0;
 }
 
 .list-resource__card__title {
@@ -3144,7 +3149,7 @@ form {
 
 .list-payment {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
   margin: 30px 0;
 }
@@ -3199,7 +3204,7 @@ form {
 
 .list-delivery-services {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
   gap: 30px;
   margin: 30px 0;
@@ -3336,7 +3341,7 @@ form {
 
 .navpages {
   display: grid;
-  grid-template-columns: 50% 1fr 1fr;
+  grid-template-columns: minmax(0, 50%) minmax(0, 1fr) minmax(0, 1fr);
   align-items: stretch;
   gap: 30px;
 }
@@ -3482,7 +3487,7 @@ form {
 
 .maincatalog {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 30px;
 }
 
@@ -3493,7 +3498,7 @@ form {
 
 .mainactions {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 30px;
 }
 
@@ -3556,6 +3561,7 @@ span.marker-new {
   justify-content: flex-start;
   align-items: stretch;
   height: 100%;
+  min-width: 0;
   transition: background-color 0.8s ease-in-out;
 }
 
@@ -4033,12 +4039,12 @@ span.marker-new {
 
 .catalog__line {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 30px;
 }
 
 .catalog__line.catalog__line__backlight {
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
 }
 
 .catalog__sort {
@@ -4214,8 +4220,12 @@ span.marker-new {
 
 .catalog-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
+}
+
+.catalog-list__item {
+  min-width: 0;
 }
 
 .catalog-list__banner {
@@ -4346,7 +4356,7 @@ span.marker-new {
 
 .sidefilter__card__radios li {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 0 20px;
 }
@@ -4568,7 +4578,7 @@ span.marker-new {
 
 .list-materials {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
   gap: 30px;
   margin: 30px 0;
@@ -4592,6 +4602,7 @@ span.marker-new {
   background-color: #fff;
   border: 1px solid #EBEDF0;
   height: 100%;
+  min-width: 0;
   text-decoration: none;
 }
 
@@ -4750,7 +4761,7 @@ span.marker-new {
 
 .table-offers__body {
   display: grid;
-  grid-template-columns: 1fr repeat(2, minmax(85px, 120px));
+  grid-template-columns: minmax(0, 1fr) repeat(2, minmax(85px, 120px));
   align-items: center;
   gap: 0 30px;
 }
@@ -5126,7 +5137,7 @@ span.marker-new {
 
 .card__header {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   grid-template-rows: auto auto;
   gap: 10px 30px;
   margin-bottom: 30px;
@@ -5919,7 +5930,7 @@ span.marker-new {
   background-color: #fff;
   padding: 30px;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 30px;
   align-items: center;
 }
@@ -6468,7 +6479,7 @@ span.marker-new {
 
 .managers__card__btns {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
 }
 
@@ -6537,7 +6548,7 @@ span.marker-new {
 
 .pagecard-manager__btns {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
 }
 
@@ -6550,7 +6561,7 @@ span.marker-new {
 
 .pagecard-manager__socio {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 15px;
 }
 
@@ -6580,7 +6591,7 @@ span.marker-new {
 
 .calculator-nav {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
 }
 
@@ -6720,7 +6731,7 @@ span.marker-new {
 .calculator-card__footer {
   padding-top: 60px;
   display: grid;
-  grid-template-columns: 1fr 275px;
+  grid-template-columns: minmax(0, 1fr) 275px;
   align-items: center;
   gap: 60px;
 }
@@ -6744,7 +6755,7 @@ span.marker-new {
 
 .calculator-card__footer__pagination {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 20px;
 }
@@ -6759,13 +6770,13 @@ span.marker-new {
 
 .calculator-card__columns3 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
 }
 
 .calculator-card__columns4 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 30px;
 }
 
@@ -6993,7 +7004,7 @@ span.marker-new {
   margin-top: 20px;
   border-top: 1px solid #B8B8B8;
   display: grid;
-  grid-template-columns: 106px 1fr;
+  grid-template-columns: 106px minmax(0, 1fr);
   gap: 10px;
   line-height: 1.3;
 }
@@ -7019,7 +7030,7 @@ span.marker-new {
 }
 
 .calculator-card__rezult__windowsills__card .calc-windowsill__cardcart__list {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .calculator-card__rezult__windowsills__card__count {
@@ -7081,7 +7092,7 @@ span.marker-new {
 }
 
 .calculator-card__radioblock.calculator-card__radioblock__grid4 .calculator-card__radioblock__content {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .calculator-card__radioblock.calculator-card__radioblock__grid5 .calculator-card__radioblock__content {
@@ -7186,7 +7197,7 @@ span.marker-new {
 
 .calc-windowsill {
   display: grid;
-  grid-template-columns: 1fr 347px;
+  grid-template-columns: minmax(0, 1fr) 347px;
   gap: 60px;
   padding-top: 60px;
 }
@@ -7222,7 +7233,7 @@ span.marker-new {
 
 .calc-windowsill__cardcart {
   display: grid;
-  grid-template-columns: 106px 1fr;
+  grid-template-columns: 106px minmax(0, 1fr);
   gap: 10px;
   padding-top: 30px;
   margin-top: 30px;
@@ -7260,7 +7271,7 @@ span.marker-new {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 5px 10px;
   line-height: 1.3;
 }
@@ -7317,7 +7328,7 @@ span.marker-new {
 
 .calc-windowsill__settings {
   display: grid;
-  grid-template-columns: 237px 1fr;
+  grid-template-columns: 237px minmax(0, 1fr);
   gap: 60px;
 }
 
@@ -7887,7 +7898,7 @@ span.marker-new {
 
 .header-search__columns {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 40px 60px;
 }
 
@@ -8197,13 +8208,13 @@ span.marker-new {
 
 .modal-questionnaire__footer__btns {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
 
 .modal-questionnaire__footer__pagination {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 10px 30px;
 }
 
@@ -8310,7 +8321,7 @@ span.marker-new {
   }
 
   .js--sidefilter-columns.is-sidefilter-hidden .catalog-list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-auto-flow: row dense;
   }
 
@@ -8355,7 +8366,7 @@ span.marker-new {
   }
 
   .blog {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .blog__item:nth-child(8n+1),
@@ -8446,7 +8457,7 @@ span.marker-new {
   }
 
   .js--sidefilter-columns.is-sidefilter-hidden .catalog-list {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-auto-flow: row dense;
   }
 
@@ -8531,7 +8542,7 @@ span.marker-new {
   }
 
   .form-wrapper__contacts {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .form-wrapper__contacts__card__value {
@@ -8539,11 +8550,11 @@ span.marker-new {
   }
 
   .pageinside__columns {
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 220px minmax(0, 1fr);
   }
 
   .list-partners {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .home-about {
@@ -8572,7 +8583,7 @@ span.marker-new {
 
   .table-offers__body {
     gap: 0 20px;
-    grid-template-columns: 1fr repeat(2, minmax(85px, 90px));
+    grid-template-columns: minmax(0, 1fr) repeat(2, minmax(85px, 90px));
   }
 
   .table-offers__side {
@@ -8608,7 +8619,7 @@ span.marker-new {
 
   .managers__card__btns {
     gap: 10px;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .calculator-card {
@@ -8744,11 +8755,11 @@ span.marker-new {
   }
 
   .pageinside__columns {
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 220px minmax(0, 1fr);
   }
 
   .pageinside__columns2 {
-    grid-template-columns: 1fr 220px;
+    grid-template-columns: minmax(0, 1fr) 220px;
   }
 
   .pageinside__filter {
@@ -8771,7 +8782,7 @@ span.marker-new {
   .block-navpagebottom__link {
     padding: 40px;
     gap: 5px 20px;
-    grid-template-columns: 36px 1fr;
+    grid-template-columns: 36px minmax(0, 1fr);
     min-height: 160px;
   }
 
@@ -8799,7 +8810,7 @@ span.marker-new {
   }
 
   .list-partners {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
   }
 
@@ -8821,11 +8832,11 @@ span.marker-new {
   }
 
   .projects-list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .home-reviews {
-    grid-template-columns: 160px 1fr;
+    grid-template-columns: 160px minmax(0, 1fr);
   }
 
   .home-about {
@@ -8838,7 +8849,7 @@ span.marker-new {
 
   .about-advantages {
     padding: 30px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .about-advantages__card__number {
@@ -8868,7 +8879,7 @@ span.marker-new {
   }
 
   .for-business__services__list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .for-business__services__card__number {
@@ -8885,11 +8896,11 @@ span.marker-new {
   }
 
   .list-resource {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .list-delivery-services {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .list-delivery-services__card__map {
@@ -8910,7 +8921,7 @@ span.marker-new {
   }
 
   .maincatalog {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .maincatalog .invitecalculate {
@@ -8919,7 +8930,7 @@ span.marker-new {
   }
 
   .mainactions {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .mainactions .invitestream {
@@ -8942,7 +8953,7 @@ span.marker-new {
   }
 
   .catalog-list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-flow: row dense;
   }
 
@@ -8951,7 +8962,7 @@ span.marker-new {
   }
 
   .list-materials {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
 
@@ -8973,7 +8984,7 @@ span.marker-new {
 
   .table-offers__body {
     gap: 0 20px;
-    grid-template-columns: 1fr repeat(2, 75px);
+    grid-template-columns: minmax(0, 1fr) repeat(2, 75px);
   }
 
   .table-offers__body {
@@ -8995,7 +9006,7 @@ span.marker-new {
   }
 
   .table-offers.table-offers__style2 .table-offers__line {
-    grid-template-columns: 90px 1fr auto;
+    grid-template-columns: 90px minmax(0, 1fr) auto;
     gap: 0 20px;
   }
 
@@ -9120,7 +9131,7 @@ span.marker-new {
   }
 
   .contacts {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .contacts > div {
@@ -9141,7 +9152,7 @@ span.marker-new {
   }
 
   .order {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     max-width: calc(100% - 277px);
   }
 
@@ -9167,7 +9178,7 @@ span.marker-new {
 
   .basket__card {
     align-items: start;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .basket__card__content {
@@ -9227,7 +9238,7 @@ span.marker-new {
 
   .managers__card__btns {
     gap: 10px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .pagecard-manager {
@@ -9235,7 +9246,7 @@ span.marker-new {
   }
 
   .pagecard-manager__btns {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .pagecard-manager__side {
@@ -9243,7 +9254,7 @@ span.marker-new {
   }
 
   .pagecard-manager__socio {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .calculator-card {
@@ -9257,16 +9268,16 @@ span.marker-new {
   .calculator-card__footer {
     padding-top: 30px;
     gap: 30px;
-    grid-template-columns: 1fr 147px;
+    grid-template-columns: minmax(0, 1fr) 147px;
   }
 
   .calculator-card__columns3 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
   .calculator-card__columns4 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 10px;
   }
 
@@ -9317,11 +9328,11 @@ span.marker-new {
   }
 
   .calc-windowsill {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .calc-windowsill__settings {
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 300px minmax(0, 1fr);
   }
 
   .header__tolline {
@@ -9489,7 +9500,7 @@ span.marker-new {
 
   .form-wrapper {
     gap: 30px;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .form-wrapper__content {
@@ -9500,7 +9511,7 @@ span.marker-new {
   }
 
   .form-wrapper__contacts {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .block__padd {
@@ -9699,7 +9710,7 @@ span.marker-new {
   }
 
   .list-partners {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 10px;
   }
 
@@ -9850,7 +9861,7 @@ span.marker-new {
   }
 
   .navpages {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: repeat(2, auto);
     gap: 30px 10px;
   }
@@ -9972,7 +9983,7 @@ span.marker-new {
   }
 
   .catalog__line.catalog__line__backlight {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     grid-template-rows: auto auto;
   }
 
@@ -10003,7 +10014,7 @@ span.marker-new {
   }
 
   .catalog-list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 10px;
     grid-auto-flow: row dense;
   }
@@ -10102,7 +10113,7 @@ span.marker-new {
   }
 
   .table-offers__line {
-    grid-template-columns: 110px 1fr;
+    grid-template-columns: 110px minmax(0, 1fr);
     gap: 10px 20px;
   }
 
@@ -10116,7 +10127,7 @@ span.marker-new {
 
   .table-offers__side {
     width: 100%;
-    grid-template-columns: 110px 1fr 36px;
+    grid-template-columns: 110px minmax(0, 1fr) 36px;
     padding-top: 10px;
     border-top: 1px solid #d9d9d9;
   }
@@ -10128,7 +10139,7 @@ span.marker-new {
   }
 
   .table-offers.table-offers__style2 .table-offers__line {
-    grid-template-columns: 110px 1fr;
+    grid-template-columns: 110px minmax(0, 1fr);
     gap: 10px 20px;
   }
 
@@ -10137,7 +10148,7 @@ span.marker-new {
   }
 
   .table-offers.table-offers__style2 .table-offers__side {
-    grid-template-columns: 1fr 36px;
+    grid-template-columns: minmax(0, 1fr) 36px;
   }
 
   .slider-offers__navbtn {
@@ -10146,7 +10157,7 @@ span.marker-new {
 
   .slider-offers__card {
     padding: 0;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto auto;
     gap: 15px;
   }
@@ -10198,7 +10209,7 @@ span.marker-new {
   }
 
   .card__header {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     grid-template-rows: auto;
     align-items: center;
     margin-bottom: 10px;
@@ -10330,7 +10341,7 @@ span.marker-new {
   }
 
   .blog {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .blog__item {
@@ -10395,7 +10406,7 @@ span.marker-new {
   }
 
   .basket {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .basket__side__card {
@@ -10411,7 +10422,7 @@ span.marker-new {
   }
 
   .pagecard-manager__socio {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .pagecard-manager__socio__card i {
@@ -10424,7 +10435,7 @@ span.marker-new {
   }
 
   .calculator-card__footer__btns {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .calculator-card__footer__btns .mbtn {
@@ -10433,7 +10444,7 @@ span.marker-new {
 
   .calculator-card__footer__share {
     grid-column: span 2;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 
   .calculator-card__footer .calculator-card__rezult__summ {
@@ -10441,12 +10452,12 @@ span.marker-new {
   }
 
   .calculator-card__columns4 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
   .calculator-card__settings {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .calculator-card__settings__img {
@@ -10460,7 +10471,7 @@ span.marker-new {
   }
 
   .calculator-card__rezult {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .calculator-card__rezult__content {
@@ -10733,7 +10744,7 @@ span.marker-new {
   }
 
   .modal-questionnaire__footer {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     padding-top: 30px;
   }
 
@@ -10764,7 +10775,7 @@ span.marker-new {
   }
 
   .form-wrapper__contacts {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .content-columns__attation {
@@ -10776,7 +10787,7 @@ span.marker-new {
   }
 
   .block-navpagebottom {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 10px;
   }
 
@@ -10790,28 +10801,28 @@ span.marker-new {
   }
 
   .list-partners {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .about-advantages {
     gap: 30px;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .for-business__services__list {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .list-resource {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .list-payment {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .list-delivery-services {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .list-delivery-services__card.list-delivery-services__card__style2 {
@@ -10823,13 +10834,13 @@ span.marker-new {
   }
 
   .maincatalog {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
     grid-auto-flow: row;
   }
 
   .mainactions {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
     grid-auto-flow: row;
   }
@@ -10879,7 +10890,7 @@ span.marker-new {
   }
 
   .catalog-list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
     grid-auto-flow: row dense;
   }
@@ -10897,12 +10908,12 @@ span.marker-new {
   }
 
   .list-materials {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 10px;
   }
 
   .table-offers__line {
-    grid-template-columns: 90px 1fr;
+    grid-template-columns: 90px minmax(0, 1fr);
   }
 
   .table-offers__line__item:last-child {
@@ -10911,11 +10922,11 @@ span.marker-new {
 
   .table-offers__side {
     width: 100%;
-    grid-template-columns: 90px 1fr 36px;
+    grid-template-columns: 90px minmax(0, 1fr) 36px;
   }
 
   .table-offers.table-offers__style2 .table-offers__line {
-    grid-template-columns: 90px 1fr;
+    grid-template-columns: 90px minmax(0, 1fr);
   }
 
   .table-offers.table-offers__style2 .table-offers__line__item:last-child {
@@ -10954,7 +10965,7 @@ span.marker-new {
   }
 
   .blog {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .blog__item {
@@ -10977,7 +10988,7 @@ span.marker-new {
   .blogarticle__consultation {
     padding: 20px;
     gap: 10px;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .contacts__requisites__list li {
@@ -10990,7 +11001,7 @@ span.marker-new {
   }
 
   .managers {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .pagecard-manager {
@@ -11006,23 +11017,23 @@ span.marker-new {
   }
 
   .pagecard-manager__socio {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .calculator-nav {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .calculator-card__columns3 {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .calculator-card__columns4 {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .calculator-card__rezult__list li {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 3px;
   }
 
@@ -11031,11 +11042,11 @@ span.marker-new {
   }
 
   .calculator-card__formsend .calculator-card__footer__btns {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .calc-windowsill__settings {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 30px;
   }
 
@@ -11079,11 +11090,11 @@ span.marker-new {
 
 @media (max-width: 575px) {
   .block__text__imgs {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .projects-list {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   .home-about {
