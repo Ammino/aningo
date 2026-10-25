@@ -451,9 +451,6 @@ span.marker-new {
         flex: 0 0 auto;
         height: auto;
         display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
         text-decoration: none;
         font-family: $font-secondary;
         font-weight: 500;
@@ -462,6 +459,8 @@ span.marker-new {
         text-transform: uppercase;
         margin-bottom: 10px;
         color: $cl-black;
+        overflow-wrap: anywhere;
+        word-break: break-word;
 
         @include laptop {
             font-size: rem(18);
